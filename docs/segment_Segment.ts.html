@@ -1629,6 +1629,8 @@ class Segment {
             currHeight = 0;
         }
 
+        gl.disable(gl.CULL_FACE);
+
         // First always draw whole planet base layer segment with solid texture.
         gl.activeTexture(gl.TEXTURE0 + p.SLICE_SIZE + 2);
         gl.bindTexture(gl.TEXTURE_2D, (defaultTexture || this.getDefaultTexture())!);
