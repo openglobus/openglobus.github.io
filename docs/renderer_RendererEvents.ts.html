@@ -971,9 +971,7 @@ class RendererEvents extends Events&lt;RendererEventsType> implements RendererEv
         if (ts.touchStart) {
             let r = this.renderer;
 
-            r.pickingFramebuffer!.activate();
-            r.pickingFramebuffer!.readPixels(_currPickingColor, ts.nx, 1.0 - ts.ny, 1);
-            r.pickingFramebuffer!.deactivate();
+            r.readPickingColor(ts.nx, 1 - ts.ny, _currPickingColor);
 
             let co = r.getPickingObjectArr&lt;any>(_currPickingColor);
             tpo = ts.pickingObject = co;
