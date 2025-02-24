@@ -1253,7 +1253,7 @@ export class Planet extends RenderNode {
 
             for (let i = 0, len = temp.length; i &lt; len; i++) {
                 let ri = temp[i];
-                let ht = ri.segment.centerNormal.dot(cam._b);
+                let ht = ri.segment.centerNormal.dot(cam.getBackward());
                 if (ri.segment.tileZoom === this.maxCurrZoom || ht &lt; HORIZON_TANGENT) {
                     this._renderedNodes.push(ri);
                     let k = 0, inFrustum = ri.inFrustum;
@@ -2001,7 +2001,7 @@ export class Planet extends RenderNode {
      * @returns {Vec2} - Screen coordinates.
      */
     public getPixelFromCartesian(coords: Vec3): Vec2 {
-        return this.renderer!.activeCamera!.project(coords);
+        return this.renderer!.activeCamera!.project3v(coords);
     }
 
     /**
@@ -2013,7 +2013,7 @@ export class Planet extends RenderNode {
     public getPixelFromLonLat(lonlat: LonLat): Vec2 | undefined {
         let coords = this.ellipsoid.lonLatToCartesian(lonlat);
         if (coords) {
-            return this.renderer!.activeCamera!.project(coords);
+            return this.renderer!.activeCamera!.project3v(coords);
         }
     }
 

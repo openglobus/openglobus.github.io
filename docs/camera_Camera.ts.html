@@ -11,6 +11,7 @@ import {Vec3} from "../math/Vec3";
 import {Vec4} from "../math/Vec4";
 import {Sphere} from "../bv/Sphere";
 import {Quat} from "../math/Quat";
+import {RADIANS} from "../math";
 
 type CameraEvents = ["viewchange", "moveend"];
 
@@ -121,24 +122,31 @@ class Camera {
 
     /**
      * Camera right vector.
-     * @public
+     * @protected
      * @type {Vec3}
      */
     public _r: Vec3;
 
     /**
      * Camera up vector.
-     * @public
+     * @protected
      * @type {Vec3}
      */
     public _u: Vec3;
 
     /**
      * Camera backward vector.
-     * @public
+     * @protected
      * @type {Vec3}
      */
     public _b: Vec3;
+
+    /**
+     * Camera forward vector.
+     * @protected
+     * @type {Vec3}
+     */
+    public _f: Vec3;
 
     protected _pr: Vec3;
     protected _pu: Vec3;
@@ -186,10 +194,9 @@ class Camera {
         this._normalMatrix = new Mat3();
 
         this._r = new Vec3(1.0, 0.0, 0.0);
-
         this._u = new Vec3(0.0, 1.0, 0.0);
-
         this._b = new Vec3(0.0, 0.0, 1.0);
+        this._f = this._b.negateTo();
 
         // Previous frame values
         this._pr = this._r.clone();
@@ -324,7 +331,7 @@ class Camera {
     }
 
     public getForward(): Vec3 {
-        return this._b.negateTo();
+        return this._f.clone();
     }
 
     public getBackward(): Vec3 {
@@ -410,7 +417,7 @@ class Camera {
         this._tanViewAngle_hradOneByHeight =
             this._tanViewAngle_hrad * this.renderer!.handler._oneByHeight;
         let c = this.renderer!.handler.canvas!;
-        this._projSizeConst = Math.min(c.clientWidth &lt; 512 ? 512 : c.clientWidth, c.clientHeight &lt; 512 ? 512 : c.clientHeight) / (angle * math.RADIANS);
+        this._projSizeConst = Math.min(c.clientWidth &lt; 512 ? 512 : c.clientWidth, c.clientHeight &lt; 512 ? 512 : c.clientHeight) / (angle * RADIANS);
         for (let i = 0, len = this.frustums.length; i &lt; len; i++) {
             this.frustums[i].setProjectionMatrix(
                 angle,
@@ -465,6 +472,7 @@ class Camera {
         this._b.normalize();
         this._r.normalize();
         this._u.copy(this._b.cross(this._r));
+        this._f.set(-this._b.x, -this._b.y, -this._b.z);
         return this;
     }
 
@@ -478,6 +486,7 @@ class Camera {
         this._b.set(this.eye.x - look.x, this.eye.y - look.y, this.eye.z - look.z);
         this._r.copy((up || this._u).cross(this._b));
         this._b.normalize();
+        this._f.set(-this._b.x, -this._b.y, -this._b.z);
         this._r.normalize();
         this._u.copy(this._b.cross(this._r));
     }
@@ -496,13 +505,13 @@ class Camera {
     }
 
     /**
-     * Roll the camera to the angle in degrees
+     * Roll the camera to the angle in radians
      * @public
-     * @param {number} angle - Delta roll angle in degrees
+     * @param {number} angle - Delta roll angle in radians
      */
-    public roll(angle: number) {
-        let cs = Math.cos(math.RADIANS * angle);
-        let sn = Math.sin(math.RADIANS * angle);
+    public setRoll(angle: number) {
+        let cs = Math.cos(angle);
+        let sn = Math.sin(angle);
         let t = this._r.clone();
         this._r.set(
             cs * t.x - sn * this._u.x,
@@ -517,14 +526,14 @@ class Camera {
     }
 
     /**
-     * Pitch the camera to the angle in degrees
+     * Pitch the camera to the angle in radians
      * @public
-     * @param {number} angle - Delta pitch angle in degrees
+     * @param {number} angle - Delta pitch angle in radians
      */
-    public pitch(angle: number) {
-        let cs = Math.cos(math.RADIANS * angle);
-        let sn = Math.sin(math.RADIANS * angle);
-        let t = this._b.clone();
+    public setPitch(angle: number) {
+        let cs = Math.cos(angle);
+        let sn = Math.sin(angle);
+        let t = this._b;
         this._b.set(
             cs * t.x - sn * this._u.x,
             cs * t.y - sn * this._u.y,
@@ -538,14 +547,14 @@ class Camera {
     }
 
     /**
-     * Yaw the camera to the angle in degrees
+     * Yaw the camera to the angle in radians
      * @public
-     * @param {number} angle - Delta yaw angle in degrees
+     * @param {number} angle - Delta yaw angle in radians
      */
-    public yaw(angle: number) {
-        let cs = Math.cos(math.RADIANS * angle);
-        let sn = Math.sin(math.RADIANS * angle);
-        let t = this._r.clone();
+    public setYaw(angle: number) {
+        let cs = Math.cos(angle);
+        let sn = Math.sin(angle);
+        let t = this._r;
         this._r.set(
             cs * t.x - sn * this._b.x,
             cs * t.y - sn * this._b.y,
@@ -556,6 +565,55 @@ class Camera {
             sn * t.y + cs * this._b.y,
             sn * t.z + cs * this._b.z
         );
+    }
+
+    public setPitchYawRoll(pitch: number, yaw: number, roll: number) {
+        let qRot = new Quat();
+        qRot.setPitchYawRoll(pitch, yaw, roll);
+        this.setRotation(qRot);
+    }
+
+    public getPitch(): number {
+        return this.getRotation().getPitch();
+    }
+
+    public getYaw(): number {
+        return this.getRotation().getYaw();
+    }
+
+    public getRoll(): number {
+        return this.getRotation().getRoll();
+    }
+
+    /**
+     * Returns camera quaternion
+     */
+    public getRotation(): Quat {
+        return Quat.getLookRotation(this._f, this._u).conjugate();
+    }
+
+    public setRotation(rot: Quat, up?: Vec3, right?: Vec3, back?: Vec3) {
+        rot.mulVec3Res(up || new Vec3(0, 1, 0), this._u);
+        rot.mulVec3Res(right || new Vec3(1, 0, 0), this._r);
+        rot.mulVec3Res(back || new Vec3(0, 0, 1), this._b);
+        this._f.set(-this._b.x, -this._b.y, -this._b.z);
+    }
+
+    public rotate(rot: Quat) {
+        rot.mulVec3Res(this._u, this._u);
+        rot.mulVec3Res(this._r, this._r);
+        rot.mulVec3Res(this._b, this._b);
+        this._f.set(-this._b.x, -this._b.y, -this._b.z);
+    }
+
+    /**
+     * Returns normal vector direction to the unprojected screen point from camera eye
+     * @public
+     * @param {Vec2} pos - Screen X coordinate
+     * @returns {Vec3} - Direction vector
+     */
+    public unproject2v(pos: Vec2) {
+        return this.unproject(pos.x, pos.y);
     }
 
     /**
@@ -585,8 +643,20 @@ class Camera {
      * @param {Vec3} v - Cartesian 3d coordinates
      * @returns {Vec2} - Screen point coordinates
      */
-    public project(v: Vec3): Vec2 {
-        let r = this.frustums[0].projectionViewMatrix.mulVec4(v.toVec4()),
+    public project3v(v: Vec3): Vec2 {
+        return this.project(v.x, v.y, v.z);
+    }
+
+    /**
+     * Gets projected 3d point to the 2d screen coordinates
+     * @public
+     * @param {number} x - X coordinate
+     * @param {number} y - Y coordinate
+     * @param {number} z - Z coordinate
+     * @returns {Vec2} - Screen point coordinates
+     */
+    public project(x: number, y: number, z: number): Vec2 {
+        let r = this.frustums[0].projectionViewMatrix.mulVec4(new Vec4(x, y, z, 1.0)),
             c = this.renderer!.handler.canvas!;
         return new Vec2((1 + r.x / r.w) * c.width * 0.5, (1 - r.y / r.w) * c.height * 0.5);
     }
@@ -613,6 +683,7 @@ class Camera {
         this._u = rot.mulVec3(this._u).normalize();
         this._r = rot.mulVec3(this._r).normalize();
         this._b = rot.mulVec3(this._b).normalize();
+        this._f.set(-this._b.x, -this._b.y, -this._b.z);
     }
 
     /**

@@ -599,6 +599,8 @@ class Renderer {
         this.pickingFramebuffer.init();
 
         this.depthFramebuffer = new Framebuffer(this.handler, {
+            width: 640,
+            height: 480,
             targets: [{
                 internalFormat: "RGBA",
                 type: "UNSIGNED_BYTE",
@@ -739,7 +741,7 @@ class Renderer {
 
         this.toneMappingFramebuffer &amp;&amp; this.toneMappingFramebuffer.setSize(c.width, c.height, true);
         this.screenDepthFramebuffer &amp;&amp; this.screenDepthFramebuffer.setSize(c.clientWidth, c.clientHeight, true);
-        this.depthFramebuffer &amp;&amp; this.depthFramebuffer.setSize(c.clientWidth, c.clientHeight, true);
+        //this.depthFramebuffer &amp;&amp; this.depthFramebuffer.setSize(c.clientWidth, c.clientHeight, true);
 
         if (this.handler.gl!.type === "webgl") {
             this.screenTexture.screen = (this.sceneFramebuffer as Framebuffer)!.textures[0];
@@ -1004,7 +1006,7 @@ class Renderer {
         let frustums = this.activeCamera!.frustums;
 
         let pointerEvent = e.pointerEvent();
-        let mouseHold = e.mouseState.leftButtonDown || e.mouseState.rightButtonDown;
+        let mouseFree = !e.mouseState.leftButtonDown &amp;&amp; !e.mouseState.rightButtonDown;
 
         // Rendering scene nodes and entityCollections
         let rn = this._renderNodesArr;
@@ -1032,7 +1034,7 @@ class Renderer {
 
             e.dispatch(e.drawtransparent, this);
 
-            if (pointerEvent &amp;&amp; !mouseHold) {
+            if (pointerEvent &amp;&amp; mouseFree) {
                 this._drawPickingBuffer(0);
             }
 
@@ -1052,7 +1054,7 @@ class Renderer {
 
                 this._drawEntityCollections(i);
 
-                if (pointerEvent &amp;&amp; !mouseHold) {
+                if (pointerEvent &amp;&amp; mouseFree) {
                     this._drawPickingBuffer(i);
                 }
 
@@ -1066,11 +1068,13 @@ class Renderer {
 
         this.blitFramebuffer &amp;&amp; (sceneFramebuffer as Multisample).blitTo(this.blitFramebuffer, 0);
 
-        if (pointerEvent) {
+        if (pointerEvent &amp;&amp; mouseFree) {
             this._readPickingBuffer();
         }
 
-        this._readDepthBuffer();
+        if (mouseFree) {
+            this._readDepthBuffer();
+        }
 
         // Tone mapping followed by rendering on the screen
         this._fnScreenFrame!();
