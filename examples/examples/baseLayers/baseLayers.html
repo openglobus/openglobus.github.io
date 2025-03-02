@@ -1,0 +1,49 @@
+﻿<html>
+
+<head>
+    <title>OpenGlobus - Earth planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../external/og/lib/@openglobus/og.css" type="text/css"/>
+</head>
+
+<body>
+<div id="globus" style="width:100%;height:100%"></div>
+<div style="position: absolute; left:0; top:0; padding:10px;">
+    <button id="btnOSM" style="float:left; margin: 3px;">OSM</button>
+    <button id="btnMQS" style="float:left; margin: 3px;">SAT</button>
+</div>
+<script type="module" id="og-sandbox-script">
+
+    import {
+        Globe,
+        GlobusRgbTerrain,
+        XYZ,
+        utils,
+        OpenStreetMap,
+        Bing
+    } from "../../external/og/lib/@openglobus/og.esm.js";
+
+    document.getElementById("btnOSM").onclick = function () {
+        osm.setVisibility(true);
+    };
+
+    document.getElementById("btnMQS").onclick = function () {
+        sat.setVisibility(true);
+    };
+
+    let osm = new OpenStreetMap();
+
+    let sat = new Bing()
+
+    let globus = new Globe({
+        target: "globus",
+        name: "Earth",
+        terrain: new GlobusRgbTerrain(),
+        layers: [osm, sat],
+        resourcesSrc: "../../external/og/lib/@openglobus/res",
+        fontsSrc: "../../external/og/lib/@openglobus/res/fonts"
+    });
+</script>
+</body>
+
+</html>

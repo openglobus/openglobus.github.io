@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>OpenGlobus - Earth planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../external/og/lib/@openglobus/og.css" type="text/css"/>
+    <style>
+        #layerName {
+            position: absolute;
+            color: black;
+            background-color: white;
+            z-index: 100;
+            padding: 10px;
+            font-size: 18px;
+            margin: 15px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="layerName"></div>
+<div id="globus" style="width:100%;height:100%"></div>
+<script type="module" id="og-sandbox-script">
+    'use strict';
+
+    import {
+        Globe,
+        Layer,
+        WMS,
+        GlobusRgbTerrain,
+        XYZ,
+        Bing
+    } from "../../external/og/lib/@openglobus/og.esm.js";
+
+    var osm = new XYZ("OpenStreetMap", {
+        specular: [0.0003, 0.00012, 0.00001],
+        extent: [[-130, 21], [-87, 58]],
+        shininess: 20,
+        diffuse: [0.89, 0.9, 0.83],
+        isBaseLayer: false,
+        url: "//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        visibility: true,
+        attribution: 'Data @ OpenStreetMap contributors, ODbL'
+    });
+
+    var sat = new Bing(null, {
+        extent: [[-106, 29], [-71, 52]],
+        isBaseLayer: false,
+        visibility: true
+    });
+
+    var states = new WMS("USA Population", {
+        extent: [[-127, 24.5], [-66.5, 48]],
+        opacity: 0.7,
+        visibility: true,
+        isBaseLayer: false,
+        url: "https://openglobus.org/geoserver/topp/wms",
+        layers: "topp:states",
+        extra: {
+            transparent: true
+        }
+    });
+
+    var globus = new Globe({
+        target: "globus",
+        name: "Earth",
+        terrain: new GlobusRgbTerrain(),
+        layers: [osm, sat, states],
+        resourcesSrc: "../../external/og/lib/@openglobus/res",
+        fontsSrc: "../../external/og/lib/@openglobus/res/fonts"
+    });
+
+    globus.planet.renderer.events.on("mousemove", function (e) {
+        if (e.pickingObject) {
+            document.getElementById("layerName").innerHTML = e.pickingObject.name;
+        } else {
+            document.getElementById("layerName").innerHTML = "";
+        }
+
+    });
+
+    globus.planet.renderer.events.on("lclick", function (e) {
+        if (e.pickingObject instanceof Layer) {
+            e.pickingObject.bringToFront();
+        }
+    });
+
+    globus.planet.flyExtent(states.getExtent());
+</script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <title>OpenGlobus - Earth planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../external/og/lib/@openglobus/og.css" type="text/css"/>
+    <style>
+        .coordinates {
+            position: absolute;
+            display: inline-block;
+            background-color: white;
+            top: 20px;
+            right: calc(50% - 366px);
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+        .coordinates input {
+            float: left;
+            padding: 3px;
+            font-size: 18px;
+            width: 270px;
+        }
+
+        .elev {
+            float: left;
+            padding-left: 11px;
+            font-family: monospace;
+            font-size: 21px;
+            margin-top: 3px;
+            width: 70px;
+            text-align: right;
+        }
+
+        .coordinates button {
+            float: left;
+            margin-left: 14px;
+            padding: 5px 15px;
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+<div id="globus1" style="width:50%;height:100%;float:left"></div>
+<div id="globus2" style="width:50%;height:100%;float:left"></div>
+<script type="module" id="og-sandbox-script">
+
+    import {
+        Globe,
+        GlobusRgbTerrain,
+        OpenStreetMap,
+        Bing,
+        control
+    } from "../../external/og/lib/@openglobus/og.esm.js";
+
+    const EXTENT = [109.49057, 49.95169, 113.99417, 51.81737];
+
+    function copyCamera(src, dst) {
+        let e = src.eye.clone(),
+            f = src.getForward().clone(),
+            u = src.getUp().clone();
+        dst.set(e, e.add(f), u);
+        dst.update();
+    }
+
+    window.globus1 = new Globe({
+        target: "globus1",
+        name: "Earth One",
+        terrain: new GlobusRgbTerrain(),
+        layers: [new OpenStreetMap()],
+        viewExtent: EXTENT,
+        controls: [
+            new control.MouseNavigation(),
+            new control.EarthCoordinates({centerMode: true}),
+            new control.Sun()
+        ],
+        resourcesSrc: "../../external/og/lib/@openglobus/res",
+        fontsSrc: "../../external/og/lib/@openglobus/res/fonts"
+    });
+
+    window.globus1.renderer.events.on("draw", () => {
+        copyCamera(
+            window.globus1.planet.camera,
+            window.globus2.planet.camera
+        );
+    });
+
+
+    window.globus2 = new Globe({
+        target: "globus2",
+        name: "Earth Two",
+        terrain: new GlobusRgbTerrain(),
+        layers: [new OpenStreetMap()],
+        viewExtent: EXTENT,
+        controls: [
+            new control.MouseNavigation(),
+            new control.EarthCoordinates({centerMode: false}),
+            new control.Sun()
+        ],
+        resourcesSrc: "../../external/og/lib/@openglobus/res",
+        fontsSrc: "../../external/og/lib/@openglobus/res/fonts"
+    });
+
+    window.globus2.renderer.events.on("draw", () => {
+        copyCamera(
+            window.globus2.planet.camera,
+            window.globus1.planet.camera
+        );
+    });
+
+</script>
+</body>
+
+</html>

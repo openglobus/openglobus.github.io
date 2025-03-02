@@ -1,0 +1,67 @@
+﻿<html>
+
+<head>
+    <title>OpenGlobus - Earth planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../external/og/lib/@openglobus/og.css" type="text/css"/>
+</head>
+
+<body>
+<div id="globus" style="width:100%;height:100%"></div>
+<div style="position:absolute;padding:10px;left:0;top:0;">
+</div>
+<script type="module" id="og-sandbox-script">
+
+    'use strict';
+
+    //
+    // Videos from https://svs.gsfc.nasa.gov/5273/
+    //
+
+    import {
+        Globe,
+        GlobusRgbTerrain,
+        GeoVideo,
+        Layer
+    } from "../../external/og/lib/@openglobus/og.esm.js";
+
+    let attr = new Layer("", {
+        attribution: `<a href="https://svs.gsfc.nasa.gov/5273/" target="_blank">Atmospheric Carbon Dioxide Visualization</a>`,
+        url: "",
+        visibility: true,
+        isBaseLayer: false,
+        minNativeZoom: 0,
+        maxNativeZoom: 0,
+        hideInLayerSwitcher: true
+    });
+
+    let foursources = new GeoVideo("SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4", {
+        src: "./SOS_TaggedCO2_10-6-2023a_co2_foursources_quality_ScienceOnASphere_2048p30.mp4",
+        corners: [[-180, 90], [180, 90], [180, -90], [-180, -90]],
+        visibility: true,
+        isBaseLayer: true,
+        attribution: 'Four Sources',
+        opacity: 1.0,
+        fullExtent: true
+    });
+
+    let globus = new Globe({
+        target: "globus",
+        name: "Earth",
+        terrain: new GlobusRgbTerrain(null, {heightFactor: 7.1}),
+        layers: [attr, foursources],
+        atmosphereEnabled: false,
+        transitionOpacityEnabled: false,
+        resourcesSrc: "../../external/og/lib/@openglobus/res",
+        fontsSrc: "../../external/og/lib/@openglobus/res/fonts",
+        sun: {
+            active: false
+        }
+    });
+
+    globus.planet.renderer.controls.SimpleSkyBackground.colorOne = "rgb(100, 100, 100)";
+    globus.planet.renderer.controls.SimpleSkyBackground.colorTwo = "rgb(0, 0, 0)";
+</script>
+</body>
+
+</html>
