@@ -1,4 +1,4 @@
-import{G as p}from"./Globe-BnqXSAgn.js";import"./index-B-SYruCi.js";const d={component:p,title:"Components/Scenes/Globe"},e={args:{atmosphereEnabled:!1}},r={args:{atmosphereEnabled:!0}};var a,s,o;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`{
+import{G as p}from"./Globe-CXmh2DWm.js";import"./index-B-SYruCi.js";const d={component:p,title:"Components/Scenes/Globe"},e={args:{atmosphereEnabled:!1}},r={args:{atmosphereEnabled:!0}};var a,s,o;e.parameters={...e.parameters,docs:{...(a=e.parameters)==null?void 0:a.docs,source:{originalSource:`{
   args: {
     atmosphereEnabled: false
   }
