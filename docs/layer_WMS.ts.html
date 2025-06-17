@@ -120,7 +120,7 @@ class WMS extends XYZ {
         height: number = 256,
         extra?: string
     ): string {
-        return `${url}/?LAYERS=${layers}&amp;FORMAT=${format}&amp;SERVICE=WMS&amp;VERSION=${version}&amp;REQUEST=${request}&amp;SRS=${srs}&amp;BBOX=${bbox}&amp;WIDTH=${width}&amp;HEIGHT=${height}` + (extra ? `&amp;${extra}` : "");
+        return `${url}?LAYERS=${layers}&amp;FORMAT=${format}&amp;SERVICE=WMS&amp;VERSION=${version}&amp;REQUEST=${request}&amp;SRS=${srs}&amp;BBOX=${bbox}&amp;WIDTH=${width}&amp;HEIGHT=${height}` + (extra ? `&amp;${extra}` : "");
     }
 
     static get_bbox_v1_1_1(extent: Extent): string {
