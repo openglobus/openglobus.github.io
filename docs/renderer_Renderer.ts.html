@@ -1013,7 +1013,7 @@ class Renderer {
         let frustums = this.activeCamera!.frustums;
 
         let pointerEvent = e.pointerEvent();
-        let mouseFree = !e.mouseState.leftButtonDown &amp;&amp; !e.mouseState.rightButtonDown;
+        let pointerFree = !e.mouseState.leftButtonDown &amp;&amp; !e.mouseState.rightButtonDown &amp;&amp; !e.touchState.touching &amp;&amp; !e.touchState.moving;
 
         // Rendering scene nodes and entityCollections
         let rn = this._renderNodesArr;
@@ -1041,7 +1041,7 @@ class Renderer {
 
             e.dispatch(e.drawtransparent, this);
 
-            if (pointerEvent &amp;&amp; mouseFree) {
+            if (pointerEvent &amp;&amp; pointerFree) {
                 this._drawPickingBuffer(0);
             }
 
@@ -1061,7 +1061,7 @@ class Renderer {
 
                 this._drawEntityCollections(i);
 
-                if (pointerEvent &amp;&amp; mouseFree) {
+                if (pointerEvent &amp;&amp; pointerFree) {
                     this._drawPickingBuffer(i);
                 }
 
@@ -1075,11 +1075,11 @@ class Renderer {
 
         this.blitFramebuffer &amp;&amp; (sceneFramebuffer as Multisample).blitTo(this.blitFramebuffer, 0);
 
-        if (pointerEvent &amp;&amp; mouseFree) {
+        if (pointerEvent &amp;&amp; pointerFree) {
             this._readPickingBuffer();
         }
 
-        if (mouseFree) {
+        if (pointerFree) {
             this._readDepthBuffer();
         }
 
@@ -1255,6 +1255,7 @@ class Renderer {
 
     protected _readDepthBuffer() {
         this.depthFramebuffer!.readPixelBuffersAsync();
+        console.log("read depth");
     }
 
     protected _readPickingBuffer_webgl1() {
