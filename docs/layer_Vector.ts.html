@@ -357,7 +357,15 @@ class Vector extends Layer {
     protected _proceedEntity(entity: Entity, rightNow: boolean = false) {
         let temp = this._hasImageryTiles;
 
-        let isEmpty = !(entity.strip || entity.polyline || entity.ray || entity.geoObject || entity.geometry);
+        let isEmpty = !(
+            entity.strip ||
+            entity.polyline ||
+            entity.ray ||
+            entity.geoObject ||
+            entity.geometry ||
+            entity.billboard ||
+            entity.label
+        );
 
         if (entity.strip) {
             this._stripEntityCollection.add(entity);
