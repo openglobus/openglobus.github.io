@@ -357,16 +357,6 @@ class Vector extends Layer {
     protected _proceedEntity(entity: Entity, rightNow: boolean = false) {
         let temp = this._hasImageryTiles;
 
-        let isEmpty = !(
-            entity.strip ||
-            entity.polyline ||
-            entity.ray ||
-            entity.geoObject ||
-            entity.geometry ||
-            entity.billboard ||
-            entity.label
-        );
-
         if (entity.strip) {
             this._stripEntityCollection.add(entity);
         }
@@ -375,7 +365,7 @@ class Vector extends Layer {
             this._polylineEntityCollection.add(entity);
         }
 
-        if (entity.geoObject || isEmpty) {
+        if (entity.geoObject || entity.isEmpty) {
             this._geoObjectEntityCollection.add(entity);
         }
 
@@ -388,7 +378,7 @@ class Vector extends Layer {
         }
 
         if (this._planet) {
-            if (entity.billboard || entity.label || entity.geoObject || isEmpty) {
+            if (entity.billboard || entity.label || entity.geoObject || entity.isEmpty) {
                 if (entity._cartesian.isZero() &amp;&amp; !entity._lonLat.isZero()) {
                     entity._setCartesian3vSilent(
                         this._planet.ellipsoid.lonLatToCartesian(entity._lonLat)
@@ -764,6 +754,7 @@ class Vector extends Layer {
             let res = new Vec3();
 
             while (e_i--) {
+                let altModifier = e[e_i]._altitude || 0.0;
                 let p = e[e_i].polyline!;
                 if (p &amp;&amp; visibleExtent.overlaps(p._extent)) {
                     // TODO:this works only for mercator area.
@@ -781,6 +772,8 @@ class Vector extends Layer {
                                     let cart = p._path3v[c_j][c_j_h] as Vec3;
                                     seg.getTerrainPoint(cart, ll, res);
                                     let alt = (rtg &amp;&amp; p.altitude) || 0.0;
+                                    alt += p._pathLonLatMerc[c_j][c_j_h].height || 0.0;
+                                    alt += altModifier;
                                     if (alt) {
                                         let n = this._planet!.ellipsoid.getSurfaceNormal3v(res);
                                         p.setPoint3v(res.addA(n.scale(alt)), c_j_h, c_j, true);

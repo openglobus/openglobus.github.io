@@ -392,6 +392,18 @@ class Entity {
         this.geoObject = this._createOptionFeature&lt;GeoObject, IGeoObjectParams>("geoObject", options.geoObject);
 
         this.strip = this._createOptionFeature&lt;Strip, IStripParams>("strip", options.strip);
+
+    }
+
+    public get isEmpty(): boolean {
+        return !(this.strip
+            || this.polyline
+            || this.ray
+            || this.geoObject
+            || this.geometry
+            || this.billboard
+            || this.label
+            || this.pointCloud);
     }
 
     /**
