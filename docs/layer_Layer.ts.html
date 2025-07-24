@@ -509,7 +509,7 @@ class Layer {
     }
 
     public get isIdle(): boolean {
-        return this._planet &amp;&amp; this._planet.quadTreeStrategy._terrainCompletedActivated || false;
+        return this._planet &amp;&amp; this._planet._terrainCompletedActivated || false;
     }
 
     /**
@@ -705,8 +705,7 @@ class Layer {
         }
 
         if (!m.isReady) {
-            //this._planet!._renderCompleted = false;
-            segment.quadTreeStrategy._renderCompleted = false;
+            this._planet!._renderCompleted = false;
         }
 
         this.applyMaterial(m, true);
@@ -849,12 +848,12 @@ class Layer {
         return this._fading ? this._fadingOpacity : this._opacity;
     }
 
-    public _refreshFadingOpacity(minCurrZoom: number, maxCurrZoom: number) {
+    public _refreshFadingOpacity() {
         let p = this._planet!;
         if (
             this._visibility &amp;&amp; p.getViewExtent().overlaps(this._extent) &amp;&amp;
-            maxCurrZoom >= this.minZoom &amp;&amp;
-            minCurrZoom &lt;= this.maxZoom
+            p.maxCurrZoom >= this.minZoom &amp;&amp;
+            p.minCurrZoom &lt;= this.maxZoom
         ) {
             this._fadingOpacity += this._fadingFactor;
 
