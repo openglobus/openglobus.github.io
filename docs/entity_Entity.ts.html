@@ -562,6 +562,7 @@ class Entity {
     public remove() {
         this._layer &amp;&amp; this._layer.removeEntity(this);
         this._entityCollection &amp;&amp; this._entityCollection.removeEntity(this);
+        return this;
     }
 
     /**
