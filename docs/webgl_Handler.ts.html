@@ -1307,8 +1307,8 @@ class Handler {
     }
 
     public deleteTexture(texture: WebGLTextureExt | null | undefined) {
-        if (texture &amp;&amp; !texture.default) {
-            this.gl!.deleteTexture(texture);
+        if (texture &amp;&amp; !texture.default &amp;&amp; this.gl) {
+            this.gl.deleteTexture(texture);
         }
     }
 
