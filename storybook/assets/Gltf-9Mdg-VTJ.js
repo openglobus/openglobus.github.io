@@ -1,0 +1,1 @@
+import{r as f}from"./iframe-CxB7CSSt.js";import{m as u}from"./Globe-BpU5Tz87.js";const a=({src:e,_addGltf:r,_removeGltf:n})=>{const t=f.useRef(null);return f.useEffect(()=>{let s=!0;return(async()=>{const o=(await u.loadGlb(e)).toEntities();t.current=o,s&&r&&r(o)})(),()=>{s=!1,n&&t.current&&n(t.current)}},[e]),null};export{a as G};
