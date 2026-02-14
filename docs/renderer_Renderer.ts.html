@@ -19,12 +19,13 @@ import {RenderNode} from "../scene/RenderNode";
 import {screenFrame} from "../shaders/screenFrame";
 import {toneMapping} from "../shaders/tone_mapping/toneMapping";
 import {deferredShading} from "../shaders/deferredShading/deferredShading";
-import {deferredDepthToForwardMultisample} from "../shaders/deferredDepthToForwardMultisample";
+import {applyDeferredDepth} from "../shaders/applyDeferredDepth";
 import {TextureAtlas} from "../utils/TextureAtlas";
 import {Vec2} from "../math/Vec2";
 import {Vec3} from "../math/Vec3";
 import type {NumberArray3} from "../math/Vec3";
 import {Vec4} from "../math/Vec4";
+import {weightedOITResolve} from "../shaders/weightedOITResolve";
 
 export interface IRendererParams {
     controls?: Control[];
@@ -307,8 +308,6 @@ class Renderer {
         }
 
         this._internalFormat = "RGBA16F";
-        // this._format = "RGBA";
-        // this._type = "FLOAT";
 
         this.forwardFramebuffer = null;
         this.woitFramebuffer = null;
@@ -371,6 +370,27 @@ class Renderer {
         gl.enable(gl.BLEND);
         gl.blendEquation(gl.FUNC_ADD);
         gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE);
+    }
+
+    public enableBlendWoit() {
+        let gl = this.handler.gl!;
+        gl.enable(gl.BLEND);
+
+        // Weighted blended OIT needs different blending per MRT target:
+        //  - target0 (RGBA16F): rgb += src.rgb, revealage *= (1 - src.a)
+        //  - target1 (R16F):   accumAlpha += src
+        const glAny = gl as any;
+        if (glAny.blendFuncSeparatei &amp;&amp; glAny.blendEquationi) {
+            glAny.blendEquationi(0, gl.FUNC_ADD);
+            glAny.blendFuncSeparatei(0, gl.ONE, gl.ONE, gl.ZERO, gl.ONE_MINUS_SRC_ALPHA);
+
+            glAny.blendEquationi(1, gl.FUNC_ADD);
+            glAny.blendFuncSeparatei(1, gl.ONE, gl.ONE, gl.ONE, gl.ONE);
+        } else {
+            // Fallback (less correct): single blend state for all attachments
+            gl.blendEquation(gl.FUNC_ADD);
+            gl.blendFuncSeparate(gl.ONE, gl.ONE, gl.ZERO, gl.ONE_MINUS_SRC_ALPHA);
+        }
     }
 
     public setRelativeCenter(c?: Vec3) {
@@ -632,7 +652,8 @@ class Renderer {
             deferredShading(),
             toneMapping(),
             depth(),
-            deferredDepthToForwardMultisample()
+            applyDeferredDepth(),
+            weightedOITResolve()
         ]);
 
         const depthComponent = "DEPTH_COMPONENT24";
@@ -889,7 +910,9 @@ class Renderer {
         if (ec.length) {
             let gl = this.handler.gl!;
 
-            this.enableBlendDefault();
+            this.enableBlendWoit();
+            gl.enable(gl.DEPTH_TEST);
+            gl.depthMask(false);
 
             let i = ec.length;
 
@@ -898,6 +921,8 @@ class Renderer {
             while (i--) {
                 ec[i]._fadingOpacity &amp;&amp; ec[i].stripHandler.draw();
             }
+
+            gl.depthMask(true);
         }
     }
 
@@ -1188,7 +1213,7 @@ class Renderer {
             //
             // Transfer opaque geometry depth data to the next rendering stage
             //
-            this._copyDeferredDepthToForwardMultisample();
+            this._applyDeferredDepth();
 
             //
             // Deferred shading pass
@@ -1209,12 +1234,17 @@ class Renderer {
             //
             // Draw transparent objects
             //
-            // this.woitFramebuffer!.activate();
-            // gl.clearColor(0, 0, 0, 0);
-            // gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-            // this._copyDeferredDepthToForwardMultisample();
-            // this._drawWoitEntityCollections(0);
-            // this.woitFramebuffer!.deactivate();
+            this.woitFramebuffer!.activate();
+            gl.clearColor(0, 0, 0, 1);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+            this._applyDeferredDepth();
+            this._drawWoitEntityCollections(0);
+            this.woitFramebuffer!.deactivate();
+
+            //
+            // Weighted OIT resolve (composite into forwardFramebuffer)
+            //
+            this._weightedOITResolvePASS();
 
             //
             // Picking passes
@@ -1272,10 +1302,10 @@ class Renderer {
     //     return this.handler.canvas ? this.handler.canvas.toDataURL(type, quality) : "";
     // }
 
-    protected _copyDeferredDepthToForwardMultisample() {
+    protected _applyDeferredDepth() {
         let h = this.handler,
             gl = h.gl!,
-            sh = h.programs.deferredDepthToForwardMultisample,
+            sh = h.programs.applyDeferredDepth,
             p = sh._program;
 
         gl.disable(gl.BLEND);
@@ -1332,6 +1362,38 @@ class Renderer {
 
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
+        gl.depthMask(true);
+        gl.enable(gl.DEPTH_TEST);
+    }
+
+    protected _weightedOITResolvePASS() {
+        let h = this.handler,
+            gl = h.gl!,
+            sh = h.programs.weightedOITResolve,
+            p = sh._program;
+
+        gl.disable(gl.DEPTH_TEST);
+        gl.depthMask(false);
+
+        // Output is premultiplied alpha
+        this.enableBlendOneSrcAlpha();
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this.screenFramePositionBuffer!);
+        gl.vertexAttribPointer(p.attributes.corners, 2, gl.FLOAT, false, 0, 0);
+
+        sh.activate();
+
+        gl.activeTexture(gl.TEXTURE0);
+        gl.bindTexture(gl.TEXTURE_2D, this.woitFramebuffer!.textures[0]);
+        gl.uniform1i(p.uniforms.uAccumulate, 0);
+
+        gl.activeTexture(gl.TEXTURE1);
+        gl.bindTexture(gl.TEXTURE_2D, this.woitFramebuffer!.textures[1]);
+        gl.uniform1i(p.uniforms.uAccumulateAlpha, 1);
+
+        gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+
+        this.enableBlendDefault();
         gl.depthMask(true);
         gl.enable(gl.DEPTH_TEST);
     }
