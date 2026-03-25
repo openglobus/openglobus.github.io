@@ -40,6 +40,22 @@ class RenderNode extends BaseNode {
     public override childNodes: RenderNode[];
 
     /**
+     * Lighting calculations.
+     * @public
+     * @type {boolean}
+     */
+    public lightEnabled: boolean;
+
+    /**
+     * Point light array.
+     * @public
+     * @type {Array.&lt;LightSource>}
+     */
+    public _lightPosition: Float32Array;
+    public _lightParams: Float32Array;
+    public _lightShininess: number;
+
+    /**
      * Entity collection array.
      * @public
      * @type {Array.&lt;EntityCollection>}
@@ -62,6 +78,12 @@ class RenderNode extends BaseNode {
         this.show = true;
 
         this._isActive = true;
+
+        this.lightEnabled = false;
+
+        this._lightPosition = new Float32Array([100, 100, 100]);
+        this._lightParams = new Float32Array(9);
+        this._lightShininess = 100.0;
 
         this.entityCollections = [];
 
@@ -352,8 +374,62 @@ class RenderNode extends BaseNode {
         this.renderer!.enqueueEntityCollectionsToDraw(ec, depthOrder);
     }
 
+    /**
+     * Draw entity collections picking frame.
+     * @public
+     * @param {Array&lt;EntityCollection>} ec - Entity collection array.
+     */
+    public drawPickingEntityCollections(ec: EntityCollection[]) {
+        if (ec.length) {
+
+            // billboard pass
+            let i = ec.length;
+            while (i--) {
+                ec[i]._fadingOpacity &amp;&amp; ec[i].billboardHandler.drawPicking();
+            }
+
+            // geoObject pass
+            i = ec.length;
+            while (i--) {
+                ec[i]._fadingOpacity &amp;&amp; ec[i].geoObjectHandler.drawPicking();
+            }
+
+            // label pass
+            i = ec.length;
+            while (i--) {
+                ec[i]._fadingOpacity &amp;&amp; ec[i].labelHandler.drawPicking();
+            }
+
+            // ray pass
+            i = ec.length;
+            while (i--) {
+                ec[i]._fadingOpacity &amp;&amp; ec[i].rayHandler.drawPicking();
+            }
+
+            // polyline pass
+            i = ec.length;
+            while (i--) {
+                ec[i]._visibility &amp;&amp; ec[i].polylineHandler.drawPicking();
+            }
+
+            //Strip pass
+            i = ec.length;
+            while (i--) {
+                ec[i]._visibility &amp;&amp; ec[i].stripHandler.drawPicking();
+            }
+
+            // //pointClouds pass
+            // i = ec.length;
+            // while (i--) {
+            //    ec[i]._visibility &amp;&amp; ec[i].pointCloudHandler.drawPicking();
+            // }
+        }
+    }
+
     protected _entityCollectionPickingCallback() {
-        // Kept for picking callback queue ordering in Renderer.
+        // for (let i = 0; i &lt; this._entityCollectionsByDepthOrder.length; i++) {
+        //     this.drawPickingEntityCollections(this._entityCollectionsByDepthOrder[i]);
+        // }
     }
 }
 

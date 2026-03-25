@@ -239,13 +239,6 @@ class Renderer {
     public outputTexture: WebGLTexture | null;
 
     public clearColor: Float32Array;
-    public lightPosition: Float32Array;
-    public lightAmbient: Float32Array;
-    public lightDiffuse: Float32Array;
-    public lightSpecular: Float32Array;
-    public lightShininess: number;
-    public lightColor: Float32Array;
-    public lightIntensity: number;
 
     constructor(handler: Handler | string | HTMLCanvasElement, params: IRendererParams = {}) {
 
@@ -261,13 +254,6 @@ class Renderer {
         }
 
         this.clearColor = new Float32Array(params.clearColor || [0, 0, 0, 1]);
-        this.lightPosition = new Float32Array([0, 0, 0]);
-        this.lightAmbient = new Float32Array([0.2, 0.2, 0.3]);
-        this.lightDiffuse = new Float32Array([0.9, 0.9, 0.7]);
-        this.lightSpecular = new Float32Array([0.00063, 0.00055, 0.00032]);
-        this.lightShininess = 18.0;
-        this.lightColor = new Float32Array([1.0, 1.0, 1.0]);
-        this.lightIntensity = 1.0;
 
         this.exposure = params.exposure || 3.01;
 
@@ -689,9 +675,6 @@ class Renderer {
         this.deferredFramebuffer = new Framebuffer(this.handler, {
             useDepth: false,
             targets: [{
-                internalFormat: this._internalFormat,
-                filter: "NEAREST"
-            }, {
                 internalFormat: this._internalFormat,
                 filter: "NEAREST"
             }, {
@@ -1364,7 +1347,7 @@ class Renderer {
         sh.activate();
 
         gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[3]);
+        gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[2]);
         gl.uniform1i(p.uniforms.depthTexture, 0);
 
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -1383,7 +1366,6 @@ class Renderer {
             p = sh._program,
             gl = h.gl!;
 
-        //gl.disable(gl.BLEND);
         gl.disable(gl.DEPTH_TEST);
         gl.depthMask(false);
 
@@ -1394,7 +1376,7 @@ class Renderer {
 
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[0]);
-        gl.uniform1i(p.uniforms.baseColorTexture, 0);
+        gl.uniform1i(p.uniforms.baseTexture, 0);
 
         gl.activeTexture(gl.TEXTURE1);
         gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[1]);
@@ -1402,28 +1384,7 @@ class Renderer {
 
         gl.activeTexture(gl.TEXTURE2);
         gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[2]);
-        gl.uniform1i(p.uniforms.materialsTexture, 2);
-
-        gl.activeTexture(gl.TEXTURE3);
-        gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[3]);
-        gl.uniform1i(p.uniforms.depthTexture, 3);
-
-        gl.uniform3fv(p.uniforms.lightPosition, this.lightPosition);
-        gl.uniform3fv(p.uniforms.lightAmbient, this.lightAmbient);
-        gl.uniform3fv(p.uniforms.lightDiffuse, this.lightDiffuse);
-        gl.uniform3fv(p.uniforms.lightSpecular, this.lightSpecular);
-        gl.uniform1f(p.uniforms.lightShininess, this.lightShininess);
-        gl.uniform3f(
-            p.uniforms.cameraPosition,
-            this.activeCamera.eye.x,
-            this.activeCamera.eye.y,
-            this.activeCamera.eye.z
-        );
-        gl.uniformMatrix4fv(
-            p.uniforms.inverseProjectionViewMatrix,
-            false,
-            this.activeCamera.getInverseProjectionViewMatrix()
-        );
+        gl.uniform1i(p.uniforms.depthTexture, 2);
 
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
