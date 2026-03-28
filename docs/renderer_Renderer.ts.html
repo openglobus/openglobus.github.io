@@ -240,6 +240,14 @@ class Renderer {
 
     public clearColor: Float32Array;
 
+    public lightPosition: Float32Array;
+    public lightAmbient: Float32Array;
+    public lightDiffuse: Float32Array;
+    public lightSpecular: Float32Array;
+
+    //public lightColor: Float32Array;
+    //public lightIntensity: number;
+
     constructor(handler: Handler | string | HTMLCanvasElement, params: IRendererParams = {}) {
 
         this.div = null;
@@ -254,6 +262,13 @@ class Renderer {
         }
 
         this.clearColor = new Float32Array(params.clearColor || [0, 0, 0, 1]);
+
+        this.lightPosition = new Float32Array([1, 1, 1]);
+        this.lightAmbient = new Float32Array([0.2, 0.2, 0.3]);
+        this.lightDiffuse = new Float32Array([0.9, 0.9, 0.7]);
+        this.lightSpecular = new Float32Array([0.00063, 0.00055, 0.00032, 18.0]);
+        //this.lightColor = new Float32Array([1.0, 1.0, 1.0]);
+        //this.lightIntensity = 1.0;
 
         this.exposure = params.exposure || 3.01;
 
@@ -681,6 +696,12 @@ class Renderer {
                 internalFormat: this._internalFormat,
                 filter: "NEAREST"
             }, {
+                internalFormat: this._internalFormat,
+                filter: "NEAREST"
+            }, {
+                internalFormat: "RGBA32F",
+                filter: "NEAREST"
+            }, {
                 attachment: "DEPTH_ATTACHMENT",
                 internalFormat: this._depthComponent,
                 filter: "NEAREST"
@@ -932,26 +953,6 @@ class Renderer {
             }
 
             //
-            // billboards pass
-            //
-            gl.activeTexture(gl.TEXTURE0);
-            gl.bindTexture(gl.TEXTURE_2D, this.billboardsTextureAtlas.texture!);
-
-            i = ec.length;
-            while (i--) {
-                let eci = ec[i];
-                eci._fadingOpacity &amp;&amp; eci.billboardHandler.drawForward();
-            }
-
-            //
-            // labels pass
-            //
-            i = ec.length;
-            while (i--) {
-                ec[i]._fadingOpacity &amp;&amp; ec[i].labelHandler.drawForward();
-            }
-
-            //
             // Lines, Rays and Strips
             //
             gl.activeTexture(gl.TEXTURE0);
@@ -973,6 +974,26 @@ class Renderer {
             i = ec.length;
             while (i--) {
                 ec[i]._fadingOpacity &amp;&amp; ec[i].stripHandler.drawForward();
+            }
+
+            //
+            // billboards pass
+            //
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, this.billboardsTextureAtlas.texture!);
+
+            i = ec.length;
+            while (i--) {
+                let eci = ec[i];
+                eci._fadingOpacity &amp;&amp; eci.billboardHandler.drawForward();
+            }
+
+            //
+            // labels pass
+            //
+            i = ec.length;
+            while (i--) {
+                ec[i]._fadingOpacity &amp;&amp; ec[i].labelHandler.drawForward();
             }
         }
     }
@@ -999,19 +1020,6 @@ class Renderer {
             }
 
             gl.activeTexture(gl.TEXTURE0);
-            gl.bindTexture(gl.TEXTURE_2D, this.billboardsTextureAtlas.texture!);
-
-            i = ec.length;
-            while (i--) {
-                ec[i]._fadingOpacity &amp;&amp; ec[i].billboardHandler.drawTransparent();
-            }
-
-            i = ec.length;
-            while (i--) {
-                ec[i]._fadingOpacity &amp;&amp; ec[i].labelHandler.drawTransparent();
-            }
-
-            gl.activeTexture(gl.TEXTURE0);
             gl.bindTexture(gl.TEXTURE_2D, this.strokeTextureAtlas.texture!);
 
             // rays
@@ -1030,6 +1038,19 @@ class Renderer {
             i = ec.length;
             while (i--) {
                 ec[i]._fadingOpacity &amp;&amp; ec[i].polylineHandler.drawTransparent();
+            }
+
+            gl.activeTexture(gl.TEXTURE0);
+            gl.bindTexture(gl.TEXTURE_2D, this.billboardsTextureAtlas.texture!);
+
+            i = ec.length;
+            while (i--) {
+                ec[i]._fadingOpacity &amp;&amp; ec[i].billboardHandler.drawTransparent();
+            }
+
+            i = ec.length;
+            while (i--) {
+                ec[i]._fadingOpacity &amp;&amp; ec[i].labelHandler.drawTransparent();
             }
 
             gl.depthMask(true);
@@ -1222,7 +1243,6 @@ class Renderer {
             gl.clearColor(0, 0, 0, 0.0);
             gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-            //this.enableBlendDefault();
             gl.disable(gl.BLEND);
 
             //@todo need to remove it
@@ -1249,7 +1269,7 @@ class Renderer {
             //
             // Forward rendering and transparent object pass
             //
-            this.enableBlendDefault();
+            this.enableBlendOneSrcAlpha();
 
             e.dispatch(e.forwardpass, this);
             this._drawForwardEntityCollections(0);
@@ -1270,6 +1290,8 @@ class Renderer {
             // Weighted OIT resolve (composite into forwardFramebuffer)
             //
             this._weightedOITResolvePASS();
+
+            e.dispatch(e.postforwardpass, this);
 
             //
             // Picking passes
@@ -1293,7 +1315,6 @@ class Renderer {
                 this.activeCamera!.setCurrentFrustum(k);
 
                 this._drawForwardEntityCollections(i);
-                this._drawTransparentEntityCollectionsForward(i);
 
                 if (refreshPicking) {
                     this._drawPickingBuffer(i);
@@ -1347,7 +1368,7 @@ class Renderer {
         sh.activate();
 
         gl.activeTexture(gl.TEXTURE0);
-        gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[2]);
+        gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[4]);
         gl.uniform1i(p.uniforms.depthTexture, 0);
 
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
@@ -1374,17 +1395,27 @@ class Renderer {
 
         sh.activate();
 
+        gl.uniform3fv(p.uniforms.lightPosition, this.lightPosition);
+        gl.uniform3fv(p.uniforms.lightAmbient, this.lightAmbient);
+        gl.uniform3fv(p.uniforms.lightDiffuse, this.lightDiffuse);
+        gl.uniform4fv(p.uniforms.lightSpecular, this.lightSpecular);
+        gl.uniform3f(p.uniforms.cameraPosition, this.activeCamera.eye.x, this.activeCamera.eye.y, this.activeCamera.eye.z);
+
         gl.activeTexture(gl.TEXTURE0);
         gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[0]);
         gl.uniform1i(p.uniforms.baseTexture, 0);
 
         gl.activeTexture(gl.TEXTURE1);
         gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[1]);
-        gl.uniform1i(p.uniforms.normalTexture, 1);
+        gl.uniform1i(p.uniforms.materialsTexture, 1);
 
         gl.activeTexture(gl.TEXTURE2);
         gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[2]);
-        gl.uniform1i(p.uniforms.depthTexture, 2);
+        gl.uniform1i(p.uniforms.normalTexture, 2);
+
+        gl.activeTexture(gl.TEXTURE3);
+        gl.bindTexture(gl.TEXTURE_2D, this.deferredFramebuffer!.textures[3]);
+        gl.uniform1i(p.uniforms.positionTexture, 3);
 
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
