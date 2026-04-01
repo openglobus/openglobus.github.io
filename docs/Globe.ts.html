@@ -77,6 +77,7 @@ export interface IGlobeParams {
     exposure?: number;
     maxNodesCount?: number;
     transparentBackground?: boolean;
+    shadeMode?: number;
 }
 
 const DEFAULT_NIGHT_SRC = `/night.png`;
@@ -232,7 +233,7 @@ class Globe {
         this.renderer = new Renderer(
             new Handler(this._canvas, {
                 autoActivate: false,
-                pixelRatio: options.dpi || (window.devicePixelRatio + 0.15),
+                pixelRatio: options.dpi || window.devicePixelRatio > 1.25 ? 1.25 : window.devicePixelRatio,
                 context: {
                     alpha: options.transparentBackground,
                     antialias: false,
@@ -279,6 +280,7 @@ class Globe {
             vectorTileSize: options.vectorTileSize,
             maxNodesCount: options.maxNodesCount,
             transparentBackground: options.transparentBackground,
+            shadeMode: options.shadeMode,
         });
 
         // Attach terrain provider (can be one object or array)
