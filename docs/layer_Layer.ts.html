@@ -35,6 +35,7 @@ export interface ILayerParams {
     height?: number;
     textureFilter?: string;
     colorSpace?: string | number;
+    waitForImagesEnabled?: boolean;
     pickingEnabled?: boolean;
     preLoadZoomLevels?: number[];
     extent?: Extent | [[number, number], [number, number]];
@@ -63,6 +64,7 @@ export interface ILayerParams {
  * @param {string|number} [options.colorSpace="srgb"] - Layer color space. Available values: "linear", "srgb", 0, 1.
  * @param {Extent} [options.extent=[[-180.0, -90.0], [180.0, 90.0]]] - Visible extent.
  * @param {string} [options.textureFilter="anisotropic"] - Image texture filter. Available values: "nearest", "linear", "mipmap" and "anisotropic".
+ * @param {boolean} [options.waitForImagesEnabled=true] - Enables ancestor-safe fallback requests for visible nodes while imagery is loading.
  * @param {string} [options.icon] - Icon for LayerSwitcher
  * @fires visibilitychange
  * @fires baselayerchange
@@ -226,6 +228,8 @@ class Layer {
 
     public _pickingEnabled: boolean;
 
+    public waitForImagesEnabled: boolean;
+
     protected _isPreloadDone: boolean;
 
     protected _preLoadZoomLevels: number[];
@@ -307,6 +311,8 @@ class Layer {
         this._pickingColor = new Vec3();
 
         this._pickingEnabled = options.pickingEnabled !== undefined ? options.pickingEnabled : true;
+
+        this.waitForImagesEnabled = options.waitForImagesEnabled ?? true;
 
         this._isPreloadDone = false;
 

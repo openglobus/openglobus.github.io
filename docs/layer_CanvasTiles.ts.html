@@ -228,6 +228,7 @@ class CanvasTiles extends Layer {
         }
         material.isLoading = false;
         material.isReady = false;
+        material.passThrough = false;
     }
 
     protected _dequeueRequest() {
@@ -247,17 +248,51 @@ class CanvasTiles extends Layer {
         while (this._pendingsQueue.length) {
             const pmat = this._pendingsQueue.pop();
             if (pmat &amp;&amp; pmat.segment &amp;&amp; pmat.segment.node) {
-                if (pmat.segment.initialized &amp;&amp; pmat.segment.node.getState() === quadTree.RENDERING) {
+                if (
+                    pmat.segment.initialized &amp;&amp;
+                    (pmat.segment.node.getState() === quadTree.RENDERING || pmat.passThrough)
+                ) {
                     return pmat;
                 }
                 pmat.isLoading = false;
+                pmat.passThrough = false;
             }
         }
         return null;
     }
 
     public override applyMaterial(material: Material): NumberArray4 {
-        if (material.isReady) {
+        if (material.isReady &amp;&amp; material.textureExists) {
+            const segment = material.segment;
+            if (
+                this.waitForImagesEnabled &amp;&amp;
+                segment.node.getState() === quadTree.RENDERING
+            ) {
+                let chainStartNode = segment.node;
+                while (chainStartNode.parentNode &amp;&amp; chainStartNode.segment.tileZoom > this.maxNativeZoom) {
+                    chainStartNode = chainStartNode.parentNode;
+                }
+
+                let chainNode = chainStartNode.parentNode;
+                while (chainNode) {
+                    let chainMaterial = chainNode.segment.materials[this.__id];
+                    if (!chainMaterial) {
+                        chainMaterial = chainNode.segment.materials[this.__id] = material.layer.createMaterial(chainNode.segment);
+                    }
+
+                    if (chainMaterial.isReady &amp;&amp; chainMaterial.textureExists) {
+                        break;
+                    }
+
+                    if (!chainMaterial.isReady &amp;&amp; !chainMaterial.isLoading) {
+                        chainMaterial.passThrough = true;
+                        this.loadMaterial(chainMaterial);
+                    }
+
+                    chainNode = chainNode.parentNode;
+                }
+            }
+
             // IMPORTANT!
             // Animated doesn't work withMaxNativeZoom
             // It could be fixed with call drawTile method only for parent
@@ -275,51 +310,70 @@ class CanvasTiles extends Layer {
         } else if (material.segment.tileZoom &lt; this.minNativeZoom) {
             material.textureNotExists();
         } else {
-            let segment = material.segment;
-            let pn = segment.node,
-                parentTextureExists = false;
-            let maxNativeZoom = (material.layer as CanvasTiles).maxNativeZoom;
+            const segment = material.segment;
+            const mId = this.__id;
+            const maxNativeZoom = this.maxNativeZoom;
+            const shouldRequest =
+                segment.passReady ||
+                (this.waitForImagesEnabled &amp;&amp; segment.node.getState() === quadTree.RENDERING);
+            let chainStartNode = segment.node;
 
-            if (segment.passReady &amp;&amp; !material.isLoading &amp;&amp; segment.tileZoom &lt;= maxNativeZoom) {
-                this.loadMaterial(material);
+            const requestIfNeeded = (target: Material, passThrough: boolean = false) => {
+                if (!target.isReady &amp;&amp; !target.isLoading) {
+                    target.passThrough = passThrough;
+                    this.loadMaterial(target);
+                }
+            };
+
+            if (shouldRequest) {
+                if (segment.tileZoom &lt;= maxNativeZoom) {
+                    requestIfNeeded(material);
+                } else {
+                    let maxNativeNode = segment.node;
+                    while (maxNativeNode.parentNode &amp;&amp; maxNativeNode.segment.tileZoom > maxNativeZoom) {
+                        maxNativeNode = maxNativeNode.parentNode;
+                    }
+                    chainStartNode = maxNativeNode;
+
+                    let maxNativeMaterial = maxNativeNode.segment.materials[mId];
+                    if (!maxNativeMaterial) {
+                        maxNativeMaterial =
+                            maxNativeNode.segment.materials[mId] = material.layer.createMaterial(maxNativeNode.segment);
+                    }
+                    requestIfNeeded(maxNativeMaterial, true);
+                }
             }
 
-            let mId = this._id;
-            let psegm = material;
-            while (pn.parentNode) {
-                pn = pn.parentNode;
-                psegm = pn.segment.materials[mId];
-                if (psegm &amp;&amp; psegm.textureExists) {
-                    parentTextureExists = true;
+            if (this.waitForImagesEnabled &amp;&amp; shouldRequest) {
+                let chainNode = chainStartNode.parentNode;
+                while (chainNode) {
+                    let chainMaterial = chainNode.segment.materials[mId];
+                    if (!chainMaterial) {
+                        chainMaterial = chainNode.segment.materials[mId] = material.layer.createMaterial(chainNode.segment);
+                    }
+
+                    if (chainMaterial.isReady &amp;&amp; chainMaterial.textureExists) {
+                        break;
+                    }
+
+                    requestIfNeeded(chainMaterial, true);
+                    chainNode = chainNode.parentNode;
+                }
+            }
+
+            let fallbackNode = segment.node.parentNode;
+            let fallbackMaterial: Material | undefined;
+            while (fallbackNode) {
+                let ancestorMaterial = fallbackNode.segment.materials[mId];
+                if (ancestorMaterial &amp;&amp; ancestorMaterial.isReady &amp;&amp; ancestorMaterial.textureExists) {
+                    fallbackMaterial = ancestorMaterial;
                     break;
                 }
+                fallbackNode = fallbackNode.parentNode;
             }
 
-            if (segment.passReady) {
-                if (pn.segment.tileZoom === maxNativeZoom) {
-                    if (segment.tileZoom > maxNativeZoom) {
-                        material.textureNotExists();
-                    }
-                } else if (pn.segment.tileZoom &lt; maxNativeZoom) {
-                    let pn = segment.node;
-                    while (pn.segment.tileZoom > maxNativeZoom) {
-                        pn = pn.parentNode!;
-                    }
-
-                    let pnm = pn.segment.materials[mId];
-                    if (pnm) {
-                        !pnm.isLoading &amp;&amp; !pnm.isReady &amp;&amp; this.loadMaterial(pnm);
-                    } else {
-                        pnm = pn.segment.materials[material.layer._id] = material.layer.createMaterial(pn.segment);
-                        this.loadMaterial(pnm);
-                    }
-                }
-            }
-
-            if (parentTextureExists) {
-                //
+            if (fallbackNode &amp;&amp; fallbackMaterial) {
                 // Animated doesn't work withMaxNativeZoom
-                //
                 if ((material.layer as CanvasTiles).animated) {
                     requestAnimationFrame(() => {
                         if (material.segment) {
@@ -330,11 +384,11 @@ class CanvasTiles extends Layer {
                     });
                 }
 
-                material.appliedNodeId = pn.nodeId;
-                material.texture = psegm.texture;
-                let dZ2 = 1.0 / (2 &lt;&lt; (segment.tileZoom - pn.segment.tileZoom - 1));
-                material.texOffset[0] = segment.tileX * dZ2 - pn.segment.tileX;
-                material.texOffset[1] = segment.tileY * dZ2 - pn.segment.tileY;
+                material.appliedNodeId = fallbackNode.nodeId;
+                material.texture = fallbackMaterial.texture;
+                let dZ2 = 1.0 / (2 &lt;&lt; (segment.tileZoom - fallbackNode.segment.tileZoom - 1));
+                material.texOffset[0] = segment.tileX * dZ2 - fallbackNode.segment.tileX;
+                material.texOffset[1] = segment.tileY * dZ2 - fallbackNode.segment.tileY;
                 material.texOffset[2] = dZ2;
                 material.texOffset[3] = dZ2;
             } else {
@@ -361,6 +415,7 @@ class CanvasTiles extends Layer {
         this.abortMaterialLoading(material);
         material.isLoading = false;
         material.textureExists = false;
+        material.passThrough = false;
 
         //@ts-ignore
         material.layer = null;

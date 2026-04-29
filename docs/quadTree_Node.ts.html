@@ -360,7 +360,6 @@ class Node {
                 }
             } else if (
                 seg.terrainReady &amp;&amp;
-                (!planet.waitForImagesEnabled || seg.imageReady()) &amp;&amp;
                 seg.checkZoom() &amp;&amp;
                 (!maxZoom ||
                     cam.projectedSize(seg.bsphere.center, seg.bsphere.radius) > this.quadTreeStrategy._maxLodSize)

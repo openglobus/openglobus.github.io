@@ -77,7 +77,6 @@ export interface IPlanetParams {
     maxLoadingRequests?: number;
     atmosphereEnabled?: boolean;
     transitionOpacityEnabled?: boolean;
-    waitForImagesEnabled?: boolean;
     atmosphereParameters?: IAtmosphereParams;
     minDistanceBeforeMemClear?: number;
     vectorTileSize?: number;
@@ -131,7 +130,6 @@ type IndexBufferCacheData = { buffer: WebGLBufferExt | null };
  * @param {string|null} [options.specularTextureSrc] - Water/specular mask texture URL (`null` disables texture loading).
  * @param {boolean} [options.atmosphereEnabled=false] - Enables atmosphere rendering.
  * @param {boolean} [options.transitionOpacityEnabled] - Enables terrain transition opacity blending.
- * @param {boolean} [options.waitForImagesEnabled=true] - When `true`, quadtree subdivision waits for required imagery tiles on the current segment in addition to terrain readiness.
  * @param {IAtmosphereParams} [options.atmosphereParameters] - Atmosphere model parameters.
  * @param {number} [options.minDistanceBeforeMemClear] - Camera travel distance threshold before automatic memory cleanup.
  * @param {number} [options.vectorTileSize] - Vector tile texture size for vector layer baking.
@@ -337,7 +335,6 @@ export class Planet extends Scene {
     protected _initialized: boolean;
 
     protected _collectRenderNodesIsActive: boolean;
-    public waitForImagesEnabled: boolean;
 
     /**
      * Night texture brightness coefficient
@@ -486,7 +483,6 @@ export class Planet extends Scene {
         this._initialized = false;
 
         this._collectRenderNodesIsActive = true;
-        this.waitForImagesEnabled = options.waitForImagesEnabled ?? true;
 
         this.nightTextureCoefficient = 1.0;
 

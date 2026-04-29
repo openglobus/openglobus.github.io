@@ -24,6 +24,7 @@ class Material {
     public appliedNode: Node | null;
     public texOffset: NumberArray4;
     public loadingAttempts: number;
+    public passThrough: boolean;
 
     // vector data
     public _updateTexture: WebGLTextureExt | null;
@@ -43,6 +44,7 @@ class Material {
         this.appliedNode = null;
         this.texOffset = [0.0, 0.0, 1.0, 1.0];
         this.loadingAttempts = 0;
+        this.passThrough = false;
 
         this._updateTexture = null;
         this._updatePickingMask = null;
@@ -71,6 +73,7 @@ class Material {
             this.isLoading = false;
             this.appliedNodeId = this.segment.node.nodeId;
             this.texOffset = [0.0, 0.0, 1.0, 1.0];
+            this.passThrough = false;
         }
     }
 
@@ -86,6 +89,7 @@ class Material {
             this.isLoading = false;
             this.appliedNodeId = this.segment.node.nodeId;
             this.texOffset = [0.0, 0.0, 1.0, 1.0];
+            this.passThrough = false;
         }
     }
 
@@ -95,6 +99,7 @@ class Material {
             this.isLoading = false;
             this.isReady = true;
             this.textureExists = false;
+            this.passThrough = false;
         }
     }
 

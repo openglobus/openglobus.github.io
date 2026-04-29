@@ -1792,34 +1792,6 @@ class Segment {
         );
     }
 
-    public imageReady(): boolean {
-        const layers = this.planet.visibleTileLayers;
-
-        for (let i = 0; i &lt; layers.length; i++) {
-            const layer = layers[i];
-
-            if (!this._isImageryLayerRequired(layer)) {
-                continue;
-            }
-
-            let material = this.materials[layer.__id];
-
-            if (!material) {
-                material = this.materials[layer.__id] = layer.createMaterial(this);
-            }
-
-            if (!material.isReady) {
-                if (!material.isLoading) {
-                    layer.loadMaterial(material, true);
-                }
-                this.quadTreeStrategy._renderCompleted = false;
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     public initSlice(sliceIndex: number): Slice {
         let slice = this._slices[sliceIndex];
 
