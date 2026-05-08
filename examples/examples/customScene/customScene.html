@@ -1,0 +1,259 @@
+<html>
+
+<head>
+    <title>OpenGlobus - Earth planet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../external/og/lib/og.css" type="text/css" />
+</head>
+
+<body style="margin:0;">
+    <canvas id="myCanvas" style="width: 100%; height: 80%; display: block"></canvas>
+    <div>
+        <div style="float:left; padding: 15px;">
+            <input type="checkbox" id="cubeScene" checked>MyScene scene activity
+        </div>
+        <div style="float:left; padding: 15px;">
+            <input type="checkbox" id="axisScene" checked>Axis scene activity
+        </div>
+    </div>
+    <script type="module" id="og-sandbox-script">
+        'use strict';
+
+        import {
+            math,
+            scene,
+            Scene,
+            ShaderProgram,
+            Handler,
+            Renderer,
+            control,
+            Vec3,
+            Mat4
+        } from "../../external/og/lib/og.es.js";
+
+        // Works both in local file mode and in sandbox srcdoc mode.
+        const textureUrl = new URL(
+            "../../../examples/customScene/nehe.gif",
+            new URL("../../external/og/lib/og.es.js", document.baseURI)
+        ).href;
+
+
+        document.getElementById("cubeScene").onchange = function () {
+            renderer.scenes.MyScene.setActive(this.checked);
+        };
+        document.getElementById("axisScene").onchange = function () {
+            renderer.scenes.Axes.setActive(this.checked);
+        };
+
+        class MyScene extends Scene {
+            constructor() {
+                super("MyScene");
+
+                this._grad = 0;
+
+                this.neheTexture = null;
+
+                this.vericesBuffer = null;
+                this.textureCoordsBuffer = null;
+                this.indicesBuffer = null;
+            }
+
+            init() {
+
+                //Initialize shader program
+                this.renderer.handler.addProgram(new ShaderProgram("myShader", {
+                    'uniforms': {
+                        'uModelMatrix': 'mat4',
+                        'uViewMatrix': 'mat4',
+                        'uPMatrix': 'mat4',
+                        'uSampler': 'sampler2d'
+                    },
+                    'attributes': {
+                        'aVertexPosition': 'vec3',
+                        'aTextureCoord': 'vec2'
+                    },
+                    'vertexShader':
+                        'attribute vec3 aVertexPosition;\
+                            attribute vec2 aTextureCoord;\
+                            \
+                            uniform mat4 uModelMatrix;\
+                            uniform mat4 uViewMatrix;\
+                            uniform mat4 uPMatrix;\
+                            \
+                            varying vec2 vTextureCoord;\
+                            \
+                            void main(void) {\
+                                gl_Position = uPMatrix * uViewMatrix * uModelMatrix * vec4(aVertexPosition, 1.0);\
+                                vTextureCoord = aTextureCoord;\
+                            }'
+                    ,
+                    'fragmentShader':
+                        'precision mediump float;\
+                            varying vec2 vTextureCoord;\
+                            uniform sampler2D uSampler;\
+                            \
+                            void main(void) {\
+                                gl_FragColor = texture2D(uSampler, vec2(vTextureCoord.s, vTextureCoord.t));\
+                            }'
+                }));
+
+                //Load texture                
+                this.neheTexture = null;
+                var image = new Image();
+                image.crossOrigin = "Anonymous";
+                var that = this;
+                image.onload = function () {
+                    var gl = that.renderer.handler.gl;
+                    that.neheTexture = that.renderer.handler.createTexture_mm(this, gl.SRGB8_ALPHA8);
+                };
+                image.src = textureUrl;
+
+
+                //Create buffers
+                var vertices = [
+                    // Front face
+                    -1.0, -1.0, 1.0,
+                    1.0, -1.0, 1.0,
+                    1.0, 1.0, 1.0,
+                    -1.0, 1.0, 1.0,
+
+                    // Back face
+                    -1.0, -1.0, -1.0,
+                    -1.0, 1.0, -1.0,
+                    1.0, 1.0, -1.0,
+                    1.0, -1.0, -1.0,
+
+                    // Top face
+                    -1.0, 1.0, -1.0,
+                    -1.0, 1.0, 1.0,
+                    1.0, 1.0, 1.0,
+                    1.0, 1.0, -1.0,
+
+                    // Bottom face
+                    -1.0, -1.0, -1.0,
+                    1.0, -1.0, -1.0,
+                    1.0, -1.0, 1.0,
+                    -1.0, -1.0, 1.0,
+
+                    // Right face
+                    1.0, -1.0, -1.0,
+                    1.0, 1.0, -1.0,
+                    1.0, 1.0, 1.0,
+                    1.0, -1.0, 1.0,
+
+                    // Left face
+                    -1.0, -1.0, -1.0,
+                    -1.0, -1.0, 1.0,
+                    -1.0, 1.0, 1.0,
+                    -1.0, 1.0, -1.0,
+                ];
+
+                this.vericesBuffer = this.renderer.handler.createArrayBuffer(new Float32Array(vertices), 3, vertices.length / 3);
+
+
+                var textureCoords = [
+                    // Front face
+                    1.0, 0.0,
+                    0.0, 0.0,
+                    0.0, 1.0,
+                    1.0, 1.0,
+
+                    // Back face
+                    0.0, 0.0,
+                    0.0, 1.0,
+                    1.0, 1.0,
+                    1.0, 0.0,
+
+                    // Top face
+                    1.0, 1.0,
+                    1.0, 0.0,
+                    0.0, 0.0,
+                    0.0, 1.0,
+
+                    // Bottom face
+                    0.0, 1.0,
+                    1.0, 1.0,
+                    1.0, 0.0,
+                    0.0, 0.0,
+
+                    // Right face
+                    0.0, 0.0,
+                    0.0, 1.0,
+                    1.0, 1.0,
+                    1.0, 0.0,
+
+                    // Left face
+                    1.0, 0.0,
+                    0.0, 0.0,
+                    0.0, 1.0,
+                    1.0, 1.0,
+                ];
+
+                this.textureCoordsBuffer = this.renderer.handler.createArrayBuffer(new Float32Array(textureCoords), 2, textureCoords.length / 2);
+
+
+                var cubeVertexIndices = [
+                    0, 1, 2, 0, 2, 3,    // Front face
+                    4, 5, 6, 4, 6, 7,    // Back face
+                    8, 9, 10, 8, 10, 11,  // Top face
+                    12, 13, 14, 12, 14, 15, // Bottom face
+                    16, 17, 18, 16, 18, 19, // Right face
+                    20, 21, 22, 20, 22, 23  // Left face
+                ];
+
+                this.indicesBuffer = this.renderer.handler.createElementArrayBuffer(new Uint16Array(cubeVertexIndices), 1, cubeVertexIndices.length);
+
+                this.renderer.events.on("forwardpass", this.forward);
+            }
+
+            onremove() {
+                this.renderer && this.renderer.events.off("forwardpass", this.forward);
+            }
+
+            forward = () => {
+                if (!this.isActive() || !this.show || !this.vericesBuffer || !this.textureCoordsBuffer || !this.indicesBuffer) {
+                    return;
+                }
+
+                var r = this.renderer;
+                var sh = r.handler.programs.myShader;
+                var gl = r.handler.gl;
+
+                //Cube rotation
+                var gradRad = this._grad * math.RADIANS;
+                var modelMat = Mat4.identity()
+                    .rotate(new Vec3(0, 1, 0), gradRad)
+                    .rotate(new Vec3(1, 0, 0), gradRad);
+                this._grad+=0.3;
+
+                // Use the public ShaderProgram API (compatible with current OG).
+                sh.set({
+                    aVertexPosition: this.vericesBuffer,
+                    aTextureCoord: this.textureCoordsBuffer,
+                    uSampler: this.neheTexture || r.handler.defaultTexture,
+                    uModelMatrix: modelMat._m,
+                    uViewMatrix: r.activeCamera.getViewMatrix(),
+                    uPMatrix: r.activeCamera.getProjectionMatrix()
+                }).drawIndexBuffer(gl.TRIANGLES, this.indicesBuffer);
+            };
+        }
+
+        var handler = new Handler("myCanvas", {
+            alpha: false
+        });
+
+        handler.initialize();
+
+        var renderer = new Renderer(handler);
+        renderer.initialize();
+        renderer.addScenes([new MyScene(), new scene.Axes()]);
+        renderer.addControls([
+            new control.SimpleNavigation({ 'speed': 0.3 }),
+            new control.ShowFps()
+        ]);
+        renderer.activeCamera.set(new Vec3(5, 5, 5), Vec3.ZERO).update();
+        renderer.start();
+    </script>
+</body>
+
+</html>

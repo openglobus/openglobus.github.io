@@ -1,0 +1,43 @@
+
+<html>
+
+<head>
+    <title>OpenStreetMap Base Layer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../external/og/lib/og.css" type="text/css" />
+</head>
+
+<body>
+    <div id="earth" style="width:100%;height:100%"></div>
+    <script type="module" id="og-sandbox-script">
+import {
+    OpenStreetMap,
+    Globe,
+    Extent,
+    LonLat,
+    GlobusRgbTerrain,
+    control
+} from "../../external/og/lib/og.es.js";
+
+let osm = new OpenStreetMap("osm");
+
+var globus = new Globe({
+    target: "earth",
+    name: "Earth",
+    maxAltitude: 15000000,
+    terrain: new GlobusRgbTerrain("19", {
+        maxZoom: 14
+    }),
+    layers: [osm],
+    resourcesSrc: "../../external/og/lib/res",
+    fontsSrc: "../../external/og/lib/res/fonts"
+});
+
+globus.planet.viewExtent(new Extent(new LonLat(158.31010, 54.45445), new LonLat(158.55687, 54.56659)));
+
+globus.planet.addControl(new control.DrawingSwitcher());
+</script>
+</body>
+
+</html>
