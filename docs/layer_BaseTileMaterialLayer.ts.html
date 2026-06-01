@@ -50,7 +50,7 @@ export abstract class BaseTileMaterialLayer extends Layer {
                 while (node) {
                     const seg = node.segment;
 
-                    if (seg.tileZoom &lt;= this.maxNativeZoom) {
+                    if (seg.initialized &amp;&amp; seg.tileZoom &lt;= this.maxNativeZoom) {
                         const mat = seg.materials[layerId];
                         if (!mat || !mat.isReady) {
                             targetNode = node;
