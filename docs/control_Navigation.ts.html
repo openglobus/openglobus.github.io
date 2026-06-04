@@ -26,11 +26,15 @@ import { Vec3 } from "../math/Vec3";
 import { input } from "../input/input";
 import { Plane } from "../math/Plane";
 import { createEvents, type EventsHandler } from "../Events";
+import * as math from "../math";
 
 export type NavigationMode = "north" | "adaptive" | "free";
 
 export interface INavigationParams extends IControlParams {
     inertia?: number;
+    minInertia?: number;
+    maxInertia?: number;
+    minInertiaAltitude?: number;
     velInertia?: number;
     dragInertia?: number;
     minSlope?: number;
@@ -68,6 +72,8 @@ const NAVIGATION_EVENTS: NavigationEventsList = [
 // Lower value - camera stops faster after release
 const DEFAULT_VELINERTIA = 0.89;
 
+const DEFAULT_MIN_INERTIA_ALTITUDE = 2000000;
+
 // Drag inertia approach smoothing
 // Lower value - camera approaches the grabbed point more slowly
 const DEFAULT_DRAG_INERTIA = 230;
@@ -92,6 +98,9 @@ const NAVIGATION_PREDRAW_PRIORITY = -10000;
  * @param {INavigationParams} [options] - Navigation options:
  * @param {NavigationMode} [options.mode] - Navigation mode: "north" (keeps north fixed), "adaptive" (default, auto-detects arc mode), "free" (arc rotation mode)
  * @param {number} [options.inertia] - inertia factor
+ * @param {number} [options.minInertia] - inertia factor at minInertiaAltitude. Default is 1
+ * @param {number} [options.maxInertia] - inertia factor at maximal camera altitude. Default is 1.1
+ * @param {number} [options.minInertiaAltitude] - minimal altitude where inertia interpolation starts. Default is 3000000
  * @param {number} [options.velInertia] - base velocity inertia factor. Default is 0.89
  * @param {number} [options.dragInertia] - drag inertia
  * @param {number} [options.mass] - camera mass, affects velocity. Default is 1
@@ -113,6 +122,9 @@ export class Navigation extends Control {
     public mass: number;
     public minSlope: number;
     public inertia: number;
+    public minInertia: number;
+    public maxInertia: number;
+    public minInertiaAltitude: number;
     public dragInertia: number;
     public zoomSpeed: number;
     public poleThreshold: number;
@@ -197,6 +209,9 @@ export class Navigation extends Control {
 
         this.mass = options.mass ?? 1;
         this.inertia = options.inertia ?? 1;
+        this.minInertia = options.minInertia ?? 1;
+        this.maxInertia = options.maxInertia ?? 1.08;
+        this.minInertiaAltitude = options.minInertiaAltitude ?? DEFAULT_MIN_INERTIA_ALTITUDE;
         this._defaultVelInertia = options.velInertia ?? DEFAULT_VELINERTIA;
         this._velInertia = this._defaultVelInertia;
         this.minSlope = options.minSlope ?? MIN_SLOPE;
@@ -563,7 +578,7 @@ export class Navigation extends Control {
         if (this._grabbedPoint &amp;&amp; this.planet) {
             let cam = this.planet.camera;
 
-            if (cam.isOrthographic) {
+            if (cam.isOrthographic &amp;&amp; cam.slope &lt;= this.minSlope) {
                 const nx = e.nx - this._grabbedScreenPoint.x;
                 const ny = e.ny - this._grabbedScreenPoint.y;
                 const f = cam.frustum;
@@ -573,8 +588,28 @@ export class Navigation extends Control {
 
                 this._targetDragPoint = this._grabbedPoint;
                 this.force = targetEye.sub(cam.eye).scale(this.dragInertia);
+            } else if (cam.isOrthographic) {
+                const dist = this._grabbedDist;
+                const p1 = new Vec3();
+                const dir = cam.unproject(e.x, e.y, dist, p1);
+
+                const p0 = p1.sub(dir.scaleTo(dist));
+                const _targetDragPoint = new Ray(p0, dir).hitSphere(this._grabbedSphere);
+
+                if (!_targetDragPoint) {
+                    return;
+                }
+
+                this._targetDragPoint = _targetDragPoint;
+
+                let rot = Quat.getRotationBetweenVectors(
+                    this._targetDragPoint.getNormal(),
+                    this._grabbedPoint.getNormal()
+                );
+
+                let newEye = rot.mulVec3(cam.eye);
+                this.force = newEye.sub(cam.eye).scale(this.dragInertia);
             } else if (cam.slope > this.minSlope) {
-                // Need distance for orthographic camera
                 this._grabbedDist = cam.eye.distance(this._grabbedPoint);
                 let dir = cam.unproject(e.x, e.y, this._grabbedDist);
                 let _targetDragPoint = new Ray(cam.eye, dir).hitSphere(this._grabbedSphere);
@@ -720,7 +755,7 @@ export class Navigation extends Control {
             this._velInertia = this._defaultVelInertia;
             let cam = this.planet!.camera;
 
-            if (cam.isOrthographic) {
+            if (cam.isOrthographic &amp;&amp; cam.slope &lt;= this.minSlope) {
                 const dt = this.dt;
                 const d_v = this.vel.scaleTo(dt);
                 const right = cam.getRight();
@@ -947,7 +982,15 @@ export class Navigation extends Control {
     }
 
     protected get velocityInertia(): number {
-        return this._velInertia * this.inertia;
+        return this._velInertia * this._calcInertia();
+    }
+
+    protected _calcInertia(): number {
+        const cam = this.planet!.camera;
+        const minAlt = this.minInertiaAltitude;
+        const maxAlt = cam.maxAltitude;
+        const t = maxAlt > minAlt ? Math.max(0, Math.min(1, (cam.getAltitude() - minAlt) / (maxAlt - minAlt))) : 1;
+        return this.inertia * math.lerp(t, this.maxInertia, this.minInertia);
     }
 
     public stop() {
