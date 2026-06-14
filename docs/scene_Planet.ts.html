@@ -454,7 +454,7 @@ export class Planet extends Scene {
             transitionOpacityEnabled: options.transitionOpacityEnabled
         };
 
-        // Used in CameraDepthHandler
+        // Used by controls that need a planet-specific quad tree strategy instance.
         this.quadTreeStrategyPrototype = options.quadTreeStrategyPrototype || EarthQuadTreeStrategy;
         this.quadTreeStrategy = new this.quadTreeStrategyPrototype(quadTreeParams);
 
@@ -1649,6 +1649,7 @@ export class Planet extends Scene {
 
         gl.uniform3f(shu.cameraPosition, cam.eye.x, cam.eye.y, cam.eye.z);
         renderer.projectors.bindForward(sh, this.SLICE_SIZE + 6);
+        renderer.shadows.bindForward(sh, this.SLICE_SIZE + 10);
 
         return sh;
     }
@@ -1716,6 +1717,7 @@ export class Planet extends Scene {
         gl.uniform3fv(shu.cameraForward, cam.getForward().toArray());
         gl.uniform1f(shu.isOrthographic, cam.isOrthographic ? 1.0 : 0.0);
         renderer.projectors.bindForward(sh, this.SLICE_SIZE + 6);
+        renderer.shadows.bindForward(sh, this.SLICE_SIZE + 10);
 
         return sh;
     }
