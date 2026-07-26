@@ -1,0 +1,1316 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>utils/shared.ts</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/_assets/styles.ms1yt4d8-010773f2.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">Documentation</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">utils/shared.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">/**
+ * @module og/utils/shared
+ */
+
+import { Extent } from &quot;../Extent&quot;;
+import { LonLat } from &quot;../LonLat&quot;;
+import { Vec2 } from &quot;../math/Vec2&quot;;
+import type { NumberArray2 } from &quot;../math/Vec2&quot;;
+import { Vec3 } from &quot;../math/Vec3&quot;;
+import type { NumberArray3 } from &quot;../math/Vec3&quot;;
+import { Vec4 } from &quot;../math/Vec4&quot;;
+import type { NumberArray4 } from &quot;../math/Vec4&quot;;
+import { colorTable } from &quot;./colorTable&quot;;
+import { Ellipsoid } from &quot;../ellipsoid/Ellipsoid&quot;;
+import { wgs84 } from &quot;../ellipsoid/wgs84&quot;;
+import { getTextureResourceMeta, setTextureResourceMeta } from &quot;./textureResourceMeta&quot;;
+import * as mercator from &quot;../mercator&quot;;
+
+export function getDefault(param?: any, def?: any): boolean {
+    return param != undefined ? param : def;
+}
+
+export function isEmpty(v: any): boolean {
+    return v == null;
+}
+
+/**
+ * Returns true if the object pointer is undefined.
+ * @function
+ * @param {Object} obj - Object pointer.
+ * @returns {boolean} Returns true if object is undefined.
+ */
+export function isUndef(obj?: any): boolean {
+    return obj === void 0;
+}
+
+export function isUndefExt(obj: any, defVal: any): any {
+    return isUndef(obj) ? defVal : obj;
+}
+
+let _stampCounter: number = 0;
+
+export function fnv1a32(bytes: Uint8Array | Uint8ClampedArray): string {
+    let hash = 0x811c9dc5;
+    for (let i = 0; i &lt; bytes.length; i++) {
+        hash ^= bytes[i];
+        hash = Math.imul(hash, 0x01000193);
+    }
+    return (hash >>> 0).toString(16).padStart(8, &quot;0&quot;);
+}
+
+export function normalizeUri(src: string, baseUri?: string): string {
+    try {
+        const fallbackBase =
+            typeof window !== &quot;undefined&quot; &amp;&amp; window.location?.href ? window.location.href : &quot;http://localhost/&quot;;
+        const base = baseUri || fallbackBase;
+        const normalized = new URL(src, base);
+        normalized.hash = &quot;&quot;;
+        normalized.protocol = normalized.protocol.toLowerCase();
+        normalized.hostname = normalized.hostname.toLowerCase();
+        return normalized.href;
+    } catch {
+        if (!baseUri) {
+            return src;
+        }
+
+        try {
+            const fallbackBase =
+                typeof window !== &quot;undefined&quot; &amp;&amp; window.location?.href ? window.location.href : &quot;http://localhost/&quot;;
+            const normalized = new URL(src, fallbackBase);
+            normalized.hash = &quot;&quot;;
+            normalized.protocol = normalized.protocol.toLowerCase();
+            normalized.hostname = normalized.hostname.toLowerCase();
+            return normalized.href;
+        } catch {
+            return src;
+        }
+    }
+}
+
+export function stamp(obj: any): number {
+    let stamp = obj._openglobus_id;
+    if (!stamp) {
+        stamp = obj._openglobus_id = ++_stampCounter;
+    }
+    return stamp;
+}
+
+export function isString(s: any): boolean {
+    return typeof s === &quot;string&quot; || s instanceof String;
+}
+
+function d2h(val: number): string {
+    return val.toString(16).padStart(2, &quot;0&quot;);
+}
+
+export function rgbToStringHTML(rgb: NumberArray3 | Vec3): string {
+    let r: string, g: string, b: string;
+    if (rgb instanceof Array) {
+        r = d2h(rgb[0]);
+        g = d2h(rgb[1]);
+        b = d2h(rgb[2]);
+    } else {
+        r = d2h(rgb.x);
+        g = d2h(rgb.y);
+        b = d2h(rgb.z);
+    }
+    return `#${r}${g}${b}`;
+}
+
+/**
+ * Convert html color string to the RGBA number vector.
+ * @param {string} htmlColor - HTML string(&quot;#C6C6C6&quot; or &quot;#EF5&quot; or &quot;rgb(8,8,8)&quot; or &quot;rgba(8,8,8)&quot;) color.
+ * @param {number} [opacity] - Opacity for the output vector.
+ * @returns {Vec4} -
+ */
+export function htmlColorToRgba(htmlColor: string, opacity?: number): Vec4 {
+    let hColor: any | undefined = colorTable[htmlColor];
+    if (hColor) {
+        htmlColor = hColor;
+    }
+
+    if (htmlColor[0] === &quot;#&quot;) {
+        let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+        let hex = htmlColor.replace(shorthandRegex, function (m, r, g, b) {
+            return r + r + g + g + b + b;
+        });
+        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        if (result) {
+            return new Vec4(
+                parseInt(result[1], 16) / 255,
+                parseInt(result[2], 16) / 255,
+                parseInt(result[3], 16) / 255,
+                isEmpty(opacity) ? 1.0 : opacity
+            );
+        } else {
+            return new Vec4();
+        }
+    } else {
+        if (isEmpty(opacity)) {
+            opacity = 1.0;
+        }
+        let m = htmlColor.split(&quot;,&quot;);
+        return new Vec4(
+            parseInt(m[0].split(&quot;(&quot;)[1]) / 255,
+            parseInt(m[1]) / 255,
+            parseInt(m[2]) / 255,
+            !isEmpty(m[3]) ? parseFloat(m[3]) : opacity
+        );
+    }
+}
+
+export function htmlColorToFloat32Array(htmlColor: string, opacity?: number): Float32Array {
+    let c = htmlColorToRgba(htmlColor, opacity);
+    return new Float32Array([c.x, c.y, c.z, c.w]);
+}
+
+/**
+ * Convert html color string to the RGB number vector.
+ * @param {string} htmlColor - HTML string(&quot;#C6C6C6&quot; or &quot;#EF5&quot; or &quot;rgb(8,8,8)&quot; or &quot;rgba(8,8,8)&quot;) color.
+ * @returns {Vec3} -
+ */
+export function htmlColorToRgb(htmlColor: string): Vec3 {
+    let hColor: any | undefined = colorTable[htmlColor];
+    if (hColor) {
+        htmlColor = hColor;
+    }
+
+    if (htmlColor[0] === &quot;#&quot;) {
+        let shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+        let hex = htmlColor.replace(shorthandRegex, function (m, r, g, b) {
+            return r + r + g + g + b + b;
+        });
+        let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        if (result) {
+            return new Vec3(
+                parseInt(result[1], 16) / 255,
+                parseInt(result[2], 16) / 255,
+                parseInt(result[3], 16) / 255
+            );
+        } else {
+            return new Vec3();
+        }
+    } else {
+        let m = htmlColor.split(&quot;,&quot;);
+        return new Vec3(parseInt(m[0].split(&quot;(&quot;)[1]) / 255, parseInt(m[1]) / 255, parseInt(m[2]) / 255);
+    }
+}
+
+/**
+ * Replace template substrings between '{' and '}' tokens.
+ * @param {string} template - String with templates in &quot;{&quot; and &quot;}&quot;
+ * @param {Object} params - Template named object with subsrtings.
+ * @returns {string} -
+ *
+ * @example &lt;caption>Example from og.terrain that replaces tile indexes in url:&lt;/caption>
+ * var substrings = {
+ *       &quot;x&quot;: 12,
+ *       &quot;y&quot;: 15,
+ *       &quot;z&quot;: 8
+ * }
+ * og.utils.stringTemplate(&quot;http://earth3.openglobus.org/{z}/{y}/{x}.ddm&quot;, substrings);
+ * //returns http://earth3.openglobus.org/8/15/12.ddm
+ */
+export function stringTemplate(template: string, params?: any): string {
+    return template.replace(/{[^{}]+}/g, function (key) {
+        return params[key.replace(/[{}]+/g, &quot;&quot;)] || &quot;&quot;;
+    });
+}
+
+/**
+ * Replace template substrings between '${...}' tokens.
+ * @param {string} template - String with templates in &quot;${&quot; and &quot;}&quot;
+ * @param {Object} params - Template named object with subsrtings.
+ * @returns {string} -
+ *
+ * @example &lt;caption>Example from og.terrain that replaces tile indexes in url:&lt;/caption>
+ * var substrings = {
+ *       &quot;x&quot;: 12,
+ *       &quot;y&quot;: 15,
+ *       &quot;z&quot;: 8
+ * }
+ * og.utils.stringTemplate2(&quot;http://earth3.openglobus.org/${z}/${y}/${x}.ddm&quot;, substrings);
+ * //returns http://earth3.openglobus.org/8/15/12.ddm
+ */
+export function stringTemplate2(template: string, params?: Record&lt;string, any>): string {
+    return template.replace(/\$\{([^}]+)\}/g, (_, key) => {
+        return params?.[key.trim()] ?? &quot;&quot;;
+    });
+}
+
+export function getHTML(template: string, params?: any): string {
+    return stringTemplate(template, params);
+}
+
+export function parseHTML(htmlStr: string): HTMLElement[] {
+    let p = document.createElement(&quot;div&quot;);
+    p.innerHTML = htmlStr;
+    let domArr: HTMLElement[] = [];
+    for (let i = 0; i &lt; p.childNodes.length; i++) {
+        domArr.push(p.childNodes[i] as HTMLElement);
+        p.removeChild(p.childNodes[i]);
+    }
+    return domArr;
+}
+
+export function print2d(id: string, text: string, x: number, y: number) {
+    let el = document.getElementById(id);
+    if (!el) {
+        el = document.createElement(&quot;div&quot;);
+        el.id = id;
+        el.classList.add(&quot;defaultText&quot;);
+        document.body.appendChild(el);
+    }
+    el.innerHTML = text;
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+}
+
+export function isNumber(value: any): boolean {
+    return typeof value === &quot;number&quot;;
+}
+
+export function defaultString(str?: string, def: string = &quot;&quot;): string {
+    return str ? str.trim() : def;
+}
+
+export function createVec2(v?: number | Vec2 | NumberArray2 | null, def?: Vec2): Vec2 {
+    if (v) {
+        if (isNumber(v)) {
+            return new Vec2(v as number, v as number);
+        } else if (v instanceof Vec2) {
+            return v.clone();
+        } else if (v instanceof Array) {
+            return Vec2.fromVec(v);
+        }
+    } else if (def) {
+        return def;
+    }
+    return new Vec2();
+}
+
+export function createVec3(v?: number | Vec3 | Vec2 | NumberArray3 | NumberArray2 | null, def?: Vec3): Vec3 {
+    if (v) {
+        if (isNumber(v)) {
+            return new Vec3(v as number, v as number, v as number);
+        } else if (v instanceof Vec3) {
+            return v.clone();
+        } else if (v instanceof Array) {
+            return Vec3.fromVec(v);
+        } else if (v instanceof Vec2) {
+            return new Vec3(v.x, v.y, 0.0);
+        }
+    } else if (def) {
+        return def;
+    }
+    return new Vec3();
+}
+
+export function createVec4(v?: Vec4 | NumberArray4 | null, def?: Vec4): Vec4 {
+    if (v) {
+        if (v instanceof Vec4) {
+            return v.clone();
+        } else if (v instanceof Array) {
+            return Vec4.fromVec(v);
+        }
+    } else if (def) {
+        return def;
+    }
+    return new Vec4();
+}
+
+export function createColorRGBA(c?: string | NumberArray4 | Vec4 | null, def?: Vec4): Vec4 {
+    if (c) {
+        if (isString(c)) {
+            return htmlColorToRgba(c as string);
+        } else if (c instanceof Array) {
+            return Vec4.fromVec(c);
+        } else if (c instanceof Vec4) {
+            return c.clone();
+        }
+    } else if (def) {
+        return def;
+    }
+    return new Vec4(1.0, 1.0, 1.0, 1.0);
+}
+
+export function createColorRGB(c?: string | NumberArray3 | Vec3 | null, def?: Vec3): Vec3 {
+    if (c) {
+        if (isString(c)) {
+            return htmlColorToRgb(c as string);
+        } else if (c instanceof Array) {
+            return Vec3.fromVec(c);
+        } else if (c instanceof Vec3) {
+            return (c as Vec3).clone();
+        }
+    } else if (def) {
+        return def;
+    }
+    return new Vec3(1.0, 1.0, 1.0);
+}
+
+export function createExtent(e?: Extent | [[number, number], [number, number]] | null, def?: Extent): Extent {
+    if (e) {
+        if (e instanceof Array) {
+            return new Extent(createLonLat(e[0]), createLonLat(e[1]));
+        } else if (e instanceof Extent) {
+            return e.clone();
+        }
+    } else if (def) {
+        return def;
+    }
+    return new Extent();
+}
+
+export function createLonLat(l?: LonLat | NumberArray2 | NumberArray3, def?: LonLat): LonLat {
+    if (l) {
+        if (l instanceof Array) {
+            return new LonLat(l[0], l[1], l[2]);
+        } else if (l instanceof LonLat) {
+            return l.clone();
+        }
+    } else if (def) {
+        return def;
+    }
+    return new LonLat();
+}
+
+export function binarySearchFast(arr: number[] | TypedArray, x: number) {
+    let start = 0,
+        end = arr.length - 1;
+    while (start &lt;= end) {
+        let k = Math.floor((start + end) * 0.5);
+        if (Math.abs(arr[k] - x) &lt; 1e-3) {
+            return k;
+        } else if (arr[k] &lt; x) {
+            start = k + 1;
+        } else {
+            end = k - 1;
+        }
+    }
+    return -1;
+}
+
+/**
+ * Finds an item in a sorted array.
+ * @param {any[]} ar The sorted array to search.
+ * @param {any} el The item to find in the array.
+ * @param {Function} compare_fn comparator The function to use to compare the item to
+ *        elements in the array.
+ * @returns {number} a negative number  if 'a' is less than 'b'; 0 if 'a' is equal to 'b'; 'a' positive number of 'a' is greater than 'b'.
+ *
+ * @example
+ * // Create a comparator function to search through an array of numbers.
+ * function comparator(a, b) {
+ *     return a - b;
+ * };
+ * var numbers = [0, 2, 4, 6, 8];
+ * var index = og.utils.binarySearch(numbers, 6, comparator); // 3
+ */
+export function binarySearch(ar: any[], el: any, compare_fn: Function): number {
+    let m = 0;
+    let n = ar.length - 1;
+    while (m &lt;= n) {
+        let k = (n + m) >> 1;
+        let cmp = compare_fn(el, ar[k], k);
+        if (cmp > 0) {
+            m = k + 1;
+        } else if (cmp &lt; 0) {
+            n = k - 1;
+        } else {
+            return k;
+        }
+    }
+    return -m - 1;
+}
+
+/**
+ * @todo: replace any with generic
+ * Binary insertion that uses binarySearch algorithm.
+ * @param {any[]} ar - The sorted array to insert.
+ * @param {any} el - The item to insert.
+ * @param {Function} compare_fn - comparator The function to use to compare the item to
+ *        elements in the array.
+ * @returns {number} Array index position in which item inserted in.
+ */
+export function binaryInsert(ar: any[], el: any, compare_fn: Function): number {
+    let i = binarySearch(ar, el, compare_fn);
+    if (i &lt; 0) {
+        i = ~i;
+    }
+    ar.splice(i, 0, el);
+    return i;
+}
+
+/**
+ * Returns two segment lines intersection coordinate.
+ * @static
+ * @param {Vec2} start1 - First line first coordinate.
+ * @param {Vec2} end1 - First line second coordinate.
+ * @param {Vec2} start2 - Second line first coordinate.
+ * @param {Vec2} end2 - Second line second coordinate.
+ * @param {boolean} [isSegment] - Lines are segments.
+ * @return {Vec2} - Intersection coordinate.
+ */
+export function getLinesIntersection2v(
+    start1: Vec2,
+    end1: Vec2,
+    start2: Vec2,
+    end2: Vec2,
+    isSegment: boolean
+): Vec2 | undefined {
+    let dir1 = end1.sub(start1);
+    let dir2 = end2.sub(start2);
+
+    let a1 = -dir1.y;
+    let b1 = +dir1.x;
+    let d1 = -(a1 * start1.x + b1 * start1.y);
+
+    let a2 = -dir2.y;
+    let b2 = +dir2.x;
+    let d2 = -(a2 * start2.x + b2 * start2.y);
+
+    let seg1_line2_start = a2 * start1.x + b2 * start1.y + d2;
+    let seg1_line2_end = a2 * end1.x + b2 * end1.y + d2;
+
+    let seg2_line1_start = a1 * start2.x + b1 * start2.y + d1;
+    let seg2_line1_end = a1 * end2.x + b1 * end2.y + d1;
+
+    if (isSegment &amp;&amp; (seg1_line2_start * seg1_line2_end > 0 || seg2_line1_start * seg2_line1_end > 0)) {
+        return undefined;
+    }
+
+    let u = seg1_line2_start / (seg1_line2_start - seg1_line2_end);
+
+    return new Vec2(start1.x + u * dir1.x, start1.y + u * dir1.y);
+}
+
+/**
+ * Returns two segment lines intersection coordinate.
+ * @static
+ * @param {Vec2} start1 - First line first coordinate.
+ * @param {Vec2} end1 - First line second coordinate.
+ * @param {Vec2} start2 - Second line first coordinate.
+ * @param {Vec2} end2 - Second line second coordinate.
+ * @param {boolean} [isSegment=false] - Lines are segments.
+ * @return {Vec2} - Intersection coordinate.
+ */
+export function getLinesIntersectionLonLat(
+    start1: LonLat,
+    end1: LonLat,
+    start2: LonLat,
+    end2: LonLat,
+    isSegment: boolean = false
+): LonLat | undefined {
+    let dir1 = new LonLat(end1.lon - start1.lon, end1.lat - start1.lat);
+    let dir2 = new LonLat(end2.lon - start2.lon, end2.lat - start2.lat);
+
+    let a1 = -dir1.lat;
+    let b1 = +dir1.lon;
+    let d1 = -(a1 * start1.lon + b1 * start1.lat);
+
+    let a2 = -dir2.lat;
+    let b2 = +dir2.lon;
+    let d2 = -(a2 * start2.lon + b2 * start2.lat);
+
+    let seg1_line2_start = a2 * start1.lon + b2 * start1.lat + d2;
+    let seg1_line2_end = a2 * end1.lon + b2 * end1.lat + d2;
+
+    let seg2_line1_start = a1 * start2.lon + b1 * start2.lat + d1;
+    let seg2_line1_end = a1 * end2.lon + b1 * end2.lat + d1;
+
+    if (isSegment &amp;&amp; (seg1_line2_start * seg1_line2_end > 0 || seg2_line1_start * seg2_line1_end > 0)) {
+        return undefined;
+    }
+
+    let u = seg1_line2_start / (seg1_line2_start - seg1_line2_end);
+
+    return new LonLat(start1.lon + u * dir1.lon, start1.lat + u * dir1.lat);
+}
+
+/**
+ * Converts XML to JSON
+ * @static
+ * @param {Object} xml - Xml object
+ * @return {Object} - Json converted object.
+ */
+export function xmlToJson(xml: any): any {
+    // Create the return object
+    let obj: any = {};
+
+    if (xml.nodeType === 1) {
+        // element
+        // do attributes
+        if (xml.attributes.length > 0) {
+            obj[&quot;@attributes&quot;] = {};
+            for (let j = 0; j &lt; xml.attributes.length; j++) {
+                let attribute = xml.attributes.item(j);
+                obj[&quot;@attributes&quot;][attribute.nodeName] = attribute.nodeValue;
+            }
+        }
+    } else if (xml.nodeType === 3) {
+        // text
+        obj = xml.nodeValue;
+    }
+
+    // do children
+    if (xml.hasChildNodes()) {
+        for (let i = 0; i &lt; xml.childNodes.length; i++) {
+            let item = xml.childNodes.item(i);
+            let nodeName = item.nodeName;
+            if (typeof obj[nodeName] === &quot;undefined&quot;) {
+                obj[nodeName] = xmlToJson(item);
+            } else {
+                if (typeof obj[nodeName].push === &quot;undefined&quot;) {
+                    let old = obj[nodeName];
+                    obj[nodeName] = [];
+                    obj[nodeName].push(old);
+                }
+                obj[nodeName].push(xmlToJson(item));
+            }
+        }
+    }
+    return obj;
+}
+
+export const castType = {
+    string: function (v: any) {
+        return isEmpty(v) ? v : v.toString();
+    },
+
+    date: function (v: any) {
+        return isEmpty(v) ? v : new Date(v * 1000);
+    },
+
+    datetime: function (v: any) {
+        return isEmpty(v) ? v : new Date(v * 1000);
+    },
+
+    time: function (v: any) {
+        return isEmpty(v) ? v : parseInt(v);
+    },
+
+    integer: function (v: any) {
+        return isEmpty(v) ? v : parseInt(v);
+    },
+
+    float: function (v: any) {
+        return isEmpty(v) ? v : parseFloat(v);
+    },
+
+    boolean: function (str: any) {
+        if (str === null) {
+            return str;
+        }
+
+        if (typeof str === &quot;boolean&quot;) {
+            if (str) {
+                return true;
+            }
+            return false;
+        }
+        if (typeof str === &quot;string&quot;) {
+            if (str === &quot;&quot;) {
+                return false;
+            }
+            str = str.replace(/^\s+|\s+$/g, &quot;&quot;);
+            if (str.toLowerCase() === &quot;true&quot; || str.toLowerCase() === &quot;yes&quot;) {
+                return true;
+            }
+            str = str.replace(/,/g, &quot;.&quot;);
+            str = str.replace(/^\s*\-\s*/g, &quot;-&quot;);
+        }
+        if (!isNaN(str)) {
+            return parseFloat(str) !== 0;
+        }
+        return false;
+    }
+};
+
+export function base64toBlob(base64Data: string, contentType: string = &quot;&quot;): Blob {
+    let sliceSize = 1024;
+    let byteCharacters = atob(base64Data);
+    let bytesLength = byteCharacters.length;
+    let slicesCount = Math.ceil(bytesLength / sliceSize);
+    let byteArrays = new Array(slicesCount);
+
+    for (let sliceIndex = 0; sliceIndex &lt; slicesCount; ++sliceIndex) {
+        let begin = sliceIndex * sliceSize;
+        let end = Math.min(begin + sliceSize, bytesLength);
+        let bytes = new Array(end - begin);
+
+        for (let offset = begin, i = 0; offset &lt; end; ++i, ++offset) {
+            bytes[i] = byteCharacters[offset].charCodeAt(0);
+        }
+
+        byteArrays[sliceIndex] = new Uint8Array(bytes);
+    }
+    return new Blob(byteArrays, { type: contentType });
+}
+
+export function base64StringToBlog(string: string): Blob {
+    let block = string.split(&quot;;&quot;);
+    let contentType = block[0].split(&quot;:&quot;)[1];
+    let data = block[1].split(&quot;,&quot;)[1];
+
+    return base64toBlob(data, contentType);
+}
+
+///**
+// *
+// * @param {LonLat} p
+// * @param {LonLat} v1
+// * @param {LonLat} v2
+// * @param {LonLat} v3
+// * @param {Array&lt;Number>} res
+// */
+//export function cartesianToBarycentricLonLat(p, v1, v2, v3, res) {
+
+//    const y2y3 = v2.lat - v3.lat,
+//        x3x2 = v3.lon - v2.lon,
+//        x1x3 = v1.lon - v3.lon,
+//        y1y3 = v1.lat - v3.lat,
+//        y3y1 = v3.lat - v1.lat,
+//        xx3 = p.lon - v3.lon,
+//        yy3 = p.lat - v3.lat;
+
+//    const d = y2y3 * x1x3 + x3x2 * y1y3,
+//        lambda1 = (y2y3 * xx3 + x3x2 * yy3) / d,
+//        lambda2 = (y3y1 * xx3 + x1x3 * yy3) / d;
+
+//    res[0] = lambda1;
+//    res[1] = lambda2;
+//    res[2] = 1 - lambda1 - lambda2;
+
+//    return 0 &lt;= res[0] &amp;&amp; res[0] &lt;= 1 &amp;&amp; 0 &lt;= lambda1 &amp;&amp; lambda1 &lt;= 1 &amp;&amp; 0 &lt;= lambda2 &amp;&amp; lambda2 &lt;= 1;
+//};
+
+/**
+ * Callback throttling
+ * @param {any} func
+ * @param {Number} limit
+ * @param {boolean} [skip]
+ */
+export function throttle(func: Function, limit: number, skip: boolean = false) {
+    let lastFunc: any;
+    let lastRan: number = 0;
+    return function () {
+        const args = arguments;
+        if (!lastRan) {
+            func.apply(null, args);
+            lastRan = Date.now();
+        } else {
+            if (skip) {
+                clearTimeout(lastFunc);
+            }
+            lastFunc = setTimeout(
+                () => {
+                    if (Date.now() - lastRan >= limit) {
+                        func.apply(null, args);
+                        lastRan = Date.now();
+                    }
+                },
+                limit - (Date.now() - lastRan)
+            );
+        }
+    };
+}
+
+/**
+ *
+ * y2-----Q12--------------Q22---
+ * |       |     |          |
+ * |       |     |          |
+ * y-------|-----P----------|----
+ * |       |     |          |
+ * |       |     |          |
+ * |       |     |          |
+ * |       |     |          |
+ * |       |     |          |
+ * y1-----Q11----|---------Q21---
+ *         |     |          |
+ *         |     |          |
+ *         x1    x          x2
+ *
+ *
+ * @param {Number} x -
+ * @param {Number} y -
+ * @param {Number} fQ11 -
+ * @param {Number} fQ21 -
+ * @param {Number} fQ12 -
+ * @param {Number} fQ22 -
+ * @param {Number} [x1=0.0] -
+ * @param {Number} [x2=1.0] -
+ * @param {Number} [y1=0.0] -
+ * @param {Number} [y2=1.0] -
+ */
+export function blerp(
+    x: number,
+    y: number,
+    fQ11: number,
+    fQ21: number,
+    fQ12: number,
+    fQ22: number,
+    x1: number = 0.0,
+    x2: number = 1.0,
+    y1: number = 0.0,
+    y2: number = 1.0
+): number {
+    return (
+        (fQ11 * (x2 - x) * (y2 - y) +
+            fQ21 * (x - x1) * (y2 - y) +
+            fQ12 * (x2 - x) * (y - y1) +
+            fQ22 * (x - x1) * (y - y1)) /
+        ((x2 - x1) * (y2 - y1))
+    );
+}
+
+export function blerp2(x: number, y: number, fQ11: number, fQ21: number, fQ12: number, fQ22: number): number {
+    return fQ11 * (1.0 - x) * (1.0 - y) + fQ21 * x * (1.0 - y) + fQ12 * (1.0 - x) * y + fQ22 * x * y;
+}
+
+export function extractElevationTiles(
+    rgbaData: number[] | TypedArray,
+    outCurrenElevations: number[] | TypedArray,
+    outChildrenElevations: number[][][] | TypedArray[][]
+) {
+    let destSize = Math.sqrt(outCurrenElevations.length) - 1;
+    let destSizeOne = destSize + 1;
+    let sourceSize = Math.sqrt(rgbaData.length / 4);
+    let dt = sourceSize / destSize;
+
+    let rightHeigh = 0,
+        bottomHeigh = 0;
+
+    for (let k = 0, currIndex = 0, sourceDataLength = rgbaData.length / 4; k &lt; sourceDataLength; k++) {
+        let height = rgbaData[k * 4];
+
+        let i = Math.floor(k / sourceSize),
+            j = k % sourceSize;
+
+        let tileX = Math.floor(j / destSize),
+            tileY = Math.floor(i / destSize);
+
+        let destArr = outChildrenElevations[tileY][tileX];
+
+        let ii = i % destSize,
+            jj = j % destSize;
+
+        let destIndex = (ii + tileY) * destSizeOne + jj + tileX;
+
+        destArr[destIndex] = height;
+
+        if ((i + tileY) % dt === 0 &amp;&amp; (j + tileX) % dt === 0) {
+            outCurrenElevations[currIndex++] = height;
+        }
+
+        if ((j + 1) % destSize === 0 &amp;&amp; j !== sourceSize - 1) {
+            //current tile
+            rightHeigh = rgbaData[(k + 1) * 4];
+            let middleHeight = (height + rightHeigh) * 0.5;
+            destIndex = (ii + tileY) * destSizeOne + jj + 1;
+            destArr[destIndex] = middleHeight;
+
+            if ((i + tileY) % dt === 0) {
+                outCurrenElevations[currIndex++] = middleHeight;
+            }
+
+            //next right tile
+            let rightindex = (ii + tileY) * destSizeOne + ((jj + 1) % destSize);
+            outChildrenElevations[tileY][tileX + 1][rightindex] = middleHeight;
+        }
+
+        if ((i + 1) % destSize === 0 &amp;&amp; i !== sourceSize - 1) {
+            //current tile
+            bottomHeigh = rgbaData[(k + sourceSize) * 4];
+            let middleHeight = (height + bottomHeigh) * 0.5;
+            destIndex = (ii + 1) * destSizeOne + jj + tileX;
+            destArr[destIndex] = middleHeight;
+
+            if ((j + tileX) % dt === 0) {
+                outCurrenElevations[currIndex++] = middleHeight;
+            }
+
+            //next bottom tile
+            let bottomindex = ((ii + 1) % destSize) * destSizeOne + jj + tileX;
+            outChildrenElevations[tileY + 1][tileX][bottomindex] = middleHeight;
+        }
+
+        if ((j + 1) % destSize === 0 &amp;&amp; j !== sourceSize - 1 &amp;&amp; (i + 1) % destSize === 0 &amp;&amp; i !== sourceSize - 1) {
+            //current tile
+            let rightBottomHeight = rgbaData[(k + sourceSize + 1) * 4];
+            let middleHeight = (height + rightHeigh + bottomHeigh + rightBottomHeight) * 0.25;
+            destIndex = (ii + 1) * destSizeOne + (jj + 1);
+            destArr[destIndex] = middleHeight;
+
+            outCurrenElevations[currIndex++] = middleHeight;
+
+            //next right tile
+            let rightindex = (ii + 1) * destSizeOne;
+            outChildrenElevations[tileY][tileX + 1][rightindex] = middleHeight;
+
+            //next bottom tile
+            let bottomindex = destSize;
+            outChildrenElevations[tileY + 1][tileX][bottomindex] = middleHeight;
+
+            //next right bottom tile
+            let rightBottomindex = 0;
+            outChildrenElevations[tileY + 1][tileX + 1][rightBottomindex] = middleHeight;
+        }
+    }
+}
+
+export type TypedArray =
+    | Int8Array
+    | Uint8Array
+    | Uint8ClampedArray
+    | Int16Array
+    | Uint16Array
+    | Int32Array
+    | Uint32Array
+    | Float32Array
+    | Float64Array;
+
+/**
+ * Concatenates two the same type arrays
+ * @param {TypedArray} a
+ * @param {TypedArray | number[]} b
+ */
+export function concatTypedArrays(a: TypedArray, b: TypedArray | number[]): TypedArray {
+    let c = new (a as any).constructor(a.length + b.length); //hacky
+    c.set(a, 0);
+    c.set(b, a.length);
+    return c;
+}
+
+export function insertTypedArray&lt;T extends TypedArray>(arr: T, starting: number, insert: T | number[]): T {
+    if (insert.length === 0) return arr;
+    if (starting &lt; 0) starting = 0;
+    if (starting > arr.length) starting = arr.length;
+
+    const out = new (arr as any).constructor(arr.length + insert.length) as T; //hacky
+    if (starting > 0) out.set(arr.subarray(0, starting), 0);
+    out.set(insert as any, starting);
+    if (starting &lt; arr.length) out.set(arr.subarray(starting), starting + insert.length);
+    return out;
+}
+
+/**
+ * Concatenates two the same  arrays
+ * @param {TypedArray | number[]} [a=[]] - First array
+ * @param {TypedArray | number[]} [b=[]] - Second array
+ * @return {TypedArray | number[]} -
+ */
+export function concatArrays(a: TypedArray | number[] = [], b: TypedArray | number[] = []): TypedArray | number[] {
+    if (ArrayBuffer.isView(a)) {
+        return concatTypedArrays(a as TypedArray, b as TypedArray);
+    } else {
+        for (let i = 0; i &lt; b.length; i++) {
+            a.push(b[i]);
+        }
+        return a;
+    }
+}
+
+/**
+ * Convert simple array to typed
+ * @param arr {number[]}
+ * @param ctor {Float32Array}
+ * @returns {TypedArray}
+ */
+export function makeArrayTyped(arr: TypedArray | number[], ctor: Function = Float32Array) {
+    if (!ArrayBuffer.isView(arr)) {
+        const typedArr = new (ctor as any)(arr.length); //hacky
+        typedArr.set(arr, 0);
+        return typedArr;
+    } else {
+        return arr;
+    }
+}
+
+/**
+ * Convert typed array to array
+ * @param arr {TypedArray | number[]}
+ * @returns {number[]}
+ */
+export function makeArray(arr: TypedArray | number[]): number[] {
+    if (ArrayBuffer.isView(arr)) {
+        return Array.from(arr);
+    } else {
+        return arr;
+    }
+}
+
+/**
+ *
+ * @param {TypedArray | Array} arr
+ * @param {Number} starting
+ * @param {Number} deleteCount
+ * @param {{ result: number[] }} [out]
+ */
+
+export function spliceArray(
+    arr: TypedArray | number[],
+    starting: number,
+    deleteCount: number,
+    out?:
+        | {
+              result: number[];
+          }
+        | { result: TypedArray }
+): TypedArray | number[] {
+    if (ArrayBuffer.isView(arr)) {
+        if (starting &lt; 0) {
+            deleteCount = Math.abs(starting);
+            starting += arr.length;
+        }
+        return spliceTypedArray(arr, starting, deleteCount, out as { result: TypedArray });
+    } else {
+        let res;
+        if (starting &lt; 0) {
+            res = arr.splice(starting);
+        } else {
+            res = arr.splice(starting, deleteCount);
+        }
+        if (out) {
+            out.result = res;
+        }
+        return arr;
+    }
+}
+
+/**
+ *
+ * @param {TypedArray} arr
+ * @param {Number} starting
+ * @param {Number} deleteCount
+ * @param {{ result: TypedArray }} [out]
+ */
+export function spliceTypedArray&lt;T extends TypedArray>(
+    arr: T,
+    starting: number,
+    deleteCount: number,
+    out?: {
+        result: T;
+    }
+): T {
+    if (arr.length === 0) {
+        return arr;
+    }
+    const newSize = arr.length - deleteCount;
+    const splicedArray = new (arr as any).constructor(newSize); //hacky
+    splicedArray.set(arr.subarray(0, starting));
+    splicedArray.set(arr.subarray(starting + deleteCount), starting);
+    if (out) {
+        out.result = arr.subarray(starting, starting + deleteCount) as T;
+    }
+    return splicedArray;
+}
+
+/**
+ * Returns 64-bit triangle coordinate array from inside of the source triangle array.
+ * @static
+ * @param {TypedArray | number[]} srcArr - Source array
+ * @param {number} gridSize - Source array square matrix size
+ * @param {number} i0 - First row index source array matrix
+ * @param {number} j0 - First column index
+ * @param {number} size - Square matrix result size.
+ * @return {Float64Array} Triangle coordinates array from the source array.
+ * @TODO: optimization
+ */
+export function getMatrixSubArray64(
+    srcArr: TypedArray | number[],
+    gridSize: number,
+    i0: number,
+    j0: number,
+    size: number
+): Float64Array {
+    const size_1 = size + 1;
+    const i0size = i0 + size_1;
+    const j0size = j0 + size_1;
+
+    let res = new Float64Array(size_1 * size_1 * 3);
+    let vInd = 0;
+
+    for (let i = i0; i &lt; i0size; i++) {
+        for (let j = j0; j &lt; j0size; j++) {
+            let ind = 3 * (i * (gridSize + 1) + j);
+
+            res[vInd++] = srcArr[ind];
+            res[vInd++] = srcArr[ind + 1];
+            res[vInd++] = srcArr[ind + 2];
+        }
+    }
+
+    return res;
+}
+
+/**
+ * Returns 32-bit triangle coordinate array from inside of the source triangle array.
+ * @static
+ * @param {TypedArray | number[]} sourceArr - Source array
+ * @param {number} gridSize - Source array square matrix size
+ * @param {number} i0 - First row index source array matrix
+ * @param {number} j0 - First column index
+ * @param {number} size - Square matrix result size.
+ * @return {Float32Array} Triangle coordinates array from the source array.
+ */
+export function getMatrixSubArray32(
+    sourceArr: TypedArray | number[],
+    gridSize: number,
+    i0: number,
+    j0: number,
+    size: number
+): Float32Array {
+    const size_1 = size + 1;
+    const i0size = i0 + size_1;
+    const j0size = j0 + size_1;
+
+    let res = new Float32Array(size_1 * size_1 * 3);
+    let vInd = 0;
+
+    for (let i = i0; i &lt; i0size; i++) {
+        for (let j = j0; j &lt; j0size; j++) {
+            let ind = 3 * (i * (gridSize + 1) + j);
+
+            res[vInd++] = sourceArr[ind];
+            res[vInd++] = sourceArr[ind + 1];
+            res[vInd++] = sourceArr[ind + 2];
+        }
+    }
+
+    return res;
+}
+
+/**
+ * Returns two float32 triangle coordinate arrays from inside of the source triangle array.
+ * @TODO: optimization
+ */
+export function getMatrixSubArrayBoundsExt(
+    srcArr: TypedArray | number[],
+    noDataVertices: TypedArray | number[] | undefined,
+    gridSize: number,
+    i0: number,
+    j0: number,
+    size: number,
+    srcRelativeCenter: Vec3,
+    dstRelativeCenter: Vec3,
+    outArr: TypedArray | number[],
+    outArrHigh: TypedArray | number[],
+    outArrLow: TypedArray | number[],
+    outBounds: any,
+    outNoDataVertices: TypedArray | number[]
+) {
+    const i0size = i0 + size + 1;
+    const j0size = j0 + size + 1;
+
+    gridSize += 1;
+
+    let vInd = 0,
+        nInd = 0;
+
+    let dstPos = new Vec3(),
+        dstPosHigh = new Vec3(),
+        dstPosLow = new Vec3();
+
+    for (let i = i0; i &lt; i0size; i++) {
+        for (let j = j0; j &lt; j0size; j++) {
+            let indBy3 = i * gridSize + j,
+                ind = 3 * indBy3;
+
+            // world coordinates
+            let x = srcArr[ind] + srcRelativeCenter.x,
+                y = srcArr[ind + 1] + srcRelativeCenter.y,
+                z = srcArr[ind + 2] + srcRelativeCenter.z;
+
+            if (!noDataVertices || noDataVertices[indBy3] === 0) {
+                if (x &lt; outBounds.xmin) outBounds.xmin = x;
+                if (x > outBounds.xmax) outBounds.xmax = x;
+                if (y &lt; outBounds.ymin) outBounds.ymin = y;
+                if (y > outBounds.ymax) outBounds.ymax = y;
+                if (z &lt; outBounds.zmin) outBounds.zmin = z;
+                if (z > outBounds.zmax) outBounds.zmax = z;
+            } else {
+                outNoDataVertices[nInd] = 1;
+            }
+
+            dstPos.set(x - dstRelativeCenter.x, y - dstRelativeCenter.y, z - dstRelativeCenter.z);
+            Vec3.doubleToTwoFloats(dstPos, dstPosHigh, dstPosLow);
+
+            nInd++;
+
+            outArr[vInd] = dstPos.x;
+            outArrLow[vInd] = dstPosLow.x;
+            outArrHigh[vInd++] = dstPosHigh.x;
+
+            outArr[vInd] = dstPos.y;
+            outArrLow[vInd] = dstPosLow.y;
+            outArrHigh[vInd++] = dstPosHigh.y;
+
+            outArr[vInd] = dstPos.z;
+            outArrLow[vInd] = dstPosLow.z;
+            outArrHigh[vInd++] = dstPosHigh.z;
+        }
+    }
+}
+
+export function cloneArray(items: any[]): any[] {
+    return items.map((item) => (Array.isArray(item) ? cloneArray(item) : item));
+}
+
+/**
+ * Promise for load images
+ * @function
+ * @param {string} url - link to image.
+ * @returns {Promise&lt;Image>} Returns promise.
+ */
+export async function loadImage(url: string): Promise&lt;HTMLImageElement> {
+    return new Promise&lt;HTMLImageElement>((resolve) => {
+        const image = new Image();
+        image.addEventListener(&quot;load&quot;, () => {
+            resolve(image);
+        });
+        image.src = url;
+        image.crossOrigin = &quot;&quot;;
+        return image;
+    });
+}
+
+const MAX_TEXTURE_SIZE = 2048;
+
+export async function ensureImageReady(image: HTMLImageElement): Promise&lt;boolean> {
+    if (typeof image.decode === &quot;function&quot;) {
+        try {
+            await image.decode();
+            return true;
+        } catch (e) {
+            // Fallback below for browsers/images where decode rejects.
+        }
+    }
+
+    if (image.complete &amp;&amp; image.naturalWidth > 0 &amp;&amp; image.naturalHeight > 0) {
+        return true;
+    }
+
+    if (!image.src) {
+        return false;
+    }
+
+    return new Promise&lt;boolean>((resolve) => {
+        const onLoad = () => {
+            cleanup();
+            resolve(true);
+        };
+        const onError = () => {
+            cleanup();
+            resolve(false);
+        };
+        const cleanup = () => {
+            image.removeEventListener(&quot;load&quot;, onLoad);
+            image.removeEventListener(&quot;error&quot;, onError);
+        };
+        image.addEventListener(&quot;load&quot;, onLoad, { once: true });
+        image.addEventListener(&quot;error&quot;, onError, { once: true });
+    });
+}
+
+export async function prepareTextureImage(
+    image: HTMLImageElement
+): Promise&lt;HTMLImageElement | HTMLCanvasElement | null> {
+    const isReady = await ensureImageReady(image);
+    if (!isReady) {
+        return null;
+    }
+
+    const imageWidth = image.naturalWidth || image.width;
+    const imageHeight = image.naturalHeight || image.height;
+
+    if (imageWidth &lt;= MAX_TEXTURE_SIZE &amp;&amp; imageHeight &lt;= MAX_TEXTURE_SIZE) {
+        return image;
+    }
+
+    const scale = Math.min(MAX_TEXTURE_SIZE / imageWidth, MAX_TEXTURE_SIZE / imageHeight);
+    const width = Math.max(1, Math.floor(imageWidth * scale));
+    const height = Math.max(1, Math.floor(imageHeight * scale));
+
+    const canvas = document.createElement(&quot;canvas&quot;);
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext(&quot;2d&quot;);
+    ctx!.drawImage(image, 0, 0, width, height);
+    setTextureResourceMeta(canvas, getTextureResourceMeta(image));
+    return canvas;
+}
+
+/**
+ * Gets image is loaded
+ * @param {HTMLImageElement} image
+ * @returns {boolean} Returns true is the image is loaded
+ */
+export function isImageLoaded(image: HTMLImageElement): boolean {
+    return image.complete &amp;&amp; image.naturalHeight !== 0;
+}
+
+export function distanceFormat(v: number): string {
+    if (v > 1000) {
+        return `${(v / 1000).toFixed(2)} km`;
+    } else if (v > 9) {
+        return `${Math.round(v)} m`;
+    } else {
+        return `${v.toFixed(1)} m`;
+    }
+}
+
+export function distanceFormatExt(v: number): [string, string] {
+    if (v > 1000) {
+        let d = v - Math.floor(v);
+        if (d !== 0) {
+            return [(v / 1000).toFixed(2), &quot;km&quot;];
+        }
+        return [(v / 1000).toFixed(0), &quot;km&quot;];
+    } else if (v > 9) {
+        return [Math.round(v).toString(), &quot;m&quot;];
+    } else {
+        if (v &lt;= 0.01) {
+            return [&quot;0&quot;, &quot;m&quot;];
+        }
+        return [v.toFixed(1), &quot;m&quot;];
+    }
+}
+
+export function getUrlParam(paramName: string): number | undefined {
+    let urlParams = new URLSearchParams(location.search);
+    let param = urlParams.get(paramName);
+    if (param) {
+        return Number(param);
+    }
+}
+
+/**
+ *
+ * @param x
+ * @param y
+ * @param z
+ * @param imageSize
+ * @param ellipsoid
+ *
+ * console.log(1, getTileImageResolution(0, 0, 1));
+ * console.log(7, getTileImageResolution(66, 44, 7));
+ * console.log(10, getTileImageResolution(536, 358, 10));
+ * console.log(12, getTileImageResolution(2149, 1446, 12));
+ * console.log(13, getTileImageResolution(4301, 2892, 13));
+ * console.log(14, getTileImageResolution(8582, 5736, 14));
+ * console.log(15, getTileImageResolution(17205, 11569, 15));
+ * console.log(16, getTileImageResolution(34419, 23138, 16));
+ * console.log(17, getTileImageResolution(68661, 45892, 17));
+ * console.log(18, getTileImageResolution(137650, 92555, 18));
+ */
+export function getTileImageResolution(x: number, y: number, z: number, imageSize = 256, ellipsoid: Ellipsoid = wgs84) {
+    let ext = mercator.getTileExtent(x, y, z);
+    let b0 = ext.getSouthWest().inverseMercator(),
+        b1 = ext.getNorthEast().inverseMercator();
+    let width = ellipsoid.getGreatCircleDistance(b0, new LonLat(b1.lon, b0.lat)),
+        height = ellipsoid.getGreatCircleDistance(b0, new LonLat(b0.lon, b1.lat));
+
+    return [width / imageSize, height / imageSize];
+}
+
+export function toFixedMax(value: number, maxFixed: number = -1): string {
+    if (maxFixed &lt; 0) {
+        return value.toString();
+    }
+    const factor = Math.pow(10, maxFixed);
+    return (Math.round(value * factor) / factor).toString();
+}
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>Documentation</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"utils/shared.ts"},"i1":{"basePath":"/","searchIndexUrl":"/_assets/search-index.ms1yt4d8-010773f2.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/utils/shared-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/utils/shared-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/_islands/theme-toggle-MFKEIGBZ.js","settings":"/_islands/settings-TVWSQT6I.js","code-viewer":"/_islands/code-viewer-S3DIZRC3.js","embed":"/_islands/embed-24QZS4CF.js","playground":"/_islands/playground-N5NFYMP6.js","tabs":"/_islands/tabs-NRSQKCSU.js","sidebar":"/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/_islands/mobile-nav-ZFIZP3CE.js","toc":"/_islands/toc-W36SMPYU.js","toc-mobile":"/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/_islands/cmdk-SWB64M4V.js","code-tabs":"/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/_islands/copy-btn-5O25GXTU.js","copy-page":"/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>

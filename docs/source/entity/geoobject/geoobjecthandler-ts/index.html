@@ -1,0 +1,1178 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>entity/geoObject/GeoObjectHandler.ts</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/_assets/styles.ms1yt4d8-010773f2.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">Documentation</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">entity/geoObject/GeoObjectHandler.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">import * as shaders from &quot;../../shaders/geo_object/geo_object&quot;;
+import { concatArrays, spliceArray } from &quot;../../utils/shared&quot;;
+import type { TypedArray } from &quot;../../utils/shared&quot;;
+import type { EntityCollection } from &quot;../EntityCollection&quot;;
+import { GeoObject } from &quot;./GeoObject&quot;;
+import { Vec3 } from &quot;../../math/Vec3&quot;;
+import { Vec4 } from &quot;../../math/Vec4&quot;;
+import { Quat } from &quot;../../math/Quat&quot;;
+import { Object3d } from &quot;../../Object3d&quot;;
+import { InstanceData } from &quot;./InstanceData&quot;;
+import type { Renderer } from &quot;../../renderer/Renderer&quot;;
+import type { Atmosphere } from &quot;../../control/atmosphere/Atmosphere&quot;;
+import type { Planet } from &quot;../../scene/Planet&quot;;
+import type { Scene } from &quot;../../scene/Scene&quot;;
+import type { Camera } from &quot;../../camera/Camera&quot;;
+import type { ShaderProgram } from &quot;../../webgl/ShaderProgram&quot;;
+import { srgbToLinear } from &quot;../../utils/colorSpace&quot;;
+
+export const VERTEX_BUFFER = 0;
+export const RTC_POSITION_BUFFER = 1;
+export const RGBA_BUFFER = 2;
+export const NORMALS_BUFFER = 3;
+export const INDEX_BUFFER = 4;
+export const QROT_BUFFER = 5;
+export const SIZE_BUFFER = 6;
+export const PICKINGCOLOR_BUFFER = 7;
+export const VISIBLE_BUFFER = 8;
+export const TEXCOORD_BUFFER = 9;
+export const TRANSLATE_BUFFER = 10;
+export const LOCALPOSITION_BUFFER = 11;
+
+const OPAQUE_ALPHA_THRESHOLD = 0.999999;
+
+function setParametersToArray(
+    arr: number[] | TypedArray,
+    index: number = 0,
+    length: number = 0,
+    itemSize: number = 1,
+    ...params: number[]
+): number[] | TypedArray {
+    const currIndex = index * length;
+    for (let i = currIndex, len = currIndex + length; i &lt; len; i++) {
+        arr[i] = params[i % itemSize];
+    }
+    return arr;
+}
+
+export class GeoObjectHandler {
+    static __counter__ = 0;
+
+    protected __id: number;
+
+    /**
+     * Picking rendering option.
+     * @public
+     * @type {boolean}
+     */
+    public pickingEnabled: boolean;
+
+    protected _entityCollection: EntityCollection;
+
+    public _scene: Scene | null;
+    public _renderer: Renderer | null;
+
+    protected _geoObjects: GeoObject[];
+
+    protected _instanceDataMap: Map&lt;string, InstanceData>;
+    protected _instanceDataMapValues: InstanceData[];
+    protected _dataTagUpdateQueue: InstanceData[];
+
+    protected _relativeCenter: Vec3;
+
+    protected _rtcEyePositionHigh: Float32Array;
+    protected _rtcEyePositionLow: Float32Array;
+
+    /**
+     * @param {EntityCollection} entityCollection - Parent entity collection.
+     */
+    constructor(entityCollection: EntityCollection) {
+        this.__id = GeoObjectHandler.__counter__++;
+
+        this.pickingEnabled = true;
+
+        this._entityCollection = entityCollection;
+
+        this._scene = null;
+        this._renderer = null;
+
+        this._geoObjects = [];
+
+        this._instanceDataMap = new Map&lt;string, InstanceData>();
+        this._instanceDataMapValues = [];
+
+        this._dataTagUpdateQueue = [];
+
+        this._relativeCenter = new Vec3();
+
+        this._rtcEyePositionHigh = new Float32Array([0, 0, 0]);
+        this._rtcEyePositionLow = new Float32Array([0, 0, 0]);
+    }
+
+    protected _isOpaqueAlpha(alpha: number): boolean {
+        return alpha >= OPAQUE_ALPHA_THRESHOLD;
+    }
+
+    protected _markPerInstanceBuffersChanged(tagData: InstanceData) {
+        tagData._changedBuffers[RTC_POSITION_BUFFER] = true;
+        tagData._changedBuffers[RGBA_BUFFER] = true;
+        tagData._changedBuffers[QROT_BUFFER] = true;
+        tagData._changedBuffers[SIZE_BUFFER] = true;
+        tagData._changedBuffers[PICKINGCOLOR_BUFFER] = true;
+        tagData._changedBuffers[VISIBLE_BUFFER] = true;
+        tagData._changedBuffers[TRANSLATE_BUFFER] = true;
+        tagData._changedBuffers[LOCALPOSITION_BUFFER] = true;
+    }
+
+    protected _swapArrayItems(arr: number[] | TypedArray, itemSize: number, firstIndex: number, secondIndex: number) {
+        if (firstIndex === secondIndex) {
+            return;
+        }
+
+        const firstOffset = firstIndex * itemSize;
+        const secondOffset = secondIndex * itemSize;
+
+        for (let i = 0; i &lt; itemSize; i++) {
+            const tmp = arr[firstOffset + i];
+            arr[firstOffset + i] = arr[secondOffset + i];
+            arr[secondOffset + i] = tmp;
+        }
+    }
+
+    protected _swapInstanceData(tagData: InstanceData, firstIndex: number, secondIndex: number) {
+        if (firstIndex === secondIndex) {
+            return;
+        }
+
+        this._swapArrayItems(tagData._visibleArr, 1, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._rtcPositionHighArr, 3, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._rtcPositionLowArr, 3, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._pickingColorArr, 3, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._qRotArr, 4, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._rgbaArr, 4, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._sizeArr, 3, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._translateArr, 3, firstIndex, secondIndex);
+        this._swapArrayItems(tagData._localPositionArr, 3, firstIndex, secondIndex);
+
+        const firstObject = tagData.geoObjects[firstIndex];
+        const secondObject = tagData.geoObjects[secondIndex];
+        tagData.geoObjects[firstIndex] = secondObject;
+        tagData.geoObjects[secondIndex] = firstObject;
+        firstObject._tagDataIndex = secondIndex;
+        secondObject._tagDataIndex = firstIndex;
+    }
+
+    protected _insertInstanceByOpacity(tagData: InstanceData, instanceIndex: number, isOpaque: boolean) {
+        if (!isOpaque) {
+            return;
+        }
+
+        const targetIndex = tagData._opaqueInstanceCount;
+        this._swapInstanceData(tagData, instanceIndex, targetIndex);
+        tagData._opaqueInstanceCount++;
+    }
+
+    protected _updateInstanceOpacityState(tagData: InstanceData, instanceIndex: number, isOpaque: boolean): boolean {
+        const wasOpaque = instanceIndex &lt; tagData._opaqueInstanceCount;
+        if (wasOpaque === isOpaque) {
+            return false;
+        }
+
+        if (isOpaque) {
+            const targetIndex = tagData._opaqueInstanceCount;
+            this._swapInstanceData(tagData, instanceIndex, targetIndex);
+            tagData._opaqueInstanceCount++;
+        } else {
+            tagData._opaqueInstanceCount--;
+            const targetIndex = tagData._opaqueInstanceCount;
+            this._swapInstanceData(tagData, instanceIndex, targetIndex);
+        }
+
+        return true;
+    }
+
+    public initProgram() {
+        if (this._renderer &amp;&amp; this._scene) {
+            let programs = [
+                shaders.geo_object_forward(),
+                shaders.geo_object_picking(),
+                shaders.geo_object_depth(),
+                shaders.geo_object_depth_camera()
+            ];
+            if (!this._renderer.deferredDisabled) {
+                programs.push(shaders.geo_object_deferred(), shaders.geo_object_woit());
+
+                const atmosphereControl = (this._scene as Planet).atmosphereControl;
+                if (atmosphereControl) {
+                    programs.push(shaders.geo_object_woit_atmos(atmosphereControl.parameters));
+                }
+            }
+            this._renderer.addPrograms(programs);
+        }
+    }
+
+    public bindScene(scene: Scene) {
+        this._scene = scene;
+
+        this._renderer = scene.renderer;
+
+        this.initProgram();
+
+        //
+        // in case of lazy initialization loading data here
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            this._instanceDataMapValues[i].loadColorTexture();
+            this._instanceDataMapValues[i].loadNormalTexture();
+            this._instanceDataMapValues[i].loadAmbientOcclusionTexture();
+            this._instanceDataMapValues[i].loadMetallicRoughnessTexture();
+        }
+
+        for (let i = 0; i &lt; this._geoObjects.length; i++) {
+            this._geoObjects[i].updateRotation();
+        }
+
+        this.update();
+    }
+
+    public setColorTextureTag(src: string | HTMLImageElement, tag: string) {
+        const tagData = this._instanceDataMap.get(tag);
+        if (tagData) {
+            if (typeof src === &quot;string&quot;) {
+                tagData._colorTextureSrc = src;
+                tagData._colorTextureImage = null;
+            }
+            if (src instanceof HTMLImageElement) {
+                tagData._colorTextureSrc = null;
+                tagData._colorTextureImage = src;
+            }
+            this._instanceDataMap.set(tag, tagData);
+            tagData.loadColorTexture();
+        }
+    }
+
+    public setNormalTextureTag(src: string | HTMLImageElement, tag: string) {
+        const tagData = this._instanceDataMap.get(tag);
+        if (tagData) {
+            if (typeof src === &quot;string&quot;) {
+                tagData._normalTextureSrc = src;
+                tagData._normalTextureImage = null;
+            }
+            if (src instanceof HTMLImageElement) {
+                tagData._normalTextureSrc = null;
+                tagData._normalTextureImage = src;
+            }
+            this._instanceDataMap.set(tag, tagData);
+            tagData.loadNormalTexture();
+        }
+    }
+
+    public setMetallicRoughnessTextureTag(src: string | HTMLImageElement, tag: string) {
+        const tagData = this._instanceDataMap.get(tag);
+        if (tagData) {
+            if (typeof src === &quot;string&quot;) {
+                tagData._metallicRoughnessTextureSrc = src;
+                tagData._metallicRoughnessTextureImage = null;
+            }
+            if (src instanceof HTMLImageElement) {
+                tagData._metallicRoughnessTextureSrc = null;
+                tagData._metallicRoughnessTextureImage = src;
+            }
+            this._instanceDataMap.set(tag, tagData);
+            tagData.loadMetallicRoughnessTexture();
+        }
+    }
+
+    public setAmbientOcclusionTextureTag(src: string | HTMLImageElement, tag: string) {
+        const tagData = this._instanceDataMap.get(tag);
+        if (tagData) {
+            if (typeof src === &quot;string&quot;) {
+                tagData._ambientOcclusionTextureSrc = src;
+                tagData._ambientOcclusionTextureImage = null;
+            }
+            if (src instanceof HTMLImageElement) {
+                tagData._ambientOcclusionTextureSrc = null;
+                tagData._ambientOcclusionTextureImage = src;
+            }
+            this._instanceDataMap.set(tag, tagData);
+            tagData.loadAmbientOcclusionTexture();
+        }
+    }
+
+    public setObjectSrc(src: string, tag: string) {
+        const tagData = this._instanceDataMap.get(tag);
+        if (src) {
+            if (tagData &amp;&amp; tagData._objectSrc !== src) {
+                tagData._objectSrc = src;
+
+                Object3d.loadObj(src).then((object3d) => {
+                    this._updateInstanceData(object3d[0], tag);
+                });
+            }
+        }
+    }
+
+    public _updateInstanceData(object: Object3d, tag: string) {
+        const tagData = this._instanceDataMap.get(tag);
+        if (tagData) {
+            if (object.vertices.length !== tagData._vertexArr.length) {
+                tagData._vertexArr = object.vertices;
+                tagData._changedBuffers[VERTEX_BUFFER] = true;
+            }
+            if (object.normals.length !== tagData._normalsArr.length) {
+                tagData._normalsArr = object.normals;
+                tagData._changedBuffers[NORMALS_BUFFER] = true;
+            }
+            if (object.indices.length !== tagData._indicesArr.length) {
+                tagData._indicesArr = object.indices;
+                tagData._changedBuffers[INDEX_BUFFER] = true;
+            }
+            if (object.texCoords.length !== tagData._texCoordArr.length) {
+                tagData._texCoordArr = object.texCoords;
+                tagData._changedBuffers[TEXCOORD_BUFFER] = true;
+            }
+
+            tagData._colorTextureSrc = object.colorTextureSrc;
+            tagData._normalTextureSrc = object.normalTextureSrc;
+            tagData._ambientOcclusionTextureSrc = object.ambientOcclusionTextureSrc;
+            tagData._metallicRoughnessTextureSrc = object.metallicRoughnessTextureSrc;
+            tagData._colorTextureImage = object.colorTextureImage;
+            tagData._normalTextureImage = object.normalTextureImage;
+            tagData._ambientOcclusionTextureImage = object.ambientOcclusionTextureImage;
+            tagData._metallicRoughnessTextureImage = object.metallicRoughnessTextureImage;
+
+            tagData.setMaterialProperties(object.ambientOcclusion, object.roughness, object.metallic);
+
+            tagData.loadColorTexture();
+            tagData.loadNormalTexture();
+            tagData.loadAmbientOcclusionTexture();
+            tagData.loadMetallicRoughnessTexture();
+
+            this._updateTag(tagData);
+            this._instanceDataMapValues = Array.from(this._instanceDataMap.values());
+        }
+    }
+
+    protected _addGeoObjectToArray(geoObject: GeoObject) {
+        const tag = geoObject.tag;
+
+        let tagData = this._instanceDataMap.get(tag);
+
+        if (!tagData) {
+            tagData = new InstanceData(this);
+            this._instanceDataMap.set(tag, tagData);
+            this._instanceDataMapValues = Array.from(this._instanceDataMap.values());
+
+            //
+            // Setting instanced data
+            tagData._vertexArr = geoObject.vertices;
+            tagData._normalsArr = geoObject.normals;
+            tagData._indicesArr = geoObject.indices;
+            tagData._texCoordArr = geoObject.texCoords;
+
+            tagData._colorTextureSrc = geoObject.object3d.colorTextureSrc;
+            tagData._normalTextureSrc = geoObject.object3d.normalTextureSrc;
+            tagData._ambientOcclusionTextureSrc = geoObject.object3d.ambientOcclusionTextureSrc;
+            tagData._metallicRoughnessTextureSrc = geoObject.object3d.metallicRoughnessTextureSrc;
+            tagData._colorTextureImage = geoObject.object3d.colorTextureImage;
+            tagData._normalTextureImage = geoObject.object3d.normalTextureImage;
+            tagData._ambientOcclusionTextureImage = geoObject.object3d.ambientOcclusionTextureImage;
+            tagData._metallicRoughnessTextureImage = geoObject.object3d.metallicRoughnessTextureImage;
+
+            tagData.setMaterialProperties(
+                geoObject.object3d.ambientOcclusion,
+                geoObject.object3d.roughness,
+                geoObject.object3d.metallic
+            );
+
+            tagData.loadColorTexture();
+            tagData.loadNormalTexture();
+            tagData.loadAmbientOcclusionTexture();
+            tagData.loadMetallicRoughnessTexture();
+        }
+
+        geoObject._tagDataIndex = tagData.numInstances++;
+        geoObject._tagData = tagData;
+        tagData.geoObjects.push(geoObject);
+
+        let itemSize = 3;
+
+        tagData._visibleArr = concatArrays(
+            tagData._visibleArr,
+            setParametersToArray([], 0, 1, 1, geoObject.getVisibility() ? 1 : 0)
+        );
+
+        //
+        // Global coordinates
+        this.getRTCPosition(geoObject.getPosition(), geoObject._rtcPositionHigh, geoObject._rtcPositionLow);
+
+        let x = geoObject._rtcPositionHigh.x,
+            y = geoObject._rtcPositionHigh.y,
+            z = geoObject._rtcPositionHigh.z,
+            w;
+
+        tagData._rtcPositionHighArr = concatArrays(
+            tagData._rtcPositionHighArr,
+            setParametersToArray([], 0, itemSize, itemSize, x, y, z)
+        );
+
+        x = geoObject._rtcPositionLow.x;
+        y = geoObject._rtcPositionLow.y;
+        z = geoObject._rtcPositionLow.z;
+        tagData._rtcPositionLowArr = concatArrays(
+            tagData._rtcPositionLowArr,
+            setParametersToArray([], 0, itemSize, itemSize, x, y, z)
+        );
+
+        x = geoObject._entity!._pickingColor.x / 255;
+        y = geoObject._entity!._pickingColor.y / 255;
+        z = geoObject._entity!._pickingColor.z / 255;
+        tagData._pickingColorArr = concatArrays(
+            tagData._pickingColorArr,
+            setParametersToArray([], 0, itemSize, itemSize, x, y, z)
+        );
+
+        itemSize = 4;
+
+        x = geoObject._qRot.x;
+        y = geoObject._qRot.y;
+        z = geoObject._qRot.z;
+        w = geoObject._qRot.w;
+        tagData._qRotArr = concatArrays(tagData._qRotArr, setParametersToArray([], 0, itemSize, itemSize, x, y, z, w));
+
+        x = srgbToLinear(geoObject._color.x);
+        y = srgbToLinear(geoObject._color.y);
+        z = srgbToLinear(geoObject._color.z);
+        w = geoObject._color.w;
+        tagData._rgbaArr = concatArrays(tagData._rgbaArr, setParametersToArray([], 0, itemSize, itemSize, x, y, z, w));
+
+        itemSize = 3;
+        let scale = geoObject.getScale();
+        x = scale.x;
+        y = scale.y;
+        z = scale.z;
+        tagData._sizeArr = concatArrays(tagData._sizeArr, setParametersToArray([], 0, itemSize, itemSize, x, y, z));
+
+        let translate = geoObject.getTranslate();
+        x = translate.x;
+        y = translate.y;
+        z = translate.z;
+        tagData._translateArr = concatArrays(
+            tagData._translateArr,
+            setParametersToArray([], 0, itemSize, itemSize, x, y, z)
+        );
+
+        let localPosition = geoObject.getLocalPosition();
+        x = localPosition.x;
+        y = localPosition.y;
+        z = localPosition.z;
+        tagData._localPositionArr = concatArrays(
+            tagData._localPositionArr,
+            setParametersToArray([], 0, itemSize, itemSize, x, y, z)
+        );
+
+        this._insertInstanceByOpacity(tagData, geoObject._tagDataIndex, this._isOpaqueAlpha(geoObject._color.w));
+    }
+
+    //
+    // Could be in VAO
+    //
+    protected _bindCommon(p: ShaderProgram) {
+        let r = this._renderer!,
+            u = p.uniforms,
+            gl = r.handler.gl!,
+            ec = this._entityCollection;
+
+        gl.uniform4f(
+            u.uScaleByDistance,
+            ec.scaleByDistance[0],
+            ec.scaleByDistance[1],
+            ec.scaleByDistance[2],
+            r.activeCamera.isOrthographic ? r.activeCamera.focusDistance : 0.0
+        );
+        gl.uniform1f(u.shadeMode, ec._shadeMode);
+        gl.uniform1f(u.uProjectorMask, ec.receiveProjectors ? 1.0 : 0.0);
+
+        gl.uniform3fv(u.rtcEyePositionHigh, this._rtcEyePositionHigh);
+        gl.uniform3fv(u.rtcEyePositionLow, this._rtcEyePositionLow);
+
+        gl.uniform3fv(u.eyePositionHigh, r.activeCamera.eyeHigh);
+        gl.uniform3fv(u.eyePositionLow, r.activeCamera.eyeLow);
+
+        gl.uniformMatrix4fv(u.projectionMatrix, false, r.activeCamera.getProjectionMatrix());
+        gl.uniformMatrix4fv(u.viewMatrix, false, r.activeCamera.getViewMatrix());
+        gl.uniformMatrix3fv(u.normalMatrix, false, r.activeCamera.getNormalMatrix());
+    }
+
+    protected _bindForwardParams(p: ShaderProgram) {
+        let r = this._renderer!,
+            u = p.uniforms,
+            gl = r.handler.gl!;
+
+        //
+        // Global sun position
+        gl.uniform3fv(u.lightPosition, r._lightPosition);
+        gl.uniform3fv(u.lightAmbient, r._lightAmbient);
+        gl.uniform3fv(u.lightDiffuse, r._lightDiffuse);
+        gl.uniform4fv(u.lightSpecular, r._lightSpecular);
+    }
+
+    protected _bindAtmosphereParams(p: ShaderProgram) {
+        let r = this._renderer!,
+            gl = r.handler.gl!,
+            u = p.uniforms,
+            atmosphere = r.controls.Atmosphere as Atmosphere,
+            planet = this._scene as Planet;
+
+        // Texture units 0..3 are rebound to GeoObject material textures before every draw.
+        gl.activeTexture(gl.TEXTURE4);
+        gl.bindTexture(gl.TEXTURE_2D, atmosphere._transmittanceBuffer!.textures[0]);
+        gl.uniform1i(u.transmittanceTexture, 4);
+
+        gl.activeTexture(gl.TEXTURE5);
+        gl.bindTexture(gl.TEXTURE_2D, atmosphere._scatteringBuffer!.textures[0]);
+        gl.uniform1i(u.scatteringTexture, 5);
+        gl.uniform2fv(u.atmosFadeDist, planet.atmosphereFadeDist);
+        gl.uniform3fv(u.atmosMaxMinOpacity, planet._atmosphereCurrentMaxMinOpacity);
+        gl.uniform3fv(u.cameraForward, r.activeCamera.getForward().toArray());
+        gl.uniform1f(u.isOrthographic, r.activeCamera.isOrthographic ? 1.0 : 0.0);
+
+        gl.activeTexture(gl.TEXTURE0);
+    }
+
+    public _displayOpaquePASS() {
+        let r = this._renderer!,
+            sh = r.handler.programs.geo_object_deferred,
+            p = sh,
+            gl = r.handler.gl!,
+            disableCull = this._entityCollection.disableCullFace;
+
+        sh.activate();
+
+        this._bindCommon(p);
+
+        if (disableCull) gl.disable(gl.CULL_FACE);
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            this._instanceDataMapValues[i].drawOpaque(p);
+        }
+
+        if (disableCull) gl.enable(gl.CULL_FACE);
+    }
+
+    public _displayTransparentPASS() {
+        let r = this._renderer!,
+            rn = this._scene,
+            //@ts-ignore
+            useAtmos = rn.atmosphereEnabled,
+            sh = useAtmos ? r.handler.programs.geo_object_woit_atmos : r.handler.programs.geo_object_woit,
+            p = sh,
+            gl = r.handler.gl!,
+            disableCull = this._entityCollection.disableCullFace;
+
+        sh.activate();
+
+        gl.uniform1f(p.uniforms.useReverseDepth, r.activeCamera.reverseDepthActive ? 1.0 : 0.0);
+
+        if (disableCull) gl.disable(gl.CULL_FACE);
+
+        this._bindCommon(p);
+        this._bindForwardParams(p);
+        if (useAtmos) {
+            this._bindAtmosphereParams(p);
+        }
+        r.projectors.bindForward(p);
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            this._instanceDataMapValues[i].drawTransparent(p);
+        }
+
+        if (disableCull) gl.enable(gl.CULL_FACE);
+    }
+
+    public _displayTransparentForwardPASS() {
+        let r = this._renderer!,
+            sh = r.handler.programs.geo_object_forward,
+            p = sh;
+
+        sh.activate();
+
+        this._bindCommon(p);
+        this._bindForwardParams(p);
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            this._instanceDataMapValues[i].drawTransparent(p);
+        }
+    }
+
+    public _displayForwardPASS() {
+        let r = this._renderer!,
+            sh = r.handler.programs.geo_object_forward,
+            p = sh;
+
+        sh.activate();
+
+        this._bindCommon(p);
+        this._bindForwardParams(p);
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            this._instanceDataMapValues[i].drawForwardAll(p);
+        }
+    }
+
+    protected _depthPASS() {
+        let r = this._renderer!,
+            sh = r.handler.programs.geo_object_depth,
+            p = sh,
+            u = p.uniforms,
+            a = p.attributes,
+            gl = r.handler.gl!,
+            ec = this._entityCollection;
+
+        let cam = r.activeCamera!;
+
+        sh.activate();
+
+        gl.uniform4f(
+            u.uScaleByDistance,
+            ec.scaleByDistance[0],
+            ec.scaleByDistance[1],
+            ec.scaleByDistance[2],
+            cam.isOrthographic ? cam.focusDistance : 0.0
+        );
+
+        gl.uniform3fv(u.rtcEyePositionHigh, this._rtcEyePositionHigh);
+        gl.uniform3fv(u.rtcEyePositionLow, this._rtcEyePositionLow);
+
+        gl.uniformMatrix4fv(u.projectionMatrix, false, r.activeCamera!.getProjectionMatrix());
+        gl.uniformMatrix4fv(u.viewMatrix, false, r.activeCamera!.getViewMatrix());
+
+        gl.uniform1f(u.frustumPickingColor, cam.frustumColorIndex);
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            let tagData = this._instanceDataMapValues[i];
+
+            //
+            // Instance individual data
+            //
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._qRotBuffer!);
+            gl.vertexAttribPointer(a.qRot, tagData._qRotBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._sizeBuffer!);
+            gl.vertexAttribPointer(a.aScale, tagData._sizeBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._translateBuffer!);
+            gl.vertexAttribPointer(a.aTranslate, tagData._translateBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._localPositionBuffer!);
+            gl.vertexAttribPointer(a.aLocalPosition, tagData._localPositionBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._rtcPositionHighBuffer!);
+            gl.vertexAttribPointer(a.aRTCPositionHigh, tagData._rtcPositionHighBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._rtcPositionLowBuffer!);
+            gl.vertexAttribPointer(a.aRTCPositionLow, tagData._rtcPositionLowBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._visibleBuffer!);
+            gl.vertexAttribPointer(a.aDispose, tagData._visibleBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            //
+            // Instance common data(could be in VAO)
+            //
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._vertexBuffer!);
+            gl.vertexAttribPointer(a.aVertexPosition, tagData._vertexBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, tagData._indicesBuffer!);
+            p.drawElementsInstanced!(
+                gl.TRIANGLES,
+                tagData._indicesBuffer!.numItems,
+                gl.UNSIGNED_INT,
+                0,
+                tagData.numInstances
+            );
+        }
+    }
+
+    public drawDepth() {
+        if (this._geoObjects.length &amp;&amp; this.pickingEnabled) {
+            this._depthPASS();
+        }
+    }
+
+    protected _depthCameraPASS(camera: Camera) {
+        let r = this._renderer!,
+            sh = r.handler.programs.geo_object_depth_camera,
+            p = sh,
+            u = p.uniforms,
+            a = p.attributes,
+            gl = r.handler.gl!,
+            ec = this._entityCollection;
+
+        const rtcEyePosition = camera.eye.sub(this._relativeCenter);
+        Vec3.doubleToTwoFloat32Array(rtcEyePosition, this._rtcEyePositionHigh, this._rtcEyePositionLow);
+
+        this.update();
+
+        sh.activate();
+
+        gl.uniform4f(
+            u.uScaleByDistance,
+            ec.scaleByDistance[0],
+            ec.scaleByDistance[1],
+            ec.scaleByDistance[2],
+            camera.isOrthographic ? camera.focusDistance : 0.0
+        );
+
+        gl.uniform3fv(u.rtcEyePositionHigh, this._rtcEyePositionHigh);
+        gl.uniform3fv(u.rtcEyePositionLow, this._rtcEyePositionLow);
+
+        gl.uniformMatrix4fv(u.projectionMatrix, false, camera.getProjectionMatrix());
+        gl.uniformMatrix4fv(u.viewMatrix, false, camera.getViewMatrix());
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            let tagData = this._instanceDataMapValues[i];
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._qRotBuffer!);
+            gl.vertexAttribPointer(a.qRot, tagData._qRotBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._sizeBuffer!);
+            gl.vertexAttribPointer(a.aScale, tagData._sizeBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._translateBuffer!);
+            gl.vertexAttribPointer(a.aTranslate, tagData._translateBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._localPositionBuffer!);
+            gl.vertexAttribPointer(a.aLocalPosition, tagData._localPositionBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._rtcPositionHighBuffer!);
+            gl.vertexAttribPointer(a.aRTCPositionHigh, tagData._rtcPositionHighBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._rtcPositionLowBuffer!);
+            gl.vertexAttribPointer(a.aRTCPositionLow, tagData._rtcPositionLowBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._visibleBuffer!);
+            gl.vertexAttribPointer(a.aDispose, tagData._visibleBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._vertexBuffer!);
+            gl.vertexAttribPointer(a.aVertexPosition, tagData._vertexBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, tagData._indicesBuffer!);
+            p.drawElementsInstanced!(
+                gl.TRIANGLES,
+                tagData._indicesBuffer!.numItems,
+                gl.UNSIGNED_INT,
+                0,
+                tagData.numInstances
+            );
+        }
+    }
+
+    public drawDepthCameraPass(camera: Camera) {
+        if (this._geoObjects.length &amp;&amp; this._entityCollection.receiveProjectors) {
+            this._depthCameraPASS(camera);
+        }
+    }
+
+    public drawPicking() {
+        if (this._geoObjects.length &amp;&amp; this.pickingEnabled) {
+            this._pickingPASS();
+        }
+    }
+
+    protected _pickingPASS() {
+        let r = this._renderer!,
+            sh = r.handler.programs.geo_object_picking,
+            p = sh,
+            u = p.uniforms,
+            a = p.attributes,
+            gl = r.handler.gl!,
+            ec = this._entityCollection;
+
+        sh.activate();
+
+        gl.uniform4f(
+            u.uScaleByDistance,
+            ec.scaleByDistance[0],
+            ec.scaleByDistance[1],
+            ec.scaleByDistance[2],
+            r.activeCamera.isOrthographic ? r.activeCamera.focusDistance : 0.0
+        );
+        gl.uniform3fv(u.pickingScale, ec.pickingScale);
+
+        gl.uniform3fv(u.rtcEyePositionHigh, this._rtcEyePositionHigh);
+        gl.uniform3fv(u.rtcEyePositionLow, this._rtcEyePositionLow);
+
+        gl.uniformMatrix4fv(u.projectionMatrix, false, r.activeCamera.getProjectionMatrix());
+        gl.uniformMatrix4fv(u.viewMatrix, false, r.activeCamera.getViewMatrix());
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            let tagData = this._instanceDataMapValues[i];
+
+            //
+            // Instance individual data
+            //
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._qRotBuffer!);
+            gl.vertexAttribPointer(a.qRot, tagData._qRotBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._sizeBuffer!);
+            gl.vertexAttribPointer(a.aScale, tagData._sizeBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._translateBuffer!);
+            gl.vertexAttribPointer(a.aTranslate, tagData._translateBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._localPositionBuffer!);
+            gl.vertexAttribPointer(a.aLocalPosition, tagData._localPositionBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._pickingColorBuffer!);
+            gl.vertexAttribPointer(a.aPickingColor, tagData._pickingColorBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._rtcPositionHighBuffer!);
+            gl.vertexAttribPointer(a.aRTCPositionHigh, tagData._rtcPositionHighBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._rtcPositionLowBuffer!);
+            gl.vertexAttribPointer(a.aRTCPositionLow, tagData._rtcPositionLowBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._visibleBuffer!);
+            gl.vertexAttribPointer(a.aDispose, tagData._visibleBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            //
+            // Instance common data(could be in VAO)
+            //
+            gl.bindBuffer(gl.ARRAY_BUFFER, tagData._vertexBuffer!);
+            gl.vertexAttribPointer(a.aVertexPosition, tagData._vertexBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, tagData._indicesBuffer!);
+            p.drawElementsInstanced!(
+                gl.TRIANGLES,
+                tagData._indicesBuffer!.numItems,
+                gl.UNSIGNED_INT,
+                0,
+                tagData.numInstances
+            );
+        }
+    }
+
+    public setQRotArr(tagData: InstanceData, tagDataIndex: number, qRot: Quat) {
+        setParametersToArray(tagData._qRotArr, tagDataIndex, 4, 4, qRot.x, qRot.y, qRot.z, qRot.w);
+        tagData._changedBuffers[QROT_BUFFER] = true;
+        this._updateTag(tagData);
+    }
+
+    public setVisibility(tagData: InstanceData, tagDataIndex: number, visibility: boolean) {
+        setParametersToArray(tagData._visibleArr, tagDataIndex, 1, 1, visibility ? 1 : 0);
+        tagData._changedBuffers[VISIBLE_BUFFER] = true;
+        this._updateTag(tagData);
+    }
+
+    public setRTCPositionArr(tagData: InstanceData, tagDataIndex: number, rtcPositionHigh: Vec3, rtcPositionLow: Vec3) {
+        setParametersToArray(
+            tagData._rtcPositionHighArr,
+            tagDataIndex,
+            3,
+            3,
+            rtcPositionHigh.x,
+            rtcPositionHigh.y,
+            rtcPositionHigh.z
+        );
+        setParametersToArray(
+            tagData._rtcPositionLowArr,
+            tagDataIndex,
+            3,
+            3,
+            rtcPositionLow.x,
+            rtcPositionLow.y,
+            rtcPositionLow.z
+        );
+        tagData._changedBuffers[RTC_POSITION_BUFFER] = true;
+        this._updateTag(tagData);
+    }
+
+    public setRgbaArr(tagData: InstanceData, tagDataIndex: number, rgba: Vec4) {
+        setParametersToArray(
+            tagData._rgbaArr,
+            tagDataIndex,
+            4,
+            4,
+            srgbToLinear(rgba.x),
+            srgbToLinear(rgba.y),
+            srgbToLinear(rgba.z),
+            rgba.w
+        );
+        const opacityChanged = this._updateInstanceOpacityState(tagData, tagDataIndex, this._isOpaqueAlpha(rgba.w));
+        if (opacityChanged) {
+            this._markPerInstanceBuffersChanged(tagData);
+        } else {
+            tagData._changedBuffers[RGBA_BUFFER] = true;
+        }
+        this._updateTag(tagData);
+    }
+
+    public setPickingColorArr(tagData: InstanceData, tagDataIndex: number, color: Vec3) {
+        setParametersToArray(tagData._pickingColorArr, tagDataIndex, 3, 3, color.x / 255, color.y / 255, color.z / 255);
+        tagData._changedBuffers[PICKINGCOLOR_BUFFER] = true;
+        this._updateTag(tagData);
+    }
+
+    // setTexCoordArr(tagData, tagDataIndex, tcoordArr) {
+    //     setParametersToArray(tagData._texCoordArr, tagDataIndex, 2, 2, ...tcoordArr);
+    //     tagData._changedBuffers[TEXCOORD_BUFFER] = true;
+    //     this._updateTag(tagData);
+    // }
+
+    public setScaleArr(tagData: InstanceData, tagDataIndex: number, scale: Vec3) {
+        setParametersToArray(tagData._sizeArr, tagDataIndex, 3, 3, scale.x, scale.y, scale.z);
+        tagData._changedBuffers[SIZE_BUFFER] = true;
+        this._updateTag(tagData);
+    }
+
+    public setTranslateArr(tagData: InstanceData, tagDataIndex: number, translate: Vec3) {
+        setParametersToArray(tagData._translateArr, tagDataIndex, 3, 3, translate.x, translate.y, translate.z);
+        tagData._changedBuffers[TRANSLATE_BUFFER] = true;
+        this._updateTag(tagData);
+    }
+
+    public setLocalPositionArr(tagData: InstanceData, tagDataIndex: number, localPosition: Vec3) {
+        setParametersToArray(
+            tagData._localPositionArr,
+            tagDataIndex,
+            3,
+            3,
+            localPosition.x,
+            localPosition.y,
+            localPosition.z
+        );
+        tagData._changedBuffers[LOCALPOSITION_BUFFER] = true;
+        this._updateTag(tagData);
+    }
+
+    protected _updateTag(dataTag: InstanceData) {
+        if (dataTag.isFree) {
+            dataTag.isFree = false;
+            this._dataTagUpdateQueue.push(dataTag);
+        }
+    }
+
+    public update() {
+        for (let i = 0, len = this._dataTagUpdateQueue.length; i &lt; len; i++) {
+            this._dataTagUpdateQueue[i].update();
+        }
+        this._dataTagUpdateQueue = [];
+    }
+
+    public _removeAll() {
+        let i = this._geoObjects.length;
+        while (i--) {
+            const gi = this._geoObjects[i];
+
+            gi._tagDataIndex = -1;
+            gi._tagData = null;
+
+            gi._handlerIndex = -1;
+            gi._handler = null;
+        }
+        this._geoObjects.length = 0;
+        this._geoObjects = [];
+
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            this._instanceDataMapValues[i].clear();
+        }
+
+        this._instanceDataMap.clear();
+        this._instanceDataMapValues = [];
+    }
+
+    public clear() {
+        this._removeAll();
+    }
+
+    public getRTCPosition(pos: Vec3, rtcPositionHigh: Vec3, rtcPositionLow: Vec3) {
+        let rtcPosition = pos.sub(this._relativeCenter);
+        Vec3.doubleToTwoFloats(rtcPosition, rtcPositionHigh, rtcPositionLow);
+    }
+
+    public setRelativeCenter(c: Vec3) {
+        this._relativeCenter.copy(c);
+        for (let i = 0; i &lt; this._instanceDataMapValues.length; i++) {
+            let instanceData = this._instanceDataMapValues[i];
+            let geoObjects = instanceData.geoObjects;
+            for (let j = 0; j &lt; geoObjects.length; j++) {
+                geoObjects[j].updateRTCPosition();
+            }
+        }
+    }
+
+    protected _updateRTCEyePosition() {
+        let r = this._renderer!;
+        if (r.activeCamera.isFarthestFrustumActive) {
+            let rtcEyePosition = r.activeCamera.eye.sub(this._relativeCenter);
+            Vec3.doubleToTwoFloat32Array(rtcEyePosition, this._rtcEyePositionHigh, this._rtcEyePositionLow);
+        }
+    }
+
+    public drawForward() {
+        if (this._geoObjects.length) {
+            this._updateRTCEyePosition();
+            this.update();
+            this._displayForwardPASS();
+        }
+    }
+
+    public drawOpaque() {
+        if (this._geoObjects.length) {
+            this._updateRTCEyePosition();
+            this.update();
+            this._displayOpaquePASS();
+        }
+    }
+
+    public drawTransparent() {
+        if (this._geoObjects.length) {
+            this._displayTransparentPASS();
+        }
+    }
+
+    public drawTransparentForward() {
+        if (this._geoObjects.length) {
+            this._displayTransparentForwardPASS();
+        }
+    }
+
+    public add(geoObject: GeoObject) {
+        if (geoObject._handlerIndex === -1) {
+            geoObject._handler = this;
+            geoObject._handlerIndex = this._geoObjects.length;
+
+            this._geoObjects.push(geoObject);
+            this._addGeoObjectToArray(geoObject);
+
+            geoObject.updateRotation();
+
+            geoObject._tagData!.refresh();
+
+            this._updateTag(geoObject._tagData!);
+            geoObject.setObjectSrc(geoObject._objectSrc!);
+        }
+    }
+
+    public remove(geoObject: GeoObject) {
+        if (geoObject._handler &amp;&amp; this.__id == geoObject._handler.__id) {
+            this._removeGeoObject(geoObject);
+        }
+    }
+
+    public _clearDataTagQueue() {
+        this._dataTagUpdateQueue = [];
+    }
+
+    public _removeGeoObject(geoObject: GeoObject) {
+        let tagData = geoObject._tagData!;
+        let tag = geoObject.tag;
+
+        this._geoObjects.splice(geoObject._handlerIndex, 1);
+        for (let i = geoObject._handlerIndex, len = this._geoObjects.length; i &lt; len; i++) {
+            let gi = this._geoObjects[i];
+            gi._handlerIndex = gi._handlerIndex - 1;
+        }
+
+        let removeIndex = geoObject._tagDataIndex;
+
+        if (removeIndex &lt; tagData._opaqueInstanceCount) {
+            tagData._opaqueInstanceCount--;
+            this._swapInstanceData(tagData, removeIndex, tagData._opaqueInstanceCount);
+            removeIndex = tagData._opaqueInstanceCount;
+        }
+
+        const lastIndex = tagData.numInstances - 1;
+        this._swapInstanceData(tagData, removeIndex, lastIndex);
+        tagData.geoObjects.pop();
+
+        tagData._rgbaArr = spliceArray(tagData._rgbaArr, lastIndex * 4, 4);
+        tagData._rtcPositionHighArr = spliceArray(tagData._rtcPositionHighArr, lastIndex * 3, 3);
+        tagData._rtcPositionLowArr = spliceArray(tagData._rtcPositionLowArr, lastIndex * 3, 3);
+        tagData._qRotArr = spliceArray(tagData._qRotArr, lastIndex * 4, 4);
+        tagData._pickingColorArr = spliceArray(tagData._pickingColorArr, lastIndex * 3, 3);
+        tagData._sizeArr = spliceArray(tagData._sizeArr, lastIndex * 3, 3);
+        tagData._translateArr = spliceArray(tagData._translateArr, lastIndex * 3, 3);
+        tagData._localPositionArr = spliceArray(tagData._localPositionArr, lastIndex * 3, 3);
+        tagData._visibleArr = spliceArray(tagData._visibleArr, lastIndex, 1);
+        tagData.numInstances--;
+
+        geoObject._handlerIndex = -1;
+        geoObject._handler = null;
+
+        geoObject._tagDataIndex = -1;
+        geoObject._tagData = null;
+
+        let isEmpty = false;
+        // dataTag becomes empty, remove it from the rendering
+        if (tagData.numInstances === 0) {
+            tagData.clear();
+            this._instanceDataMap.delete(tag);
+            for (let i = 0; this._instanceDataMapValues.length; i++) {
+                if (this._instanceDataMapValues[i].numInstances === 0) {
+                    this._instanceDataMapValues.splice(i, 1);
+                    break;
+                }
+            }
+            this._clearDataTagQueue();
+            isEmpty = true;
+        }
+
+        if (!isEmpty) {
+            tagData.refresh();
+            this._updateTag(tagData);
+        }
+    }
+
+    /*
+    public _removeGeoObject(geoObject: GeoObject) {
+
+        let tagData = geoObject._tagData!;
+        let tag = geoObject.tag;
+        let tdi = geoObject._tagDataIndex;
+
+        this._geoObjects.splice(geoObject._handlerIndex, 1);
+        for (let i = geoObject._handlerIndex, len = this._geoObjects.length; i &lt; len; i++) {
+            let gi = this._geoObjects[i];
+            gi._handlerIndex = gi._handlerIndex - 1;
+        }
+
+        if (tdi &lt; tagData._opaqueInstanceCount) {
+            tagData._opaqueInstanceCount--;
+        }
+
+        tagData.geoObjects.splice(tdi, 1);
+        for (let i = tdi, len = tagData.geoObjects.length; i &lt; len; i++) {
+            let gi = tagData.geoObjects[i];
+            gi._tagDataIndex = gi._tagDataIndex - 1;
+        }
+
+        tagData._rgbaArr = spliceArray(tagData._rgbaArr, tdi * 4, 4);
+        tagData._rtcPositionHighArr = spliceArray(tagData._rtcPositionHighArr, tdi * 3, 3);
+        tagData._rtcPositionLowArr = spliceArray(tagData._rtcPositionLowArr, tdi * 3, 3);
+        tagData._qRotArr = spliceArray(tagData._qRotArr, tdi * 4, 4);
+        tagData._pickingColorArr = spliceArray(tagData._pickingColorArr, tdi * 3, 3);
+        tagData._sizeArr = spliceArray(tagData._sizeArr, tdi * 3, 3);
+        tagData._translateArr = spliceArray(tagData._translateArr, tdi * 3, 3);
+        tagData._localPositionArr = spliceArray(tagData._localPositionArr, tdi * 3, 3);
+        tagData._visibleArr = spliceArray(tagData._visibleArr, tdi, 1);
+        tagData.numInstances--;
+
+        geoObject._handlerIndex = -1;
+        geoObject._handler = null;
+
+        geoObject._tagDataIndex = -1;
+        geoObject._tagData = null;
+
+        let isEmpty = false;
+        // dataTag becomes empty, remove it from the rendering
+        if (tagData.numInstances === 0) {
+            tagData.clear();
+            this._instanceDataMap.delete(tag);
+            for (let i = 0; this._instanceDataMapValues.length; i++) {
+                if (this._instanceDataMapValues[i].numInstances === 0) {
+                    this._instanceDataMapValues.splice(i, 1);
+                    break;
+                }
+            }
+            this._clearDataTagQueue();
+            isEmpty = true;
+        }
+
+        if (!isEmpty) {
+            tagData.refresh();
+            this._updateTag(tagData);
+        }
+    }
+    */
+}
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>Documentation</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"entity/geoObject/GeoObjectHandler.ts"},"i1":{"basePath":"/","searchIndexUrl":"/_assets/search-index.ms1yt4d8-010773f2.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/entity/geoobject/geoobjecthandler-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/entity/geoobject/geoobjecthandler-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/_islands/theme-toggle-MFKEIGBZ.js","settings":"/_islands/settings-TVWSQT6I.js","code-viewer":"/_islands/code-viewer-S3DIZRC3.js","embed":"/_islands/embed-24QZS4CF.js","playground":"/_islands/playground-N5NFYMP6.js","tabs":"/_islands/tabs-NRSQKCSU.js","sidebar":"/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/_islands/mobile-nav-ZFIZP3CE.js","toc":"/_islands/toc-W36SMPYU.js","toc-mobile":"/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/_islands/cmdk-SWB64M4V.js","code-tabs":"/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/_islands/copy-btn-5O25GXTU.js","copy-page":"/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>

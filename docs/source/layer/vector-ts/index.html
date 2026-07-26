@@ -1,0 +1,1036 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>layer/Vector.ts</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/_assets/styles.ms1yt4d8-010773f2.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">Documentation</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">layer/Vector.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">import * as math from &quot;../math&quot;;
+import { Entity } from &quot;../entity/Entity&quot;;
+import type { IEntityParams } from &quot;../entity/Entity&quot;;
+import { EntityCollection } from &quot;../entity/EntityCollection&quot;;
+import { EntityCollectionsTreeStrategy } from &quot;../quadTree/EntityCollectionsTreeStrategy&quot;;
+import type { EventsHandler } from &quot;../Events&quot;;
+import { GeometryHandler } from &quot;../entity/geometry/GeometryHandler&quot;;
+import type { IMouseState, ITouchState } from &quot;../renderer/RendererEvents&quot;;
+import { BaseTileMaterialLayer } from &quot;./BaseTileMaterialLayer&quot;;
+import type { IBaseTileMaterialLayerParams } from &quot;./BaseTileMaterialLayer&quot;;
+import type { LayerEventsList } from &quot;./Layer&quot;;
+import type { NumberArray3 } from &quot;../math/Vec3&quot;;
+import { Planet } from &quot;../scene/Planet&quot;;
+import { Material } from &quot;./Material&quot;;
+import { Segment } from &quot;../segment/Segment&quot;;
+import type { NumberArray4 } from &quot;../math/Vec4&quot;;
+import * as mercator from &quot;../mercator&quot;;
+import { normalizeShadeMode, SHADE_PBR, type ShadeMode, type ShadeModeInput } from &quot;../shadeModeConstants&quot;;
+
+export interface IVectorParams extends IBaseTileMaterialLayerParams {
+    entities?: Entity[] | IEntityParams[];
+    depthOffset?: number;
+    nodeCapacity?: number;
+    relativeToGround?: boolean;
+    clampToGround?: boolean;
+    async?: boolean;
+    pickingScale?: number | NumberArray3;
+    scaleByDistance?: NumberArray3;
+    labelMaxLetters?: number;
+    shadeMode?: ShadeModeInput;
+    depthOrder?: number;
+    disableCullFace?: boolean;
+    receiveProjectors?: boolean;
+}
+
+type VectorEventsList = [
+    //&quot;entitymove&quot;,
+    &quot;draw&quot;,
+    &quot;entityadd&quot;,
+    &quot;entityremove&quot;
+];
+
+export type VectorEventsType = EventsHandler&lt;VectorEventsList> &amp; EventsHandler&lt;LayerEventsList>;
+
+/**
+ * Creates entity instance array.
+ * @param {Entity[] | IEntityParams[]} entities - Entity array.
+ * @returns {Entity[]} - Entity array.
+ */
+function _entitiesConstructor(entities: Entity[] | IEntityParams[]): Entity[] {
+    let res: Entity[] = [];
+    for (let i = 0; i &lt; entities.length; i++) {
+        let ei = entities[i];
+        if ((ei as Entity).instanceName === &quot;Entity&quot;) {
+            res.push(ei as Entity);
+        } else {
+            res.push(new Entity(ei as IEntityParams));
+        }
+    }
+    return res;
+}
+
+/**
+ * Vector layer is an alternative entity storage. Used for geospatial data rendering like
+ * points, lines, polygons, geometry objects, etc.
+ * @class
+ * @extends {Layer}
+ * @param {string} [name=&quot;noname&quot;] - Layer name.
+ * @param {IVectorParams} [options] - Layer options:
+ * @param {number} [options.minZoom=0] - Minimal visible zoom.
+ * @param {number} [options.maxZoom=50] - Maximal visible zoom.
+ * @param {string} [options.attribution] - Layer attribution.
+ * @param {number} [options.zIndex=0] - Layer Z-order index.
+ * @param {boolean} [options.visibility=true] - Layer visibility.
+ * @param {boolean} [options.isBaseLayer=false] - Layer base layer.
+ * @param {number} [options.opacity=1.0] - Layer opacity.
+ * @param {boolean} [options.pickingEnabled=true] - Enables/disables picking.
+ * @param {boolean} [options.fading=false] - Enables layer fade-in/fade-out transition logic.
+ * @param {number} [options.height=0] - Layer height level used for rendering order.
+ * @param {Array.&lt;Entity|IEntityParams>} [options.entities] - Entities array or entity init params.
+ * @param {Array.&lt;number>} [options.scaleByDistance] - Scale by distance parameters. (exactly 3 entries)
+ *      First index - near distance to the entity, after entity becomes full scale.
+ *      Second index - far distance to the entity, when entity becomes zero scale.
+ *      Third index - far distance to the entity, when entity becomes invisible.
+ *      Default is `[MAX32, MAX32, MAX32]` (no distance scaling).
+ * @param {number|Array.&lt;number>} [options.pickingScale=[1,1,1]] - Picking scale value or xyz scale array.
+ * @param {number} [options.nodeCapacity=60] - Maximum entities quantity in a quadtree node.
+ * @param {boolean} [options.async=true] - Asynchronous vector data handling before rendering.
+ * @param {boolean} [options.clampToGround=false] - Clamp vector data to the ground.
+ * @param {boolean} [options.relativeToGround=false] - Place vector data relative to the ground relief.
+ * @param {number} [options.labelMaxLetters=24] - Maximum label letters per line for label entities.
+ * @param {Number} [options.depthOffset=0.0] - Signed world-space depth offset along the camera ray.
+ * Negative values move geometry closer to the camera, positive values move it farther.
+ * @param {number|string} [options.shadeMode=1] - Geo object shading: 0/none unlit, 0.5/phong, 1/pbr.
+ * @param {number} [options.depthOrder=0] - Rendering order group for vector collections.
+ * @param {boolean} [options.disableCullFace=false] - Disables back-face culling for geo object rendering.
+ * @param {boolean} [options.receiveProjectors=true] - Enables/disables projector effect reception for this layer entities.
+ *
+ * //@fires entitymove
+ * @fires draw
+ * @fires add
+ * @fires remove
+ * @fires entityadd
+ * @fires entityremove
+ * @fires visibilitychange
+ */
+class Vector extends BaseTileMaterialLayer {
+    public override events: VectorEventsType;
+
+    protected _depthOrder: number;
+
+    /**
+     * Entities collection.
+     * @protected
+     */
+    protected _entities: Entity[];
+
+    /**
+     * First index - near distance to the entity, after that entity becomes full scale.
+     * Second index - far distance to the entity, when entity becomes zero scale.
+     * Third index - far distance to the entity, when entity becomes invisible.
+     * @public
+     * @type {NumberArray3}
+     */
+    public scaleByDistance: NumberArray3;
+
+    public pickingScale: Float32Array;
+
+    /**
+     * Asynchronous data handling before rendering.
+     * @public
+     * @type {boolean}
+     */
+    public async: boolean;
+
+    /**
+     * Maximum entities quantity in the tree node.
+     * @public
+     */
+    public _nodeCapacity: number;
+
+    /**
+     * Clamp vector data to the ground.
+     * @public
+     * @type {boolean}
+     */
+    public clampToGround: boolean;
+
+    /**
+     * Sets vector data relative to the ground relief.
+     * @public
+     * @type {boolean}
+     */
+    public relativeToGround: boolean;
+
+    /** todo: combine into one */
+    protected _stripEntityCollection: EntityCollection;
+    protected _polylineEntityCollection: EntityCollection;
+    public _geoObjectEntityCollection: EntityCollection;
+
+    public _geometryHandler: GeometryHandler;
+
+    protected _entityCollectionsTreeStrategy: EntityCollectionsTreeStrategy | null;
+
+    //protected _pendingsQueue: Entity[];
+
+    /**
+     * Signed world-space depth offset along the camera ray.
+     * Negative values move geometry closer to the camera, positive values move it farther.
+     * 0.0 means no offset.
+     * @public
+     * @type {Number}
+     */
+    public depthOffset: number;
+
+    protected _labelMaxLetters: number;
+
+    protected _shadeMode: ShadeMode;
+
+    protected _disableCullFace: boolean;
+    protected _receiveProjectors: boolean;
+
+    constructor(name?: string | null, options: IVectorParams = {}) {
+        super(name, options);
+
+        // @ts-ignore
+        this.events = this.events.registerNames(VECTOR_EVENTS);
+
+        this.isVector = true;
+
+        this._hasImageryTiles = false;
+
+        this.scaleByDistance = options.scaleByDistance || [math.MAX32, math.MAX32, math.MAX32];
+
+        this._shadeMode = normalizeShadeMode(options.shadeMode ?? SHADE_PBR);
+
+        let pickingScale: Float32Array = new Float32Array([1.0, 1.0, 1.0]);
+        if (options.pickingScale !== undefined) {
+            if (options.pickingScale instanceof Array) {
+                pickingScale[0] = options.pickingScale[0] || pickingScale[0];
+                pickingScale[1] = options.pickingScale[1] || pickingScale[1];
+                pickingScale[2] = options.pickingScale[2] || pickingScale[2];
+            } else if (typeof options.pickingScale === &quot;number&quot;) {
+                pickingScale[0] = options.pickingScale;
+                pickingScale[1] = options.pickingScale;
+                pickingScale[2] = options.pickingScale;
+            }
+        }
+
+        this.pickingScale = pickingScale;
+
+        this.waitForParentMaterial = options.waitForParentMaterial ?? false;
+
+        this.async = options.async !== undefined ? options.async : true;
+
+        this.clampToGround = options.clampToGround || false;
+
+        this.relativeToGround = options.relativeToGround || false;
+
+        this._entities = _entitiesConstructor(options.entities || []);
+
+        this._labelMaxLetters = options.labelMaxLetters || 24;
+
+        this._stripEntityCollection = new EntityCollection({
+            pickingEnabled: this.pickingEnabled
+        });
+        this._bindEventsDefault(this._stripEntityCollection);
+
+        this._polylineEntityCollection = new EntityCollection({
+            pickingEnabled: this.pickingEnabled
+        });
+        this._bindEventsDefault(this._polylineEntityCollection);
+
+        this._disableCullFace = options.disableCullFace ?? false;
+        this._receiveProjectors = options.receiveProjectors ?? true;
+
+        this._geoObjectEntityCollection = new EntityCollection({
+            pickingEnabled: this.pickingEnabled,
+            shadeMode: this._shadeMode,
+            disableCullFace: this._disableCullFace,
+            receiveProjectors: this._receiveProjectors
+        });
+        this._bindEventsDefault(this._geoObjectEntityCollection);
+
+        this._geometryHandler = new GeometryHandler(this);
+
+        this._nodeCapacity = options.nodeCapacity || 60;
+
+        this._entityCollectionsTreeStrategy = null;
+
+        this.setEntities(this._entities);
+
+        this.depthOffset = options.depthOffset != undefined ? options.depthOffset : 0.0;
+
+        this.pickingEnabled = this._pickingEnabled;
+        this.receiveProjectors = this._receiveProjectors;
+
+        this._depthOrder = options.depthOrder || 0;
+    }
+
+    public get depthOrder(): number {
+        return this._depthOrder;
+    }
+
+    public set depthOrder(d: number) {
+        if (d !== this._depthOrder) {
+            this._depthOrder = d;
+            this._planet &amp;&amp; this._planet.updateVisibleLayers();
+        }
+    }
+
+    public get shadeMode(): ShadeMode {
+        return this._shadeMode;
+    }
+
+    public set shadeMode(m: ShadeModeInput) {
+        let v = normalizeShadeMode(m);
+        this._shadeMode = v;
+        this._geoObjectEntityCollection.shadeMode = v;
+    }
+
+    public get disableCullFace(): boolean {
+        return this._disableCullFace;
+    }
+
+    public set disableCullFace(v: boolean) {
+        this._disableCullFace = v;
+        this._geoObjectEntityCollection.disableCullFace = v;
+    }
+
+    /**
+     * Gets projector effect reception state for this vector layer entities.
+     * @public
+     * @returns {boolean}
+     */
+    public get receiveProjectors(): boolean {
+        return this._receiveProjectors;
+    }
+
+    /**
+     * Enables/disables projector effect reception for this vector layer entities.
+     * @public
+     * @param {boolean} v - `true` to receive projector effects, `false` to ignore them.
+     */
+    public set receiveProjectors(v: boolean) {
+        this._receiveProjectors = v;
+        this._stripEntityCollection.setReceiveProjectors(v);
+        this._polylineEntityCollection.setReceiveProjectors(v);
+        this._geoObjectEntityCollection.setReceiveProjectors(v);
+        this._entityCollectionsTreeStrategy?.setReceiveProjectors(v);
+    }
+
+    public get labelMaxLetters(): number {
+        return this._labelMaxLetters;
+    }
+
+    public override get instanceName() {
+        return &quot;Vector&quot;;
+    }
+
+    protected override _bindPicking() {
+        this._pickingColor.clear();
+    }
+
+    /**
+     * Adds layer to the planet.
+     * @public
+     * @param {Planet} planet - Planet scene object.
+     */
+    public override addTo(planet: Planet) {
+        if (!this._planet) {
+            this._assignPlanet(planet);
+            this._geometryHandler.assignHandler(planet.renderer!.handler);
+            this._polylineEntityCollection.addTo(planet, true);
+            this._stripEntityCollection.addTo(planet, true);
+            this._geoObjectEntityCollection.addTo(planet, true);
+
+            this._polylineEntityCollection._layer = this;
+            this._stripEntityCollection._layer = this;
+            this._geoObjectEntityCollection._layer = this;
+
+            this.setEntities(this._entities);
+        }
+    }
+
+    public override remove(): this {
+        super.remove();
+        this._polylineEntityCollection.remove();
+        this._stripEntityCollection.remove();
+        this._geoObjectEntityCollection.remove();
+
+        this._polylineEntityCollection._layer = undefined;
+        this._stripEntityCollection._layer = undefined;
+        this._geoObjectEntityCollection._layer = undefined;
+
+        return this;
+    }
+
+    /**
+     * Returns stored entities.
+     * @public
+     * @returns {Array.&lt;Entity>} Stored entities.
+     */
+    public getEntities(): Entity[] {
+        return ([] as Entity[]).concat(this._entities);
+    }
+
+    /**
+     * Adds entity to the layer.
+     * @public
+     * @param {Entity} entity - Entity.
+     * @returns {Vector} - Returns this layer.
+     */
+    public add(entity: Entity): this {
+        if (!(entity._layer || entity._entityCollection)) {
+            entity._layer = this;
+            entity._layerIndex = this._entities.length;
+            //this._fitExtent(entity);
+            this._entities.push(entity);
+            this._proceedEntity(entity);
+        }
+        return this;
+    }
+
+    /**
+     * Adds entity to the layer in the index position.
+     * @public
+     * @param {Entity} entity - Entity.
+     * @param {Number} index - Index position.
+     * @returns {Vector} - Returns this layer.
+     */
+    public insert(entity: Entity, index: number): this {
+        if (!(entity._layer || entity._entityCollection)) {
+            entity._layer = this;
+            entity._layerIndex = index;
+            //this._fitExtent(entity);
+            this._entities.splice(index, 0, entity);
+            for (let i = index + 1, len = this._entities.length; i &lt; len; i++) {
+                this._entities[i]._layerIndex = i;
+            }
+
+            this._proceedEntity(entity);
+        }
+
+        return this;
+    }
+
+    protected _proceedEntity(entity: Entity) {
+        let temp = this._hasImageryTiles;
+
+        if (entity.strip) {
+            this._stripEntityCollection.add(entity);
+        }
+
+        if (entity.polyline || entity.ray) {
+            this._polylineEntityCollection.add(entity);
+        }
+
+        if (entity.geoObject || entity.isEmpty) {
+            this._geoObjectEntityCollection.add(entity);
+        }
+
+        if (entity.geometry) {
+            this._hasImageryTiles = true;
+            if (this._planet) {
+                this._planet.renderer!.assignPickingColor&lt;Entity>(entity);
+                this._geometryHandler.add(entity.geometry);
+            }
+        }
+
+        if (this._planet) {
+            if (entity.billboard || entity.label || entity.geoObject || entity.isEmpty) {
+                if (entity._cartesian.isZero() &amp;&amp; !entity._lonLat.isZero()) {
+                    entity._setCartesian3vSilent(this._planet.ellipsoid.lonLatToCartesian(entity._lonLat));
+                } else {
+                    entity._lonLat = this._planet.ellipsoid.cartesianToLonLat(entity._cartesian);
+
+                    // IT's important event for degrees proj strategies
+                    if (Math.abs(entity._lonLat.lat) &lt; mercator.MAX_LAT) {
+                        entity._lonLatMerc = entity._lonLat.forwardMercator();
+                    } else {
+                        entity._lonLatMerc.lon = entity._lonLatMerc.lat = entity._lonLatMerc.height = 0;
+                    }
+                }
+            }
+
+            if (entity.billboard || entity.label) {
+                this._entityCollectionsTreeStrategy?.insertEntity(entity);
+            }
+        }
+
+        if (this._planet &amp;&amp; this._hasImageryTiles !== temp) {
+            this._planet.updateVisibleLayers();
+        }
+
+        this.events.dispatch(this.events.entityadd, entity);
+    }
+
+    /**
+     * Adds entity array to the layer.
+     * @public
+     * @param {Array.&lt;Entity>} entities - Entities array.
+     * @returns {Vector} - Returns this layer.
+     */
+    public addEntities(entities: Entity[]): Vector {
+        let i = entities.length;
+        while (i--) {
+            this.add(entities[i]);
+        }
+        return this;
+    }
+
+    /**
+     * Remove entity from layer.
+     * TODO: memory leaks.
+     * @public
+     * @param {Entity} entity - Entity to remove.
+     * @returns {Vector} - Returns this layer.
+     */
+    public removeEntity(entity: Entity): this {
+        if (entity._layer &amp;&amp; this.isEqual(entity._layer)) {
+            if (!entity.parent) {
+                this._entities.splice(entity._layerIndex, 1);
+                this._reindexEntitiesArray(entity._layerIndex);
+            }
+
+            entity._layer = null;
+            entity._layerIndex = -1;
+
+            if (entity._entityCollection) {
+                entity._entityCollection._removeEntitySilent(entity);
+
+                let node = entity._nodePtr;
+
+                while (node) {
+                    node.count--;
+                    node = node.parentNode!;
+                }
+
+                if (entity._nodePtr &amp;&amp; entity._nodePtr.count === 0 &amp;&amp; entity._nodePtr.deferredEntities.length === 0) {
+                    entity._nodePtr.entityCollection = null;
+                    //
+                    // ...
+                    //
+                }
+            } else if (entity._nodePtr &amp;&amp; entity._nodePtr.deferredEntities.length) {
+                let defEntities = entity._nodePtr.deferredEntities;
+                let j = defEntities.length;
+                while (j--) {
+                    if (defEntities[j].id === entity.id) {
+                        defEntities.splice(j, 1);
+                        let node = entity._nodePtr;
+                        while (node) {
+                            node.count--;
+                            node = node.parentNode!;
+                        }
+                        break;
+                    }
+                }
+            }
+
+            if (this._planet &amp;&amp; entity.geometry) {
+                this._geometryHandler.remove(entity.geometry);
+                this._planet.renderer!.clearPickingColor(entity);
+            }
+
+            entity._nodePtr = undefined;
+
+            this.events.dispatch(this.events.entityremove, entity);
+        }
+
+        return this;
+    }
+
+    /**
+     * Sets layer picking events active.
+     * @public
+     * @param {boolean} picking - Picking enable flag.
+     */
+    public override set pickingEnabled(picking: boolean) {
+        this._pickingEnabled = picking;
+        this._stripEntityCollection.setPickingEnabled(picking);
+        this._polylineEntityCollection.setPickingEnabled(picking);
+        this._geoObjectEntityCollection.setPickingEnabled(picking);
+        this._entityCollectionsTreeStrategy?.setPickingEnabled(picking);
+    }
+
+    /**
+     * Refresh collected entities indexes from startIndex entities collection array position.
+     * @protected
+     * @param {number} startIndex - Entity array index.
+     */
+    protected _reindexEntitiesArray(startIndex: number) {
+        const e = this._entities;
+        for (let i = startIndex; i &lt; e.length; i++) {
+            e[i]._layerIndex = i;
+        }
+    }
+
+    /**
+     * Removes entities from layer.
+     * @public
+     * @param {Array.&lt;Entity>} entities - Entity array.
+     * @returns {Vector} - Returns this layer.
+     */
+    public removeEntities(entities: Entity[]): this {
+        let i = entities.length;
+        while (i--) {
+            this.removeEntity(entities[i]);
+        }
+        return this;
+    }
+
+    /**
+     * Clear the layer.
+     * @public
+     */
+    public override clear() {
+        super.clear();
+        let temp: Entity[] = new Array(this._entities.length);
+
+        for (let i = 0; i &lt; temp.length; i++) {
+            temp[i] = this._entities[i];
+        }
+
+        let i = this._entities.length;
+        while (i--) {
+            this._entities[i].remove();
+        }
+
+        this._entities.length = 0;
+        this._entities = [];
+        for (let i = 0; i &lt; temp.length; i++) {
+            this._entities[i] = temp[i];
+        }
+
+        this._entityCollectionsTreeStrategy?.dispose();
+        this._entityCollectionsTreeStrategy = null;
+        this._geometryHandler.clear();
+    }
+
+    /**
+     * Safety entities loop.
+     * @public
+     * @param {function(Entity, number): void} callback - Entity callback.
+     */
+    public each(callback: (entity: Entity, index?: number) => void) {
+        let e = this._entities;
+        let i = e.length;
+        while (i--) {
+            callback(e[i], i);
+        }
+    }
+
+    /**
+     * Removes current entities from layer and adds new entities.
+     * @public
+     * @param {Array.&lt;Entity>} entities - New entity array.
+     * @returns {Vector} - Returns layer instance.
+     */
+    public setEntities(entities: Entity[]): this {
+        let temp: Entity[] = new Array(entities.length);
+
+        for (let i = 0, len = entities.length; i &lt; len; i++) {
+            temp[i] = entities[i];
+        }
+
+        this.clear();
+
+        this._entities = new Array(temp.length);
+
+        let entitiesForTree = [];
+
+        for (let i = 0; i &lt; temp.length; i++) {
+            let ei = temp[i];
+
+            ei._layer = this;
+            ei._layerIndex = i;
+
+            let isEmpty = !(ei.strip || ei.polyline || ei.ray || ei.geoObject || ei.billboard || ei.label);
+
+            if (ei.strip) {
+                this._stripEntityCollection.add(ei);
+            } else if (ei.polyline || ei.ray) {
+                this._polylineEntityCollection.add(ei);
+            } else if (ei.geoObject || isEmpty) {
+                this._geoObjectEntityCollection.add(ei);
+            } else if (ei.billboard || ei.label) {
+                entitiesForTree.push(ei);
+            }
+
+            if (ei.geometry) {
+                this._hasImageryTiles = true;
+                if (this._planet) {
+                    this._planet.renderer!.assignPickingColor&lt;Entity>(ei);
+                    this._geometryHandler.add(ei.geometry);
+                }
+            }
+
+            this._entities[i] = ei;
+        }
+
+        this._createEntityCollectionsTree(entitiesForTree);
+
+        return this;
+    }
+
+    protected _createEntityCollectionsTree(entitiesForTree: Entity[]) {
+        if (this._planet) {
+            this._entityCollectionsTreeStrategy = this._planet.quadTreeStrategy.createEntityCollectionsTreeStrategy(
+                this,
+                this._nodeCapacity
+            );
+            this._entityCollectionsTreeStrategy.insertEntities(entitiesForTree);
+        }
+    }
+
+    /**
+     * @todo (refactoring) could be used in something like bindEntityCollectionQuad(...)
+     * @param entityCollection
+     */
+    public _bindEventsDefault(entityCollection: EntityCollection) {
+        let ve = this.events;
+
+        //
+        // @todo: replace with arrow functions and '...e'
+        //
+        // entityCollection.events.on(&quot;entitymove&quot;, (e: any) => {
+        //     ve.dispatch(ve.entitymove, e);
+        // });
+        entityCollection.events.on(&quot;mousemove&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mousemove, e);
+        });
+        entityCollection.events.on(&quot;mouseenter&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mouseenter, e);
+        });
+        entityCollection.events.on(&quot;mouseleave&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mouseleave, e);
+        });
+        entityCollection.events.on(&quot;lclick&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.lclick, e);
+        });
+        entityCollection.events.on(&quot;rclick&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.rclick, e);
+        });
+        entityCollection.events.on(&quot;mclick&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mclick, e);
+        });
+        entityCollection.events.on(&quot;ldblclick&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.ldblclick, e);
+        });
+        entityCollection.events.on(&quot;rdblclick&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.rdblclick, e);
+        });
+        entityCollection.events.on(&quot;mdblclick&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mdblclick, e);
+        });
+        entityCollection.events.on(&quot;lup&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.lup, e);
+        });
+        entityCollection.events.on(&quot;rup&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.rup, e);
+        });
+        entityCollection.events.on(&quot;mup&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mup, e);
+        });
+        entityCollection.events.on(&quot;ldown&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.ldown, e);
+        });
+        entityCollection.events.on(&quot;rdown&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.rdown, e);
+        });
+        entityCollection.events.on(&quot;mdown&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mdown, e);
+        });
+        entityCollection.events.on(&quot;lhold&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.lhold, e);
+        });
+        entityCollection.events.on(&quot;rhold&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.rhold, e);
+        });
+        entityCollection.events.on(&quot;mhold&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mhold, e);
+        });
+        entityCollection.events.on(&quot;mousewheel&quot;, (e: IMouseState) => {
+            ve.dispatch(ve.mousewheel, e);
+        });
+        entityCollection.events.on(&quot;touchmove&quot;, (e: ITouchState) => {
+            ve.dispatch(ve.touchmove, e);
+        });
+        entityCollection.events.on(&quot;touchstart&quot;, (e: ITouchState) => {
+            ve.dispatch(ve.touchstart, e);
+        });
+        entityCollection.events.on(&quot;touchend&quot;, (e: ITouchState) => {
+            ve.dispatch(ve.touchend, e);
+        });
+        entityCollection.events.on(&quot;doubletouch&quot;, (e: ITouchState) => {
+            ve.dispatch(ve.doubletouch, e);
+        });
+        entityCollection.events.on(&quot;touchleave&quot;, (e: ITouchState) => {
+            ve.dispatch(ve.touchleave, e);
+        });
+        entityCollection.events.on(&quot;touchenter&quot;, (e: ITouchState) => {
+            ve.dispatch(ve.touchenter, e);
+        });
+    }
+
+    protected _collectStripCollectionPASS(outArr: EntityCollection[]) {
+        let ec = this._stripEntityCollection;
+
+        ec._fadingOpacity = this._fadingOpacity;
+        ec.scaleByDistance = this.scaleByDistance;
+        ec.pickingScale = this.pickingScale;
+        ec.depthOffset = this.depthOffset;
+
+        outArr.push(ec);
+    }
+
+    protected _collectPolylineCollectionPASS(outArr: EntityCollection[]) {
+        let ec = this._polylineEntityCollection;
+
+        ec._fadingOpacity = this._fadingOpacity;
+        ec.scaleByDistance = this.scaleByDistance;
+        ec.pickingScale = this.pickingScale;
+        ec.depthOffset = this.depthOffset;
+
+        outArr.push(ec);
+
+        if (this.clampToGround || this.relativeToGround) {
+            const nodes = this._planet!.quadTreeStrategy._renderedNodes;
+            const visibleExtent = this._planet!.getViewExtent();
+            ec.applyTerrainCollision(nodes, visibleExtent);
+        }
+    }
+
+    protected _collectGeoObjectCollectionPASS(outArr: EntityCollection[]) {
+        let ec = this._geoObjectEntityCollection;
+
+        ec._fadingOpacity = this._fadingOpacity;
+        ec.scaleByDistance = this.scaleByDistance;
+        ec.pickingScale = this.pickingScale;
+        ec.depthOffset = this.depthOffset;
+        ec.disableCullFace = this._disableCullFace;
+
+        outArr.push(ec);
+
+        // if (this.clampToGround || this.relativeToGround) {
+        //     let rtg = Number(this.relativeToGround);
+        //
+        //     var nodes = this._planet._renderedNodes;
+        //     var visibleExtent = this._planet.getViewExtent();
+        //     var e = ec._entities;
+        //     var e_i = e.length;
+        //     let res = new Vec3();
+        //
+        //     while (e_i--) {
+        //         var p = e[e_i].polyline;
+        //         if (visibleExtent.overlaps(p._extent)) {
+        //             // TODO:this works only for mercator area.
+        //             // needs to be working on poles.
+        //             let coords = p._pathLonLatMerc,
+        //                 c_j = coords.length;
+        //             while (c_j--) {
+        //                 var c_j_h = coords[c_j].length;
+        //                 while (c_j_h--) {
+        //                     let ll = coords[c_j][c_j_h],
+        //                         n_k = nodes.length;
+        //                     while (n_k--) {
+        //                         var seg = nodes[n_k].segment;
+        //                         if (seg._extent.isInside(ll)) {
+        //                             let cart = p._path3v[c_j][c_j_h];
+        //                             seg.getTerrainPoint(cart, ll, res);
+        //                             p.setPoint3v(
+        //                                 res.addA(res.normal().scale((rtg &amp;&amp; p.altitude) || 0.0)),
+        //                                 c_j_h,
+        //                                 c_j,
+        //                                 true
+        //                             );
+        //                             break;
+        //                         }
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
+    }
+
+    public collectVisibleCollections(outArr: EntityCollection[]) {
+        let p = this._planet!;
+
+        if (
+            (this._fading &amp;&amp; this._fadingOpacity > 0.0) ||
+            (this.minZoom &lt;= p.quadTreeStrategy.maxCurrZoom &amp;&amp; this.maxZoom >= p.quadTreeStrategy.maxCurrZoom)
+        ) {
+            // Common collections first
+            this._collectStripCollectionPASS(outArr);
+            this._collectPolylineCollectionPASS(outArr);
+            this._collectGeoObjectCollectionPASS(outArr);
+
+            if (this._entityCollectionsTreeStrategy) {
+                this._entityCollectionsTreeStrategy.collectVisibleEntityCollections(outArr);
+            }
+        }
+    }
+
+    /**
+     * Start to load tile material.
+     * @public
+     * @virtual
+     * @param {Material} material - Current material.
+     */
+    public override loadMaterial(material: Material, _forceLoading: boolean = false) {
+        const seg = material.segment;
+
+        if (this._isBaseLayer) {
+            material.texture = seg._isNorth ? seg.planet.solidTextureOne : seg.planet.solidTextureTwo;
+        } else {
+            material.texture = seg.planet.transparentTexture;
+        }
+
+        if (this._planet!.layerLock.isFree()) {
+            material.isReady = false;
+            material.isLoading = true;
+            this._planet!._vectorTileCreator.add(material);
+        }
+    }
+
+    /**
+     * Abort exact material loading.
+     * @public
+     * @override
+     * @param {Material} material - Segment material.
+     */
+    public override abortMaterialLoading(material: Material) {
+        material.isLoading = false;
+        material.isReady = false;
+    }
+
+    public override applyMaterial(material: Material) {
+        return super.applyMaterial(material);
+    }
+    // @deprecated, now it gets algorithm from the parent class.
+    // public override applyMaterial(material: Material): NumberArray4 {
+    //     if (material.isReady) {
+    //         return [0, 0, 1, 1];
+    //     } else {
+    //         !material.isLoading &amp;&amp; this.loadMaterial(material);
+    //
+    //         const segment = material.segment;
+    //         let pn = segment.node,
+    //             notEmpty = false;
+    //
+    //         let mId = this.__id;
+    //         let psegm = material;
+    //
+    //         while (pn.parentNode) {
+    //             if (psegm &amp;&amp; psegm.isReady) {
+    //                 notEmpty = true;
+    //                 break;
+    //             }
+    //             pn = pn.parentNode;
+    //             psegm = pn.segment.materials[mId];
+    //         }
+    //
+    //         if (notEmpty) {
+    //             material.appliedNodeId = pn.nodeId;
+    //             material.texture = psegm.texture;
+    //             material.pickingMask = psegm.pickingMask;
+    //             const dZ2 = 1.0 / (2 &lt;&lt; (segment.tileZoom - pn.segment.tileZoom - 1));
+    //             return [segment.tileX * dZ2 - pn.segment.tileX, segment.tileY * dZ2 - pn.segment.tileY, dZ2, dZ2];
+    //         } else {
+    //             if (material.textureExists &amp;&amp; material._updateTexture) {
+    //                 material.texture = material._updateTexture;
+    //                 material.pickingMask = material._updatePickingMask;
+    //             } else {
+    //                 material.texture = segment.planet.transparentTexture;
+    //                 material.pickingMask = segment.planet.transparentTexture;
+    //             }
+    //             material.pickingReady = true;
+    //             return [0, 0, 1, 1];
+    //         }
+    //     }
+    // }
+
+    protected override _allowsLoadWithoutPassReady(): boolean {
+        return true;
+    }
+
+    protected override _hasParentMaterial(psegm: Material): boolean {
+        return psegm.isReady;
+    }
+
+    protected override _onParentMaterialApplied(material: Material, psegm: Material): void {
+        material.pickingMask = psegm.pickingMask;
+    }
+
+    protected override _applyNoParentMaterial(material: Material, segment: Segment): void {
+        if (material.textureExists &amp;&amp; material._updateTexture) {
+            material.texture = material._updateTexture;
+            material.pickingMask = material._updatePickingMask;
+        } else {
+            material.texture = segment.planet.transparentTexture;
+            material.pickingMask = segment.planet.transparentTexture;
+        }
+        material.pickingReady = true;
+        material.texOffset[0] = 0.0;
+        material.texOffset[1] = 0.0;
+        material.texOffset[2] = 1.0;
+        material.texOffset[3] = 1.0;
+    }
+
+    public override clearMaterial(material: Material) {
+        if (material.isReady) {
+            const gl = material.segment.handler.gl!;
+
+            material.isReady = false;
+            material.pickingReady = false;
+
+            let t = material.texture;
+            material.texture = null;
+            t &amp;&amp; !t.default &amp;&amp; gl.deleteTexture(t);
+
+            t = material.pickingMask;
+            material.pickingMask = null;
+            t &amp;&amp; !t.default &amp;&amp; gl.deleteTexture(t);
+
+            t = material._updateTexture;
+            material._updateTexture = null;
+            t &amp;&amp; !t.default &amp;&amp; gl.deleteTexture(t);
+
+            t = material._updatePickingMask;
+            material._updatePickingMask = null;
+            t &amp;&amp; !t.default &amp;&amp; gl.deleteTexture(t);
+        }
+
+        this.abortMaterialLoading(material);
+
+        material.isLoading = false;
+        material.textureExists = false;
+    }
+
+    public update() {
+        this._geometryHandler.update();
+        this.events.dispatch(this.events.draw, this);
+    }
+}
+
+const VECTOR_EVENTS: VectorEventsList = [
+    // /**
+    //  * Triggered when entity has moved.
+    //  * @event EventsHandler&lt;VectorEventsList>#draw
+    //  */
+    // &quot;entitymove&quot;,
+
+    /**
+     * Triggered when layer begin draw.
+     * @event EventsHandler&lt;VectorEventsList>#draw
+     */
+    &quot;draw&quot;,
+
+    /**
+     * Triggered when new entity added to the layer.
+     * @event EventsHandler&lt;VectorEventsList>#entityadd
+     */
+    &quot;entityadd&quot;,
+
+    /**
+     * Triggered when entity removes from the collection.
+     * @event EventsHandler&lt;VectorEventsList>#entityremove
+     */
+    &quot;entityremove&quot;
+];
+
+export { Vector };
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>Documentation</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"layer/Vector.ts"},"i1":{"basePath":"/","searchIndexUrl":"/_assets/search-index.ms1yt4d8-010773f2.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/layer/vector-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/layer/vector-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/_islands/theme-toggle-MFKEIGBZ.js","settings":"/_islands/settings-TVWSQT6I.js","code-viewer":"/_islands/code-viewer-S3DIZRC3.js","embed":"/_islands/embed-24QZS4CF.js","playground":"/_islands/playground-N5NFYMP6.js","tabs":"/_islands/tabs-NRSQKCSU.js","sidebar":"/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/_islands/mobile-nav-ZFIZP3CE.js","toc":"/_islands/toc-W36SMPYU.js","toc-mobile":"/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/_islands/cmdk-SWB64M4V.js","code-tabs":"/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/_islands/copy-btn-5O25GXTU.js","copy-page":"/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>

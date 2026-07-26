@@ -1,0 +1,2193 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>segment/Segment.ts</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/_assets/styles.ms1yt4d8-010773f2.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">Documentation</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">segment/Segment.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">import * as mercator from &quot;../mercator&quot;;
+import * as segmentHelper from &quot;../segment/segmentHelper&quot;;
+import { Box } from &quot;../bv/Box&quot;;
+import { Extent } from &quot;../Extent&quot;;
+import { Entity } from &quot;../entity/Entity&quot;;
+import { EPSG3857 } from &quot;../proj/EPSG3857&quot;;
+import { E, N, OPSIDE, S, W } from &quot;../quadTree/quadTree&quot;;
+import { getMatrixSubArray64 } from &quot;../utils/shared&quot;;
+import type { TypedArray } from &quot;../utils/shared&quot;;
+import { Handler } from &quot;../webgl/Handler&quot;;
+import type { WebGLBufferExt, WebGLTextureExt } from &quot;../webgl/Handler&quot;;
+import type { ITerrainWorkerData } from &quot;../utils/TerrainWorker&quot;;
+import { Layer } from &quot;../layer/Layer&quot;;
+import { LonLat } from &quot;../LonLat&quot;;
+import { Material } from &quot;../layer/Material&quot;;
+import { Node } from &quot;../quadTree/Node&quot;;
+import { Planet } from &quot;../scene/Planet&quot;;
+import { PlanetCamera } from &quot;../camera/PlanetCamera&quot;;
+import { ShaderProgram } from &quot;../webgl/ShaderProgram&quot;;
+import { Proj } from &quot;../proj/Proj&quot;;
+import { Sphere } from &quot;../bv/Sphere&quot;;
+import type { NumberArray6 } from &quot;../bv/Sphere&quot;;
+import { Slice } from &quot;./Slice&quot;;
+import { Ray } from &quot;../math/Ray&quot;;
+import { Vec3 } from &quot;../math/Vec3&quot;;
+import type { IPlainSegmentWorkerData } from &quot;../utils/PlainSegmentWorker&quot;;
+import { MAX_LAT } from &quot;../mercator&quot;;
+import { QuadTreeStrategy } from &quot;../quadTree&quot;;
+
+export function getTileCellIndex(coordinate: number, tileSize: number, worldEdge: number): number {
+    return Math.floor(Math.abs(worldEdge - coordinate) / tileSize);
+}
+
+export function getTileCellExtent(x: number, y: number, z: number, worldExtent: Extent): Extent {
+    let pz = 1.0 / (1 &lt;&lt; z);
+
+    let worldWidth = worldExtent.getWidth(),
+        worldHeight = worldExtent.getHeight();
+
+    let w = worldWidth * pz,
+        h = worldHeight * pz;
+
+    let sw_lon = worldExtent.southWest.lon + x * w,
+        ne_lat = worldExtent.northEast.lat - y * h;
+
+    return new Extent(new LonLat(sw_lon, ne_lat - h), new LonLat(sw_lon + w, ne_lat));
+}
+
+export const TILEGROUP_COMMON = 0;
+export const TILEGROUP_NORTH = 20;
+export const TILEGROUP_SOUTH = 300;
+
+export function getTileGroupByLat(lat: number, maxLat: number = MAX_LAT): number {
+    if (lat > maxLat) {
+        return TILEGROUP_NORTH;
+    } else if (lat &lt; -maxLat) {
+        return TILEGROUP_SOUTH;
+    }
+    return TILEGROUP_COMMON;
+}
+
+let _tempHigh = new Vec3();
+let _tempLow = new Vec3();
+
+let _v0 = new Vec3(),
+    _v1 = new Vec3(),
+    _v2 = new Vec3(),
+    _v3 = new Vec3();
+
+let _xyzRtc = new Vec3(),
+    _resRtc = new Vec3(),
+    _vrtRtc = new Vec3();
+
+let _ray = new Ray(),
+    _rayEx = new Ray();
+
+const _S = new Array(4);
+_S[N] = 0;
+_S[E] = 1;
+_S[S] = 1;
+_S[W] = 0;
+
+const _V = new Array(4);
+_V[N] = false;
+_V[E] = true;
+_V[S] = false;
+_V[W] = true;
+
+/**
+ * Planet segment Web Mercator tile class that stored and rendered with a quad-tree.
+ * @class
+ * @param {Node} node - Segment node.
+ * @param {Planet} planet - Planet scene.
+ * @param {number} tileZoom - Zoom index.
+ * @param {Extent} extent - Segment extent.
+ */
+class Segment {
+    public _isNorth?: boolean;
+
+    public isPole: boolean;
+
+    public _tileGroup: number;
+
+    public _projection: Proj;
+
+    public elevationData: TypedArray | null;
+
+    /**
+     * Quad tree node of the segment.
+     * @type {Node}
+     */
+    public node: Node;
+
+    /**
+     * Planet pointer.
+     * @type {Planet}
+     */
+    public planet: Planet;
+
+    /**
+     * WebGl handler pointer.
+     * @type {Handler}
+     */
+    public handler: Handler;
+
+    /**
+     * Segment bounding sphere
+     * @type {Sphere}
+     */
+    public bsphere: Sphere;
+
+    public _plainRadius: number;
+
+    /**
+     * Segment bounding box.
+     * @type {Box}
+     */
+    public bbox: Box;
+
+    public _sw: Vec3;
+    public _nw: Vec3;
+    public _se: Vec3;
+    public _ne: Vec3;
+
+    public centerNormal: Vec3;
+
+    /**
+     * Geographical extent.
+     * @type {Extent}
+     */
+    public _extent: Extent;
+
+    public _extentMerc: Extent;
+
+    public _extentLonLat: Extent;
+
+    /**
+     * Vertices grid size.
+     * @type {number}
+     */
+    public gridSize: number;
+
+    public fileGridSize: number;
+
+    /**
+     * Tile zoom index.
+     * @type {number}
+     */
+    public tileZoom: number;
+
+    /**
+     * Equals to pow(2, tileZoom).
+     * @type {number}
+     */
+    public powTileZoom: number;
+
+    /**
+     * Horizontal tile index.
+     * @type {number}
+     */
+    public tileX: number;
+
+    public tileXE: number;
+
+    public tileXW: number;
+
+    public tileYN: number;
+
+    public tileYS: number;
+
+    /**
+     * Vertical tile index.
+     * @type {number}
+     */
+    public tileY: number;
+
+    public tileIndex: string;
+
+    /**
+     * Texture materials array.
+     * @type {Array.&lt;Material>}
+     *
+     * @toso: Check it should be Map&lt;number, Material> instead of array
+     *
+     */
+    public materials: Material[];
+
+    /**
+     * Plain segment vertices was created.
+     * @type {boolean}
+     */
+    public plainReady: boolean;
+
+    /**
+     * Segment is ready to create plain vertices.
+     * @type {boolean}
+     */
+    public initialized: boolean;
+
+    /**
+     * Normal map is already made.
+     * @type {boolean}
+     */
+    public normalMapReady: boolean;
+
+    /**
+     * Terrain is already applied flag.
+     * @type {boolean}
+     */
+    public terrainReady: boolean;
+
+    /**
+     * Terrain is loading now flag.
+     * @type {boolean}
+     */
+    public terrainIsLoading: boolean;
+
+    /**
+     * Terrain existing flag.
+     * @type {boolean}
+     */
+    public terrainExists: boolean;
+
+    /**
+     * Means that tree passage reaches the segment, and the segment terrain is ready.
+     * @type {boolean}
+     */
+    public passReady: boolean;
+
+    public plainVertices: Float64Array | null;
+    public plainVerticesHigh: Float32Array | null;
+    public plainVerticesLow: Float32Array | null;
+
+    public plainNormals: Float32Array | null;
+
+    public terrainVertices: Float64Array | null;
+    public terrainVerticesHigh: Float32Array | null;
+    public terrainVerticesLow: Float32Array | null;
+    public noDataVertices: Uint8Array | null;
+
+    public renderVertices: Float64Array | null;
+    public renderVerticesHigh: Float32Array | null;
+    public renderVerticesLow: Float32Array | null;
+
+    public normalMapTexture: WebGLTextureExt | null;
+    public normalMapTextureBias: Float32Array;
+    public normalMapVertices: Float64Array | null;
+    public normalMapNormals: Float32Array | null;
+
+    public vertexNormalBuffer: WebGLBufferExt | null;
+    public vertexPositionBuffer: WebGLBufferExt | null;
+    public vertexPositionBufferHigh: WebGLBufferExt | null;
+    public vertexPositionBufferLow: WebGLBufferExt | null;
+    public vertexTextureCoordBuffer: WebGLBufferExt | null;
+
+    public _globalTextureCoordinates: Float32Array;
+    public _inTheQueue: boolean;
+    public _appliedNeighborsZoom: [number, number, number, number];
+    public _appliedNeighborsZoomNodeId: [number, number, number, number];
+
+    public _slices: Slice[];
+
+    public _indexBuffer: WebGLBufferExt | null;
+
+    public readyToEngage: boolean;
+
+    public plainProcessing: boolean;
+
+    public normalMapTexturePtr: WebGLTextureExt | null;
+
+    public _transitionOpacity: number;
+
+    public _transitionTimestamp: number;
+
+    public quadTreeStrategy: QuadTreeStrategy;
+
+    public _relativeCenter: Vec3;
+    public _rtcEyePositionHigh: Float32Array;
+    public _rtcEyePositionLow: Float32Array;
+
+    public __doubleToTwoFloats: (pos: Vec3, highPos: Vec3, lowPos: Vec3) => void;
+
+    constructor(node: Node, quadTreeStrategy: QuadTreeStrategy, tileZoom: number, extent: Extent) {
+        this.isPole = false;
+
+        this._tileGroup = TILEGROUP_COMMON;
+
+        this._projection = EPSG3857;
+
+        this.node = node;
+
+        this.quadTreeStrategy = quadTreeStrategy;
+
+        this.planet = quadTreeStrategy.planet;
+
+        this.handler = quadTreeStrategy.planet.renderer!.handler;
+
+        this.bsphere = new Sphere();
+
+        this._plainRadius = 0;
+
+        this.bbox = new Box();
+
+        this._sw = new Vec3();
+        this._nw = new Vec3();
+        this._se = new Vec3();
+        this._ne = new Vec3();
+
+        this.centerNormal = new Vec3();
+
+        this._extent = this._extentMerc = extent;
+
+        this._extentLonLat = new Extent();
+
+        this.gridSize = this.planet.terrain!.gridSizeByZoom[tileZoom];
+
+        this.fileGridSize = 0;
+
+        this.tileZoom = tileZoom;
+
+        this.powTileZoom = 1 &lt;&lt; tileZoom; //Math.pow(2, tileZoom);
+
+        this.tileX = 0;
+
+        this.tileXE = 0;
+
+        this.tileXW = 0;
+
+        this.tileYN = 0;
+
+        this.tileYS = 0;
+
+        this.tileY = 0;
+
+        this.tileIndex = &quot;&quot;;
+
+        this.elevationData = null;
+
+        this._assignTileIndexes();
+
+        /**
+         * @toso: Check it should be Map&lt;number, Material> instead of array
+         */
+        this.materials = [];
+
+        this.plainReady = false;
+
+        this.initialized = false;
+
+        this.normalMapReady = false;
+
+        this.terrainReady = false;
+
+        this.terrainIsLoading = false;
+
+        this.terrainExists = false;
+
+        this.passReady = false;
+
+        this.plainVertices = null;
+        this.plainVerticesHigh = null;
+        this.plainVerticesLow = null;
+
+        this.plainNormals = null;
+
+        this.terrainVertices = null;
+        this.terrainVerticesHigh = null;
+        this.terrainVerticesLow = null;
+        this.noDataVertices = null;
+
+        this.renderVertices = null;
+        this.renderVerticesHigh = null;
+        this.renderVerticesLow = null;
+
+        this.normalMapTexture = null;
+        this.normalMapTextureBias = new Float32Array(3);
+        this.normalMapVertices = null;
+        this.normalMapNormals = null;
+
+        this.vertexNormalBuffer = null;
+        this.vertexPositionBuffer = null;
+        this.vertexPositionBufferHigh = null;
+        this.vertexPositionBufferLow = null;
+        this.vertexTextureCoordBuffer = null;
+
+        this._globalTextureCoordinates = new Float32Array(4);
+        this._inTheQueue = false;
+        this._appliedNeighborsZoom = [0, 0, 0, 0];
+        this._appliedNeighborsZoomNodeId = [-1, -1, -1, -1];
+
+        this._slices = [];
+
+        this._indexBuffer = null;
+
+        this.readyToEngage = false;
+
+        this.plainProcessing = false;
+
+        this.normalMapTexturePtr = null;
+
+        this._transitionOpacity = 1.0;
+
+        this._transitionTimestamp = 0;
+
+        this._relativeCenter = new Vec3();
+        this._rtcEyePositionHigh = new Float32Array([0, 0, 0]);
+        this._rtcEyePositionLow = new Float32Array([0, 0, 0]);
+        this.__doubleToTwoFloats = this.getRTCPosition.bind(this);
+    }
+
+    public getRTCPosition(pos: Vec3, rtcPositionHigh: Vec3, rtcPositionLow: Vec3) {
+        let rtcPosition = pos.sub(this._relativeCenter);
+        Vec3.doubleToTwoFloats(rtcPosition, rtcPositionHigh, rtcPositionLow);
+    }
+
+    static recalcRTCVertices = (
+        relativeCenter: Vec3,
+        vertices: Float64Array,
+        verticesHigh: Float32Array,
+        verticesLow: Float32Array
+    ) => {
+        let cx = relativeCenter.x;
+        let cy = relativeCenter.y;
+        let cz = relativeCenter.z;
+
+        let vrt = new Vec3();
+        let vrtHigh = new Vec3();
+        let vrtLow = new Vec3();
+
+        const len = vertices.length;
+        const end = len - (len % 3);
+
+        for (let i = 0; i &lt; end; i += 3) {
+            vrt.set(vertices[i] - cx, vertices[i + 1] - cy, vertices[i + 2] - cz);
+            Vec3.doubleToTwoFloats(vrt, vrtHigh, vrtLow);
+
+            verticesHigh[i] = vrtHigh.x;
+            verticesLow[i] = vrtLow.x;
+
+            verticesHigh[i + 1] = vrtHigh.y;
+            verticesLow[i + 1] = vrtLow.y;
+
+            verticesHigh[i + 2] = vrtHigh.z;
+            verticesLow[i + 2] = vrtLow.z;
+        }
+    };
+
+    public setRelativeCenter(c: Vec3) {
+        // if (this._relativeCenter.equal(c)) {
+        //     return;
+        // }
+        //
+        // const prevRelativeCenter = this._relativeCenter.clone();
+        // this._relativeCenter.copy(c);
+        //
+        // Segment.recalcRTCVertices(prevRelativeCenter, c, this.plainVertices!, this.plainVerticesHigh!, this.plainVerticesLow!);
+        // Segment.recalcRTCVertices(prevRelativeCenter, c, this.terrainVertices!, this.terrainVerticesHigh!, this.terrainVerticesLow!);
+        // Segment.recalcRTCVertices(prevRelativeCenter, c, this.renderVertices!, this.renderVerticesHigh!, this.renderVerticesLow!);
+        //
+        // if (this.vertexPositionBufferHigh &amp;&amp; this.vertexPositionBufferLow &amp;&amp; this.renderVerticesHigh &amp;&amp; this.renderVerticesLow) {
+        //     this.createCoordsBuffers(this.renderVerticesHigh, this.renderVerticesLow, this.gridSize);
+        // }
+    }
+
+    public updateRTCEyePosition(camera: PlanetCamera) {
+        let rtcEyePosition = camera.eye.sub(this._relativeCenter);
+        Vec3.doubleToTwoFloat32Array(rtcEyePosition, this._rtcEyePositionHigh, this._rtcEyePositionLow);
+    }
+
+    protected _setRTCEyePositionUniforms(gl: WebGL2RenderingContext, shu: { [id: string]: WebGLUniformLocation }) {
+        gl.uniform3fv(shu.rtcEyePositionHigh, this._rtcEyePositionHigh);
+        gl.uniform3fv(shu.rtcEyePositionLow, this._rtcEyePositionLow);
+    }
+
+    public checkZoom(): boolean {
+        return this.tileZoom &lt; this.planet.terrain!._maxNodeZoom;
+    }
+
+    /**
+     * Returns entity terrain point.
+     * @public
+     * @param {Entity} entity - Entity.
+     * @param {Vec3} res - Point coordinates.
+     * @returns {Vec3} -
+     */
+    public getEntityTerrainPoint(entity: Entity, res: Vec3): number {
+        return this.getTerrainPoint(entity._cartesian, this.getInsideLonLat(entity), res);
+    }
+
+    public getInsideLonLat(obj: Entity | PlanetCamera): LonLat {
+        return obj._lonLatMerc;
+    }
+
+    public isEntityInside(entity: Entity): boolean {
+        return this._extentLonLat!.isInside(entity._lonLat);
+    }
+
+    /**
+     * Returns distance from object to terrain coordinates and terrain point that calculates out in the res parameter.
+     * @public
+     * @param {Vec3} xyz - Cartesian object position.
+     * @param {LonLat} insideSegmentPosition - Geodetic object position.
+     * @param {Vec3} [res] - Result cartesian coordinates on the terrain.
+     * @returns {number} -
+     */
+    public getTerrainPoint(xyz: Vec3, insideSegmentPosition: LonLat, res: Vec3): number {
+        let verts = this.renderVertices;
+
+        if (verts &amp;&amp; verts.length) {
+            let norm = this.planet.ellipsoid.getSurfaceNormal3v(xyz);
+            _xyzRtc.set(xyz.x - this._relativeCenter.x, xyz.y - this._relativeCenter.y, xyz.z - this._relativeCenter.z);
+
+            _ray.set(_xyzRtc, norm.negateTo());
+
+            let ne = this._extent.northEast,
+                sw = this._extent.southWest,
+                size = Math.sqrt(verts.length / 3) - 1;
+
+            let xmax = ne.lon,
+                ymax = ne.lat,
+                xmin = sw.lon,
+                ymin = sw.lat,
+                x = insideSegmentPosition.lon,
+                y = insideSegmentPosition.lat;
+
+            let sxn = xmax - xmin,
+                syn = ymax - ymin;
+
+            let qx = sxn / size,
+                qy = syn / size;
+
+            let xn = x - xmin,
+                yn = y - ymin;
+
+            let indX = Math.floor(xn / qx),
+                indY = Math.floor(size - yn / qy);
+
+            let ind_v0 = ((size + 1) * indY + indX) * 3;
+            let ind_v2 = ((size + 1) * (indY + 1) + indX) * 3;
+
+            _v0.set(verts[ind_v0], verts[ind_v0 + 1], verts[ind_v0 + 2]);
+            _v1.set(verts[ind_v0 + 3], verts[ind_v0 + 4], verts[ind_v0 + 5]);
+            _v2.set(verts[ind_v2], verts[ind_v2 + 1], verts[ind_v2 + 2]);
+
+            let d = _ray.hitTriangleRes(_v0, _v1, _v2, _resRtc);
+
+            if (d === Ray.INSIDE) {
+                res.set(
+                    _resRtc.x + this._relativeCenter.x,
+                    _resRtc.y + this._relativeCenter.y,
+                    _resRtc.z + this._relativeCenter.z
+                );
+                return _xyzRtc.distance(_resRtc);
+            } else if (d === Ray.AWAY) {
+                _rayEx.set(_xyzRtc, norm);
+                let d = _rayEx.hitTriangleRes(_v0, _v1, _v2, _resRtc);
+                if (d === Ray.INSIDE) {
+                    res.set(
+                        _resRtc.x + this._relativeCenter.x,
+                        _resRtc.y + this._relativeCenter.y,
+                        _resRtc.z + this._relativeCenter.z
+                    );
+                    return -_xyzRtc.distance(_resRtc);
+                }
+            }
+
+            _v3.set(verts[ind_v2 + 3], verts[ind_v2 + 4], verts[ind_v2 + 5]);
+
+            d = _ray.hitTriangleRes(_v1, _v3, _v2, _resRtc);
+            if (d === Ray.INSIDE) {
+                res.set(
+                    _resRtc.x + this._relativeCenter.x,
+                    _resRtc.y + this._relativeCenter.y,
+                    _resRtc.z + this._relativeCenter.z
+                );
+                return _xyzRtc.distance(_resRtc);
+            } else if (d === Ray.AWAY) {
+                _rayEx.set(_xyzRtc, norm);
+                let d = _rayEx.hitTriangleRes(_v1, _v3, _v2, _resRtc);
+                if (d === Ray.INSIDE) {
+                    res.set(
+                        _resRtc.x + this._relativeCenter.x,
+                        _resRtc.y + this._relativeCenter.y,
+                        _resRtc.z + this._relativeCenter.z
+                    );
+                    return -_xyzRtc.distance(_resRtc);
+                }
+            }
+
+            if (d === Ray.AWAY) {
+                return -_xyzRtc.distance(_resRtc);
+            }
+
+            return _xyzRtc.distance(_resRtc);
+        } else {
+            let norm = this.planet.ellipsoid.getSurfaceNormal3v(xyz);
+            _ray.set(xyz, norm.negateTo());
+            return xyz.distance(this.planet.ellipsoid.hitRay(_ray.origin, _ray.direction)!);
+        }
+    }
+
+    /**
+     * Project wgs86 to segment native projection.
+     * @public
+     * @param {LonLat} lonlat - Coordinates to project.
+     * @returns {LonLat} -
+     */
+    public projectNative(lonlat: LonLat): LonLat {
+        return lonlat.forwardMercator();
+    }
+
+    public loadTerrain(forceLoading: boolean = false) {
+        if (this.tileZoom &lt; this.planet.terrain!.minZoom || this.planet.terrain!.isEmpty) {
+            this.terrainIsLoading = true;
+
+            this.elevationsNotExists();
+
+            if (!this._inTheQueue) {
+                this.planet._normalMapCreator.queue(this);
+            }
+        } else {
+            if (this.tileZoom > this.planet.terrain!.maxZoom) {
+                this.elevationsNotExists();
+            } else if (!this.terrainIsLoading &amp;&amp; !this.terrainReady) {
+                this.planet.terrain!.loadTerrain(this, forceLoading);
+            }
+            // if (!this.terrainIsLoading &amp;&amp; !this.terrainReady) {
+            //     this.planet.terrain.loadTerrain(this, forceLoading);
+            // }
+        }
+    }
+
+    /**
+     * Terrain obtained from server.
+     * @param {Float32Array} elevations - Elevation data.
+     */
+    public elevationsExists(elevations: number[] | TypedArray) {
+        if (this.plainReady &amp;&amp; this.terrainIsLoading) {
+            let _elevations = new Float32Array(elevations.length);
+            _elevations.set(elevations);
+
+            this.elevationData = new Float32Array(elevations.length);
+            this.elevationData.set(elevations);
+
+            this.planet._terrainWorker.make({ segment: this, elevations: _elevations });
+
+            this.plainVerticesHigh = null;
+            this.plainVerticesLow = null;
+
+            if (!this.planet.terrain!.equalizeVertices) {
+                this.renderVerticesHigh = null;
+                this.renderVerticesLow = null;
+            }
+        }
+    }
+
+    /**
+     * Keep plain elevation segment for rendering
+     *
+     * 'this.tileZoom &lt;= this.planet.terrain.maxZoom' it means, that the segment is plain
+     *
+     */
+    public elevationsNotExists() {
+        if (this.planet &amp;&amp; this.tileZoom &lt;= this.planet.terrain!.maxNativeZoom) {
+            if (this.plainReady &amp;&amp; this.terrainIsLoading) {
+                this.terrainIsLoading = false;
+
+                let n = this.node;
+                n.appliedTerrainNodeId = this.node.nodeId;
+                n.equalizedSideWithNodeId[N] =
+                    n.equalizedSideWithNodeId[E] =
+                    n.equalizedSideWithNodeId[S] =
+                    n.equalizedSideWithNodeId[W] =
+                        n.appliedTerrainNodeId;
+
+                if (!this._inTheQueue) {
+                    this.planet._normalMapCreator.queue(this);
+                }
+
+                this.readyToEngage = true;
+            }
+
+            // plain terrain only
+            this.terrainVertices = this.plainVertices;
+            this.terrainVerticesHigh = this.plainVerticesHigh;
+            this.terrainVerticesLow = this.plainVerticesLow;
+
+            this.renderVertices = this.terrainVertices;
+            this.renderVerticesHigh = this.terrainVerticesHigh;
+            this.renderVerticesLow = this.terrainVerticesLow;
+
+            this.noDataVertices = null;
+
+            this.fileGridSize = Math.sqrt(this.terrainVertices!.length / 3) - 1;
+            this.gridSize = this.fileGridSize;
+            this.terrainReady = true;
+            this.terrainExists = false;
+        } else {
+            if (this.plainReady &amp;&amp; this.terrainIsLoading) {
+                this.terrainIsLoading = false;
+
+                let n = this.node;
+                n.appliedTerrainNodeId = this.node.nodeId;
+                n.equalizedSideWithNodeId[N] =
+                    n.equalizedSideWithNodeId[E] =
+                    n.equalizedSideWithNodeId[S] =
+                    n.equalizedSideWithNodeId[W] =
+                        n.appliedTerrainNodeId;
+
+                this.readyToEngage = true;
+                this.terrainReady = true;
+                this.passReady = true;
+
+                this.terrainExists = false;
+            }
+        }
+    }
+
+    protected _checkEqualization(neighborSide: number, neigborNode: Node): boolean {
+        const ns = neigborNode &amp;&amp; neigborNode.segment;
+        const oppositeSide = OPSIDE[neighborSide];
+        const oppositeNeighbors = neigborNode &amp;&amp; neigborNode.neighbors &amp;&amp; neigborNode.neighbors[oppositeSide];
+        const hasReverseNeighbor = !!oppositeNeighbors &amp;&amp; oppositeNeighbors.indexOf(this.node) !== -1;
+        return (
+            neigborNode &amp;&amp;
+            ns &amp;&amp;
+            hasReverseNeighbor &amp;&amp;
+            !!ns.renderVertices &amp;&amp;
+            Number.isFinite(ns.gridSize) &amp;&amp;
+            ns.gridSize >= 1 &amp;&amp;
+            this.tileZoom >= ns.tileZoom &amp;&amp;
+            this.node.equalizedSideWithNodeId[neighborSide] !==
+                neigborNode.equalizedSideWithNodeId[OPSIDE[neighborSide]]
+        );
+    }
+
+    protected _equalizeSide(side: number): void {
+        let n = this.node.neighbors[side][0];
+
+        if (this._checkEqualization(side, n)) {
+            let v = this.renderVertices!,
+                vHigh = this.renderVerticesHigh!,
+                vLow = this.renderVerticesLow!;
+
+            let gs = this.gridSize;
+            let gsOne = gs + 1;
+
+            let offset = this.node.getOffsetOppositeNeighbourSide(n, side);
+
+            let ns = n.segment;
+            let nv = ns.renderVertices!;
+
+            let n_gs = ns.gridSize,
+                n_gsOne = n_gs + 1;
+
+            let dxRtc = ns._relativeCenter.x - this._relativeCenter.x,
+                dyRtc = ns._relativeCenter.y - this._relativeCenter.y,
+                dzRtc = ns._relativeCenter.z - this._relativeCenter.z;
+
+            let dz = 1 / (1 &lt;&lt; (this.tileZoom - n.segment.tileZoom));
+
+            let inc = Math.max(gs / (n_gs * dz), 1),
+                n_inc = Math.max((n_gs * dz) / gs, 1),
+                n_offset = offset * n_gs;
+
+            let indexMul = 1,
+                indexOffset = 0,
+                nIndexMul = 1,
+                nIndexOffset = 0;
+
+            if (side === N) {
+                nIndexOffset = n_gsOne * n_gs;
+            } else if (side === E) {
+                indexMul = gsOne;
+                indexOffset = gs;
+                nIndexMul = n_gsOne;
+            } else if (side === S) {
+                indexOffset = gsOne * gs;
+            } else {
+                indexMul = gsOne;
+                nIndexMul = n_gsOne;
+                nIndexOffset = n_gs;
+            }
+
+            this.node.equalizedSideWithNodeId[side] = n.equalizedSideWithNodeId[OPSIDE[side]];
+            this.readyToEngage = true;
+
+            for (let k = 0, nk = n_offset; k &lt; gsOne; k += inc, nk += n_inc) {
+                let index = (indexMul * k + indexOffset) * 3;
+                let n_index = (nIndexMul * nk + nIndexOffset) * 3;
+
+                let x = nv[n_index] + dxRtc;
+                let y = nv[n_index + 1] + dyRtc;
+                let z = nv[n_index + 2] + dzRtc;
+
+                v[index] = x;
+                v[index + 1] = y;
+                v[index + 2] = z;
+
+                _v0.set(x, y, z);
+                Vec3.doubleToTwoFloats(_v0, _tempHigh, _tempLow);
+
+                vHigh[index] = _tempHigh.x;
+                vHigh[index + 1] = _tempHigh.y;
+                vHigh[index + 2] = _tempHigh.z;
+
+                vLow[index] = _tempLow.x;
+                vLow[index + 1] = _tempLow.y;
+                vLow[index + 2] = _tempLow.z;
+            }
+        }
+    }
+
+    public equalize() {
+        // Equalization doesn't work correctly for gridSize equals 2
+        if (this.tileZoom &lt; 2 || this.gridSize &lt; 2) {
+            return;
+        }
+
+        this.readyToEngage = true;
+
+        this._equalizeSide(N);
+        this._equalizeSide(E);
+        this._equalizeSide(S);
+        this._equalizeSide(W);
+    }
+
+    /*
+    public equalize() {
+
+        // Equalization doesn't work correctly for gridSize equals 2
+        if (this.tileZoom &lt; 2 || this.gridSize &lt; 2) {
+            return;
+        }
+
+        this.readyToEngage = true;
+
+        let nn = this.node.neighbors;
+
+        let v = this.renderVertices!,
+            vHigh = this.renderVerticesHigh!,
+            vLow = this.renderVerticesLow!;
+
+        let gs = this.gridSize,
+            gsOne = gs + 1;
+
+        let n = nn[N][0];
+        if (this._checkEqualization(N, n)) {
+
+            this.node.equalizedSideWithNodeId[N] = n.equalizedSideWithNodeId[S];
+
+            this.readyToEngage = true;
+
+            let offset = this.node.getOffsetOppositeNeighbourSide(n, N);
+
+            let nv = n.segment.renderVertices!,
+                nvHigh = n.segment.renderVerticesHigh!,
+                nvLow = n.segment.renderVerticesLow!;
+
+            let n_gs = n.segment.gridSize,
+                n_gsOne = n_gs + 1;
+
+            let dz = 1 / (1 &lt;&lt; (this.tileZoom - n.segment.tileZoom));
+
+            let inc = Math.max(gs / (n_gs * dz), 1),
+                n_inc = Math.max((n_gs * dz) / gs, 1),
+                n_offset = offset * n_gs;
+
+            for (let k = 0, nk = n_offset; k &lt; gsOne; k += inc, nk += n_inc) {
+                const index = k * 3;
+                const n_index = (n_gsOne * n_gs + nk) * 3;
+
+                v[index] = nv[n_index];
+                v[index + 1] = nv[n_index + 1];
+                v[index + 2] = nv[n_index + 2];
+
+                vHigh[index] = nvHigh[n_index];
+                vHigh[index + 1] = nvHigh[n_index + 1];
+                vHigh[index + 2] = nvHigh[n_index + 2];
+
+                vLow[index] = nvLow[n_index];
+                vLow[index + 1] = nvLow[n_index + 1];
+                vLow[index + 2] = nvLow[n_index + 2];
+            }
+        }
+
+        n = nn[E][0];
+        if (this._checkEqualization(E, n)) {
+
+            this.node.equalizedSideWithNodeId[E] = n.equalizedSideWithNodeId[W];
+
+            this.readyToEngage = true;
+
+            let offset = this.node.getOffsetOppositeNeighbourSide(n, E);
+
+            let nv = n.segment.renderVertices!,
+                nvHigh = n.segment.renderVerticesHigh!,
+                nvLow = n.segment.renderVerticesLow!;
+
+            let n_gs = n.segment.gridSize,
+                n_gsOne = n_gs + 1;
+
+            let dz = 1 / (1 &lt;&lt; (this.tileZoom - n.segment.tileZoom));
+
+            let inc = Math.max(gs / (n_gs * dz), 1),
+                n_inc = Math.max((n_gs * dz) / gs, 1),
+                n_offset = offset * n_gs;
+
+            for (let k = 0, nk = n_offset; k &lt; gsOne; k += inc, nk += n_inc) {
+                const index = (gsOne * k + gs) * 3;
+                const n_index = n_gsOne * nk * 3;
+
+                v[index] = nv[n_index];
+                v[index + 1] = nv[n_index + 1];
+                v[index + 2] = nv[n_index + 2];
+
+                vHigh[index] = nvHigh[n_index];
+                vHigh[index + 1] = nvHigh[n_index + 1];
+                vHigh[index + 2] = nvHigh[n_index + 2];
+
+                vLow[index] = nvLow[n_index];
+                vLow[index + 1] = nvLow[n_index + 1];
+                vLow[index + 2] = nvLow[n_index + 2];
+            }
+        }
+
+        n = nn[S][0];
+        if (this._checkEqualization(S, n)) {
+
+            this.node.equalizedSideWithNodeId[S] = n.equalizedSideWithNodeId[N];
+
+            this.readyToEngage = true;
+
+            let offset = this.node.getOffsetOppositeNeighbourSide(n, S);
+
+            let nv = n.segment.renderVertices!,
+                nvHigh = n.segment.renderVerticesHigh!,
+                nvLow = n.segment.renderVerticesLow!;
+
+            let n_gs = n.segment.gridSize; // n_gsOne = n_gs + 1;
+
+            let dz = 1 / (1 &lt;&lt; (this.tileZoom - n.segment.tileZoom));
+
+            let inc = Math.max(gs / (n_gs * dz), 1),
+                n_inc = Math.max((n_gs * dz) / gs, 1),
+                n_offset = offset * n_gs;
+
+            for (let k = 0, nk = n_offset; k &lt; gsOne; k += inc, nk += n_inc) {
+                const index = (gsOne * gs + k) * 3;
+                const n_index = nk * 3;
+
+                v[index] = nv[n_index];
+                v[index + 1] = nv[n_index + 1];
+                v[index + 2] = nv[n_index + 2];
+
+                vHigh[index] = nvHigh[n_index];
+                vHigh[index + 1] = nvHigh[n_index + 1];
+                vHigh[index + 2] = nvHigh[n_index + 2];
+
+                vLow[index] = nvLow[n_index];
+                vLow[index + 1] = nvLow[n_index + 1];
+                vLow[index + 2] = nvLow[n_index + 2];
+            }
+        }
+
+        n = nn[W][0];
+        if (this._checkEqualization(W, n)) {
+
+            this.node.equalizedSideWithNodeId[W] = n.equalizedSideWithNodeId[E];
+
+            this.readyToEngage = true;
+
+            let offset = this.node.getOffsetOppositeNeighbourSide(n, W);
+
+            let nv = n.segment.renderVertices!,
+                nvHigh = n.segment.renderVerticesHigh!,
+                nvLow = n.segment.renderVerticesLow!;
+
+            let n_gs = n.segment.gridSize,
+                n_gsOne = n_gs + 1;
+
+            let dz = 1 / (1 &lt;&lt; (this.tileZoom - n.segment.tileZoom));
+
+            let inc = Math.max(gs / (n_gs * dz), 1),
+                n_inc = Math.max((n_gs * dz) / gs, 1),
+                n_offset = offset * n_gs;
+
+            for (let k = 0, nk = n_offset; k &lt; gsOne; k += inc, nk += n_inc) {
+                const index = gsOne * k * 3;
+                const n_index = (n_gsOne * nk + n_gs) * 3;
+
+                v[index] = nv[n_index];
+                v[index + 1] = nv[n_index + 1];
+                v[index + 2] = nv[n_index + 2];
+
+                vHigh[index] = nvHigh[n_index];
+                vHigh[index + 1] = nvHigh[n_index + 1];
+                vHigh[index + 2] = nvHigh[n_index + 2];
+
+                vLow[index] = nvLow[n_index];
+                vLow[index + 1] = nvLow[n_index + 1];
+                vLow[index + 2] = nvLow[n_index + 2];
+            }
+        }
+    }
+     */
+
+    public engage() {
+        this.readyToEngage = false;
+        this.createCoordsBuffers(this.renderVerticesHigh!, this.renderVerticesLow!, this.gridSize);
+    }
+
+    public _terrainWorkerCallback(data: ITerrainWorkerData) {
+        if (this.plainReady) {
+            let originalRelativeCenter = new Vec3(
+                data.relativeCenter[0],
+                data.relativeCenter[1],
+                data.relativeCenter[2]
+            );
+
+            if (!this._relativeCenter.equal(originalRelativeCenter)) {
+                console.warn(&quot;RECALCULATE TERRAIN VERTICES&quot;);
+            }
+
+            this.readyToEngage = true;
+
+            this.normalMapNormals = null;
+
+            this.normalMapVertices = null;
+
+            this.terrainVertices = null;
+            this.terrainVerticesHigh = null;
+            this.terrainVerticesLow = null;
+            this.noDataVertices = null;
+
+            this.renderVertices = null;
+            this.renderVerticesHigh = null;
+            this.renderVerticesLow = null;
+
+            this.normalMapNormals = data.normalMapNormals;
+            this.normalMapVertices = data.normalMapVertices;
+
+            this.terrainVertices = data.terrainVertices;
+            this.terrainVerticesHigh = data.terrainVerticesHigh;
+            this.terrainVerticesLow = data.terrainVerticesLow;
+
+            this.noDataVertices = data.noDataVertices;
+
+            this.renderVertices = this.terrainVertices;
+            this.renderVerticesHigh = this.terrainVerticesHigh;
+            this.renderVerticesLow = this.terrainVerticesLow;
+
+            this.setBoundingVolumeArr(data.bounds);
+
+            this.gridSize = Math.sqrt(this.terrainVertices!.length / 3) - 1;
+
+            let n = this.node;
+            n.appliedTerrainNodeId = n.nodeId;
+            n.equalizedSideWithNodeId[N] =
+                n.equalizedSideWithNodeId[E] =
+                n.equalizedSideWithNodeId[S] =
+                n.equalizedSideWithNodeId[W] =
+                    n.appliedTerrainNodeId;
+
+            this.terrainReady = true;
+            this.terrainIsLoading = false;
+            this.terrainExists = true;
+
+            if (!this.normalMapTexturePtr) {
+                const nmc = this.planet._normalMapCreator;
+                this.normalMapTexturePtr = this.planet.renderer!.handler.createEmptyTexture_l(nmc.width, nmc.height);
+            }
+
+            this.planet._normalMapCreator.queue(this);
+        }
+    }
+
+    public _normalMapEdgeEqualize(side: number) {
+        let nn = this.node.neighbors;
+        let nns = nn[side];
+        let n: Node | undefined = nns &amp;&amp; nns[0];
+        let maxZ = this.planet.terrain!.maxZoom;
+
+        if (this.tileZoom === maxZ) {
+            if (nns &amp;&amp; !(nn[0].length || nn[1].length || nn[2].length || nn[3].length)) {
+                n = this.node.getEqualNeighbor(side);
+            }
+        }
+
+        let b = n &amp;&amp; n.segment,
+            s = this;
+
+        if (
+            n &amp;&amp;
+            b &amp;&amp;
+            b.terrainReady &amp;&amp;
+            b.terrainExists &amp;&amp;
+            b.tileZoom &lt;= maxZ &amp;&amp;
+            (s._appliedNeighborsZoom[side] !== b.tileZoom || s._appliedNeighborsZoomNodeId[side] !== n.nodeId)
+        ) {
+            let seg_a = s.normalMapNormals,
+                seg_b = b.normalMapNormals;
+
+            if (!(seg_a &amp;&amp; seg_b)) return;
+
+            let seg_a_raw = s.normalMapNormals!,
+                seg_b_raw = b.normalMapNormals!;
+
+            let s_gs = Math.sqrt(seg_a.length / 3),
+                s_gs1 = s_gs - 1;
+
+            const i_a = s_gs1 * _S[side];
+
+            let nx, ny, nz, q;
+
+            if (s.tileZoom === b.tileZoom) {
+                const i_b = s_gs1 - i_a;
+
+                if (_V[side]) {
+                    for (let k = 0; k &lt; s_gs; k++) {
+                        let vInd_a = (k * s_gs + i_a) * 3,
+                            vInd_b = (k * s_gs + i_b) * 3;
+
+                        nx = seg_a_raw[vInd_a] + seg_b_raw[vInd_b];
+                        ny = seg_a_raw[vInd_a + 1] + seg_b_raw[vInd_b + 1];
+                        nz = seg_a_raw[vInd_a + 2] + seg_b_raw[vInd_b + 2];
+
+                        q = 1.0 / Math.sqrt(nx * nx + ny * ny + nz * nz);
+
+                        seg_b[vInd_b] = seg_a[vInd_a] = nx * q;
+                        seg_b[vInd_b + 1] = seg_a[vInd_a + 1] = ny * q;
+                        seg_b[vInd_b + 2] = seg_a[vInd_a + 2] = nz * q;
+                    }
+                } else {
+                    for (let k = 0; k &lt; s_gs; k++) {
+                        let vInd_a = (i_a * s_gs + k) * 3,
+                            vInd_b = (i_b * s_gs + k) * 3;
+
+                        nx = seg_a_raw[vInd_a] + seg_b_raw[vInd_b];
+                        ny = seg_a_raw[vInd_a + 1] + seg_b_raw[vInd_b + 1];
+                        nz = seg_a_raw[vInd_a + 2] + seg_b_raw[vInd_b + 2];
+
+                        q = 1.0 / Math.sqrt(nx * nx + ny * ny + nz * nz);
+
+                        seg_b[vInd_b] = seg_a[vInd_a] = nx * q;
+                        seg_b[vInd_b + 1] = seg_a[vInd_a + 1] = ny * q;
+                        seg_b[vInd_b + 2] = seg_a[vInd_a + 2] = nz * q;
+                    }
+                }
+
+                s._appliedNeighborsZoom[side] = b.tileZoom;
+                s._appliedNeighborsZoomNodeId[side] = n.nodeId;
+
+                const oppositeSide = OPSIDE[side];
+                if (
+                    !b._inTheQueue &amp;&amp;
+                    (b._appliedNeighborsZoom[oppositeSide] !== s.tileZoom ||
+                        b._appliedNeighborsZoomNodeId[oppositeSide] !== s.node.nodeId)
+                ) {
+                    b._appliedNeighborsZoom[oppositeSide] = s.tileZoom;
+                    b._appliedNeighborsZoomNodeId[oppositeSide] = s.node.nodeId;
+                    s.planet._normalMapCreator.queue(b);
+                }
+            }
+        }
+    }
+
+    public applyTerrain(elevations?: number[] | TypedArray | null) {
+        if (elevations) {
+            this.elevationsExists(elevations);
+        } else {
+            this.elevationsNotExists();
+        }
+    }
+
+    public deleteBuffers() {
+        const gl = this.handler.gl!;
+
+        gl.deleteBuffer(this.vertexNormalBuffer!);
+        gl.deleteBuffer(this.vertexPositionBuffer!);
+        gl.deleteBuffer(this.vertexPositionBufferHigh!);
+        gl.deleteBuffer(this.vertexPositionBufferLow!);
+
+        this.vertexNormalBuffer = null;
+        this.vertexPositionBuffer = null;
+        this.vertexPositionBufferHigh = null;
+        this.vertexPositionBufferLow = null;
+        this.vertexTextureCoordBuffer = null;
+    }
+
+    public deleteMaterials() {
+        let m = this.materials;
+        for (let i = 0; i &lt; m.length; i++) {
+            let mi = m[i];
+            if (mi) {
+                mi.clear();
+            }
+        }
+        this.materials.length = 0;
+    }
+
+    public deleteElevations() {
+        this.terrainExists = false;
+        this.terrainReady = false;
+        this.terrainIsLoading = false;
+
+        this.normalMapVertices = null;
+        this.normalMapNormals = null;
+
+        this.renderVertices = null;
+        this.renderVerticesHigh = null;
+        this.renderVerticesLow = null;
+
+        this.terrainVertices = null;
+        this.terrainVerticesHigh = null;
+        this.terrainVerticesLow = null;
+        this.noDataVertices = null;
+
+        this.plainVertices = null;
+        this.plainVerticesHigh = null;
+        this.plainVerticesLow = null;
+        this.plainNormals = null;
+
+        if (this.normalMapReady) {
+            this.handler.gl!.deleteTexture(this.normalMapTexture!);
+            this.normalMapReady = false;
+        }
+
+        this._appliedNeighborsZoom = [0, 0, 0, 0];
+        this._appliedNeighborsZoomNodeId = [-1, -1, -1, -1];
+
+        this.normalMapTextureBias[0] = 0;
+        this.normalMapTextureBias[1] = 0;
+        this.normalMapTextureBias[2] = 1;
+
+        this._inTheQueue = false;
+    }
+
+    public clearSegment() {
+        this.passReady = false;
+        this.plainReady = false;
+        this.initialized = false;
+        this._slices.length = 0;
+        this._slices = [];
+        this.deleteBuffers();
+        this.deleteMaterials();
+        this.deleteElevations();
+    }
+
+    public childrenInitialized(): boolean {
+        let n = this.node.nodes;
+        return (
+            n.length === 4 &amp;&amp;
+            n[0].segment.initialized &amp;&amp;
+            n[1].segment.initialized &amp;&amp;
+            n[2].segment.initialized &amp;&amp;
+            n[3].segment.initialized
+        );
+    }
+
+    public destroySegment() {
+        this.clearSegment();
+
+        let i = this._slices.length;
+        while (i--) {
+            this._slices[i].clear();
+        }
+
+        //@ts-ignore
+        this._slices = null;
+        //@ts-ignore
+        this.node = null;
+        //@ts-ignore
+        this.planet = null;
+        //@ts-ignore
+        this.handler = null;
+        //@ts-ignore
+        this.bbox = null;
+        //@ts-ignore
+        this.bsphere = null;
+        //@ts-ignore
+        this._extent = null;
+        //@ts-ignore
+        this.materials = null;
+
+        this.plainVertices = null;
+        this.plainVerticesHigh = null;
+        this.plainVerticesLow = null;
+        this.plainNormals = null;
+
+        this.terrainVertices = null;
+        this.terrainVerticesHigh = null;
+        this.terrainVerticesLow = null;
+        this.noDataVertices = null;
+
+        this.renderVertices = null;
+        this.renderVerticesHigh = null;
+        this.renderVerticesLow = null;
+
+        //@ts-ignore
+        this.normalMapTextureBias = null;
+        this.normalMapTexture = null;
+        this.normalMapVertices = null;
+        this.normalMapNormals = null;
+
+        this.vertexNormalBuffer = null;
+        this.vertexPositionBuffer = null;
+        this.vertexPositionBufferHigh = null;
+        this.vertexPositionBufferLow = null;
+        this.vertexTextureCoordBuffer = null;
+
+        // @ts-ignore
+        this._projection = null;
+        // @ts-ignore
+        this._appliedNeighborsZoom = null;
+        // @ts-ignore
+        this._appliedNeighborsZoomNodeId = null;
+        // @ts-ignore
+        this._globalTextureCoordinates = null;
+    }
+
+    /**
+     * @todo: looks like it could be simplified in Segment contructor
+     */
+    public _setExtentLonLat() {
+        this._extentLonLat = this._extent.inverseMercator();
+    }
+
+    protected _createExtentNormals() {
+        const ellipsoid = this.planet.ellipsoid;
+        const extent = this._extentLonLat;
+
+        const coord_sw = ellipsoid.geodeticToCartesian(extent.southWest.lon, extent.southWest.lat);
+        const coord_ne = ellipsoid.geodeticToCartesian(extent.northEast.lon, extent.northEast.lat);
+
+        const coord_nw = ellipsoid.geodeticToCartesian(extent.southWest.lon, extent.northEast.lat);
+
+        const coord_se = ellipsoid.geodeticToCartesian(extent.northEast.lon, extent.southWest.lat);
+
+        this._sw.copy(coord_sw);
+        this._nw.copy(coord_nw);
+        this._ne.copy(coord_ne);
+        this._se.copy(coord_se);
+    }
+
+    public createBoundsByExtent() {
+        this._createExtentNormals();
+        this.setBoundingVolume3v(this._sw, this._ne);
+    }
+
+    public createBoundsByParent() {
+        let pn = this.node;
+
+        while (pn.parentNode &amp;&amp; !pn.segment.terrainReady) {
+            pn = pn.parentNode;
+        }
+
+        let dZ2 = 1 &lt;&lt; (this.tileZoom - pn.segment.tileZoom);
+
+        let offsetX = this.tileX - pn.segment.tileX * dZ2,
+            offsetY = this.tileY - pn.segment.tileY * dZ2;
+
+        const pseg = pn.segment;
+        const rtc_x = pseg._relativeCenter.x,
+            rtc_y = pseg._relativeCenter.y,
+            rtc_z = pseg._relativeCenter.z;
+
+        if (pseg.terrainReady &amp;&amp; pseg.tileZoom >= this.planet.terrain!.minZoom) {
+            let gridSize = pseg.gridSize / dZ2;
+
+            if (gridSize >= 1.0) {
+                //
+                // (*) Get parent whole bounding volume
+                //
+                this.bsphere.center.x = pseg.bsphere.center.x;
+                this.bsphere.center.y = pseg.bsphere.center.y;
+                this.bsphere.center.z = pseg.bsphere.center.z;
+                this.bsphere.radius = pseg.bsphere.radius;
+
+                let i0 = gridSize * offsetY;
+                let j0 = gridSize * offsetX;
+
+                let pnGsOne = pseg.gridSize + 1;
+
+                let ind_sw = 3 * ((i0 + gridSize) * pnGsOne + j0),
+                    ind_nw = 3 * (i0 * pnGsOne + j0),
+                    ind_ne = 3 * (i0 * pnGsOne + j0 + gridSize),
+                    ind_se = 3 * ((i0 + gridSize) * pnGsOne + j0 + gridSize);
+
+                let pVerts = pseg.renderVertices!;
+
+                let v_sw = new Vec3(pVerts[ind_sw] + rtc_x, pVerts[ind_sw + 1] + rtc_y, pVerts[ind_sw + 2] + rtc_z),
+                    v_ne = new Vec3(pVerts[ind_ne] + rtc_x, pVerts[ind_ne + 1] + rtc_y, pVerts[ind_ne + 2] + rtc_z);
+
+                // check for segment zoom
+                let v_nw = new Vec3(pVerts[ind_nw] + rtc_x, pVerts[ind_nw + 1] + rtc_y, pVerts[ind_nw + 2] + rtc_z),
+                    v_se = new Vec3(pVerts[ind_se] + rtc_x, pVerts[ind_se + 1] + rtc_y, pVerts[ind_se + 2] + rtc_z);
+
+                this._sw.copy(v_sw);
+                this._nw.copy(v_nw);
+                this._ne.copy(v_ne);
+                this._se.copy(v_se);
+            } else {
+                let i0 = Math.floor(gridSize * offsetY),
+                    j0 = Math.floor(gridSize * offsetX);
+
+                let insideSize = 1.0 / gridSize;
+
+                let t_i0 = offsetY - insideSize * i0,
+                    t_j0 = offsetX - insideSize * j0;
+
+                let bigOne;
+                if (pseg.gridSize === 1) {
+                    bigOne = pseg.renderVertices!;
+                } else {
+                    bigOne = getMatrixSubArray64(pseg.renderVertices!, pseg.gridSize, i0, j0, 1);
+                }
+
+                let v_lt = new Vec3(bigOne[0] + rtc_x, bigOne[1] + rtc_y, bigOne[2] + rtc_z),
+                    v_rb = new Vec3(bigOne[9] + rtc_x, bigOne[10] + rtc_y, bigOne[11] + rtc_z);
+
+                let vn = new Vec3(bigOne[3] - bigOne[0], bigOne[4] - bigOne[1], bigOne[5] - bigOne[2]),
+                    vw = new Vec3(bigOne[6] - bigOne[0], bigOne[7] - bigOne[1], bigOne[8] - bigOne[2]),
+                    ve = new Vec3(bigOne[3] - bigOne[9], bigOne[4] - bigOne[10], bigOne[5] - bigOne[11]),
+                    vs = new Vec3(bigOne[6] - bigOne[9], bigOne[7] - bigOne[10], bigOne[8] - bigOne[11]);
+
+                let vi_y = t_i0,
+                    vi_x = t_j0;
+
+                let coords_lt, coords_rb;
+
+                if (vi_y + vi_x &lt; insideSize) {
+                    coords_lt = Vec3.add(vn.scaleTo(vi_x / insideSize), vw.scaleTo(vi_y / insideSize)).addA(v_lt);
+                } else {
+                    coords_lt = Vec3.add(vs.scaleTo(1 - vi_x / insideSize), ve.scaleTo(1 - vi_y / insideSize)).addA(
+                        v_rb
+                    );
+                }
+
+                vi_y = t_i0 + 1;
+                vi_x = t_j0 + 1;
+
+                if (vi_y + vi_x &lt; insideSize) {
+                    coords_rb = Vec3.add(vn.scaleTo(vi_x / insideSize), vw.scaleTo(vi_y / insideSize)).addA(v_lt);
+                } else {
+                    coords_rb = Vec3.add(vs.scaleTo(1 - vi_x / insideSize), ve.scaleTo(1 - vi_y / insideSize)).addA(
+                        v_rb
+                    );
+                }
+
+                this._createExtentNormals();
+                this.setBoundingVolume3v(coords_lt, coords_rb);
+            }
+        } else {
+            this.createBoundsByExtent();
+        }
+    }
+
+    public setBoundingSphere(x: number, y: number, z: number, v: Vec3) {
+        this.bsphere.center.x = x;
+        this.bsphere.center.y = y;
+        this.bsphere.center.z = z;
+        this.bsphere.radius = this.bsphere.center.distance(v);
+    }
+
+    public setBoundingVolume(xmin: number, ymin: number, zmin: number, xmax: number, ymax: number, zmax: number) {
+        this.bbox.setFromBoundsArr([xmin, ymin, zmin, xmax, ymax, zmax]);
+
+        let x = xmin + (xmax - xmin) * 0.5,
+            y = ymin + (ymax - ymin) * 0.5,
+            z = zmin + (zmax - zmin) * 0.5;
+
+        this.bsphere.center.set(x, y, z);
+        this.bsphere.radius = this.bsphere.center.distance(new Vec3(xmin, ymin, zmin));
+    }
+
+    public setBoundingVolume3v(vmin: Vec3, vmax: Vec3) {
+        this.bbox.setFromBoundsArr([vmin.x, vmin.y, vmin.z, vmax.x, vmax.y, vmax.z]);
+
+        let x = vmin.x + (vmax.x - vmin.x) * 0.5,
+            y = vmin.y + (vmax.y - vmin.y) * 0.5,
+            z = vmin.z + (vmax.z - vmin.z) * 0.5;
+
+        this.bsphere.center.set(x, y, z);
+        this.bsphere.radius = this.bsphere.center.distance(new Vec3(vmin.x, vmin.y, vmin.z));
+    }
+
+    public setBoundingVolumeArr(bounds: NumberArray6) {
+        this.bbox.setFromBoundsArr(bounds);
+
+        let x = bounds[0] + (bounds[3] - bounds[0]) * 0.5,
+            y = bounds[1] + (bounds[4] - bounds[1]) * 0.5,
+            z = bounds[2] + (bounds[5] - bounds[2]) * 0.5;
+
+        this.bsphere.center.set(x, y, z);
+        this.bsphere.radius = this.bsphere.center.distance(new Vec3(bounds[0], bounds[1], bounds[2]));
+    }
+
+    public createCoordsBuffers(verticesHigh: Float32Array, verticesLow: Float32Array, gridSize: number) {
+        const gsgs = (gridSize + 1) * (gridSize + 1);
+        const h = this.handler;
+
+        if (this.vertexPositionBufferHigh &amp;&amp; this.vertexPositionBufferHigh.numItems === gsgs) {
+            h.setStreamArrayBuffer(this.vertexPositionBufferHigh!, verticesHigh);
+            h.setStreamArrayBuffer(this.vertexPositionBufferLow!, verticesLow);
+        } else {
+            h.gl!.deleteBuffer(this.vertexPositionBufferHigh!);
+            h.gl!.deleteBuffer(this.vertexPositionBufferLow!);
+
+            this.vertexTextureCoordBuffer = this.planet._textureCoordsBufferCache[Math.log2(gridSize)];
+
+            // @todo use it!
+            //this.vertexPositionBufferHigh = h.createStreamArrayBuffer(3, gsgs);
+            //h.setStreamArrayBuffer(this.vertexPositionBufferHigh, verticesHigh);
+            //this.vertexPositionBufferLow = h.createStreamArrayBuffer(3, gsgs);
+            //h.setStreamArrayBuffer(this.vertexPositionBufferLow, verticesLow);
+
+            // It works, but I'm not sure that it is correct and better use the comment above
+            this.vertexPositionBufferHigh = h.createArrayBuffer(verticesHigh, 3, gsgs);
+            this.vertexPositionBufferLow = h.createArrayBuffer(verticesLow, 3, gsgs);
+        }
+    }
+
+    public _addViewExtent() {
+        const ext = this._extentLonLat;
+
+        let viewExt = this.quadTreeStrategy._viewExtent;
+
+        if (ext.southWest.lon &lt; viewExt.southWest.lon) {
+            viewExt.southWest.lon = ext.southWest.lon;
+        }
+
+        if (ext.northEast.lon > viewExt.northEast.lon) {
+            viewExt.northEast.lon = ext.northEast.lon;
+        }
+
+        if (ext.southWest.lat &lt; viewExt.southWest.lat) {
+            viewExt.southWest.lat = ext.southWest.lat;
+        }
+
+        if (ext.northEast.lat > viewExt.northEast.lat) {
+            viewExt.northEast.lat = ext.northEast.lat;
+        }
+    }
+
+    protected _assignTileIndexes() {
+        this._tileGroup = TILEGROUP_COMMON;
+
+        const tileZoom = this.tileZoom;
+        const extent = this._extent;
+        const pole = mercator.POLE;
+
+        // this.tileX = Math.round(Math.abs(-pole - extent.southWest.lon) / (extent.northEast.lon - extent.southWest.lon));
+        // this.tileY = Math.round(Math.abs(pole - extent.northEast.lat) / (extent.northEast.lat - extent.southWest.lat));
+        this.tileX = getTileCellIndex(extent.getCenter().lon, extent.getWidth(), -pole);
+        this.tileY = getTileCellIndex(extent.getCenter().lat, extent.getHeight(), pole);
+
+        const p2 = this.powTileZoom; //Math.pow(2, tileZoom);
+
+        this.tileXE = (this.tileX + 1) % p2;
+        this.tileXW = (p2 + this.tileX - 1) % p2;
+
+        this.tileYN = this.tileY - 1;
+        this.tileYS = this.tileY + 1;
+
+        this.tileIndex = Layer.getTileIndex(this.tileX, this.tileY, tileZoom, this._tileGroup);
+    }
+
+    public initialize() {
+        const p = this.planet;
+        const n = this.node;
+
+        this.gridSize = p.terrain!.gridSizeByZoom[this.tileZoom] || p.terrain!.plainGridSize;
+
+        n.sideSizeLog2[0] = n.sideSizeLog2[1] = n.sideSizeLog2[2] = n.sideSizeLog2[3] = Math.log2(this.gridSize);
+
+        if (this.tileZoom &lt;= p.terrain!.maxZoom) {
+            const nmc = this.planet._normalMapCreator;
+            this.normalMapTexturePtr = p.renderer!.handler.createEmptyTexture_l(nmc.width, nmc.height);
+        }
+
+        this.normalMapTexture = this.planet.transparentTexture;
+
+        this._assignGlobalTextureCoordinates();
+
+        this.initialized = true;
+    }
+
+    protected _assignGlobalTextureCoordinates() {
+        const e = this._extent;
+        this._globalTextureCoordinates[0] = (e.southWest.lon + mercator.POLE) * mercator.ONE_BY_POLE_DOUBLE;
+        this._globalTextureCoordinates[1] = (mercator.POLE - e.northEast.lat) * mercator.ONE_BY_POLE_DOUBLE;
+        this._globalTextureCoordinates[2] = (e.northEast.lon + mercator.POLE) * mercator.ONE_BY_POLE_DOUBLE;
+        this._globalTextureCoordinates[3] = (mercator.POLE - e.southWest.lat) * mercator.ONE_BY_POLE_DOUBLE;
+    }
+
+    public createPlainSegmentAsync() {
+        let p = this.planet,
+            t = p.terrain!;
+
+        if (t.isReady() &amp;&amp; !this.plainReady &amp;&amp; this.tileZoom &lt;= t.maxZoom) {
+            this.plainProcessing = true;
+            p._plainSegmentWorker.make(this);
+        }
+    }
+
+    public _plainSegmentWorkerCallback(data: IPlainSegmentWorkerData) {
+        this.plainProcessing = false;
+
+        if (this.initialized &amp;&amp; !this.terrainReady) {
+            //this._relativeCenter.set(data.relativeCenter[0], data.relativeCenter[1], data.relativeCenter[2]);
+
+            this.plainReady = true;
+
+            this.plainVertices = data.plainVertices;
+            this.plainVerticesHigh = data.plainVerticesHigh;
+            this.plainVerticesLow = data.plainVerticesLow;
+            this.plainNormals = data.plainNormals;
+            this._plainRadius = data.plainRadius;
+
+            this.normalMapNormals = data.normalMapNormals;
+            this.normalMapVertices = data.normalMapVertices;
+
+            this.fileGridSize = Math.sqrt(data.normalMapVertices!.length / 3) - 1;
+        }
+    }
+
+    public createPlainSegment() {
+        this.initialize();
+        this._createPlainVertices();
+        this.readyToEngage = true;
+    }
+
+    protected _projToDeg(lon: number, lat: number): LonLat {
+        return LonLat.inverseMercator(lon, lat);
+    }
+
+    protected _createPlainVertices() {
+        const gridSize = this.planet.terrain!.gridSizeByZoom[this.tileZoom];
+        const fgs = this.planet.terrain!.plainGridSize;
+        const currGridSize = Math.max(fgs, gridSize);
+        const e = this._extent;
+        const lonSize = e.getWidth();
+        const latSize = e.getHeight();
+        const llStep = lonSize / currGridSize;
+        const ltStep = latSize / currGridSize;
+        const esw_lon = e.southWest.lon;
+        const ene_lat = e.northEast.lat;
+        const dg = Math.max(fgs / gridSize, 1);
+        const gs = currGridSize + 1;
+        const r2 = this.planet.ellipsoid._invRadii2;
+        const gsgs = gs * gs;
+        const gridSize3 = (gridSize + 1) * (gridSize + 1) * 3;
+        const rcx = this._relativeCenter.x;
+        const rcy = this._relativeCenter.y;
+        const rcz = this._relativeCenter.z;
+
+        let ind = 0,
+            nmInd = 0;
+
+        this.plainNormals = new Float32Array(gridSize3);
+        this.plainVertices = new Float64Array(gridSize3);
+        this.plainVerticesHigh = new Float32Array(gridSize3);
+        this.plainVerticesLow = new Float32Array(gridSize3);
+
+        this.normalMapNormals = new Float32Array(gsgs * 3);
+        this.normalMapVertices = new Float64Array(gsgs * 3);
+
+        let verts = this.plainVertices,
+            vertsHigh = this.plainVerticesHigh,
+            vertsLow = this.plainVerticesLow,
+            norms = this.plainNormals,
+            nmVerts = this.normalMapVertices,
+            nmNorms = this.normalMapNormals;
+
+        for (let k = 0; k &lt; gsgs; k++) {
+            let j = k % gs,
+                i = ~~(k / gs);
+
+            let v = this.planet.ellipsoid.lonLatToCartesian(
+                this._projToDeg(esw_lon + j * llStep, ene_lat - i * ltStep)
+            );
+
+            let nx = v.x * r2.x,
+                ny = v.y * r2.y,
+                nz = v.z * r2.z;
+
+            let l = 1.0 / Math.sqrt(nx * nx + ny * ny + nz * nz);
+
+            let nxl = nx * l,
+                nyl = ny * l,
+                nzl = nz * l;
+
+            _vrtRtc.set(v.x - rcx, v.y - rcy, v.z - rcz);
+
+            nmVerts[nmInd] = _vrtRtc.x;
+            nmNorms[nmInd++] = nxl;
+
+            nmVerts[nmInd] = _vrtRtc.y;
+            nmNorms[nmInd++] = nyl;
+
+            nmVerts[nmInd] = _vrtRtc.z;
+            nmNorms[nmInd++] = nzl;
+
+            if (i % dg === 0 &amp;&amp; j % dg === 0) {
+                Vec3.doubleToTwoFloats(_vrtRtc, _tempHigh, _tempLow);
+
+                verts[ind] = _vrtRtc.x;
+                vertsHigh[ind] = _tempHigh.x;
+                vertsLow[ind] = _tempLow.x;
+                norms[ind++] = nxl;
+
+                verts[ind] = _vrtRtc.y;
+                vertsHigh[ind] = _tempHigh.y;
+                vertsLow[ind] = _tempLow.y;
+                norms[ind++] = nyl;
+
+                verts[ind] = _vrtRtc.z;
+                vertsHigh[ind] = _tempHigh.z;
+                vertsLow[ind] = _tempLow.z;
+                norms[ind++] = nzl;
+            }
+        }
+
+        this.terrainVertices = verts;
+        this.terrainVerticesHigh = vertsHigh;
+        this.terrainVerticesLow = vertsLow;
+
+        this.plainReady = true;
+    }
+
+    /**
+     * Gets specific layer material.
+     * @public
+     * @param {Layer} layer - Layer object.
+     * @returns {Material | undefined} - Segment material.
+     */
+    public getMaterialByLayer(layer: Layer): Material | undefined {
+        return this.materials[layer.__id];
+    }
+
+    /**
+     * Computes cyclic longitude shift for `sourceExtent` to align it with `targetExtent`
+     * in wrapped horizontal coordinate space (for example, Web Mercator world copies).
+     * @protected
+     * @param {Extent} sourceExtent - Source extent to shift along longitude.
+     * @param {Extent} targetExtent - Target extent used as alignment reference.
+     * @param {number} worldWidth - Full world width in projection units.
+     * @returns {number} Longitude shift to apply to `sourceExtent`.
+     */
+    protected _getCyclicLonShift(sourceExtent: Extent, targetExtent: Extent, worldWidth: number): number {
+        const sourceCenter = (sourceExtent.southWest.lon + sourceExtent.northEast.lon) * 0.5;
+        const targetCenter = (targetExtent.southWest.lon + targetExtent.northEast.lon) * 0.5;
+        const sourceWidth = sourceExtent.northEast.lon - sourceExtent.southWest.lon;
+
+        if (worldWidth &lt;= 0.0 || sourceWidth >= worldWidth) {
+            return 0.0;
+        }
+
+        const k0 = Math.round((targetCenter - sourceCenter) / worldWidth);
+        let bestShift = k0 * worldWidth;
+        let bestScore = Number.POSITIVE_INFINITY;
+
+        for (let dk = -1; dk &lt;= 1; dk++) {
+            const shift = (k0 + dk) * worldWidth;
+            const shiftedSw = sourceExtent.southWest.lon + shift;
+            const shiftedNe = sourceExtent.northEast.lon + shift;
+            const shiftedCenter = (shiftedSw + shiftedNe) * 0.5;
+            const overlapsX = targetExtent.southWest.lon &lt;= shiftedNe &amp;&amp; targetExtent.northEast.lon >= shiftedSw;
+            const score = Math.abs(shiftedCenter - targetCenter) + (overlapsX ? 0.0 : worldWidth);
+
+            if (score &lt; bestScore) {
+                bestScore = score;
+                bestShift = shift;
+            }
+        }
+
+        return bestShift;
+    }
+
+    // protected _getLayerExtentOffset(layer: Layer): [number, number, number, number] {
+    //     const v0s = layer._extentMerc;
+    //     const v0t = this._extent;
+    //     const lonShift = this._getCyclicLonShift(v0s, v0t, mercator.POLE2);
+    //     const sourceSwLon = v0s.southWest.lon + lonShift;
+    //     const sourceNeLon = v0s.northEast.lon + lonShift;
+    //     const sSize_x = sourceNeLon - sourceSwLon;
+    //     const sSize_y = v0s.northEast.lat - v0s.southWest.lat;
+    //     const dV0s_x = (v0t.southWest.lon - sourceSwLon) / sSize_x;
+    //     const dV0s_y = (v0s.northEast.lat - v0t.northEast.lat) / sSize_y;
+    //     const dSize_x = (v0t.northEast.lon - v0t.southWest.lon) / sSize_x;
+    //     const dSize_y = (v0t.northEast.lat - v0t.southWest.lat) / sSize_y;
+    //     return [dV0s_x, dV0s_y, dSize_x, dSize_y];
+    // }
+
+    public initSlice(sliceIndex: number): Slice {
+        let slice = this._slices[sliceIndex];
+
+        if (!slice) {
+            slice = this._slices[sliceIndex] = new Slice(this);
+        } else {
+            //TODO: optimization!!!
+            slice.layers = [];
+        }
+
+        return slice;
+    }
+
+    public screenRendering(
+        sh: ShaderProgram,
+        layerSlice: Layer[],
+        sliceIndex: number,
+        defaultTexture?: WebGLTextureExt | null,
+        isOverlay: boolean = false,
+        forcedOpacity?: number
+    ) {
+        const gl = this.handler.gl!;
+        const sha = sh.attributes;
+        const shu = sh.uniforms;
+
+        const pm = this.materials;
+        const p = this.planet;
+        const qts = this.quadTreeStrategy;
+
+        let currHeight, li;
+        if (layerSlice &amp;&amp; layerSlice.length) {
+            li = layerSlice[0];
+            currHeight = li._height;
+        } else {
+            currHeight = 0;
+        }
+
+        // First always draw whole planet base layer segment with solid texture.
+        gl.activeTexture(gl.TEXTURE0 + p.SLICE_SIZE + 2);
+        gl.bindTexture(gl.TEXTURE_2D, (defaultTexture || this.getDefaultTexture())!);
+        gl.uniform1i(shu.defaultTexture, p.SLICE_SIZE + 2);
+
+        let n = 0,
+            i = 0;
+
+        let notEmpty = false;
+
+        let slice = this.initSlice(sliceIndex);
+
+        this.ensureIndexBuffer();
+
+        // Reset all overlay sampler units for the current draw call to avoid stale
+        // bindings from previous passes (including framebuffer attachments).
+        for (let ti = 0; ti &lt; p.SLICE_SIZE; ti++) {
+            p._samplerArr[ti] = ti;
+            gl.activeTexture(gl.TEXTURE0 + ti);
+            gl.bindTexture(gl.TEXTURE_2D, p.transparentTexture!);
+        }
+
+        while (li) {
+            if (
+                this.layerOverlap(li) &amp;&amp;
+                ((li._fading &amp;&amp; li._fadingOpacity > 0.0) ||
+                    ((li.minZoom >= qts.minCurrZoom || li.maxZoom >= qts.minCurrZoom) &amp;&amp;
+                        (li.minZoom &lt;= qts.maxCurrZoom || li.maxZoom &lt;= qts.maxCurrZoom)))
+            ) {
+                notEmpty = true;
+
+                let m = pm[li.__id];
+
+                if (!m) {
+                    m = pm[li.__id] = li.createMaterial(this);
+                }
+
+                if (!m.isReady) {
+                    qts._renderCompleted = false;
+                }
+
+                slice.append(li, m);
+
+                gl.activeTexture(gl.TEXTURE0 + n);
+                gl.bindTexture(gl.TEXTURE_2D, (m.texture || p.transparentTexture)!);
+
+                n++;
+            }
+            i++;
+            li = layerSlice[i];
+        }
+
+        if (notEmpty || !isOverlay) {
+            //
+            // @todo: fix deferred pass consistency
+            //
+            this._setRTCEyePositionUniforms(gl, shu);
+            gl.uniform1f(
+                shu.transitionOpacity,
+                forcedOpacity || this._transitionOpacity > 1.0 ? 1.0 : this._transitionOpacity
+            );
+
+            gl.uniform1i(shu.samplerCount, n);
+            gl.uniform1f(shu.height, currHeight);
+            gl.uniform1iv(shu.samplerArr, p._samplerArr);
+
+            //slice.uniform(gl, shu);
+
+            gl.uniform4fv(shu.tileOffsetArr, slice.tileOffsetArr);
+            gl.uniform1fv(shu.layerOpacityArr, slice.layerOpacityArr);
+            //gl.uniform4fv(shu.visibleExtentOffsetArr, slice.visibleExtentOffsetArr);
+
+            gl.activeTexture(gl.TEXTURE0 + p.SLICE_SIZE + 3);
+            gl.bindTexture(gl.TEXTURE_2D, (this.normalMapTexture || p.transparentTexture)!);
+            gl.uniform1i(shu.uNormalMap, p.SLICE_SIZE + 3);
+
+            gl.uniform3fv(shu.uNormalMapBias, this.normalMapTextureBias);
+
+            // bind segment specular and night material texture coordinates
+            gl.uniform4fv(shu.uGlobalTextureCoord, this._globalTextureCoordinates);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexPositionBufferHigh!);
+            gl.vertexAttribPointer(
+                sha.aVertexPositionHigh,
+                this.vertexPositionBufferHigh!.itemSize,
+                gl.FLOAT,
+                false,
+                0,
+                0
+            );
+            gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexPositionBufferLow!);
+            gl.vertexAttribPointer(
+                sha.aVertexPositionLow,
+                this.vertexPositionBufferLow!.itemSize,
+                gl.FLOAT,
+                false,
+                0,
+                0
+            );
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexTextureCoordBuffer!);
+            gl.vertexAttribPointer(sha.aTextureCoord, 2, gl.UNSIGNED_SHORT, true, 0, 0);
+
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this._indexBuffer);
+            gl.drawElements(p.drawMode, this._indexBuffer!.numItems, gl.UNSIGNED_INT, 0);
+        }
+    }
+
+    public increaseTransitionOpacity() {
+        //this._transitionOpacity += 0.01;
+        this._transitionOpacity += (window.performance.now() - this._transitionTimestamp) / this.planet.transitionTime;
+        this._transitionTimestamp = window.performance.now();
+        if (this._transitionOpacity > 2.0) {
+            this._transitionOpacity = 2.0;
+        }
+
+        let i = this.node._fadingNodes.length;
+        while (i--) {
+            let n = this.node._fadingNodes[i];
+            if (n.segment) {
+                if (n.segment._transitionOpacity > 0 &amp;&amp; !this.quadTreeStrategy._fadingNodes.has(n.__id)) {
+                    this.quadTreeStrategy._fadingNodes.set(n.__id, n);
+                    n.segment._transitionOpacity = 2.0 - this._transitionOpacity;
+                    if (n.segment._transitionOpacity === 0) {
+                        this.node._fadingNodes.splice(i, 1);
+                    }
+                }
+            } else {
+                this._transitionOpacity = 1.0;
+                break;
+            }
+        }
+    }
+
+    public fadingTransitionOpacity() {
+        this._transitionOpacity -= 0.01;
+        // this._transitionOpacity -= (window.performance.now() - this._transitionTimestamp) / this.planet.transitionTime;
+        this._transitionTimestamp = window.performance.now();
+        if (this._transitionOpacity &lt; 0.0) {
+            this._transitionOpacity = 0;
+        }
+    }
+
+    public colorPickingRendering(
+        sh: ShaderProgram,
+        layerSlice: Layer[],
+        sliceIndex: number,
+        defaultTexture?: WebGLTextureExt | null,
+        isOverlay: boolean = false
+    ) {
+        const gl = this.handler.gl!;
+        const sha = sh.attributes;
+        const shu = sh.uniforms;
+
+        let pm = this.materials,
+            p = this.planet;
+
+        let currHeight;
+        if (layerSlice &amp;&amp; layerSlice.length) {
+            currHeight = layerSlice[0]._height;
+        } else {
+            currHeight = 0;
+        }
+
+        let notEmpty = false;
+
+        let slice = this._slices[sliceIndex] || this.initSlice(sliceIndex);
+
+        let len = slice.layers.length;
+
+        // Reset all samplers to safe textures first to avoid feedback loops when
+        // some units are not overwritten in this draw call.
+        for (let ti = 0; ti &lt; p.SLICE_SIZE; ti++) {
+            p._samplerArr[ti] = ti;
+            gl.activeTexture(gl.TEXTURE0 + ti);
+            gl.bindTexture(gl.TEXTURE_2D, this.planet.transparentTexture!);
+
+            p._pickingMaskArr[ti] = ti + p.SLICE_SIZE;
+            gl.activeTexture(gl.TEXTURE0 + ti + p.SLICE_SIZE);
+            gl.bindTexture(gl.TEXTURE_2D, this.planet.transparentTexture!);
+        }
+
+        for (let n = 0; n &lt; len; n++) {
+            notEmpty = true;
+
+            let li = slice.layers[n];
+            let n4 = n * 4;
+
+            p._pickingColorArr[n4] = li._pickingColor.x / 255.0;
+            p._pickingColorArr[n4 + 1] = li._pickingColor.y / 255.0;
+            p._pickingColorArr[n4 + 2] = li._pickingColor.z / 255.0;
+            p._pickingColorArr[n4 + 3] = Number(li._pickingEnabled);
+
+            gl.activeTexture(gl.TEXTURE0 + n);
+            gl.bindTexture(gl.TEXTURE_2D, (pm[li.__id].texture || this.planet.transparentTexture)!);
+
+            gl.activeTexture(gl.TEXTURE0 + n + p.SLICE_SIZE);
+            gl.bindTexture(gl.TEXTURE_2D, (pm[li.__id].pickingMask || this.planet.transparentTexture)!);
+        }
+
+        if (notEmpty || !isOverlay) {
+            this._setRTCEyePositionUniforms(gl, shu);
+            gl.uniform1i(shu.samplerCount, len);
+            gl.uniform1f(shu.height, currHeight);
+            gl.uniform1iv(shu.samplerArr, p._samplerArr);
+            gl.uniform1iv(shu.pickingMaskArr, p._pickingMaskArr);
+            gl.uniform4fv(shu.pickingColorArr, p._pickingColorArr);
+
+            //slice.uniform(gl, shu);
+
+            gl.uniform4fv(shu.tileOffsetArr, slice.tileOffsetArr);
+            gl.uniform1fv(shu.layerOpacityArr, slice.layerOpacityArr);
+            //gl.uniform4fv(shu.visibleExtentOffsetArr, slice.visibleExtentOffsetArr);
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexPositionBufferHigh!);
+            gl.vertexAttribPointer(
+                sha.aVertexPositionHigh,
+                this.vertexPositionBufferHigh!.itemSize,
+                gl.FLOAT,
+                false,
+                0,
+                0
+            );
+            gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexPositionBufferLow!);
+            gl.vertexAttribPointer(
+                sha.aVertexPositionLow,
+                this.vertexPositionBufferLow!.itemSize,
+                gl.FLOAT,
+                false,
+                0,
+                0
+            );
+
+            gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexTextureCoordBuffer!);
+            gl.vertexAttribPointer(sha.aTextureCoord, 2, gl.UNSIGNED_SHORT, true, 0, 0);
+
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this._indexBuffer!);
+            gl.drawElements(gl.TRIANGLE_STRIP, this._indexBuffer!.numItems, gl.UNSIGNED_INT, 0);
+        }
+    }
+
+    public depthRendering(sh: ShaderProgram, layerSlice?: Layer[]) {
+        const gl = this.handler.gl!;
+        const sha = sh.attributes;
+        const shu = sh.uniforms;
+
+        var currHeight;
+        if (layerSlice &amp;&amp; layerSlice.length) {
+            currHeight = layerSlice[0]._height;
+        } else {
+            currHeight = 0;
+        }
+
+        this._setRTCEyePositionUniforms(gl, shu);
+        gl.uniform1f(shu.height, currHeight);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexPositionBufferHigh!);
+        gl.vertexAttribPointer(sha.aVertexPositionHigh, this.vertexPositionBufferHigh!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this.vertexPositionBufferLow!);
+        gl.vertexAttribPointer(sha.aVertexPositionLow, this.vertexPositionBufferLow!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, this._indexBuffer!);
+        gl.drawElements(gl.TRIANGLE_STRIP, this._indexBuffer!.numItems, gl.UNSIGNED_INT, 0);
+    }
+
+    public ensureIndexBuffer() {
+        this._indexBuffer = this._getIndexBuffer();
+    }
+
+    protected _getIndexBuffer(): WebGLBufferExt {
+        const s = this.node.sideSizeLog2;
+        let cache = this.planet._indexesCache[Math.log2(this.gridSize)][s[0]][s[1]][s[2]][s[3]];
+        if (!cache.buffer) {
+            let indexes = segmentHelper
+                .getInstance()
+                .createSegmentIndexes(Math.log2(this.gridSize), [s[0], s[1], s[2], s[3]]);
+            cache.buffer = this.planet.renderer!.handler.createElementArrayBuffer(indexes, 1);
+            this.planet._indexesCacheToRemoveCounter++;
+        }
+        return cache.buffer;
+    }
+
+    public layerOverlap(layer: Layer): boolean {
+        if (this._extent.overlaps(layer._extentMerc)) {
+            return true;
+        }
+
+        const segmentExtent = this._extent;
+        const layerExtent = layer._extentMerc;
+
+        if (
+            segmentExtent.southWest.lat > layerExtent.northEast.lat ||
+            segmentExtent.northEast.lat &lt; layerExtent.southWest.lat
+        ) {
+            return false;
+        }
+
+        const lonShift = this._getCyclicLonShift(layerExtent, segmentExtent, mercator.POLE2);
+        const shiftedSwLon = layerExtent.southWest.lon + lonShift;
+        const shiftedNeLon = layerExtent.northEast.lon + lonShift;
+
+        return segmentExtent.southWest.lon &lt;= shiftedNeLon &amp;&amp; segmentExtent.northEast.lon >= shiftedSwLon;
+    }
+
+    public getDefaultTexture(): WebGLTextureExt | null {
+        return this.planet.solidTextureOne;
+    }
+
+    public getExtentLonLat(): Extent {
+        return this._extentLonLat;
+    }
+
+    public getExtentMerc(): Extent {
+        return this._extentMerc;
+    }
+
+    public getExtent(): Extent {
+        return this._extent;
+    }
+
+    public getNeighborSide(b: Segment) {
+        if (this.tileY === b.tileY) {
+            if (this.tileX === b.tileXE) {
+                return W;
+            } else if (this.tileX === b.tileXW) {
+                return E;
+            }
+        } else if (this.tileX === b.tileX) {
+            if (this.tileY === b.tileYS) {
+                return N;
+            } else if (this.tileY === b.tileYN) {
+                return S;
+            }
+        }
+        return -1;
+    }
+}
+
+export { Segment };
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>Documentation</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"segment/Segment.ts"},"i1":{"basePath":"/","searchIndexUrl":"/_assets/search-index.ms1yt4d8-010773f2.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/segment/segment-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/segment/segment-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/_islands/theme-toggle-MFKEIGBZ.js","settings":"/_islands/settings-TVWSQT6I.js","code-viewer":"/_islands/code-viewer-S3DIZRC3.js","embed":"/_islands/embed-24QZS4CF.js","playground":"/_islands/playground-N5NFYMP6.js","tabs":"/_islands/tabs-NRSQKCSU.js","sidebar":"/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/_islands/mobile-nav-ZFIZP3CE.js","toc":"/_islands/toc-W36SMPYU.js","toc-mobile":"/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/_islands/cmdk-SWB64M4V.js","code-tabs":"/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/_islands/copy-btn-5O25GXTU.js","copy-page":"/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>

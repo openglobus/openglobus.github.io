@@ -1,0 +1,1157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>entity/ray/RayHandler.ts</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/_assets/styles.ms1yt4d8-010773f2.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">Documentation</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">entity/ray/RayHandler.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">import * as shaders from &quot;../../shaders/ray/ray&quot;;
+import { concatArrays, concatTypedArrays, makeArrayTyped, spliceArray, spliceTypedArray } from &quot;../../utils/shared&quot;;
+import type { TypedArray } from &quot;../../utils/shared&quot;;
+import { EntityCollection } from &quot;../EntityCollection&quot;;
+import { Ray } from &quot;./Ray&quot;;
+import { Renderer } from &quot;../../renderer/Renderer&quot;;
+import { Vec3 } from &quot;../../math/Vec3&quot;;
+import { Vec4 } from &quot;../../math/Vec4&quot;;
+import type { WebGLBufferExt } from &quot;../../webgl/Handler&quot;;
+import type { ShaderProgram } from &quot;../../webgl/ShaderProgram&quot;;
+import { srgbToLinear } from &quot;../../utils/colorSpace&quot;;
+
+const PICKINGCOLOR_BUFFER = 0;
+const START_POSITION_BUFFER = 1;
+const END_POSITION_BUFFER = 2;
+const RGBA_BUFFER = 3;
+const THICKNESS_BUFFER = 4;
+const VERTEX_BUFFER = 5;
+const TEXCOORD_BUFFER = 6;
+const TEXOFFSET_BUFFER = 7;
+const STROKESIZE_BUFFER = 8;
+
+const RAY_VERTICES_COUNT = 6;
+
+/*
+ * og.RayHandler
+ *
+ *
+ */
+class RayHandler {
+    static __counter__: number = 0;
+
+    protected __id: number;
+
+    /**
+     * Picking rendering option.
+     * @public
+     * @type {boolean}
+     */
+    public pickingEnabled: boolean;
+
+    public _entityCollection: EntityCollection;
+
+    protected _renderer: Renderer | null;
+
+    protected _rays: Ray[];
+    protected _opaqueCounterIndex: number;
+
+    protected _vertexBuffer: WebGLBufferExt | null;
+    protected _startPositionHighBuffer: WebGLBufferExt | null;
+    protected _startPositionLowBuffer: WebGLBufferExt | null;
+    protected _endPositionHighBuffer: WebGLBufferExt | null;
+    protected _endPositionLowBuffer: WebGLBufferExt | null;
+    protected _thicknessBuffer: WebGLBufferExt | null;
+    protected _rgbaBuffer: WebGLBufferExt | null;
+    protected _pickingColorBuffer: WebGLBufferExt | null;
+    protected _texCoordBuffer: WebGLBufferExt | null;
+    protected _texOffsetBuffer: WebGLBufferExt | null;
+    protected _strokeSizeBuffer: WebGLBufferExt | null;
+
+    protected _vertexArr: TypedArray | number[];
+    protected _startPositionHighArr: TypedArray | number[];
+    protected _startPositionLowArr: TypedArray | number[];
+    protected _endPositionHighArr: TypedArray | number[];
+    protected _endPositionLowArr: TypedArray | number[];
+    protected _thicknessArr: TypedArray | number[];
+    protected _rgbaArr: TypedArray | number[];
+    protected _pickingColorArr: TypedArray | number[];
+    protected _texCoordArr: TypedArray;
+    protected _texOffsetArr: TypedArray;
+    protected _strokeSizeArr: TypedArray;
+
+    protected _buffersUpdateCallbacks: Function[];
+    protected _changedBuffers: boolean[];
+
+    constructor(entityCollection: EntityCollection) {
+        this.__id = RayHandler.__counter__++;
+
+        /**
+         * Picking rendering option.
+         * @public
+         * @type {boolean}
+         */
+        this.pickingEnabled = true;
+
+        this._entityCollection = entityCollection;
+
+        this._renderer = null;
+
+        this._rays = [];
+        this._opaqueCounterIndex = 0;
+
+        this._vertexBuffer = null;
+        this._startPositionHighBuffer = null;
+        this._startPositionLowBuffer = null;
+        this._endPositionHighBuffer = null;
+        this._endPositionLowBuffer = null;
+        this._thicknessBuffer = null;
+        this._rgbaBuffer = null;
+        this._pickingColorBuffer = null;
+        this._texCoordBuffer = null;
+        this._texOffsetBuffer = null;
+        this._strokeSizeBuffer = null;
+
+        this._vertexArr = [];
+        this._startPositionHighArr = [];
+        this._startPositionLowArr = [];
+        this._endPositionHighArr = [];
+        this._endPositionLowArr = [];
+        this._thicknessArr = [];
+        this._rgbaArr = [];
+        this._pickingColorArr = [];
+        this._texCoordArr = new Float32Array([]);
+        this._texOffsetArr = new Float32Array([]);
+        this._strokeSizeArr = new Float32Array([]);
+
+        this._buffersUpdateCallbacks = [];
+        this._buffersUpdateCallbacks[VERTEX_BUFFER] = this.createVertexBuffer;
+        this._buffersUpdateCallbacks[START_POSITION_BUFFER] = this.createStartPositionBuffer;
+        this._buffersUpdateCallbacks[END_POSITION_BUFFER] = this.createEndPositionBuffer;
+        this._buffersUpdateCallbacks[THICKNESS_BUFFER] = this.createThicknessBuffer;
+        this._buffersUpdateCallbacks[RGBA_BUFFER] = this.createRgbaBuffer;
+        this._buffersUpdateCallbacks[PICKINGCOLOR_BUFFER] = this.createPickingColorBuffer;
+        this._buffersUpdateCallbacks[TEXCOORD_BUFFER] = this.createTexCoordBuffer;
+        this._buffersUpdateCallbacks[TEXOFFSET_BUFFER] = this.createTexOffsetBuffer;
+        this._buffersUpdateCallbacks[STROKESIZE_BUFFER] = this.createStrokeSizeBuffer;
+
+        this._changedBuffers = new Array(this._buffersUpdateCallbacks.length);
+    }
+
+    static concArr(dest: number[], curr: number[]) {
+        for (let i = 0; i &lt; curr.length; i++) {
+            dest.push(curr[i]);
+        }
+    }
+
+    protected _isRayOpaque(ray: Ray): boolean {
+        const opacity = ray.getOpacity();
+        return ray._startColor.w * opacity >= 1.0 || ray._endColor.w * opacity >= 1.0;
+    }
+
+    protected _swapArrayItems(arr: number[] | TypedArray, itemSize: number, firstIndex: number, secondIndex: number) {
+        if (firstIndex === secondIndex) {
+            return;
+        }
+
+        const firstOffset = firstIndex * itemSize;
+        const secondOffset = secondIndex * itemSize;
+
+        for (let i = 0; i &lt; itemSize; i++) {
+            const tmp = arr[firstOffset + i];
+            arr[firstOffset + i] = arr[secondOffset + i];
+            arr[secondOffset + i] = tmp;
+        }
+    }
+
+    protected _swapRayData(firstIndex: number, secondIndex: number) {
+        if (firstIndex === secondIndex) {
+            return;
+        }
+
+        this._swapArrayItems(this._vertexArr, 12, firstIndex, secondIndex);
+        this._swapArrayItems(this._startPositionHighArr, 18, firstIndex, secondIndex);
+        this._swapArrayItems(this._startPositionLowArr, 18, firstIndex, secondIndex);
+        this._swapArrayItems(this._endPositionHighArr, 18, firstIndex, secondIndex);
+        this._swapArrayItems(this._endPositionLowArr, 18, firstIndex, secondIndex);
+        this._swapArrayItems(this._thicknessArr, 6, firstIndex, secondIndex);
+        this._swapArrayItems(this._rgbaArr, 24, firstIndex, secondIndex);
+        this._swapArrayItems(this._pickingColorArr, 18, firstIndex, secondIndex);
+        this._swapArrayItems(this._texCoordArr, 24, firstIndex, secondIndex);
+        this._swapArrayItems(this._texOffsetArr, 6, firstIndex, secondIndex);
+        this._swapArrayItems(this._strokeSizeArr, 6, firstIndex, secondIndex);
+
+        const firstRay = this._rays[firstIndex];
+        const secondRay = this._rays[secondIndex];
+        this._rays[firstIndex] = secondRay;
+        this._rays[secondIndex] = firstRay;
+        firstRay._handlerIndex = secondIndex;
+        secondRay._handlerIndex = firstIndex;
+    }
+
+    protected _insertRayByOpacity(rayIndex: number, isOpaque: boolean) {
+        if (!isOpaque) {
+            return;
+        }
+
+        const targetIndex = this._opaqueCounterIndex;
+        this._swapRayData(rayIndex, targetIndex);
+        this._opaqueCounterIndex++;
+    }
+
+    protected _updateRayOpacityState(rayIndex: number, isOpaque: boolean): boolean {
+        const wasOpaque = rayIndex &lt; this._opaqueCounterIndex;
+        if (wasOpaque === isOpaque) {
+            return false;
+        }
+
+        if (isOpaque) {
+            const targetIndex = this._opaqueCounterIndex;
+            this._swapRayData(rayIndex, targetIndex);
+            this._opaqueCounterIndex++;
+        } else {
+            this._opaqueCounterIndex--;
+            const targetIndex = this._opaqueCounterIndex;
+            this._swapRayData(rayIndex, targetIndex);
+        }
+
+        return true;
+    }
+
+    public reloadTextures() {
+        for (let i = 0; i &lt; this._rays.length; i++) {
+            let ri = this._rays[i];
+            ri.reloadTexture();
+        }
+    }
+
+    public get rays(): Ray[] {
+        return [...this._rays];
+    }
+
+    public initProgram() {
+        if (this._renderer) {
+            this._renderer.addShaders(shaders.rayScreen());
+            if (!this._renderer.deferredDisabled) {
+                this._renderer.addShaders(shaders.rayScreenWoit());
+            }
+
+            // @todo: ray picking
+            // if (!this._renderer.handler.programs.billboardPicking) {
+            //     this._renderer.handler.addProgram(shaders.billboardPicking());
+            // }
+        }
+    }
+
+    public setRenderer(renderer: Renderer) {
+        this._renderer = renderer;
+        this.initProgram();
+    }
+
+    public refresh() {
+        let i = this._changedBuffers.length;
+        while (i--) {
+            this._changedBuffers[i] = true;
+        }
+    }
+
+    protected _removeRays() {
+        let i = this._rays.length;
+        while (i--) {
+            let ri = this._rays[i];
+            ri._handlerIndex = -1;
+            ri._handler = null;
+        }
+        this._rays.length = 0;
+        this._rays = [];
+        this._opaqueCounterIndex = 0;
+    }
+
+    public clear() {
+        //@ts-ignore
+        this._vertexArr = null;
+        //@ts-ignore
+        this._startPositionHighArr = null;
+        //@ts-ignore
+        this._startPositionLowArr = null;
+        //@ts-ignore
+        this._endPositionHighArr = null;
+        //@ts-ignore
+        this._endPositionLowArr = null;
+        //@ts-ignore
+        this._thicknessArr = null;
+        //@ts-ignore
+        this._rgbaArr = null;
+        //@ts-ignore
+        this._texCoordArr = null;
+        //@ts-ignore
+        this._texOffsetArr = null;
+        //@ts-ignore
+        this._strokeSizeArr = null;
+
+        this._vertexArr = new Float32Array([]);
+        this._texCoordArr = new Float32Array([]);
+        this._startPositionHighArr = new Float32Array([]);
+        this._startPositionLowArr = new Float32Array([]);
+        this._endPositionHighArr = new Float32Array([]);
+        this._endPositionLowArr = new Float32Array([]);
+        this._thicknessArr = new Float32Array([]);
+        this._rgbaArr = new Float32Array([]);
+        this._texOffsetArr = new Float32Array([]);
+        this._strokeSizeArr = new Float32Array([]);
+
+        this._removeRays();
+        this._deleteBuffers();
+        this.refresh();
+    }
+
+    protected _deleteBuffers() {
+        if (this._renderer) {
+            let gl = this._renderer.handler.gl;
+
+            if (gl) {
+                gl.deleteBuffer(this._startPositionHighBuffer!);
+                gl.deleteBuffer(this._startPositionLowBuffer!);
+                gl.deleteBuffer(this._endPositionHighBuffer!);
+                gl.deleteBuffer(this._endPositionLowBuffer!);
+                gl.deleteBuffer(this._thicknessBuffer!);
+                gl.deleteBuffer(this._rgbaBuffer!);
+                gl.deleteBuffer(this._vertexBuffer!);
+                gl.deleteBuffer(this._texCoordBuffer!);
+                gl.deleteBuffer(this._texOffsetBuffer!);
+                gl.deleteBuffer(this._strokeSizeBuffer!);
+            }
+
+            this._startPositionHighBuffer = null;
+            this._startPositionLowBuffer = null;
+            this._endPositionHighBuffer = null;
+            this._endPositionLowBuffer = null;
+            this._thicknessBuffer = null;
+            this._rgbaBuffer = null;
+            this._vertexBuffer = null;
+            this._texCoordBuffer = null;
+            this._texOffsetBuffer = null;
+            this._strokeSizeBuffer = null;
+        }
+    }
+
+    public update() {
+        if (this._renderer) {
+            let i = this._changedBuffers.length;
+            while (i--) {
+                if (this._changedBuffers[i]) {
+                    this._buffersUpdateCallbacks[i].call(this);
+                    this._changedBuffers[i] = false;
+                }
+            }
+        }
+    }
+
+    public add(ray: Ray) {
+        if (ray._handlerIndex == -1) {
+            ray._handler = this;
+            ray._handlerIndex = this._rays.length;
+            this._rays.push(ray);
+            this._addRayToArrays(ray);
+            this._insertRayByOpacity(ray._handlerIndex, this._isRayOpaque(ray));
+            this.refresh();
+            ray.reloadTexture();
+        }
+    }
+
+    protected _addRayToArrays(ray: Ray) {
+        if (ray.getVisibility()) {
+            this._vertexArr = concatArrays(
+                this._vertexArr,
+                [-0.5, 1.0, -0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 1.0, -0.5, 1.0]
+            );
+        } else {
+            this._vertexArr = concatArrays(
+                this._vertexArr,
+                [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+            );
+        }
+
+        let x = ray.texOffset;
+        this._texOffsetArr = concatTypedArrays(this._texOffsetArr, [x, x, x, x, x, x]);
+
+        x = ray.strokeSize;
+        this._strokeSizeArr = concatTypedArrays(this._strokeSizeArr, [x, x, x, x, x, x]);
+
+        this._texCoordArr = concatTypedArrays(
+            this._texCoordArr,
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        );
+
+        x = ray._startPositionHigh.x;
+        let y = ray._startPositionHigh.y,
+            z = ray._startPositionHigh.z;
+        this._startPositionHighArr = concatArrays(this._startPositionHighArr, [
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z
+        ]);
+
+        x = ray._startPositionLow.x;
+        y = ray._startPositionLow.y;
+        z = ray._startPositionLow.z;
+        this._startPositionLowArr = concatArrays(this._startPositionLowArr, [
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z
+        ]);
+
+        x = ray._endPositionHigh.x;
+        y = ray._endPositionHigh.y;
+        z = ray._endPositionHigh.z;
+        this._endPositionHighArr = concatArrays(this._endPositionHighArr, [
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z
+        ]);
+
+        x = ray._endPositionLow.x;
+        y = ray._endPositionLow.y;
+        z = ray._endPositionLow.z;
+        this._endPositionLowArr = concatArrays(this._endPositionLowArr, [
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z
+        ]);
+
+        x = ray._thickness;
+        this._thicknessArr = concatArrays(this._thicknessArr, [x, x, x, x, x, x]);
+
+        const opacity = ray.getOpacity();
+        let r0 = srgbToLinear(ray._startColor.x),
+            g0 = srgbToLinear(ray._startColor.y),
+            b0 = srgbToLinear(ray._startColor.z),
+            a0 = ray._startColor.w * opacity,
+            r1 = srgbToLinear(ray._endColor.x),
+            g1 = srgbToLinear(ray._endColor.y),
+            b1 = srgbToLinear(ray._endColor.z),
+            a1 = ray._endColor.w * opacity;
+        this._rgbaArr = concatArrays(this._rgbaArr, [
+            r1,
+            g1,
+            b1,
+            a1,
+            r0,
+            g0,
+            b0,
+            a0,
+            r0,
+            g0,
+            b0,
+            a0,
+            r0,
+            g0,
+            b0,
+            a0,
+            r1,
+            g1,
+            b1,
+            a1,
+            r1,
+            g1,
+            b1,
+            a1
+        ]);
+
+        x = ray._entity!._pickingColor.x / 255;
+        y = ray._entity!._pickingColor.y / 255;
+        z = ray._entity!._pickingColor.z / 255;
+        this._pickingColorArr = concatArrays(this._pickingColorArr, [
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z,
+            x,
+            y,
+            z
+        ]);
+    }
+
+    protected _displayPASS(startRayIndex: number, endRayIndex: number, rayProgram: ShaderProgram) {
+        let r = this._renderer!;
+        let h = r.handler;
+        rayProgram.activate();
+        let sh = rayProgram;
+        let sha = sh.attributes,
+            shu = sh.uniforms;
+
+        let gl = h.gl!,
+            ec = this._entityCollection;
+
+        if (rayProgram === r.handler.programs.rayScreenWoit) {
+            gl.uniform1f(shu.useReverseDepth, r.activeCamera.reverseDepthActive ? 1.0 : 0.0);
+        }
+
+        gl.disable(gl.CULL_FACE);
+
+        gl.uniform1f(shu.uOpacity, ec._fadingOpacity);
+
+        gl.uniform1i(shu.u_texAtlas, 0);
+
+        gl.uniformMatrix4fv(shu.viewMatrix, false, r.activeCamera!.getViewMatrix());
+        gl.uniformMatrix4fv(shu.projectionMatrix, false, r.activeCamera!.getProjectionMatrix());
+
+        gl.uniform3fv(shu.eyePositionHigh, r.activeCamera!.eyeHigh);
+        gl.uniform3fv(shu.eyePositionLow, r.activeCamera!.eyeLow);
+
+        gl.uniform1f(shu.resolution, r.activeCamera!._tanViewAngle_hradOneByHeight);
+        gl.uniform2fv(shu.viewport, [r.handler.canvas!.width, r.handler.canvas!.height]);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._startPositionHighBuffer!);
+        gl.vertexAttribPointer(sha.a_startPosHigh, this._startPositionHighBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._startPositionLowBuffer!);
+        gl.vertexAttribPointer(sha.a_startPosLow, this._startPositionLowBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._endPositionHighBuffer!);
+        gl.vertexAttribPointer(sha.a_endPosHigh, this._endPositionHighBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._endPositionLowBuffer!);
+        gl.vertexAttribPointer(sha.a_endPosLow, this._endPositionLowBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._rgbaBuffer!);
+        gl.vertexAttribPointer(sha.a_rgba, this._rgbaBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._thicknessBuffer!);
+        gl.vertexAttribPointer(sha.a_thickness, this._thicknessBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._vertexBuffer!);
+        gl.vertexAttribPointer(sha.a_vertices, this._vertexBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._texCoordBuffer!);
+        gl.vertexAttribPointer(sha.a_texCoord, this._texCoordBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._texOffsetBuffer!);
+        gl.vertexAttribPointer(sha.a_texOffset, this._texOffsetBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        gl.bindBuffer(gl.ARRAY_BUFFER, this._strokeSizeBuffer!);
+        gl.vertexAttribPointer(sha.a_strokeSize, this._strokeSizeBuffer!.itemSize, gl.FLOAT, false, 0, 0);
+
+        const numRays = endRayIndex - startRayIndex;
+        if (numRays > 0) {
+            gl.drawArrays(gl.TRIANGLES, startRayIndex * RAY_VERTICES_COUNT, numRays * RAY_VERTICES_COUNT);
+        }
+
+        gl.enable(gl.CULL_FACE);
+    }
+
+    protected _pickingPASS() {
+        // ...
+    }
+
+    public drawForward() {
+        this.drawOpaque();
+    }
+
+    public drawOpaque() {
+        if (this._rays.length) {
+            this.update();
+            this._displayPASS(0, this._opaqueCounterIndex, this._renderer!.handler.programs.rayScreen);
+        }
+    }
+
+    public drawTransparent() {
+        if (this._opaqueCounterIndex &lt; this._rays.length) {
+            this._displayPASS(
+                this._opaqueCounterIndex,
+                this._rays.length,
+                this._renderer!.handler.programs.rayScreenWoit
+            );
+        }
+    }
+
+    public drawTransparentForward() {
+        if (this._opaqueCounterIndex &lt; this._rays.length) {
+            this._displayPASS(this._opaqueCounterIndex, this._rays.length, this._renderer!.handler.programs.rayScreen);
+        }
+    }
+
+    public drawPicking() {
+        if (this._rays.length &amp;&amp; this.pickingEnabled) {
+            this._pickingPASS();
+        }
+    }
+
+    public reindexRaysArray(startIndex: number) {
+        let r = this._rays;
+        for (let i = startIndex; i &lt; r.length; i++) {
+            r[i]._handlerIndex = i;
+        }
+    }
+
+    protected _removeRay(ray: Ray) {
+        let removeIndex = ray._handlerIndex;
+
+        if (removeIndex &lt; this._opaqueCounterIndex) {
+            this._opaqueCounterIndex--;
+            this._swapRayData(removeIndex, this._opaqueCounterIndex);
+            removeIndex = this._opaqueCounterIndex;
+        }
+
+        const lastIndex = this._rays.length - 1;
+        this._swapRayData(removeIndex, lastIndex);
+        this._rays.pop();
+
+        let i = lastIndex * 24;
+        this._rgbaArr = spliceArray(this._rgbaArr, i, 24);
+        this._texCoordArr = spliceTypedArray(this._texCoordArr, i, 24);
+
+        i = lastIndex * 18;
+        this._startPositionHighArr = spliceArray(this._startPositionHighArr, i, 18);
+        this._startPositionLowArr = spliceArray(this._startPositionLowArr, i, 18);
+        this._endPositionHighArr = spliceArray(this._endPositionHighArr, i, 18);
+        this._endPositionLowArr = spliceArray(this._endPositionLowArr, i, 18);
+        this._pickingColorArr = spliceArray(this._pickingColorArr, i, 18);
+
+        i = lastIndex * 12;
+        this._vertexArr = spliceArray(this._vertexArr, i, 12);
+
+        i = lastIndex * 6;
+        this._thicknessArr = spliceArray(this._thicknessArr, i, 6);
+        this._texOffsetArr = spliceTypedArray(this._texOffsetArr, i, 6);
+        this._strokeSizeArr = spliceTypedArray(this._strokeSizeArr, i, 6);
+
+        this.refresh();
+
+        ray._handlerIndex = -1;
+        ray._handler = null;
+    }
+
+    public remove(ray: Ray) {
+        if (ray._handler &amp;&amp; this.__id === ray._handler.__id) {
+            this._removeRay(ray);
+        }
+    }
+
+    public setStartPositionArr(index: number, positionHigh: Vec3, positionLow: Vec3) {
+        let i = index * 18;
+
+        // High
+        let a = this._startPositionHighArr,
+            x = positionHigh.x,
+            y = positionHigh.y,
+            z = positionHigh.z;
+
+        a[i] = x;
+        a[i + 1] = y;
+        a[i + 2] = z;
+
+        a[i + 3] = x;
+        a[i + 4] = y;
+        a[i + 5] = z;
+
+        a[i + 6] = x;
+        a[i + 7] = y;
+        a[i + 8] = z;
+
+        a[i + 9] = x;
+        a[i + 10] = y;
+        a[i + 11] = z;
+
+        a[i + 12] = x;
+        a[i + 13] = y;
+        a[i + 14] = z;
+
+        a[i + 15] = x;
+        a[i + 16] = y;
+        a[i + 17] = z;
+
+        // Low
+        a = this._startPositionLowArr;
+        x = positionLow.x;
+        y = positionLow.y;
+        z = positionLow.z;
+
+        a[i] = x;
+        a[i + 1] = y;
+        a[i + 2] = z;
+
+        a[i + 3] = x;
+        a[i + 4] = y;
+        a[i + 5] = z;
+
+        a[i + 6] = x;
+        a[i + 7] = y;
+        a[i + 8] = z;
+
+        a[i + 9] = x;
+        a[i + 10] = y;
+        a[i + 11] = z;
+
+        a[i + 12] = x;
+        a[i + 13] = y;
+        a[i + 14] = z;
+
+        a[i + 15] = x;
+        a[i + 16] = y;
+        a[i + 17] = z;
+
+        this._changedBuffers[START_POSITION_BUFFER] = true;
+    }
+
+    public setEndPositionArr(index: number, positionHigh: Vec3, positionLow: Vec3) {
+        let i = index * 18;
+
+        // High
+        let a = this._endPositionHighArr,
+            x = positionHigh.x,
+            y = positionHigh.y,
+            z = positionHigh.z;
+
+        a[i] = x;
+        a[i + 1] = y;
+        a[i + 2] = z;
+
+        a[i + 3] = x;
+        a[i + 4] = y;
+        a[i + 5] = z;
+
+        a[i + 6] = x;
+        a[i + 7] = y;
+        a[i + 8] = z;
+
+        a[i + 9] = x;
+        a[i + 10] = y;
+        a[i + 11] = z;
+
+        a[i + 12] = x;
+        a[i + 13] = y;
+        a[i + 14] = z;
+
+        a[i + 15] = x;
+        a[i + 16] = y;
+        a[i + 17] = z;
+
+        // Low
+        a = this._endPositionLowArr;
+        x = positionLow.x;
+        y = positionLow.y;
+        z = positionLow.z;
+
+        a[i] = x;
+        a[i + 1] = y;
+        a[i + 2] = z;
+
+        a[i + 3] = x;
+        a[i + 4] = y;
+        a[i + 5] = z;
+
+        a[i + 6] = x;
+        a[i + 7] = y;
+        a[i + 8] = z;
+
+        a[i + 9] = x;
+        a[i + 10] = y;
+        a[i + 11] = z;
+
+        a[i + 12] = x;
+        a[i + 13] = y;
+        a[i + 14] = z;
+
+        a[i + 15] = x;
+        a[i + 16] = y;
+        a[i + 17] = z;
+
+        this._changedBuffers[END_POSITION_BUFFER] = true;
+    }
+
+    public setPickingColorArr(index: number, color: Vec3) {
+        let i = index * 18;
+        let a = this._pickingColorArr,
+            x = color.x / 255,
+            y = color.y / 255,
+            z = color.z / 255;
+
+        a[i] = x;
+        a[i + 1] = y;
+        a[i + 2] = z;
+
+        a[i + 3] = x;
+        a[i + 4] = y;
+        a[i + 5] = z;
+
+        a[i + 6] = x;
+        a[i + 7] = y;
+        a[i + 8] = z;
+
+        a[i + 9] = x;
+        a[i + 10] = y;
+        a[i + 11] = z;
+
+        a[i + 12] = x;
+        a[i + 13] = y;
+        a[i + 14] = z;
+
+        a[i + 15] = x;
+        a[i + 16] = y;
+        a[i + 17] = z;
+
+        this._changedBuffers[PICKINGCOLOR_BUFFER] = true;
+    }
+
+    public setRgbaArr(index: number, startColor: Vec4, endColor: Vec4) {
+        let i = index * 24;
+        let a = this._rgbaArr,
+            r0 = srgbToLinear(startColor.x),
+            g0 = srgbToLinear(startColor.y),
+            b0 = srgbToLinear(startColor.z),
+            a0 = startColor.w,
+            r1 = srgbToLinear(endColor.x),
+            g1 = srgbToLinear(endColor.y),
+            b1 = srgbToLinear(endColor.z),
+            a1 = endColor.w;
+
+        a[i] = r1;
+        a[i + 1] = g1;
+        a[i + 2] = b1;
+        a[i + 3] = a1;
+
+        a[i + 4] = r0;
+        a[i + 5] = g0;
+        a[i + 6] = b0;
+        a[i + 7] = a0;
+
+        a[i + 8] = r0;
+        a[i + 9] = g0;
+        a[i + 10] = b0;
+        a[i + 11] = a0;
+
+        a[i + 12] = r0;
+        a[i + 13] = g0;
+        a[i + 14] = b0;
+        a[i + 15] = a0;
+
+        a[i + 16] = r1;
+        a[i + 17] = g1;
+        a[i + 18] = b1;
+        a[i + 19] = a1;
+
+        a[i + 20] = r1;
+        a[i + 21] = g1;
+        a[i + 22] = b1;
+        a[i + 23] = a1;
+
+        const opacityChanged = this._updateRayOpacityState(index, a0 >= 1.0 || a1 >= 1.0);
+        if (opacityChanged) {
+            this.refresh();
+        } else {
+            this._changedBuffers[RGBA_BUFFER] = true;
+        }
+    }
+
+    public setThicknessArr(index: number, thickness: number) {
+        let i = index * 6;
+        let a = this._thicknessArr;
+
+        a[i] = thickness;
+        a[i + 1] = thickness;
+        a[i + 2] = thickness;
+        a[i + 3] = thickness;
+        a[i + 4] = thickness;
+        a[i + 5] = thickness;
+
+        this._changedBuffers[THICKNESS_BUFFER] = true;
+    }
+
+    public setVisibility(index: number, visibility: boolean) {
+        let vArr: number[];
+        if (visibility) {
+            vArr = [-0.5, 1.0, -0.5, 0.0, 0.5, 0.0, 0.5, 0.0, 0.5, 1.0, -0.5, 1.0];
+        } else {
+            vArr = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+        }
+        this.setVertexArr(index, vArr);
+    }
+
+    public setVertexArr(index: number, vertexArr: number[]) {
+        let i = index * 12;
+        let a = this._vertexArr;
+
+        a[i] = vertexArr[0];
+        a[i + 1] = vertexArr[1];
+        a[i + 2] = vertexArr[2];
+
+        a[i + 3] = vertexArr[3];
+        a[i + 4] = vertexArr[4];
+        a[i + 5] = vertexArr[5];
+
+        a[i + 6] = vertexArr[6];
+        a[i + 7] = vertexArr[7];
+        a[i + 8] = vertexArr[8];
+
+        a[i + 9] = vertexArr[9];
+        a[i + 10] = vertexArr[10];
+        a[i + 11] = vertexArr[11];
+
+        this._changedBuffers[VERTEX_BUFFER] = true;
+    }
+
+    public createStartPositionBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._startPositionHighBuffer as WebGLBuffer);
+        this._startPositionHighArr = makeArrayTyped(this._startPositionHighArr);
+        this._startPositionHighBuffer = h.createArrayBuffer(
+            this._startPositionHighArr as Float32Array,
+            3,
+            this._startPositionHighArr.length / 3,
+            h.gl!.DYNAMIC_DRAW
+        );
+        h.gl!.deleteBuffer(this._startPositionLowBuffer as WebGLBuffer);
+        this._startPositionLowArr = makeArrayTyped(this._startPositionLowArr);
+
+        this._startPositionLowBuffer = h.createArrayBuffer(
+            this._startPositionLowArr as Float32Array,
+            3,
+            this._startPositionLowArr.length / 3,
+            h.gl!.DYNAMIC_DRAW
+        );
+    }
+
+    public createEndPositionBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._endPositionHighBuffer as WebGLBuffer);
+        this._endPositionHighArr = makeArrayTyped(this._endPositionHighArr);
+        this._endPositionHighBuffer = h.createArrayBuffer(
+            this._endPositionHighArr as Float32Array,
+            3,
+            this._endPositionHighArr.length / 3,
+            h.gl!.DYNAMIC_DRAW
+        );
+        h.gl!.deleteBuffer(this._endPositionLowBuffer as WebGLBuffer);
+        this._endPositionLowArr = makeArrayTyped(this._endPositionLowArr);
+        this._endPositionLowBuffer = h.createArrayBuffer(
+            this._endPositionLowArr as Float32Array,
+            3,
+            this._endPositionLowArr.length / 3,
+            h.gl!.DYNAMIC_DRAW
+        );
+    }
+
+    public createRgbaBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._rgbaBuffer as WebGLBuffer);
+        this._rgbaArr = makeArrayTyped(this._rgbaArr);
+        this._rgbaBuffer = h.createArrayBuffer(this._rgbaArr as Float32Array, 4, this._rgbaArr.length / 4);
+    }
+
+    public createThicknessBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._thicknessBuffer as WebGLBuffer);
+        this._thicknessArr = makeArrayTyped(this._thicknessArr);
+        this._thicknessBuffer = h.createArrayBuffer(
+            this._thicknessArr as Float32Array,
+            1,
+            this._thicknessArr.length,
+            h.gl!.DYNAMIC_DRAW
+        );
+    }
+
+    public createVertexBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._vertexBuffer as WebGLBuffer);
+        this._vertexArr = makeArrayTyped(this._vertexArr);
+        this._vertexBuffer = h.createArrayBuffer(
+            this._vertexArr as Float32Array,
+            2,
+            this._vertexArr.length / 2,
+            h.gl!.DYNAMIC_DRAW
+        );
+    }
+
+    public createTexCoordBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._texCoordBuffer!);
+        this._texCoordBuffer = h.createArrayBuffer(this._texCoordArr, 4, this._texCoordArr.length / 4);
+    }
+
+    public createTexOffsetBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._texOffsetBuffer!);
+        this._texOffsetBuffer = h.createArrayBuffer(this._texOffsetArr, 1, this._texOffsetArr.length);
+    }
+
+    public createStrokeSizeBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._strokeSizeBuffer!);
+        this._strokeSizeBuffer = h.createArrayBuffer(this._strokeSizeArr, 1, this._strokeSizeArr.length);
+    }
+
+    public createPickingColorBuffer() {
+        let h = this._renderer!.handler;
+        h.gl!.deleteBuffer(this._pickingColorBuffer as WebGLBuffer);
+        this._pickingColorArr = makeArrayTyped(this._pickingColorArr);
+        this._pickingColorBuffer = h.createArrayBuffer(
+            this._pickingColorArr as Float32Array,
+            3,
+            this._pickingColorArr.length / 3
+        );
+    }
+
+    public setTexCoordArr(index: number, tcoordArr: number[] | TypedArray) {
+        let minY = tcoordArr[1],
+            imgHeight = tcoordArr[3] - minY;
+
+        let i = index * 24;
+        let a = this._texCoordArr;
+
+        a[i] = tcoordArr[0];
+        a[i + 1] = tcoordArr[1];
+        a[i + 2] = minY;
+        a[i + 3] = imgHeight;
+
+        a[i + 4] = tcoordArr[2];
+        a[i + 5] = tcoordArr[3];
+        a[i + 6] = minY;
+        a[i + 7] = imgHeight;
+
+        a[i + 8] = tcoordArr[4];
+        a[i + 9] = tcoordArr[5];
+        a[i + 10] = minY;
+        a[i + 11] = imgHeight;
+
+        a[i + 12] = tcoordArr[6];
+        a[i + 13] = tcoordArr[7];
+        a[i + 14] = minY;
+        a[i + 15] = imgHeight;
+
+        a[i + 16] = tcoordArr[8];
+        a[i + 17] = tcoordArr[9];
+        a[i + 18] = minY;
+        a[i + 19] = imgHeight;
+
+        a[i + 20] = tcoordArr[10];
+        a[i + 21] = tcoordArr[11];
+        a[i + 22] = minY;
+        a[i + 23] = imgHeight;
+
+        this._changedBuffers[TEXCOORD_BUFFER] = true;
+    }
+
+    public setTextureDisabled(index: number) {
+        let i = index * 24;
+        let a = this._texCoordArr;
+
+        a[i + 3] = 0;
+        a[i + 7] = 0;
+        a[i + 11] = 0;
+        a[i + 15] = 0;
+        a[i + 19] = 0;
+        a[i + 23] = 0;
+
+        this._changedBuffers[TEXCOORD_BUFFER] = true;
+    }
+
+    public setTexOffsetArr(index: number, value: number) {
+        let i = index * 6;
+        let a = this._texOffsetArr;
+
+        a[i] = value;
+        a[i + 1] = value;
+        a[i + 2] = value;
+        a[i + 3] = value;
+        a[i + 4] = value;
+        a[i + 5] = value;
+
+        this._changedBuffers[TEXOFFSET_BUFFER] = true;
+    }
+
+    public setStrokeSizeArr(index: number, value: number) {
+        let i = index * 6;
+        let a = this._strokeSizeArr;
+
+        a[i] = value;
+        a[i + 1] = value;
+        a[i + 2] = value;
+        a[i + 3] = value;
+        a[i + 4] = value;
+        a[i + 5] = value;
+
+        this._changedBuffers[STROKESIZE_BUFFER] = true;
+    }
+
+    public refreshTexCoordsArr() {
+        let bc = this._entityCollection;
+        if (bc &amp;&amp; this._renderer) {
+            let ta = this._renderer.strokeTextureAtlas;
+            for (let i = 0; i &lt; this._rays.length; i++) {
+                let ri = this._rays[i];
+                let img = ri.getImage();
+                if (img) {
+                    let taData = ta.get(img.__nodeIndex!);
+                    if (taData) {
+                        this.setTexCoordArr(ri._handlerIndex, taData.texCoords);
+                    }
+                }
+            }
+        }
+    }
+}
+
+export { RayHandler };
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>Documentation</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"entity/ray/RayHandler.ts"},"i1":{"basePath":"/","searchIndexUrl":"/_assets/search-index.ms1yt4d8-010773f2.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/entity/ray/rayhandler-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/entity/ray/rayhandler-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/_islands/theme-toggle-MFKEIGBZ.js","settings":"/_islands/settings-TVWSQT6I.js","code-viewer":"/_islands/code-viewer-S3DIZRC3.js","embed":"/_islands/embed-24QZS4CF.js","playground":"/_islands/playground-N5NFYMP6.js","tabs":"/_islands/tabs-NRSQKCSU.js","sidebar":"/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/_islands/mobile-nav-ZFIZP3CE.js","toc":"/_islands/toc-W36SMPYU.js","toc-mobile":"/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/_islands/cmdk-SWB64M4V.js","code-tabs":"/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/_islands/copy-btn-5O25GXTU.js","copy-page":"/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>

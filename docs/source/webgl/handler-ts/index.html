@@ -1,0 +1,1398 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>webgl/Handler.ts</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/_assets/styles.ms1yt4d8-010773f2.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">Documentation</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">webgl/Handler.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">/*
+ * Copyright 2026 Michael Gevlich
+ * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import { BaseFramebuffer } from &quot;./BaseFramebuffer&quot;;
+import { Clock } from &quot;../Clock&quot;;
+import { cons } from &quot;../cons&quot;;
+import { createEvents } from &quot;../Events&quot;;
+import type { EventsHandler } from &quot;../Events&quot;;
+import { getUrlParam, isEmpty } from &quot;../utils/shared&quot;;
+import type { TypedArray } from &quot;../utils/shared&quot;;
+import { ImageCanvas } from &quot;../ImageCanvas&quot;;
+import { Vec2 } from &quot;../math/Vec2&quot;;
+import type { NumberArray2 } from &quot;../math/Vec2&quot;;
+import { ShaderProgram } from &quot;./ShaderProgram&quot;;
+import { Stack } from &quot;../Stack&quot;;
+import { throttle } from &quot;../utils/shared&quot;;
+
+export type WebGLContextExt = { type: string } &amp; WebGL2RenderingContext;
+export type WebGLBufferExt = { numItems: number; itemSize: number } &amp; WebGLBuffer;
+export type WebGLTextureExt = { default?: boolean } &amp; WebGLTexture;
+export type ImageSource = HTMLCanvasElement | ImageBitmap | ImageData | HTMLImageElement | HTMLVideoElement;
+type CreateTextureFunc = (
+    image: ImageSource,
+    internalFormat?: number | null,
+    texParami?: number | null,
+    texture?: WebGLTextureExt
+) => WebGLTextureExt | null;
+
+export interface IHandlerParameters {
+    anisotropy?: number;
+    width?: number;
+    height?: number;
+    pixelRatio?: number;
+    context?: {
+        stencil?: boolean;
+        alpha?: boolean;
+        antialias?: boolean;
+        premultipliedAlpha?: boolean;
+        preserveDrawingBuffer?: boolean;
+    };
+    extensions?: string[];
+    autoActivate?: boolean;
+}
+
+export interface Texture3DParams {
+    nx: string;
+    px: string;
+    py: string;
+    ny: string;
+    pz: string;
+    nz: string;
+}
+
+export interface IDefaultTextureParams {
+    color?: string;
+    url?: string;
+}
+
+const vendorPrefixes = [&quot;&quot;, &quot;WEBKIT_&quot;, &quot;MOZ_&quot;];
+const CONTEXT_TYPE = &quot;webgl2&quot;;
+
+/**
+ * @typedef {&quot;visibilitychange&quot; | &quot;resize&quot;} HandlerEventType
+ */
+
+/**
+ * A WebGL handler for accessing low-level WebGL capabilities.
+ * @class
+ * @param {string | HTMLCanvasElement} canvasTarget - Canvas element target.
+ * or undefined creates hidden canvas and handler becomes hidden.
+ * @param {Object} [params] - Handler options:
+ * @param {number} [params.anisotropy] - Anisotropy filter degree. 8 is default.
+ * @param {number} [params.width] - Hidden handler width. 256 is default.
+ * @param {number} [params.height] - Hidden handler height. 256 is default.
+ * @param {Array.&lt;string>} [params.extensions] - Additional WebGL extension list. Available by default: EXT_texture_filter_anisotropic.
+ */
+class Handler {
+    protected _throttledDrawFrame: () => void;
+
+    /**
+     * Events.
+     * @public
+     * @type {EventsHandler&lt;Array&lt;HandlerEventType>>}
+     */
+    public events: EventsHandler&lt;[&quot;visibilitychange&quot;, &quot;resize&quot;]>;
+
+    /**
+     * Application default timer.
+     * @public
+     * @type {Clock}
+     */
+    public defaultClock: Clock;
+
+    /**
+     * Custom timers.
+     * @protected
+     * @type{Clock[]}
+     */
+    protected _clocks: Clock[];
+
+    /**
+     * Draw frame time in milliseconds.
+     * @public
+     * @type {number}
+     */
+    public deltaTime: number;
+    public prevDeltaTime: number;
+
+    /**
+     * WebGL rendering canvas element.
+     * @public
+     * @type {HTMLCanvasElement | null}
+     */
+    public canvas: HTMLCanvasElement | null;
+
+    /**
+     * WebGL context.
+     * @public
+     * @type {WebGLContextExt | null}
+     */
+    public gl: WebGLContextExt | null;
+
+    /**
+     * Shader program list.
+     * @public
+     * @type {Record&lt;string, ShaderProgram>}
+     */
+    public programs: Record&lt;string, ShaderProgram>;
+
+    /**
+     * Current active shader program.
+     * @public
+     * @type {ShaderProgram}
+     */
+    public activeProgram: ShaderProgram | null;
+
+    /**
+     * Handler parameters.
+     * @private
+     * @type {Object}
+     */
+    protected _params: {
+        anisotropy: number;
+        width: number;
+        height: number;
+        pixelRatio: number;
+        context: {
+            stencil?: boolean;
+            alpha?: boolean;
+            antialias?: boolean;
+            premultipliedAlpha?: boolean;
+            preserveDrawingBuffer?: boolean;
+        };
+        extensions: string[];
+    };
+
+    //public _oneByHeight: number;
+
+    /**
+     * Current WebGL extensions. Becomes here after context initialization.
+     * @public
+     * @type {Record&lt;string, any>}
+     */
+    public extensions: Record&lt;string, any>;
+
+    /**
+     * HTML Canvas target.
+     * @private
+     * @type {string | HTMLCanvasElement | undefined}
+     */
+    protected _canvasTarget: string | HTMLCanvasElement | undefined;
+
+    protected _lastAnimationFrameTime: number;
+
+    protected _initialized: boolean;
+
+    /**
+     * Animation frame function assigned from outside(Ex. from Renderer).
+     * @private
+     * @type {Function}
+     */
+    protected _frameCallback: Function;
+
+    protected _canvasSize: NumberArray2;
+
+    public transparentTexture: WebGLTextureExt | null;
+
+    public defaultTexture: WebGLTextureExt | null;
+
+    public framebufferStack = new Stack&lt;BaseFramebuffer>();
+
+    public createTexture: Record&lt;string, CreateTextureFunc>;
+
+    public createTextureDefault: CreateTextureFunc;
+
+    public ONCANVASRESIZE: Function | null;
+
+    public intersectionObserver?: IntersectionObserver;
+    public resizeObserver?: ResizeObserver;
+
+    protected _requestAnimationFrameId: number = 0;
+    protected _clipControlZeroToOne: boolean = false;
+    public clipControl: ((origin: number, depth: number) => void) | undefined = undefined;
+
+    protected _getMipmapLevels(width: number, height: number): number {
+        return Math.max(1, Math.floor(Math.log2(Math.max(width, height))) + 1);
+    }
+
+    constructor(canvasTarget: string | HTMLCanvasElement | undefined, params: IHandlerParameters = {}) {
+        this.events = createEvents&lt;[&quot;visibilitychange&quot;, &quot;resize&quot;]>([&quot;visibilitychange&quot;, &quot;resize&quot;]);
+
+        this._throttledDrawFrame = this.drawFrame;
+
+        this.defaultClock = new Clock();
+
+        this._clocks = [];
+
+        this.prevDeltaTime = 0;
+        this.deltaTime = 0;
+
+        this.canvas = null;
+
+        this.gl = null;
+
+        this.programs = {};
+
+        this.activeProgram = null;
+
+        this._canvasSize = [0, 0];
+
+        this._params = {
+            anisotropy: params.anisotropy || 4,
+            width: params.width || 256,
+            height: params.height || 256,
+            pixelRatio: getUrlParam(&quot;og_dpi&quot;) || params.pixelRatio || 1.0,
+            extensions: params.extensions || [],
+            context: params.context || {}
+        };
+
+        //this._oneByHeight = 1.0 / (this._params.height * this._params.pixelRatio);
+
+        this.extensions = {};
+
+        this._canvasTarget = canvasTarget;
+
+        this._lastAnimationFrameTime = 0;
+
+        this._initialized = false;
+
+        this._frameCallback = function () {};
+
+        this.transparentTexture = null;
+
+        this.defaultTexture = null;
+
+        this.framebufferStack = new Stack();
+
+        this.createTexture = {
+            NEAREST: this.createTexture_n.bind(this),
+            LINEAR: this.createTexture_l.bind(this),
+            MIPMAP: this.createTexture_mm.bind(this),
+            ANISOTROPIC: this.createTexture_a.bind(this)
+        };
+
+        this.createTextureDefault = this.createTexture.NEAREST;
+
+        this.ONCANVASRESIZE = null;
+
+        this._createCanvas();
+
+        if (params.autoActivate || isEmpty(params.autoActivate)) {
+            this.initialize();
+        }
+    }
+
+    public set frameDelay(delay: number) {
+        if (delay === 0) {
+            this._throttledDrawFrame = this.drawFrame;
+        } else {
+            this._throttledDrawFrame = throttle(this.drawFrame, delay);
+        }
+    }
+
+    public isInitialized(): boolean {
+        return this._initialized;
+    }
+
+    protected _createCanvas() {
+        if (this._canvasTarget) {
+            if (this._canvasTarget instanceof HTMLElement) {
+                this.canvas = this._canvasTarget;
+            } else {
+                this.canvas = (document.getElementById(this._canvasTarget) ||
+                    document.querySelector(this._canvasTarget)) as HTMLCanvasElement;
+            }
+        } else {
+            this.canvas = document.createElement(&quot;canvas&quot;);
+            this.canvas.width = this._params.width;
+            this.canvas.height = this._params.height;
+        }
+    }
+
+    /**
+     * The return value is null if the extension is not supported, or an extension object otherwise.
+     * @param {WebGL2RenderingContext | null} gl - WebGl context pointer.
+     * @param {string} name - Extension name.
+     * @returns {any} -
+     */
+    static getExtension(gl: WebGL2RenderingContext | null, name: string): any | undefined {
+        if (!gl) return;
+        for (let i in vendorPrefixes) {
+            let ext = gl.getExtension(vendorPrefixes[i] + name);
+            if (ext) {
+                return ext;
+            }
+        }
+    }
+
+    /**
+     * Returns a drawing context on the canvas, or null if the context identifier is not supported.
+     * @param {HTMLCanvasElement} canvas - HTML canvas object.
+     * @param {any} [contextAttributes] - See canvas.getContext contextAttributes.
+     * @returns {WebGLContextExt | null} -
+     */
+    static getContext(canvas: HTMLCanvasElement, contextAttributes?: any): WebGLContextExt | null {
+        let ctx: WebGLContextExt | null = null;
+
+        try {
+            ctx = canvas.getContext(CONTEXT_TYPE, contextAttributes) as WebGLContextExt;
+            if (ctx) {
+                ctx.type = CONTEXT_TYPE;
+            }
+        } catch (ex) {
+            cons.logErr(&quot;exception during the GL context initialization&quot;);
+        }
+
+        if (!ctx) {
+            cons.logErr(&quot;could not initialise WebGL&quot;);
+        }
+
+        return ctx;
+    }
+
+    /**
+     * Sets animation frame function.
+     * @public
+     * @param {Function} callback - Frame callback.
+     */
+    public setFrameCallback(callback: Function) {
+        callback &amp;&amp; (this._frameCallback = callback);
+    }
+
+    /**
+     * Creates an empty immutable 2D texture (WebGL2).
+     * @public
+     * @param {number} [width=1] - Texture width in pixels.
+     * @param {number} [height=1] - Texture height in pixels.
+     * @param {string} [filter=&quot;NEAREST&quot;] - GL_TEXTURE_MIN_FILTER and GL_TEXTURE_MAG_FILTER value.
+     * @param {string} [internalFormat=&quot;RGBA8&quot;] - Sized internal format (e.g. &quot;RGBA8&quot;, &quot;RGBA16F&quot;, &quot;R16F&quot;).
+     * @param {string} [param=&quot;CLAMP_TO_EDGE&quot;] - GL_TEXTURE_WRAP_S/T value.
+     * @param {number} [levels=1] - Number of mipmap levels (immutable storage).
+     * @returns {WebGLTexture | null} - Created WebGL texture object.
+     */
+    public createEmptyTexture2DExt(
+        width: number = 1,
+        height: number = 1,
+        filter: string = &quot;NEAREST&quot;,
+        internalFormat: string = &quot;RGBA8&quot;,
+        param: string = &quot;CLAMP_TO_EDGE&quot;,
+        levels: number = 1
+    ): WebGLTexture | null {
+        const gl = this.gl as WebGL2RenderingContext;
+
+        const texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+
+        gl.texStorage2D(gl.TEXTURE_2D, levels, (gl as any)[internalFormat.toUpperCase()], width, height);
+
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, (gl as any)[filter.toUpperCase()]);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, (gl as any)[filter.toUpperCase()]);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, (gl as any)[param.toUpperCase()]);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, (gl as any)[param.toUpperCase()]);
+
+        gl.bindTexture(gl.TEXTURE_2D, null);
+        return texture;
+    }
+
+    /**
+     * Creates an empty immutable 2D array texture (WebGL2).
+     * @public
+     * @param {number} [width=1] - Texture width in pixels.
+     * @param {number} [height=1] - Texture height in pixels.
+     * @param {number} [depth=1] - Number of array layers.
+     * @param {string} [filter=&quot;NEAREST&quot;] - GL_TEXTURE_MIN_FILTER and GL_TEXTURE_MAG_FILTER value.
+     * @param {string} [internalFormat=&quot;RGBA8&quot;] - Sized internal format (e.g. &quot;RGBA8&quot;, &quot;R32F&quot;).
+     * @param {string} [param=&quot;CLAMP_TO_EDGE&quot;] - GL_TEXTURE_WRAP_S/T value.
+     * @param {number} [levels=1] - Number of mipmap levels (immutable storage).
+     * @returns {WebGLTexture | null} - Created WebGL texture object.
+     */
+    public createEmptyTexture2DArrayExt(
+        width: number = 1,
+        height: number = 1,
+        depth: number = 1,
+        filter: string = &quot;NEAREST&quot;,
+        internalFormat: string = &quot;RGBA8&quot;,
+        param: string = &quot;CLAMP_TO_EDGE&quot;,
+        levels: number = 1
+    ): WebGLTexture | null {
+        const gl = this.gl as WebGL2RenderingContext;
+
+        const texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D_ARRAY, texture);
+
+        gl.texStorage3D(gl.TEXTURE_2D_ARRAY, levels, (gl as any)[internalFormat.toUpperCase()], width, height, depth);
+
+        gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_MIN_FILTER, (gl as any)[filter.toUpperCase()]);
+        gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_MAG_FILTER, (gl as any)[filter.toUpperCase()]);
+        gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_WRAP_S, (gl as any)[param.toUpperCase()]);
+        gl.texParameteri(gl.TEXTURE_2D_ARRAY, gl.TEXTURE_WRAP_T, (gl as any)[param.toUpperCase()]);
+
+        gl.bindTexture(gl.TEXTURE_2D_ARRAY, null);
+        return texture;
+    }
+
+    /**
+     * Creates Empty NEAREST filtered texture.
+     * @public
+     * @param {number} width - Empty texture width.
+     * @param {number} height - Empty texture height.
+     * @param {number} [internalFormat] - Internal texture format, `gl.RGBA` by default.
+     * @param {number} [texParami] - Wrap mode for S/T axes, `gl.CLAMP_TO_EDGE` by default.
+     * @returns {WebGLTexture | null} - WebGL texture object.
+     */
+    public createEmptyTexture_n(
+        width: number,
+        height: number,
+        internalFormat?: number | null,
+        texParami?: number | null
+    ): WebGLTexture | null {
+        let gl = this.gl!;
+
+        let texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        //gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat || gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null!);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, texParami || gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, texParami || gl.CLAMP_TO_EDGE);
+        gl.bindTexture(gl.TEXTURE_2D, null!);
+
+        return texture;
+    }
+
+    /**
+     * Creates empty LINEAR filtered texture.
+     * @public
+     * @param {number} width - Empty texture width.
+     * @param {number} height - Empty texture height.
+     * @param {number} [internalFormat]
+     * @param {number} [texParami]
+     * @returns {WebGLTexture | null} - WebGL texture object.
+     */
+    public createEmptyTexture_l(
+        width: number,
+        height: number,
+        internalFormat?: number | null,
+        texParami?: number | null
+    ): WebGLTexture | null {
+        let gl = this.gl!;
+
+        let texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        //gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat || gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, null!);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, texParami || gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, texParami || gl.CLAMP_TO_EDGE);
+        gl.bindTexture(gl.TEXTURE_2D, null!);
+
+        return texture;
+    }
+
+    /**
+     * Creates NEAREST filter texture.
+     * @public
+     * @param {ImageSource} image - Image or Canvas object.
+     * @param {number} [internalFormat]
+     * @param {number} [texParami]
+     * @param {WebGLTexture | null} [texture]
+     * @returns {WebGLTexture | null} - WebGL texture object.
+     */
+    public createTexture_n(
+        image: ImageSource,
+        internalFormat?: number | null,
+        texParami?: number | null,
+        texture: WebGLTexture | null = null
+    ): WebGLTextureExt | null {
+        let gl = this.gl!;
+
+        texture = texture || gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        //gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        //gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+        gl.texStorage2D(gl.TEXTURE_2D, 1, internalFormat || gl.RGBA8, image.width, image.height);
+        gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, image.width, image.height, gl.RGBA, gl.UNSIGNED_BYTE, image);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, texParami || gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, texParami || gl.CLAMP_TO_EDGE);
+        gl.bindTexture(gl.TEXTURE_2D, null!);
+
+        return texture;
+    }
+
+    /**
+     * Creates LINEAR filter texture.
+     * @public
+     * @param {ImageSource} image - Image or Canvas object.
+     * @param {number} [internalFormat]
+     * @param {number} [texParami]
+     * @param {WebGLTexture | null} [texture]
+     * @returns {WebGLTexture | null} - WebGL texture object.
+     */
+    public createTexture_l(
+        image: ImageSource,
+        internalFormat?: number | null,
+        texParami?: number | null,
+        texture: WebGLTexture | null = null
+    ): WebGLTextureExt | null {
+        let gl = this.gl!;
+
+        texture = texture || gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        //gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        //gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+        gl.texStorage2D(gl.TEXTURE_2D, 1, internalFormat || gl.RGBA8, image.width, image.height);
+        gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, image.width, image.height, gl.RGBA, gl.UNSIGNED_BYTE, image);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, texParami || gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, texParami || gl.CLAMP_TO_EDGE);
+        gl.bindTexture(gl.TEXTURE_2D, null!);
+
+        return texture;
+    }
+
+    /**
+     * Creates MIPMAP filter texture.
+     * @public
+     * @param {ImageSource} image - Image or Canvas object.
+     * @param {number} [internalFormat]
+     * @param {number} [texParami]
+     * @param {WebGLTexture | null} [texture]
+     * @returns {WebGLTexture | null} - WebGL texture object.
+     */
+    public createTexture_mm(
+        image: ImageSource,
+        internalFormat?: number | null,
+        texParami?: number | null,
+        texture: WebGLTexture | null = null
+    ): WebGLTextureExt | null {
+        let gl = this.gl!;
+        const levels = this._getMipmapLevels(image.width, image.height);
+
+        texture = texture || gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        //gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+        gl.texStorage2D(gl.TEXTURE_2D, levels, internalFormat || gl.RGBA8, image.width, image.height);
+        gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, image.width, image.height, gl.RGBA, gl.UNSIGNED_BYTE, image);
+        gl.generateMipmap(gl.TEXTURE_2D);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, texParami || gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, texParami || gl.CLAMP_TO_EDGE);
+        gl.bindTexture(gl.TEXTURE_2D, null!);
+
+        return texture;
+    }
+
+    /**
+     * Creates ANISOTROPY filter texture.
+     * @public
+     * @param {ImageSource} image - Image or Canvas object.
+     * @param {number} [internalFormat]
+     * @param {number} [texParami]
+     * @param {WebGLTexture | null} [texture]
+     * @returns {WebGLTexture | null} - WebGL texture object.
+     */
+    public createTexture_a(
+        image: ImageSource,
+        internalFormat?: number | null,
+        texParami?: number | null,
+        texture: WebGLTexture | null = null
+    ): WebGLTextureExt | null {
+        let gl = this.gl!;
+        const levels = this._getMipmapLevels(image.width, image.height);
+
+        texture = texture || gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_2D, texture);
+        //gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+        //gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+        gl.texStorage2D(gl.TEXTURE_2D, levels, internalFormat || gl.RGBA8, image.width, image.height);
+        gl.texSubImage2D(gl.TEXTURE_2D, 0, 0, 0, image.width, image.height, gl.RGBA, gl.UNSIGNED_BYTE, image);
+        gl.generateMipmap(gl.TEXTURE_2D);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
+        gl.texParameterf(
+            gl.TEXTURE_2D,
+            this.extensions.EXT_texture_filter_anisotropic.TEXTURE_MAX_ANISOTROPY_EXT,
+            this._params.anisotropy
+        );
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, texParami || gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, texParami || gl.CLAMP_TO_EDGE);
+        gl.bindTexture(gl.TEXTURE_2D, null!);
+        return texture;
+    }
+
+    /**
+     * Creates cube texture.
+     * @public
+     * @param {Texture3DParams} params - Face image urls:
+     * @param {string} params.px - Positive X or right image url.
+     * @param {string} params.nx - Negative X or left image url.
+     * @param {string} params.py - Positive Y or up image url.
+     * @param {string} params.ny - Negative Y or bottom image url.
+     * @param {string} params.pz - Positive Z or face image url.
+     * @param {string} params.nz - Negative Z or back image url.
+     * @param {number} [colorSpace=gl.SRGB8_ALPHA8] - Cube texture internal format (for example gl.SRGB8_ALPHA8 or gl.RGBA8).
+     * @param {number} [textureFilter=gl.LINEAR] - Cube texture filter (for example gl.LINEAR or gl.NEAREST).
+     * @returns {WebGLTexture | null} - WebGL texture object.
+     */
+    public loadCubeMapTexture(
+        params: Texture3DParams,
+        colorSpace?: number | null,
+        textureFilter?: number | null
+    ): WebGLTextureExt | null {
+        let gl = this.gl!;
+        const internalFormat = colorSpace ?? gl.SRGB8_ALPHA8;
+        const filter = textureFilter ?? gl.LINEAR;
+
+        let texture = gl.createTexture();
+        gl.bindTexture(gl.TEXTURE_CUBE_MAP, texture);
+        gl.texParameteri(gl.TEXTURE_CUBE_MAP, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_CUBE_MAP, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+        gl.texParameteri(gl.TEXTURE_CUBE_MAP, gl.TEXTURE_MIN_FILTER, filter);
+        gl.texParameteri(gl.TEXTURE_CUBE_MAP, gl.TEXTURE_MAG_FILTER, filter);
+
+        let faces: [string, number][] = [
+            [params.px, gl.TEXTURE_CUBE_MAP_POSITIVE_X],
+            [params.nx, gl.TEXTURE_CUBE_MAP_NEGATIVE_X],
+            [params.py, gl.TEXTURE_CUBE_MAP_POSITIVE_Y],
+            [params.ny, gl.TEXTURE_CUBE_MAP_NEGATIVE_Y],
+            [params.pz, gl.TEXTURE_CUBE_MAP_POSITIVE_Z],
+            [params.nz, gl.TEXTURE_CUBE_MAP_NEGATIVE_Z]
+        ];
+
+        let imageCanvas = new ImageCanvas();
+        imageCanvas.fillEmpty();
+        let emptyImage = imageCanvas.getImage();
+
+        for (let i = 0; i &lt; faces.length; i++) {
+            let face = faces[i][1];
+            gl.bindTexture(gl.TEXTURE_CUBE_MAP, texture);
+            //gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+            gl.texImage2D(face, 0, internalFormat, gl.RGBA, gl.UNSIGNED_BYTE, emptyImage);
+        }
+
+        for (let i = 0; i &lt; faces.length; i++) {
+            let face = faces[i][1];
+            let image = new Image();
+            image.crossOrigin = &quot;&quot;;
+            image.onload = (function (texture: WebGLTexture | null, face: number, image: HTMLImageElement) {
+                return function () {
+                    if (gl &amp;&amp; texture) {
+                        gl.bindTexture(gl.TEXTURE_CUBE_MAP, texture);
+                        //gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+                        gl.texImage2D(face, 0, internalFormat, gl.RGBA, gl.UNSIGNED_BYTE, image);
+                    }
+                };
+            })(texture, face, image);
+
+            image.src = faces[i][0];
+        }
+        return texture;
+    }
+
+    /**
+     * Adds shader program to the handler.
+     * @public
+     * @param {ShaderProgram} program - Shader program.
+     * @param {boolean} [activate] - If false program will not compile.
+     * @return {ShaderProgram} -
+     */
+    public addProgram(program: ShaderProgram, activate: boolean = false): ShaderProgram {
+        if (!this.programs[program.name]) {
+            program.attach(this);
+            this.programs[program.name] = program;
+            this._initProgram(program);
+            if (!activate) {
+                program._activated = false;
+            }
+        } else {
+            console.warn(`Shader program: &quot;${program.name}&quot; already exists.`);
+        }
+        return program;
+    }
+
+    /**
+     * Removes shader program from handler.
+     * @public
+     * @param {string} name - Shader program name.
+     */
+    public removeProgram(name: string) {
+        this.programs[name] &amp;&amp; this.programs[name].remove();
+    }
+
+    /**
+     * Adds shader programs to the handler.
+     * @public
+     * @param {Array.&lt;ShaderProgram>} programsArr - Shader program array.
+     */
+    public addPrograms(programsArr: ShaderProgram[]) {
+        for (let i = 0; i &lt; programsArr.length; i++) {
+            this.addProgram(programsArr[i]);
+        }
+    }
+
+    /**
+     * Used in addProgram
+     * @protected
+     * @param {ShaderProgram} program - ShaderProgram
+     */
+    protected _initProgram(program: ShaderProgram) {
+        if (this._initialized) {
+            program.initialize();
+            if (!this.activeProgram) {
+                this.activeProgram = program;
+                program.activate();
+            } else {
+                program.deactivate();
+                this.activeProgram.enableAttribArrays();
+                this.activeProgram.use();
+            }
+        }
+    }
+
+    /**
+     * Used in init function.
+     * @private
+     */
+    protected _initPrograms() {
+        for (let p in this.programs) {
+            this._initProgram(this.programs[p]);
+        }
+    }
+
+    /**
+     * Initialize additional WebGL extensions.
+     * @public
+     * @param {string} extensionStr - Extension name.
+     * @param {boolean} showLog - Show logging.
+     * @return {any} -
+     */
+    public initializeExtension(extensionStr: string, showLog: boolean = false): any {
+        if (!(this.extensions &amp;&amp; this.extensions[extensionStr])) {
+            let ext = Handler.getExtension(this.gl, extensionStr);
+            if (ext) {
+                this.extensions[extensionStr] = ext;
+            } else if (showLog) {
+                console.warn(&quot;og.webgl.Handler: extension '&quot; + extensionStr + &quot;' doesn't initialize.&quot;);
+            }
+        }
+        return this.extensions &amp;&amp; this.extensions[extensionStr];
+    }
+
+    /**
+     * Main function that initializes handler.
+     * @public
+     */
+    public initialize() {
+        if (this._initialized) return;
+
+        if (!this.canvas) return;
+
+        this.gl = Handler.getContext(this.canvas, this._params.context);
+
+        if (!this.gl) return;
+
+        this._initialized = true;
+
+        /** Sets default extensions */
+        this._params.extensions.push(&quot;EXT_texture_filter_anisotropic&quot;);
+
+        this._params.extensions.push(&quot;EXT_color_buffer_float&quot;);
+        this._params.extensions.push(&quot;OES_texture_float_linear&quot;);
+        this._params.extensions.push(&quot;EXT_clip_control&quot;);
+        //this._params.extensions.push(&quot;WEBGL_draw_buffers&quot;);
+
+        let i = this._params.extensions.length;
+        while (i--) {
+            this.initializeExtension(this._params.extensions[i], true);
+        }
+
+        //
+        // Init clipControl function
+        //
+        const clipControlExt = this.extensions.EXT_clip_control;
+        if (clipControlExt &amp;&amp; clipControlExt.clipControlEXT) {
+            this.clipControl = clipControlExt.clipControlEXT.bind(clipControlExt);
+        }
+
+        if (!this.extensions.EXT_texture_filter_anisotropic) {
+            this.createTextureDefault = this.createTexture.MIPMAP;
+        } else {
+            this.createTextureDefault = this.createTexture.ANISOTROPIC;
+        }
+
+        /** Initializing shaders and rendering parameters*/
+        this._initPrograms();
+        this._setDefaults();
+
+        this.intersectionObserver = new IntersectionObserver(
+            (entries) => {
+                this._toggleVisibilityChange(entries[entries.length - 1].isIntersecting);
+            },
+            { threshold: 0 }
+        );
+
+        this.intersectionObserver.observe(this.canvas);
+
+        this.resizeObserver = new ResizeObserver((entries) => {
+            this._toggleVisibilityChange(entries[0].contentRect.width !== 0 &amp;&amp; entries[0].contentRect.height !== 0);
+        });
+
+        this.resizeObserver.observe(this.canvas);
+
+        document.addEventListener(&quot;visibilitychange&quot;, () => {
+            this._toggleVisibilityChange(document.visibilityState === &quot;visible&quot;);
+        });
+    }
+
+    protected _toggleVisibilityChange(visibility: boolean) {
+        if (visibility) {
+            this.start();
+            this.ONCANVASRESIZE &amp;&amp; this.ONCANVASRESIZE();
+            this.events.dispatch(this.events.visibilitychange, true);
+        } else {
+            this.events.dispatch(this.events.visibilitychange, false);
+            this.stop();
+        }
+    }
+
+    /**
+     * Sets default gl render parameters. Used in init function.
+     * @protected
+     */
+    protected _setDefaults() {
+        let gl = this.gl;
+
+        if (!gl) return;
+        if (!this.canvas) return;
+
+        gl.depthFunc(gl.LESS);
+        gl.enable(gl.DEPTH_TEST);
+        this.setSize(this.canvas.clientWidth || this._params.width, this.canvas.clientHeight || this._params.height);
+        gl.frontFace(gl.CCW);
+        gl.cullFace(gl.BACK);
+        gl.enable(gl.CULL_FACE);
+        gl.enable(gl.DITHER);
+        gl.disable(gl.BLEND);
+        this.createDefaultTexture({ color: &quot;rgba(0,0,0,0.0)&quot; }, (t: WebGLTextureExt) => {
+            this.transparentTexture = t;
+        });
+        this.createDefaultTexture({ color: &quot;rgba(255, 255, 255, 1.0)&quot; }, (t: WebGLTextureExt) => {
+            this.defaultTexture = t;
+        });
+    }
+
+    /**
+     * Returns true when clip-control depth range is currently ZERO_TO_ONE.
+     * @public
+     * @returns {boolean} -
+     */
+    public get isClipControlZeroToOne(): boolean {
+        return this._clipControlZeroToOne;
+    }
+
+    /**
+     * Switches clip-control depth range between ZERO_TO_ONE and NEGATIVE_ONE_TO_ONE.
+     * If EXT_clip_control is unavailable, the internal ZERO_TO_ONE flag is reset to false.
+     * @public
+     * @param {boolean} useZeroToOne - True sets ZERO_TO_ONE, false sets NEGATIVE_ONE_TO_ONE.
+     */
+    public setClipControlZeroToOne(useZeroToOne: boolean) {
+        if (!this.clipControl) {
+            this._clipControlZeroToOne = false;
+            return;
+        }
+        const ext = this.extensions.EXT_clip_control!;
+
+        if (this._clipControlZeroToOne !== useZeroToOne) {
+            this.clipControl(ext.LOWER_LEFT_EXT, useZeroToOne ? ext.ZERO_TO_ONE_EXT : ext.NEGATIVE_ONE_TO_ONE_EXT);
+            this._clipControlZeroToOne = useZeroToOne;
+        }
+    }
+
+    public getCanvasSize(): NumberArray2 {
+        return this._canvasSize;
+    }
+
+    /**
+     * Creates ARRAY_BUFFER storage for frequently updated data.
+     * @public
+     * @param {number} itemSize - Number of scalar components per item.
+     * @param {number} numItems - Number of items.
+     * @param {number} [usage=STREAM_DRAW] - GL usage hint (STATIC_DRAW, DYNAMIC_DRAW or STREAM_DRAW).
+     * @param {number} [bytes=4] - Bytes per scalar component.
+     * @return {WebGLBufferExt} -
+     */
+    public createStreamArrayBuffer(
+        itemSize: number,
+        numItems: number,
+        usage?: number,
+        bytes: number = 4
+    ): WebGLBufferExt {
+        let gl = this.gl!;
+        let buffer: WebGLBufferExt = gl.createBuffer() as WebGLBufferExt;
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, numItems * itemSize * bytes, usage || gl.STREAM_DRAW);
+        gl.bindBuffer(gl.ARRAY_BUFFER, null!);
+        buffer.itemSize = itemSize;
+        buffer.numItems = numItems;
+        return buffer;
+    }
+
+    /**
+     * Uploads data to an existing ARRAY_BUFFER via bufferSubData.
+     * @public
+     * @param {WebGLBufferExt} buffer - Target ARRAY_BUFFER.
+     * @param {TypedArray} array - Source data to upload.
+     * @param {number} [offset=0] - Byte offset in the target buffer.
+     * @return {WebGLBufferExt} -
+     */
+    public setStreamArrayBuffer(buffer: WebGLBufferExt, array: TypedArray, offset: number = 0): WebGLBufferExt {
+        let gl = this.gl!;
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferSubData(gl.ARRAY_BUFFER, offset, array);
+        gl.bindBuffer(gl.ARRAY_BUFFER, null!);
+        return buffer;
+    }
+
+    /**
+     * Creates and initializes ARRAY_BUFFER from a typed array.
+     * @public
+     * @param {TypedArray} array - Source data.
+     * @param {number} itemSize - Number of scalar components per item.
+     * @param {number} [numItems] - Number of items (computed from array length when omitted).
+     * @param {number} [usage=STATIC_DRAW] - GL usage hint (STATIC_DRAW, DYNAMIC_DRAW or STREAM_DRAW).
+     * @return {WebGLBufferExt} -
+     */
+    public createArrayBuffer(array: TypedArray, itemSize: number, numItems?: number, usage?: number): WebGLBufferExt {
+        let gl = this.gl!;
+        let buffer: WebGLBufferExt = gl.createBuffer() as WebGLBufferExt;
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, array, usage || gl.STATIC_DRAW);
+        gl.bindBuffer(gl.ARRAY_BUFFER, null!);
+        buffer.itemSize = itemSize;
+        buffer.numItems = numItems || array.length / itemSize;
+        return buffer;
+    }
+
+    /**
+     * Creates ARRAY_BUFFER storage with a specific byte length and no initial data.
+     * @public
+     * @param {number} size - Buffer size in bytes.
+     * @param {number} [usage=STATIC_DRAW] - GL usage hint (STATIC_DRAW, DYNAMIC_DRAW or STREAM_DRAW).
+     * @return {WebGLBufferExt} -
+     */
+    public createArrayBufferLength(size: number, usage?: number): WebGLBufferExt {
+        let gl = this.gl!;
+        let buffer: WebGLBufferExt = gl.createBuffer() as WebGLBufferExt;
+        gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ARRAY_BUFFER, size, usage || gl.STATIC_DRAW);
+        gl.bindBuffer(gl.ARRAY_BUFFER, null!);
+        buffer.itemSize = 1;
+        buffer.numItems = size;
+        return buffer;
+    }
+
+    /**
+     * Creates ELEMENT ARRAY buffer.
+     * @public
+     * @param {TypedArray} array - Input array.
+     * @param {number} itemSize - Array item size.
+     * @param {number} numItems - Items quantity.
+     * @param {number} [usage=STATIC_DRAW] - Parameter of the bufferData call can be one of STATIC_DRAW, DYNAMIC_DRAW, or STREAM_DRAW.
+     * @return {Object} -
+     */
+    public createElementArrayBuffer(
+        array: TypedArray,
+        itemSize: number,
+        numItems?: number,
+        usage?: number
+    ): WebGLBufferExt {
+        let gl = this.gl!;
+        let buffer = gl.createBuffer() as WebGLBufferExt;
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, buffer);
+        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, array, usage || gl.STATIC_DRAW);
+        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null!);
+        buffer.itemSize = itemSize;
+        buffer.numItems = numItems || array.length;
+        return buffer;
+    }
+
+    /**
+     * Sets handler canvas size.
+     * @public
+     * @param {number} w - Canvas width.
+     * @param {number} h - Canvas height.
+     */
+    public setSize(w: number, h: number) {
+        this._params.width = w;
+        this._params.height = h;
+        if (this.canvas) {
+            this.canvas.width = w * this._params.pixelRatio;
+            this.canvas.height = h * this._params.pixelRatio;
+
+            this._canvasSize[0] = this.canvas.width;
+            this._canvasSize[1] = this.canvas.height;
+
+            //this._oneByHeight = 1.0 / this.canvas.height;
+
+            this.gl &amp;&amp; this.gl.viewport(0, 0, w, h);
+            this.ONCANVASRESIZE &amp;&amp; this.ONCANVASRESIZE(this.canvas);
+            this.events.dispatch(this.events.resize, this);
+        }
+    }
+
+    public get pixelRatio(): number {
+        return this._params.pixelRatio;
+    }
+
+    public set pixelRatio(pr: number) {
+        this._params.pixelRatio = pr;
+        this.setSize(this._params.width, this._params.height);
+    }
+
+    /**
+     * Returns context screen width.
+     * @public
+     * @returns {number} -
+     */
+    public getWidth(): number {
+        return this.canvas ? this.canvas.width : 0;
+    }
+
+    /**
+     * Returns context screen height.
+     * @public
+     * @returns {number} -
+     */
+    public getHeight(): number {
+        return this.canvas ? this.canvas.height : 0;
+    }
+
+    /**
+     * Returns canvas aspect ratio.
+     * @public
+     * @returns {number} -
+     */
+    public getClientAspect(): number {
+        return this.canvas ? this.canvas.clientWidth / this.canvas.clientHeight : 0;
+    }
+
+    /**
+     * Returns canvas center coordinates.
+     * @public
+     * @returns {number} -
+     */
+    public getCenter(): Vec2 {
+        let c = this.canvas;
+        return c ? new Vec2(Math.round(c.width * 0.5), Math.round(c.height * 0.5)) : new Vec2();
+    }
+
+    /**
+     * Draw single frame.
+     * @public
+     */
+    public drawFrame = () => {
+        /** Calculating frame time */
+        let now = window.performance.now();
+        let prevDeltaTime = this.deltaTime;
+        //Make some filter:)
+        this.deltaTime = (now - this._lastAnimationFrameTime + this.prevDeltaTime) * 0.5;
+        if (this.deltaTime > 3) {
+            this.deltaTime = 3;
+        } else if (this.deltaTime &lt; 1) {
+            this.deltaTime = 1;
+        }
+        this.prevDeltaTime = prevDeltaTime;
+        this._lastAnimationFrameTime = now;
+
+        this.defaultClock.tick(this.deltaTime);
+
+        for (let i = 0; i &lt; this._clocks.length; i++) {
+            this._clocks[i].tick(this.deltaTime);
+        }
+
+        /** Canvas resize checking */
+        let canvas = this.canvas!;
+
+        if (
+            Math.floor(canvas.clientWidth * this._params.pixelRatio) !== canvas.width ||
+            Math.floor(canvas.clientHeight * this._params.pixelRatio) !== canvas.height
+        ) {
+            if (canvas.clientWidth === 0 || canvas.clientHeight === 0) {
+                this.stop();
+            } else if (!document.hidden) {
+                this.start();
+                this.setSize(canvas.clientWidth, canvas.clientHeight);
+            }
+        }
+
+        /** Draw frame */
+        this._frameCallback();
+    };
+
+    /**
+     * Clearing gl frame.
+     * @public
+     */
+    public clearFrame() {
+        let gl = this.gl!;
+        gl.clearColor(0.0, 0.0, 0.0, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    }
+
+    /**
+     * Starts animation loop.
+     * @public
+     */
+    public start() {
+        if (!this._requestAnimationFrameId &amp;&amp; this._initialized) {
+            this._animationFrameCallback();
+        }
+    }
+
+    public stop() {
+        if (this._requestAnimationFrameId) {
+            window.cancelAnimationFrame(this._requestAnimationFrameId);
+            this._requestAnimationFrameId = 0;
+        }
+    }
+
+    public isStopped(): boolean {
+        return !this._requestAnimationFrameId;
+    }
+
+    /**
+     * Check is gl context type equals webgl2
+     * @public
+     */
+    public isWebGl2(): boolean {
+        return this.gl ? this.gl.type === &quot;webgl2&quot; : false;
+    }
+
+    /**
+     * Make animation.
+     * @protected
+     */
+    protected _animationFrameCallback() {
+        this._requestAnimationFrameId = window.requestAnimationFrame(() => {
+            this._throttledDrawFrame();
+            this._requestAnimationFrameId &amp;&amp; this._animationFrameCallback();
+        });
+    }
+
+    /**
+     * Creates a default 2x2 texture and passes it to callback.
+     * If `params.color` is set, a solid color texture is created.
+     * If `params.url` is set, the image is loaded asynchronously.
+     * Otherwise a fallback gray texture is created.
+     * @public
+     * @param {IDefaultTextureParams | null} params - Texture source parameters.
+     * @param {function(WebGLTextureExt): void} success - Callback with created texture.
+     */
+    public createDefaultTexture(
+        params: IDefaultTextureParams | null,
+        success: (texture: WebGLTextureExt) => void,
+        internalFormat?: number | null
+    ) {
+        let imgCnv;
+        let texture;
+
+        if (params &amp;&amp; params.color) {
+            imgCnv = new ImageCanvas(2, 2);
+            imgCnv.fillColor(params.color);
+            texture = this.createTexture_n(imgCnv.getCanvas(), internalFormat)!;
+            texture.default = true;
+            success(texture);
+        } else if (params &amp;&amp; params.url) {
+            let img = new Image();
+            let that = this;
+            img.onload = function () {
+                texture = that.createTextureDefault(img, internalFormat)!;
+                texture.default = true;
+                success(texture);
+            };
+            img.src = params.url;
+        } else {
+            imgCnv = new ImageCanvas(2, 2);
+            imgCnv.fillColor(&quot;#C5C5C5&quot;);
+            texture = this.createTexture_n(imgCnv.getCanvas(), internalFormat)!;
+            texture.default = true;
+            success(texture);
+        }
+    }
+
+    /**
+     * Deletes texture if it is not marked as default.
+     * @public
+     * @param {WebGLTextureExt | null | undefined} texture - Texture to delete.
+     */
+    public deleteTexture(texture: WebGLTextureExt | null | undefined) {
+        if (texture &amp;&amp; !texture.default &amp;&amp; this.gl) {
+            this.gl.deleteTexture(texture);
+        }
+    }
+
+    /**
+     * Releases handler resources, WebGL objects, observers and canvas.
+     * @public
+     */
+    public destroy() {
+        this.resizeObserver?.disconnect();
+        this.intersectionObserver?.disconnect();
+
+        this.stop();
+
+        //
+        // Dispose shaders
+        //
+        for (let p in this.programs) {
+            this.removeProgram(p);
+        }
+
+        //
+        // Clear WebGL context
+        //
+        let gl = this.gl;
+
+        if (gl) {
+            gl.deleteTexture(this.transparentTexture as WebGLTexture);
+            this.transparentTexture = null;
+
+            gl.deleteTexture(this.defaultTexture as WebGLTexture);
+            this.defaultTexture = null;
+
+            this.framebufferStack = new Stack();
+
+            //
+            // Clear attrib pointers
+            //
+            let numAttribs = gl.getParameter(gl.MAX_VERTEX_ATTRIBS);
+            let tmp = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, tmp);
+            for (let ii = 0; ii &lt; numAttribs; ++ii) {
+                gl.disableVertexAttribArray(ii);
+                gl.vertexAttribPointer(ii, 4, gl.FLOAT, false, 0, 0);
+                gl.vertexAttrib1f(ii, 0);
+            }
+            gl.deleteBuffer(tmp);
+
+            //
+            // Clear all possible textures
+            //
+            let numTextureUnits = gl.getParameter(gl.MAX_TEXTURE_IMAGE_UNITS);
+            for (let ii = 0; ii &lt; numTextureUnits; ++ii) {
+                gl.activeTexture(gl.TEXTURE0 + ii);
+                gl.bindTexture(gl.TEXTURE_CUBE_MAP, null!);
+                gl.bindTexture(gl.TEXTURE_2D, null!);
+            }
+
+            //
+            // Hard reset
+            //
+            gl.activeTexture(gl.TEXTURE0);
+            gl.useProgram(null!);
+            gl.bindBuffer(gl.ARRAY_BUFFER, null!);
+            gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, null!);
+            gl.bindFramebuffer(gl.FRAMEBUFFER, null!);
+            gl.bindRenderbuffer(gl.RENDERBUFFER, null!);
+            gl.disable(gl.BLEND);
+            gl.disable(gl.CULL_FACE);
+            gl.disable(gl.DEPTH_TEST);
+            gl.disable(gl.DITHER);
+            gl.disable(gl.SCISSOR_TEST);
+            gl.blendColor(0, 0, 0, 0);
+            gl.blendEquation(gl.FUNC_ADD);
+            gl.blendFunc(gl.ONE, gl.ZERO);
+            gl.clearColor(0, 0, 0, 0);
+            gl.clearDepth(1);
+            gl.clearStencil(-1);
+        }
+
+        //
+        // Destroy canvas
+        //
+        if (this.canvas) {
+            if (this.canvas.parentNode) {
+                this.canvas.parentNode.removeChild(this.canvas);
+            }
+            this.canvas.width = 1;
+            this.canvas.height = 1;
+            this.canvas = null;
+        }
+
+        this.gl = null;
+
+        this._initialized = false;
+    }
+
+    public addClock(clock: Clock) {
+        if (!clock.__handler) {
+            clock.__handler = this;
+            this._clocks.push(clock);
+        }
+    }
+
+    public addClocks(clockArr: Clock[]) {
+        for (let i = 0; i &lt; clockArr.length; i++) {
+            this.addClock(clockArr[i]);
+        }
+    }
+
+    public removeClock(clock: Clock) {
+        if (clock.__handler) {
+            let c = this._clocks;
+            let i = c.length;
+            while (i--) {
+                if (c[i].isEqual(clock)) {
+                    clock.__handler = null;
+                    c.splice(i, 1);
+                    break;
+                }
+            }
+        }
+    }
+
+    // var loadTextureData = function(textureName, callback) {
+    //     const xhr = new XMLHttpRequest();
+    //     xhr.open('GET', textureName);
+    //     xhr.responseType = 'arraybuffer';
+    //     xhr.onload = (event) => {
+    //         const data = new DataView(xhr.response);
+    //         const array =
+    //             new Float32Array(data.byteLength / Float32Array.BYTES_PER_ELEMENT);
+    //         for (let i = 0; i &lt; array.length; ++i) {
+    //             array[i] = data.getFloat32(i * Float32Array.BYTES_PER_ELEMENT, true);
+    //         }
+    //         callback(array);
+    //     };
+    //     xhr.send();
+    // }
+
+    // loadTextureData('transmittance.dat', (data) => {
+    //
+    //     let gl = this.renderer.handler.gl;
+    //
+    //     const texture = gl.createTexture();
+    //     gl.activeTexture(gl.TEXTURE0);
+    //     gl.bindTexture(gl.TEXTURE_2D, texture);
+    //     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
+    //     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+    //     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+    //     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+    //     gl.texImage2D(gl.TEXTURE_2D, 0, gl.getExtension('OES_texture_float_linear') ? gl.RGBA32F : gl.RGBA16F,
+    //         TRANSMITTANCE_TEXTURE_WIDTH, TRANSMITTANCE_TEXTURE_HEIGHT, 0, gl.RGBA,
+    //         gl.FLOAT, data);
+    //
+    //     this.transmittanceTextureBrn = texture;
+    // });
+}
+
+export { Handler };
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>Documentation</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"webgl/Handler.ts"},"i1":{"basePath":"/","searchIndexUrl":"/_assets/search-index.ms1yt4d8-010773f2.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/webgl/handler-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/webgl/handler-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/_islands/theme-toggle-MFKEIGBZ.js","settings":"/_islands/settings-TVWSQT6I.js","code-viewer":"/_islands/code-viewer-S3DIZRC3.js","embed":"/_islands/embed-24QZS4CF.js","playground":"/_islands/playground-N5NFYMP6.js","tabs":"/_islands/tabs-NRSQKCSU.js","sidebar":"/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/_islands/mobile-nav-ZFIZP3CE.js","toc":"/_islands/toc-W36SMPYU.js","toc-mobile":"/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/_islands/cmdk-SWB64M4V.js","code-tabs":"/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/_islands/copy-btn-5O25GXTU.js","copy-page":"/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>

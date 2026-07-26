@@ -1,0 +1,1274 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>renderer/RendererEvents.ts</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/_assets/styles.ms1yt4d8-010773f2.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">Documentation</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">renderer/RendererEvents.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">import { Events } from &quot;../Events&quot;;
+import type { EventsHandler, EventCallback } from &quot;../Events&quot;;
+import { input } from &quot;../input/input&quot;;
+import { KeyboardHandler } from &quot;../input/KeyboardHandler&quot;;
+import { MouseHandler } from &quot;../input/MouseHandler&quot;;
+import type { MouseHandlerEvent, MouseEventExt } from &quot;../input/MouseHandler&quot;;
+import { Renderer } from &quot;./Renderer&quot;;
+import { PointerHandler, type PointerEventExt } from &quot;../input/PointerHandler&quot;;
+import { Vec2 } from &quot;../math/Vec2&quot;;
+import { Vec3 } from &quot;../math/Vec3&quot;;
+import type { NumberArray3 } from &quot;../math/Vec3&quot;;
+import { Ray } from &quot;../math/Ray&quot;;
+
+export type RendererEventsHandler = RendererEvents &amp; EventsHandler&lt;RendererEventsType>;
+
+export function createRendererEvents(renderer: Renderer) {
+    return new RendererEvents(renderer);
+}
+
+export type RendererEventsType = [
+    &quot;projchanged&quot;,
+    &quot;changerelativecenter&quot;,
+    &quot;predraw&quot;,
+    &quot;draw&quot;,
+    &quot;forwardpass&quot;,
+    &quot;postforwardpass&quot;,
+    &quot;transparentpass&quot;,
+    &quot;gbufferpass&quot;,
+    &quot;postdraw&quot;,
+    &quot;resize&quot;,
+    &quot;resizeend&quot;,
+    &quot;mouseenter&quot;,
+    &quot;mouseleave&quot;,
+    &quot;mousemove&quot;,
+    &quot;mousestop&quot;,
+    &quot;lclick&quot;,
+    &quot;rclick&quot;,
+    &quot;mclick&quot;,
+    &quot;ldblclick&quot;,
+    &quot;rdblclick&quot;,
+    &quot;mdblclick&quot;,
+    &quot;lup&quot;,
+    &quot;rup&quot;,
+    &quot;mup&quot;,
+    &quot;ldown&quot;,
+    &quot;rdown&quot;,
+    &quot;mdown&quot;,
+    &quot;lhold&quot;,
+    &quot;rhold&quot;,
+    &quot;mhold&quot;,
+    &quot;mousewheel&quot;,
+    &quot;touchstart&quot;,
+    &quot;touchend&quot;,
+    &quot;touchcancel&quot;,
+    &quot;touchmove&quot;,
+    &quot;doubletouch&quot;,
+    &quot;touchleave&quot;,
+    &quot;touchenter&quot;
+];
+
+export interface IBaseInputState {
+    /** Current screen mouse X position. */
+    clientX: number;
+    /** Current screen mouse Y position. */
+    clientY: number;
+    /** Current screen mouse position. */
+    pos: Vec2;
+    /** Current touch X - coordinate. */
+    x: number;
+    /** Current touch Y - coordinate. */
+    y: number;
+    /** Current touch X - coordinate from 0 to 1 */
+    nx: number;
+    /** Current touch Y - coordinate from 0 to 1 */
+    ny: number;
+    /** Previous touch X coordinate. */
+    prev_x: number;
+    /** Previous touch Y coordinate. */
+    prev_y: number;
+    /** Screen touch position world direction. */
+    direction: Vec3;
+    /**
+     * World-space picking ray.
+     * Perspective: origin is camera.eye.
+     * Orthographic: origin is per-pixel on the view plane, direction is camera forward.
+     */
+    ray: Ray;
+    /** Current touched(picking) object. */
+    pickingObject: any | null;
+    /** Renderer instance. */
+    renderer: Renderer;
+    /** Touching is moving now. */
+    moving: boolean;
+}
+
+export interface IMouseState extends IBaseInputState {
+    /** Left mouse button has stopped pushing down right now.*/
+    leftButtonUp: boolean;
+    /** Right mouse button has stopped pushing down right now.*/
+    rightButtonUp: boolean;
+    /** Middle mouse button has stopped pushing down right now.*/
+    middleButtonUp: boolean;
+    /** Left mouse button has pushed now.*/
+    leftButtonDown: boolean;
+    /** Right mouse button has pushed now.*/
+    rightButtonDown: boolean;
+    /** Middle mouse button has pushed now.*/
+    middleButtonDown: boolean;
+    /** Left mouse button is pushing.*/
+    leftButtonHold: boolean;
+    /** Right mouse button is pushing.*/
+    rightButtonHold: boolean;
+    /** Middle mouse button is pushing.*/
+    middleButtonHold: boolean;
+    /** Left mouse button has clicked twice now.*/
+    leftButtonDoubleClick: boolean;
+    /** Right mouse button has clicked twice now.*/
+    rightButtonDoubleClick: boolean;
+    /** Middle mouse button has clicked twice now.*/
+    middleButtonDoubleClick: boolean;
+    /** Left mouse button has clicked now. */
+    leftButtonClick: boolean;
+    /** Right mouse button has clicked now. */
+    rightButtonClick: boolean;
+    /** Middle mouse button has clicked now. */
+    middleButtonClick: boolean;
+    /** Mouse has just stopped now. */
+    justStopped: boolean;
+    /** Mouse double-click delay response time. */
+    doubleClickDelay: number;
+    /** Mouse click delay response time. */
+    clickDelay: number;
+    /** Mouse wheel. */
+    wheelDelta: number;
+    /** JavaScript mouse system event message. */
+    sys: MouseEvent | null;
+    isTouchPad: boolean;
+}
+
+export interface ITouchState extends IBaseInputState {
+    /** Touch has ended right now.*/
+    touchEnd: boolean;
+    /** Touch has started right now.*/
+    touchStart: boolean;
+    /** Touch canceled.*/
+    touchCancel: boolean;
+    /** Touched twice.*/
+    doubleTouch: boolean;
+    /** Double-touch response delay. */
+    doubleTouchDelay: number;
+    /** Double-touch response radius in screen pixels. */
+    doubleTouchRadius: number;
+    /** Currently touching.*/
+    touching: boolean;
+    /** JavaScript mouse system event message. */
+    sys: PointerEventExt | null;
+}
+
+const LB_M = 0b0001;
+const RB_M = 0b0010;
+const MB_M = 0b0100;
+
+const ISBLACK = (c: NumberArray3 | Uint8Array): boolean => !(c[0] || c[1] || c[2]);
+const NOTBLACK = (c: NumberArray3 | Uint8Array): boolean => !!(c[0] || c[1] || c[2]);
+
+/**
+ * Stores current picking rgb color.
+ * @type {Array.&lt;number>}
+ */
+let _currPickingColor = new Uint8Array(4);
+let _tempCurrPickingColor = new Uint8Array(4);
+
+/**
+ * Stores previous picked rgb color.
+ * @type {Array.&lt;number>}
+ */
+let _prevPickingColor = new Uint8Array(4);
+
+/**
+ * Renderer events handler.
+ * @class
+ * @param {Renderer} renderer - Renderer object, events that works for.
+ */
+class RendererEvents extends Events&lt;RendererEventsType> implements RendererEventsHandler {
+    /**
+     * Assigned renderer.
+     * @public
+     * @type {Renderer}
+     */
+    public renderer: Renderer;
+
+    /**
+     * Low level touch events handler.
+     * @protected
+     * @type {PointerHandler}
+     */
+    protected _pointerHandler: PointerHandler;
+
+    /**
+     * Low level mouse events handler.
+     * @protected
+     * @type {MouseHandler}
+     */
+    protected _mouseHandler: MouseHandler;
+
+    /**
+     * Low level keyboard events handler.
+     * @protected
+     * @type {KeyboardHandler}
+     */
+    protected _keyboardHandler: KeyboardHandler;
+
+    protected _active: boolean;
+
+    public clickRadius: number;
+
+    /**
+     * Current mouse state.
+     * @public
+     * @type {IMouseState}
+     */
+    public mouseState: IMouseState;
+
+    /**
+     * Current touch state.
+     * @public
+     * @type {ITouchState}
+     */
+    public touchState: ITouchState;
+
+    protected _dblTchCoords: Vec2;
+    protected _oneTouchStart: boolean;
+    protected _dblTchBegins: number;
+    protected _mousestopThread: any | null;
+    protected _ldblClkBegins: number;
+    protected _rdblClkBegins: number;
+    protected _mdblClkBegins: number;
+    protected _lClkBegins: number;
+    protected _rClkBegins: number;
+    protected _mClkBegins: number;
+    protected _lclickX: number;
+    protected _lclickY: number;
+    protected _rclickX: number;
+    protected _rclickY: number;
+    protected _mclickX: number;
+    protected _mclickY: number;
+
+    protected _isMouseInside: boolean;
+    protected _entityPickingEventsActive: boolean;
+
+    constructor(renderer: Renderer) {
+        super(RENDERER_EVENTS);
+
+        this.renderer = renderer;
+
+        this._mouseHandler = new MouseHandler(renderer.handler.canvas!);
+
+        this._pointerHandler = new PointerHandler(renderer.handler.canvas!);
+
+        this._keyboardHandler = new KeyboardHandler();
+
+        this._active = true;
+
+        this.clickRadius = 15;
+
+        this.mouseState = {
+            clientX: 0,
+            clientY: 0,
+            pos: new Vec2(),
+            x: 0,
+            y: 0,
+            nx: 0,
+            ny: 0,
+            prev_x: 0,
+            prev_y: 0,
+            direction: new Vec3(),
+            ray: new Ray(),
+            leftButtonUp: false,
+            rightButtonUp: false,
+            middleButtonUp: false,
+            leftButtonDown: false,
+            rightButtonDown: false,
+            middleButtonDown: false,
+            leftButtonHold: false,
+            rightButtonHold: false,
+            middleButtonHold: false,
+            leftButtonDoubleClick: false,
+            rightButtonDoubleClick: false,
+            middleButtonDoubleClick: false,
+            leftButtonClick: false,
+            rightButtonClick: false,
+            middleButtonClick: false,
+            moving: false,
+            justStopped: false,
+            doubleClickDelay: 500,
+            clickDelay: 200,
+            wheelDelta: 0,
+            sys: null,
+            pickingObject: null,
+            renderer: renderer,
+            isTouchPad: false
+        };
+
+        this.touchState = {
+            touching: false,
+            moving: false,
+            touchEnd: false,
+            touchStart: false,
+            touchCancel: false,
+            doubleTouch: false,
+            doubleTouchDelay: 550,
+            doubleTouchRadius: 10,
+            clientX: 0,
+            clientY: 0,
+            pos: new Vec2(),
+            x: 0,
+            y: 0,
+            nx: 0,
+            ny: 0,
+            prev_x: 0,
+            prev_y: 0,
+            direction: new Vec3(),
+            ray: new Ray(),
+            sys: null,
+            pickingObject: null,
+            renderer: renderer
+        };
+
+        this._isMouseInside = true;
+        this._entityPickingEventsActive = true;
+
+        this._dblTchCoords = new Vec2();
+        this._oneTouchStart = false;
+        this._dblTchBegins = 0;
+        this._mousestopThread = null;
+        this._ldblClkBegins = 0;
+        this._rdblClkBegins = 0;
+        this._mdblClkBegins = 0;
+        this._lClkBegins = 0;
+        this._rClkBegins = 0;
+        this._mClkBegins = 0;
+        this._lclickX = 0;
+        this._lclickY = 0;
+        this._rclickX = 0;
+        this._rclickY = 0;
+        this._mclickX = 0;
+        this._mclickY = 0;
+    }
+
+    public pointerEvent(): boolean {
+        let ms = this.mouseState;
+        return ms.moving || ms.justStopped || ms.wheelDelta !== 0;
+    }
+
+    public get active(): boolean {
+        return this._active;
+    }
+
+    public set active(isActive: boolean) {
+        this._active = isActive;
+        this._keyboardHandler.setActivity(isActive);
+    }
+
+    /**
+     * Used in render node frame.
+     * @public
+     */
+    public handleEvents() {
+        if (this._active) {
+            let cam = this.renderer.activeCamera!;
+            cam.getRay(this.mouseState.x, this.mouseState.y, this.mouseState.ray);
+            this.mouseState.direction = this.mouseState.ray.direction;
+            //
+            // TODO: Replace in some other place with a thought that we do
+            // not need to make unproject when we do not make touching
+            cam.getRay(this.touchState.x, this.touchState.y, this.touchState.ray);
+            this.touchState.direction = this.touchState.ray.direction;
+
+            this._keyboardHandler.handleEvents();
+            this.handleMouseEvents();
+            this.handleTouchEvents();
+            this.entityPickingEvents();
+        }
+    }
+
+    public override on(
+        name: string,
+        p0: EventCallback | number,
+        p1?: number | EventCallback,
+        p2?: any,
+        keyPriority?: number
+    ) {
+        if (name === &quot;keypress&quot; || name === &quot;charkeypress&quot; || name === &quot;keyfree&quot;) {
+            this._keyboardHandler.addEvent(name, p0 as number, p1 as EventCallback, p2, keyPriority);
+        } else {
+            super.on(name, p0 as EventCallback, p1, p2);
+        }
+    }
+
+    public override off(name: string, p1?: EventCallback | number | null, p2?: EventCallback) {
+        if (name === &quot;keypress&quot; || name === &quot;charkeypress&quot; || name === &quot;keyfree&quot;) {
+            this._keyboardHandler.removeEvent(name, p1 as number, p2 as EventCallback);
+        } else {
+            super.off(name, p1 as EventCallback);
+        }
+    }
+
+    /**
+     * Check key is pressed.
+     * @public
+     * @param {number} keyCode - Key code
+     * @return {boolean}
+     */
+    public isKeyPressed(keyCode: number): boolean {
+        return this._keyboardHandler.isKeyPressed(keyCode);
+    }
+
+    public releaseKeys() {
+        this._keyboardHandler.releaseKeys();
+    }
+
+    /**
+     * Renderer events initialization.
+     * @public
+     */
+    public initialize() {
+        this._mouseHandler.setEvent(&quot;mouseup&quot;, this, this.onMouseUp);
+        this._mouseHandler.setEvent(&quot;mousemove&quot;, this, this.onMouseMove);
+        this._mouseHandler.setEvent(&quot;mousedown&quot;, this, this.onMouseDown);
+        this._mouseHandler.setEvent(&quot;mousewheel&quot;, this, this.onMouseWheel);
+        this._mouseHandler.setEvent(&quot;mouseleave&quot;, this, this.onMouseLeave);
+        this._mouseHandler.setEvent(&quot;mouseenter&quot;, this, this.onMouseEnter);
+
+        this._pointerHandler.setEvent(&quot;pointerdown&quot;, this, this.onPointerDown);
+        this._pointerHandler.setEvent(&quot;pointerup&quot;, this, this.onPointerUp);
+        this._pointerHandler.setEvent(&quot;pointercancel&quot;, this, this.onPointerCancel);
+        this._pointerHandler.setEvent(&quot;pointermove&quot;, this, this.onPointerMove);
+    }
+
+    /**
+     * @protected
+     */
+    protected onMouseWheel(event: MouseEventExt) {
+        this.mouseState.isTouchPad = event.isTouchPad || false;
+        this.mouseState.sys = event;
+        this.mouseState.wheelDelta = event.wheelDelta || 0;
+    }
+
+    public updateButtonsStates(buttons: number) {
+        let ms = this.mouseState;
+        if (buttons &amp; LB_M &amp;&amp; ms.leftButtonDown) {
+            ms.leftButtonDown = true;
+        } else {
+            ms.leftButtonHold = false;
+            ms.leftButtonDown = false;
+        }
+
+        if (buttons &amp; RB_M &amp;&amp; ms.rightButtonDown) {
+            ms.rightButtonDown = true;
+        } else {
+            ms.rightButtonHold = false;
+            ms.rightButtonDown = false;
+        }
+
+        if (buttons &amp; MB_M &amp;&amp; ms.middleButtonDown) {
+            ms.middleButtonDown = true;
+        } else {
+            ms.middleButtonHold = false;
+            ms.middleButtonDown = false;
+        }
+    }
+
+    protected onMouseMove(sys: MouseEvent, event?: MouseHandlerEvent) {
+        let ms = this.mouseState;
+        this.updateButtonsStates(sys.buttons);
+        ms.sys = sys;
+
+        let ex = event!.clientX,
+            ey = event!.clientY,
+            r = this.clickRadius;
+
+        if (Math.abs(this._lclickX - ex) >= r &amp;&amp; Math.abs(this._lclickY - ey) >= r) {
+            this._ldblClkBegins = 0;
+            this._lClkBegins = 0;
+        }
+
+        if (Math.abs(this._rclickX - ex) >= r &amp;&amp; Math.abs(this._rclickY - ey) >= r) {
+            this._rdblClkBegins = 0;
+            this._rClkBegins = 0;
+        }
+
+        if (Math.abs(this._mclickX - ex) >= r &amp;&amp; Math.abs(this._mclickY - ey) >= r) {
+            this._mdblClkBegins = 0;
+            this._mClkBegins = 0;
+        }
+
+        if (ms.clientX === event!.clientX &amp;&amp; ms.clientY === event!.clientY) {
+            return;
+        }
+
+        ms.clientX = event!.clientX;
+        ms.clientY = event!.clientY;
+
+        let h = this.renderer.handler;
+
+        ms.pos.x = ms.x = event!.clientX * h.pixelRatio;
+        ms.pos.y = ms.y = event!.clientY * h.pixelRatio;
+
+        ms.nx = ms.x / h.canvas!.width;
+        ms.ny = ms.y / h.canvas!.height;
+
+        ms.moving = true;
+
+        //dispatch stop mouse event
+        clearTimeout(this._mousestopThread);
+        this._mousestopThread = setTimeout(function () {
+            ms.justStopped = true;
+        }, 100);
+    }
+
+    protected onMouseLeave(sys: MouseEvent) {
+        this._isMouseInside = false;
+        this.mouseState.sys = sys;
+        this.dispatch((this as RendererEventsHandler).mouseleave, this.mouseState);
+    }
+
+    protected onMouseEnter(sys: MouseEvent) {
+        this._isMouseInside = true;
+        this.mouseState.sys = sys;
+        this.dispatch((this as RendererEventsHandler).mouseenter, this.mouseState);
+    }
+
+    protected onMouseDown(sys: MouseEvent, event?: MouseHandlerEvent) {
+        if (event!.button === input.MB_LEFT) {
+            this._lClkBegins = window.performance.now();
+            this._lclickX = event!.clientX;
+            this._lclickY = event!.clientY;
+            this.mouseState.sys = sys;
+            this.mouseState.leftButtonDown = true;
+        } else if (event!.button === input.MB_RIGHT) {
+            this._rClkBegins = window.performance.now();
+            this._rclickX = event!.clientX;
+            this._rclickY = event!.clientY;
+            this.mouseState.sys = sys;
+            this.mouseState.rightButtonDown = true;
+        } else if (event!.button === input.MB_MIDDLE) {
+            this._mClkBegins = window.performance.now();
+            this._mclickX = event!.clientX;
+            this._mclickY = event!.clientY;
+            this.mouseState.sys = sys;
+            this.mouseState.middleButtonDown = true;
+        }
+    }
+
+    protected onMouseUp(sys: MouseEvent, event?: MouseHandlerEvent) {
+        let ms = this.mouseState;
+        ms.sys = sys;
+        let t = window.performance.now();
+
+        if (event!.button === input.MB_LEFT) {
+            ms.leftButtonDown = false;
+            ms.leftButtonUp = true;
+
+            if (
+                Math.abs(this._lclickX - event!.clientX) &lt; this.clickRadius &amp;&amp;
+                Math.abs(this._lclickY - event!.clientY) &lt; this.clickRadius &amp;&amp;
+                t - this._lClkBegins &lt;= ms.clickDelay
+            ) {
+                if (this._ldblClkBegins) {
+                    let deltatime = window.performance.now() - this._ldblClkBegins;
+                    if (deltatime &lt;= ms.doubleClickDelay) {
+                        ms.leftButtonDoubleClick = true;
+                    }
+                    this._ldblClkBegins = 0;
+                } else {
+                    this._ldblClkBegins = window.performance.now();
+                }
+
+                ms.leftButtonClick = true;
+                this._lClkBegins = 0;
+            }
+        } else if (event!.button === input.MB_RIGHT) {
+            ms.rightButtonDown = false;
+            ms.rightButtonUp = true;
+
+            if (
+                Math.abs(this._rclickX - event!.clientX) &lt; this.clickRadius &amp;&amp;
+                Math.abs(this._rclickY - event!.clientY) &lt; this.clickRadius &amp;&amp;
+                t - this._rClkBegins &lt;= ms.clickDelay
+            ) {
+                if (this._rdblClkBegins) {
+                    let deltatime = window.performance.now() - this._rdblClkBegins;
+                    if (deltatime &lt;= ms.doubleClickDelay) {
+                        ms.rightButtonDoubleClick = true;
+                    }
+                    this._rdblClkBegins = 0;
+                } else {
+                    this._rdblClkBegins = window.performance.now();
+                }
+
+                ms.rightButtonClick = true;
+                this._rClkBegins = 0;
+            }
+        } else if (event!.button === input.MB_MIDDLE) {
+            ms.middleButtonDown = false;
+            ms.middleButtonUp = true;
+
+            if (
+                Math.abs(this._mclickX - event!.clientX) &lt; this.clickRadius &amp;&amp;
+                Math.abs(this._mclickY - event!.clientY) &lt; this.clickRadius &amp;&amp;
+                t - this._mClkBegins &lt;= ms.clickDelay
+            ) {
+                if (this._mdblClkBegins) {
+                    let deltatime = window.performance.now() - this._mdblClkBegins;
+                    if (deltatime &lt;= ms.doubleClickDelay) {
+                        ms.middleButtonDoubleClick = true;
+                    }
+                    this._mdblClkBegins = 0;
+                } else {
+                    this._mdblClkBegins = window.performance.now();
+                }
+
+                ms.middleButtonClick = true;
+                this._mClkBegins = 0;
+            }
+        }
+    }
+
+    protected onPointerDown(event: PointerEventExt) {
+        let ts = this.touchState;
+        ts.sys = event;
+
+        ts.clientX = event.pointers[0].clientX - event.offsetLeft;
+        ts.clientY = event.pointers[0].clientY - event.offsetTop;
+
+        let h = this.renderer.handler;
+
+        ts.pos.x = ts.x = ts.clientX * h.pixelRatio;
+        ts.pos.y = ts.y = ts.clientY * h.pixelRatio;
+
+        ts.nx = ts.x / h.canvas!.width;
+        ts.ny = ts.y / h.canvas!.height;
+        ts.prev_x = ts.x;
+        ts.prev_y = ts.y;
+        ts.touchStart = true;
+        ts.touching = true;
+
+        if (event.pointers.length === 1) {
+            this._dblTchCoords.x = ts.x;
+            this._dblTchCoords.y = ts.y;
+            this._oneTouchStart = true;
+        } else {
+            this._oneTouchStart = false;
+        }
+    }
+
+    /**
+     * @protected
+     */
+    protected onPointerUp(event: PointerEventExt) {
+        let ts = this.touchState;
+        ts.sys = event;
+        ts.touchEnd = true;
+
+        if (event.pointers.length === 0) {
+            ts.prev_x = ts.x;
+            ts.prev_y = ts.y;
+
+            if (this._oneTouchStart) {
+                if (this._dblTchBegins) {
+                    let deltatime = window.performance.now() - this._dblTchBegins;
+                    if (deltatime &lt;= ts.doubleTouchDelay) {
+                        ts.doubleTouch = true;
+                    }
+                    this._dblTchBegins = 0;
+                }
+                this._dblTchBegins = window.performance.now();
+                this._oneTouchStart = false;
+            }
+        }
+    }
+
+    protected onPointerCancel(event: PointerEventExt) {
+        let ts = this.touchState;
+        ts.sys = event;
+        ts.touchCancel = true;
+    }
+
+    protected onPointerMove(event: PointerEventExt) {
+        let ts = this.touchState;
+
+        ts.clientX = event.pointers[0].clientX - event.offsetLeft;
+        ts.clientY = event.pointers[0].clientY - event.offsetTop;
+
+        let h = this.renderer.handler;
+
+        ts.x = ts.clientX * h.pixelRatio;
+        ts.y = ts.clientY * h.pixelRatio;
+
+        ts.nx = ts.x / h.canvas!.width;
+        ts.ny = ts.y / h.canvas!.height;
+
+        ts.sys = event;
+        ts.moving = true;
+
+        let dX = ts.x - ts.prev_x;
+        let dY = ts.y - ts.prev_y;
+        if (Math.abs(dX) > 9 || Math.abs(dY) > 9) {
+            this._dblTchBegins = 0;
+            this._oneTouchStart = false;
+        }
+    }
+
+    protected entityPickingEvents() {
+        let ts = this.touchState,
+            ms = this.mouseState;
+
+        // Triggers mouseleave when mouse goes outside the viewport
+        if (this._isMouseInside !== this._entityPickingEventsActive) {
+            this._entityPickingEventsActive = this._isMouseInside;
+            if (!this._entityPickingEventsActive) {
+                let r = this.renderer;
+                let c = _currPickingColor;
+                let co = r.getPickingObjectArr&lt;any>(c);
+                if (co) {
+                    let pe = co.rendererEvents;
+                    ms.pickingObject = co;
+                    pe &amp;&amp; pe.dispatch(pe.mouseleave, ms);
+                    ts.pickingObject = co;
+                    pe &amp;&amp; pe.dispatch(pe.touchleave, ts);
+                }
+                _currPickingColor[0] =
+                    _currPickingColor[1] =
+                    _currPickingColor[2] =
+                    _currPickingColor[3] =
+                    _prevPickingColor[0] =
+                    _prevPickingColor[1] =
+                    _prevPickingColor[2] =
+                    _prevPickingColor[3] =
+                    _tempCurrPickingColor[0] =
+                    _tempCurrPickingColor[1] =
+                    _tempCurrPickingColor[2] =
+                    _tempCurrPickingColor[3] =
+                        0.0;
+            }
+        }
+
+        if (this._isMouseInside &amp;&amp; !(ms.leftButtonHold || ms.rightButtonHold || ms.middleButtonHold)) {
+            let r = this.renderer;
+            let c = _currPickingColor,
+                p = _prevPickingColor,
+                t = _tempCurrPickingColor;
+
+            if (ts.x || ts.y) {
+                r.readPickingColor(ts.nx, 1 - ts.ny, t);
+            } else {
+                r.readPickingColor(ms.nx, 1 - ms.ny, t);
+            }
+
+            p[0] = c[0];
+            p[1] = c[1];
+            p[2] = c[2];
+
+            c[0] = t[0];
+            c[1] = t[1];
+            c[2] = t[2];
+
+            ms.pickingObject = null;
+            ts.pickingObject = null;
+
+            let co = r.getPickingObjectArr&lt;any>(c);
+
+            ms.pickingObject = co;
+            ts.pickingObject = co;
+
+            //object is changed
+            if (c[0] !== p[0] || c[1] !== p[1] || c[2] !== p[2]) {
+                //current is black
+                if (ISBLACK(c)) {
+                    let po = r.getPickingObjectArr&lt;any>(p);
+                    if (po) {
+                        let pe = po.rendererEvents;
+                        ms.pickingObject = po;
+                        pe &amp;&amp; pe.dispatch(pe.mouseleave, ms);
+                        ts.pickingObject = po;
+                        pe &amp;&amp; pe.dispatch(pe.touchleave, ts);
+                    }
+                } else {
+                    //current ia not black
+
+                    //previous is not black
+                    if (NOTBLACK(p)) {
+                        let po = r.getPickingObjectArr&lt;any>(p);
+                        if (po) {
+                            let pe = po.rendererEvents;
+                            ms.pickingObject = po;
+                            pe &amp;&amp; pe.dispatch(pe.mouseleave, ms);
+                            ts.pickingObject = po;
+                            pe &amp;&amp; pe.dispatch(pe.touchleave, ts);
+                        }
+                    }
+
+                    if (co) {
+                        let ce = co.rendererEvents;
+                        ms.pickingObject = co;
+                        ce &amp;&amp; ce.dispatch(ce.mouseenter, ms);
+                        ts.pickingObject = co;
+                        ce &amp;&amp; ce.dispatch(ce.touchenter, ts);
+                    }
+                }
+            }
+        }
+    }
+
+    protected handleMouseEvents() {
+        let _this = this as RendererEventsHandler;
+        let ms = this.mouseState;
+        let po = ms.pickingObject,
+            pe = null;
+
+        if (ms.leftButtonClick) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.lclick, ms);
+            }
+            this.dispatch(_this.lclick, ms);
+            ms.leftButtonClick = false;
+        }
+
+        if (ms.rightButtonClick) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.rclick, ms);
+            }
+            this.dispatch(_this.rclick, ms);
+            ms.rightButtonClick = false;
+        }
+
+        if (ms.middleButtonClick) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.mclick, ms);
+            }
+            this.dispatch(_this.mclick, ms);
+            ms.middleButtonClick = false;
+        }
+
+        if (ms.leftButtonDown) {
+            if (ms.leftButtonHold) {
+                if (po) {
+                    pe = po.rendererEvents;
+                    pe &amp;&amp; pe.dispatch(pe.lhold, ms);
+                }
+                this.dispatch(_this.lhold, ms);
+            } else {
+                ms.leftButtonHold = true;
+                if (po) {
+                    pe = po.rendererEvents;
+                    pe &amp;&amp; pe.dispatch(pe.ldown, ms);
+                }
+                this.dispatch(_this.ldown, ms);
+            }
+        }
+
+        if (ms.rightButtonDown) {
+            if (ms.rightButtonHold) {
+                if (po) {
+                    pe = po.rendererEvents;
+                    pe &amp;&amp; pe.dispatch(pe.rhold, ms);
+                }
+                this.dispatch(_this.rhold, ms);
+            } else {
+                ms.rightButtonHold = true;
+                if (po) {
+                    pe = po.rendererEvents;
+                    pe &amp;&amp; pe.dispatch(pe.rdown, ms);
+                }
+                this.dispatch(_this.rdown, ms);
+            }
+        }
+
+        if (ms.middleButtonDown) {
+            if (ms.middleButtonHold) {
+                if (po) {
+                    pe = po.rendererEvents;
+                    pe &amp;&amp; pe.dispatch(pe.mhold, ms);
+                }
+                this.dispatch(_this.mhold, ms);
+            } else {
+                ms.middleButtonHold = true;
+                if (po) {
+                    pe = po.rendererEvents;
+                    pe &amp;&amp; pe.dispatch(pe.mdown, ms);
+                }
+                this.dispatch(_this.mdown, ms);
+            }
+        }
+
+        if (ms.leftButtonUp) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.lup, ms);
+            }
+            this.dispatch(_this.lup, ms);
+            ms.leftButtonUp = false;
+            ms.leftButtonHold = false;
+        }
+
+        if (ms.rightButtonUp) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.rup, ms);
+            }
+            this.dispatch(_this.rup, ms);
+            ms.rightButtonUp = false;
+            ms.rightButtonHold = false;
+        }
+
+        if (ms.middleButtonUp) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.mup, ms);
+            }
+            this.dispatch(_this.mup, ms);
+            ms.middleButtonUp = false;
+            ms.middleButtonHold = false;
+        }
+
+        if (ms.leftButtonDoubleClick) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.ldblclick, ms);
+            }
+            this.dispatch(_this.ldblclick, ms);
+            ms.leftButtonDoubleClick = false;
+        }
+
+        if (ms.rightButtonDoubleClick) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.rdblclick, ms);
+            }
+            this.dispatch(_this.rdblclick, ms);
+            ms.rightButtonDoubleClick = false;
+        }
+
+        if (ms.middleButtonDoubleClick) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.mdblclick, ms);
+            }
+            this.dispatch(_this.mdblclick, ms);
+            ms.middleButtonDoubleClick = false;
+        }
+
+        if (ms.wheelDelta) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.mousewheel, ms);
+            }
+            this.dispatch(_this.mousewheel, ms);
+        }
+
+        if (ms.moving) {
+            if (po) {
+                pe = po.rendererEvents;
+                pe &amp;&amp; pe.dispatch(pe.mousemove, ms);
+            }
+            this.dispatch(_this.mousemove, ms);
+            ms.prev_x = ms.x;
+            ms.prev_y = ms.y;
+        }
+
+        if (ms.justStopped) {
+            this.dispatch(_this.mousestop, ms);
+        }
+    }
+
+    /**
+     * @protected
+     */
+    protected handleTouchEvents() {
+        let _this = this as RendererEventsHandler;
+
+        let ts = this.touchState;
+
+        let tpo = ts.pickingObject,
+            tpe = null;
+
+        if (ts.touchCancel) {
+            this.dispatch(_this.touchcancel, ts);
+            ts.touchCancel = false;
+        }
+
+        if (ts.touchStart) {
+            let r = this.renderer;
+
+            r.readPickingColor(ts.nx, 1 - ts.ny, _currPickingColor);
+
+            let co = r.getPickingObjectArr&lt;any>(_currPickingColor);
+            tpo = ts.pickingObject = co;
+            if (tpo) {
+                tpe = tpo.rendererEvents;
+                tpe &amp;&amp; tpe.dispatch(tpe.touchstart, ts);
+            }
+            this.dispatch(_this.touchstart, ts);
+            ts.touchStart = false;
+        }
+
+        if (ts.doubleTouch) {
+            if (tpo) {
+                tpe = tpo.rendererEvents;
+                tpe &amp;&amp; tpe.dispatch(tpe.doubletouch, ts);
+            }
+            this.dispatch(_this.doubletouch, ts);
+            ts.doubleTouch = false;
+        }
+
+        if (ts.touchEnd) {
+            if (tpo) {
+                tpe = tpo.rendererEvents;
+                tpe &amp;&amp; tpe.dispatch(tpe.touchend, ts);
+            }
+            this.dispatch(_this.touchend, ts);
+            ts.x = 0;
+            ts.y = 0;
+            ts.touchEnd = false;
+            ts.touching = false;
+        }
+
+        if (ts.moving) {
+            if (tpo) {
+                tpe = tpo.rendererEvents;
+                tpe &amp;&amp; tpe.dispatch(tpe.touchmove, ts);
+            }
+            this.dispatch(_this.touchmove, ts);
+            ts.prev_x = ts.x;
+            ts.prev_y = ts.y;
+        }
+    }
+}
+
+const RENDERER_EVENTS: RendererEventsType = [
+    /**
+     * Triggered when camera projection is changed
+     * @event projchanged
+     */
+    &quot;projchanged&quot;,
+
+    /**
+     * Triggered when a relative center is changed
+     * @event changerelativecenter
+     */
+    &quot;changerelativecenter&quot;,
+
+    /**
+     * Triggered before the scene frame is rendered (before render nodes).
+     * @event predraw
+     */
+    &quot;predraw&quot;,
+
+    /**
+     * Called after the scene frame callback and before the deferred, WOIT, and forward rendering passes.
+     * @event draw
+     */
+    &quot;draw&quot;,
+
+    /**
+     * Triggered for forward pass
+     * @event forwardpass
+     */
+    &quot;forwardpass&quot;,
+
+    /**
+     * Triggered after all
+     * @event forwardpass
+     */
+    &quot;postforwardpass&quot;,
+
+    /**
+     *  Triggered for WOIT (transparency) pass
+     *  @event transparentpass
+     */
+    &quot;transparentpass&quot;,
+
+    /**
+     * Triggered for deferred opaque geometry pass
+     * @event gbufferpass
+     */
+    &quot;gbufferpass&quot;,
+
+    /**
+     * Triggered after a scene frame is rendered (after render nodes).
+     * @event postdraw
+     */
+    &quot;postdraw&quot;,
+
+    /**
+     * Triggered when the screen is resized.
+     * @event resize
+     */
+    &quot;resize&quot;,
+
+    /**
+     * Triggered when the screen is resized.
+     * @event resizeend
+     */
+    &quot;resizeend&quot;,
+
+    /**
+     * Mouse enters the work screen
+     * @event mouseenter
+     */
+    &quot;mouseenter&quot;,
+
+    /**
+     * Mouse leaves the work screen
+     * @event mouseleave
+     */
+    &quot;mouseleave&quot;,
+
+    /**
+     * Mouse is moving.
+     * @event mousemove
+     */
+    &quot;mousemove&quot;,
+
+    /**
+     * Mouse is just stopped.
+     * @event mousestop
+     */
+    &quot;mousestop&quot;,
+
+    /**
+     * Mouse left button clicked.
+     * @event lclick
+     */
+    &quot;lclick&quot;,
+
+    /**
+     * Mouse right button clicked.
+     * @event rclick
+     */
+    &quot;rclick&quot;,
+
+    /**
+     * Mouse middle button clicked.
+     * @event mclick
+     */
+    &quot;mclick&quot;,
+
+    /**
+     * Mouse left button double-click.
+     * @event ldblclick
+     */
+    &quot;ldblclick&quot;,
+
+    /**
+     * Mouse right button double click.
+     * @event rdblclick
+     */
+    &quot;rdblclick&quot;,
+
+    /**
+     * Mouse middle button double click.
+     * @event mdblclick
+     */
+    &quot;mdblclick&quot;,
+
+    /**
+     * Mouse left button up (stop pressing).
+     * @event lup
+     */
+    &quot;lup&quot;,
+
+    /**
+     * Mouse the right button up (stop pressing).
+     * @event rup
+     */
+    &quot;rup&quot;,
+
+    /**
+     * Mouse the middle button up (stop pressing).
+     * @event mup
+     */
+    &quot;mup&quot;,
+
+    /**
+     * Mouse left button is just pressed down (start pressing).
+     * @event ldown
+     */
+    &quot;ldown&quot;,
+
+    /**
+     * Mouse right button is just pressed down (start pressing).
+     * @event rdown
+     */
+    &quot;rdown&quot;,
+
+    /**
+     * Mouse middle button is just pressed down (start pressing).
+     * @event mdown
+     */
+    &quot;mdown&quot;,
+
+    /**
+     * Mouse left button is pressing.
+     * @event lhold
+     */
+    &quot;lhold&quot;,
+
+    /**
+     * Mouse right button is pressing.
+     * @event rhold
+     */
+    &quot;rhold&quot;,
+
+    /**
+     * Mouse middle button is pressing.
+     * @event mhold
+     */
+    &quot;mhold&quot;,
+
+    /**
+     * Mouse wheel is rotated.
+     * @event mousewheel
+     */
+    &quot;mousewheel&quot;,
+
+    /**
+     * Triggered when touching starts.
+     * @event touchstart
+     */
+    &quot;touchstart&quot;,
+
+    /**
+     * Triggered when touching ends.
+     * @event touchend
+     */
+    &quot;touchend&quot;,
+
+    /**
+     * Triggered when touching cancel.
+     * @event touchcancel
+     */
+    &quot;touchcancel&quot;,
+
+    /**
+     * Triggered when touch is move.
+     * @event touchmove
+     */
+    &quot;touchmove&quot;,
+
+    /**
+     * Triggered when double touch.
+     * @event doubletouch
+     */
+    &quot;doubletouch&quot;,
+
+    /**
+     * Triggered when touch leaves a picked object.
+     * @event touchleave
+     */
+    &quot;touchleave&quot;,
+
+    /**
+     * Triggered when touch enter picking an object.
+     * @event touchenter
+     */
+    &quot;touchenter&quot;
+];
+
+export { RendererEvents };
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>Documentation</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"renderer/RendererEvents.ts"},"i1":{"basePath":"/","searchIndexUrl":"/_assets/search-index.ms1yt4d8-010773f2.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/renderer/rendererevents-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/renderer/rendererevents-ts","basePath":"/","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/_islands/theme-toggle-MFKEIGBZ.js","settings":"/_islands/settings-TVWSQT6I.js","code-viewer":"/_islands/code-viewer-S3DIZRC3.js","embed":"/_islands/embed-24QZS4CF.js","playground":"/_islands/playground-N5NFYMP6.js","tabs":"/_islands/tabs-NRSQKCSU.js","sidebar":"/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/_islands/mobile-nav-ZFIZP3CE.js","toc":"/_islands/toc-W36SMPYU.js","toc-mobile":"/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/_islands/cmdk-SWB64M4V.js","code-tabs":"/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/_islands/copy-btn-5O25GXTU.js","copy-page":"/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>
