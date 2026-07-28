@@ -7,7 +7,7 @@ description: Frustum object, part of the camera object.
 
 # Frustum
 
-<SourceLink href="/source/camera/frustum-ts/#L40" label="Frustum.ts:40" />
+<SourceLink href="/source/camera/frustum-ts/#L42" label="Frustum.ts:42" />
 
 Frustum object, part of the camera object.
 
@@ -27,7 +27,7 @@ Frustum object, part of the camera object.
 
 <MemberHeading id="getrightplane" depth="3" name="getRightPlane" sig="getRightPlane(): NumberArray4" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L185" sourceLabel="Frustum.ts:185" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L196" sourceLabel="Frustum.ts:196" />
 
 Returns right clipping plane.
 
@@ -37,7 +37,7 @@ Returns right clipping plane.
 
 <MemberHeading id="getleftplane" depth="3" name="getLeftPlane" sig="getLeftPlane(): NumberArray4" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L194" sourceLabel="Frustum.ts:194" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L205" sourceLabel="Frustum.ts:205" />
 
 Returns left clipping plane.
 
@@ -47,7 +47,7 @@ Returns left clipping plane.
 
 <MemberHeading id="getbottomplane" depth="3" name="getBottomPlane" sig="getBottomPlane(): NumberArray4" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L203" sourceLabel="Frustum.ts:203" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L214" sourceLabel="Frustum.ts:214" />
 
 Returns bottom clipping plane.
 
@@ -57,7 +57,7 @@ Returns bottom clipping plane.
 
 <MemberHeading id="gettopplane" depth="3" name="getTopPlane" sig="getTopPlane(): NumberArray4" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L212" sourceLabel="Frustum.ts:212" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L223" sourceLabel="Frustum.ts:223" />
 
 Returns top clipping plane.
 
@@ -67,7 +67,7 @@ Returns top clipping plane.
 
 <MemberHeading id="getbackwardplane" depth="3" name="getBackwardPlane" sig="getBackwardPlane(): NumberArray4" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L221" sourceLabel="Frustum.ts:221" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L232" sourceLabel="Frustum.ts:232" />
 
 Returns backward clipping plane.
 
@@ -77,7 +77,7 @@ Returns backward clipping plane.
 
 <MemberHeading id="getforwardplane" depth="3" name="getForwardPlane" sig="getForwardPlane(): NumberArray4" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L230" sourceLabel="Frustum.ts:230" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L241" sourceLabel="Frustum.ts:241" />
 
 Returns forward clipping plane.
 
@@ -87,7 +87,7 @@ Returns forward clipping plane.
 
 <MemberHeading id="getprojectionviewmatrix" depth="3" name="getProjectionViewMatrix" sig="getProjectionViewMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L239" sourceLabel="Frustum.ts:239" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L250" sourceLabel="Frustum.ts:250" />
 
 Returns projection-view matrix.
 
@@ -97,7 +97,7 @@ Returns projection-view matrix.
 
 <MemberHeading id="getprojectionviewrtematrix" depth="3" name="getProjectionViewRTEMatrix" sig="getProjectionViewRTEMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L248" sourceLabel="Frustum.ts:248" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L259" sourceLabel="Frustum.ts:259" />
 
 Returns projection-view RTE matrix.
 
@@ -107,7 +107,7 @@ Returns projection-view RTE matrix.
 
 <MemberHeading id="getprojectionmatrix" depth="3" name="getProjectionMatrix" sig="getProjectionMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L257" sourceLabel="Frustum.ts:257" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L268" sourceLabel="Frustum.ts:268" />
 
 Returns projection matrix.
 
@@ -117,7 +117,7 @@ Returns projection matrix.
 
 <MemberHeading id="getinverseprojectionmatrix" depth="3" name="getInverseProjectionMatrix" sig="getInverseProjectionMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L266" sourceLabel="Frustum.ts:266" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L277" sourceLabel="Frustum.ts:277" />
 
 Returns inverse projection matrix.
 
@@ -141,7 +141,7 @@ Returns inverse projection matrix.
 )"
 />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L282" sourceLabel="Frustum.ts:282" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L293" sourceLabel="Frustum.ts:293" />
 
 Sets up camera projection matrix.
 
@@ -152,13 +152,73 @@ Sets up camera projection matrix.
 - `near` (number) — Near clipping plane distance.
 - `far` (number) — Far clipping plane distance.
 - `isOrthographic` (boolean, optional, default: false) — Enables orthographic projection mode.
-- `focusDistance` (number, optional, default: 10) — Reference distance used to compute orthographic frustum size.
+- `focusDistance` (number, optional, default: "this.focusDistance") — Reference distance used to compute orthographic frustum size.
 - `reverseDepth` (boolean, optional, default: false) — Enables reverse-Z infinite perspective projection.
 - `depthZeroToOne` (boolean, optional, default: false) — Uses `[0, 1]` NDC depth range for reverse-Z projection.
 
+<MemberHeading id="setfocusdistance" depth="3" name="setFocusDistance" sig="setFocusDistance(focusDistance: number)" />
+
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L343" sourceLabel="Frustum.ts:343" />
+
+Sets reference distance used to compute orthographic bounds and rebuilds projection matrices. Keeps current near and far clipping planes unchanged.
+
+**Parameters**
+
+- `focusDistance` (number) — Reference distance.
+
+<MemberHeading
+  id="setorthobounds"
+  depth="3"
+  name="setOrthoBounds"
+  sig="setOrthoBounds(
+	left: number,
+	right: number,
+	bottom: number,
+	top: number,
+)"
+/>
+
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L363" sourceLabel="Frustum.ts:363" />
+
+Updates orthographic projection bounds and rebuilds projection matrices. Keeps the current near and far clipping planes unchanged.
+
+**Parameters**
+
+- `left` (number) — Left orthographic bound.
+- `right` (number) — Right orthographic bound.
+- `bottom` (number) — Bottom orthographic bound.
+- `top` (number) — Top orthographic bound.
+
+<MemberHeading
+  id="setorthoprojection"
+  depth="3"
+  name="setOrthoProjection"
+  sig="setOrthoProjection(
+	left: number,
+	right: number,
+	bottom: number,
+	top: number,
+	near: number,
+	far: number,
+)"
+/>
+
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L377" sourceLabel="Frustum.ts:377" />
+
+Updates orthographic projection bounds and clipping planes in one projection rebuild.
+
+**Parameters**
+
+- `left` (number) — Left orthographic bound.
+- `right` (number) — Right orthographic bound.
+- `bottom` (number) — Bottom orthographic bound.
+- `top` (number) — Top orthographic bound.
+- `near` (number) — Near clipping plane distance.
+- `far` (number) — Far clipping plane distance.
+
 <MemberHeading id="setnearfar" depth="3" name="setNearFar" sig="setNearFar(near: number, far?: number)" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L331" sourceLabel="Frustum.ts:331" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L405" sourceLabel="Frustum.ts:405" />
 
 Updates near and far clipping planes.
 
@@ -169,7 +229,7 @@ Updates near and far clipping planes.
 
 <MemberHeading id="setprojectionviewrtematrix" depth="3" name="setProjectionViewRTEMatrix" sig="setProjectionViewRTEMatrix(viewRTEMatrix: Mat4)" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L372" sourceLabel="Frustum.ts:372" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L447" sourceLabel="Frustum.ts:447" />
 
 Updates projection-view RTE matrix.
 
@@ -179,7 +239,7 @@ Updates projection-view RTE matrix.
 
 <MemberHeading id="setviewmatrix" depth="3" name="setViewMatrix" sig="setViewMatrix(viewMatrix: Mat4)" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L381" sourceLabel="Frustum.ts:381" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L456" sourceLabel="Frustum.ts:456" />
 
 Camera's projection matrix values.
 
@@ -189,7 +249,7 @@ Camera's projection matrix values.
 
 <MemberHeading id="containspoint" depth="3" name="containsPoint" sig="containsPoint(point: Vec3): boolean" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L436" sourceLabel="Frustum.ts:436" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L511" sourceLabel="Frustum.ts:511" />
 
 Returns true if the point is inside the frustum.
 
@@ -203,7 +263,7 @@ Returns true if the point is inside the frustum.
 
 <MemberHeading id="containsspherebottomexc" depth="3" name="containsSphereBottomExc" sig="containsSphereBottomExc(sphere: Sphere): boolean" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L452" sourceLabel="Frustum.ts:452" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L527" sourceLabel="Frustum.ts:527" />
 
 Returns true if the sphere is inside the frustum, ignoring the bottom plane.
 
@@ -217,7 +277,7 @@ Returns true if the sphere is inside the frustum, ignoring the bottom plane.
 
 <MemberHeading id="containsspherebuttom" depth="3" name="containsSphereButtom" sig="containsSphereButtom(sphere: Sphere): boolean" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L468" sourceLabel="Frustum.ts:468" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L543" sourceLabel="Frustum.ts:543" />
 
 Checks sphere intersection with the bottom frustum plane only.
 
@@ -231,7 +291,7 @@ Checks sphere intersection with the bottom frustum plane only.
 
 <MemberHeading id="containssphere" depth="3" name="containsSphere" sig="containsSphere(sphere: Sphere): boolean" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L480" sourceLabel="Frustum.ts:480" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L555" sourceLabel="Frustum.ts:555" />
 
 Returns true if the sphere is inside the frustum.
 
@@ -245,7 +305,7 @@ Returns true if the sphere is inside the frustum.
 
 <MemberHeading id="containssphere2" depth="3" name="containsSphere2" sig="containsSphere2(center: Vec3, radius: number): boolean" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L498" sourceLabel="Frustum.ts:498" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L573" sourceLabel="Frustum.ts:573" />
 
 Returns true if the sphere is inside the frustum.
 
@@ -260,7 +320,7 @@ Returns true if the sphere is inside the frustum.
 
 <MemberHeading id="containsbox" depth="3" name="containsBox" sig="containsBox(box: Box): boolean" />
 
-<MemberMeta sourceHref="/source/camera/frustum-ts/#L514" sourceLabel="Frustum.ts:514" />
+<MemberMeta sourceHref="/source/camera/frustum-ts/#L589" sourceLabel="Frustum.ts:589" />
 
 Returns true if the box intersects or is inside the frustum.
 

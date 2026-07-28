@@ -43,17 +43,6 @@ Framebuffer initialization.
 
 Synchronously reads all configured async pixel buffers for the current framebuffer state. Use when the same-frame CPU readback is required.
 
-<MemberHeading id="bindoutputtexture" depth="3" name="bindOutputTexture" sig="bindOutputTexture(texture: WebGLTexture, glAttachment?: number)" />
-
-<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L372" sourceLabel="Framebuffer.ts:372" />
-
-Bind buffer texture.
-
-**Parameters**
-
-- `texture` (WebGLTexture) — Output texture.
-- `glAttachment` (number, optional, default: 0) — color attachment index.
-
 <MemberHeading
   id="readpixels"
   depth="3"
@@ -68,7 +57,7 @@ Bind buffer texture.
 )"
 />
 
-<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L389" sourceLabel="Framebuffer.ts:389" />
+<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L376" sourceLabel="Framebuffer.ts:376" />
 
 Gets pixel RGBA color from framebuffer by coordinates.
 
@@ -83,7 +72,7 @@ Gets pixel RGBA color from framebuffer by coordinates.
 
 <MemberHeading id="readallpixels" depth="3" name="readAllPixels" sig="readAllPixels(res: TypedArray, attachmentIndex?: number)" />
 
-<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L411" sourceLabel="Framebuffer.ts:411" />
+<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L398" sourceLabel="Framebuffer.ts:398" />
 
 Reads all pixels(RGBA colors) from framebuffer.
 
@@ -94,7 +83,7 @@ Reads all pixels(RGBA colors) from framebuffer.
 
 <MemberHeading id="getimage" depth="3" name="getImage" sig="getImage(): HTMLImageElement" />
 
-<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L432" sourceLabel="Framebuffer.ts:432" />
+<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L419" sourceLabel="Framebuffer.ts:419" />
 
 Gets JavaScript image that in the framebuffer.
 
@@ -114,7 +103,7 @@ Gets JavaScript image that in the framebuffer.
 ): void"
 />
 
-<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L454" sourceLabel="Framebuffer.ts:454" />
+<MemberMeta sourceHref="/source/webgl/framebuffer-ts/#L441" sourceLabel="Framebuffer.ts:441" />
 
 Reads pixel data from the buffer at the specified normalized coordinates.
 

@@ -57,19 +57,19 @@ Returns the same deep existent neighbour node.
 
 <MemberHeading id="addtorender" depth="3" name="addToRender" sig="addToRender()" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L557" sourceLabel="Node.ts:557" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L560" sourceLabel="Node.ts:560" />
 
 Picking up current node to render processing.
 
 <MemberHeading id="getrenderednodesneighbors" depth="3" name="getRenderedNodesNeighbors" sig="getRenderedNodesNeighbors()" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L622" sourceLabel="Node.ts:622" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L625" sourceLabel="Node.ts:625" />
 
 Searching current node for its neighbours.
 
 <MemberHeading id="getcommonside" depth="3" name="getCommonSide" sig="getCommonSide(node: Node): number" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L638" sourceLabel="Node.ts:638" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L643" sourceLabel="Node.ts:643" />
 
 Checking if current node has a common side with input node and return side index N, E, S or W. Otherwise returns -1.
 

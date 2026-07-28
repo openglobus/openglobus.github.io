@@ -7,7 +7,7 @@ description: Creates a WebGL context with globe.
 
 # Globe
 
-<SourceLink href="/source/globe-ts/#L167" label="Globe.ts:167" />
+<SourceLink href="/source/globe-ts/#L169" label="Globe.ts:169" />
 
 Creates a WebGL context with globe.
 
@@ -72,6 +72,7 @@ globus = new Globe({
   - `options.gamma` (number, optional) — Gamma
   - `options.exposure` (number, optional) — Exposure
   - `options.transparentBackground` (boolean, optional, default: false) — Enables a transparent WebGL canvas background so HTML behind the globe container remains visible.
+  - `options.frameOpacity` (number, optional, default: "1.0") — Frame opacity applied by renderer transparency flags.
   - `options.reverseDepth` (boolean, optional, default: true) — Enables reverse-Z depth for the planet camera perspective mode.
 
 ---
@@ -80,13 +81,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L446" sourceLabel="Globe.ts:446" />
+<MemberMeta sourceHref="/source/globe-ts/#L449" sourceLabel="Globe.ts:449" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L454" sourceLabel="Globe.ts:454" />
+<MemberMeta sourceHref="/source/globe-ts/#L457" sourceLabel="Globe.ts:457" />
 
 Starts screen brightness fading out effect by the duration time.
 
@@ -94,6 +95,6 @@ Starts screen brightness fading out effect by the duration time.
 
 <MemberHeading id="inner" depth="3" name="$inner" sig="$inner: Element" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L220" sourceLabel="Globe.ts:220" />
+<MemberMeta sourceHref="/source/globe-ts/#L222" sourceLabel="Globe.ts:222" />
 
 Dom element where WebGL canvas creates

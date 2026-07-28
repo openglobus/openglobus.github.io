@@ -9,7 +9,7 @@ description: Vector layer is an alternative entity storage. Used for geospatial 
 
 **Extends:&#x20;**[`Layer`](/layer)
 
-<SourceLink href="/source/layer/vector-ts/#L107" label="Vector.ts:107" />
+<SourceLink href="/source/layer/vector-ts/#L111" label="Vector.ts:111" />
 
 Vector layer is an alternative entity storage. Used for geospatial data rendering like points, lines, polygons, geometry objects, etc.
 
@@ -54,7 +54,9 @@ Vector layer is an alternative entity storage. Used for geospatial data renderin
   - `options.shadeMode` (number | string, optional, default: 1) — Geo object shading: 0/none unlit, 0.5/phong, 1/pbr.
   - `options.depthOrder` (number, optional, default: 0) — Rendering order group for vector collections.
   - `options.disableCullFace` (boolean, optional, default: false) — Disables back-face culling for geo object rendering.
-  - `options.receiveProjectors` (boolean, optional, default: true) — Enables/disables projector effect reception for this layer entities.//@fires entitymove
+  - `options.receiveProjectors` (boolean, optional, default: true) — Enables/disables projector effect reception for this layer entities.
+  - `options.receiveFrameTransparency` (boolean, optional, default: false) — Enables/disables frame transparency reception for this layer entities.
+  - `options.receiveShadows` (boolean, optional, default: true) — Enables/disables shadow map reception for this layer entities.//@fires entitymove
 
 ---
 
@@ -62,7 +64,7 @@ Vector layer is an alternative entity storage. Used for geospatial data renderin
 
 <MemberHeading id="addto" depth="3" name="addTo" sig="addTo(planet: Planet)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L330" sourceLabel="Vector.ts:330" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L393" sourceLabel="Vector.ts:393" />
 
 **Overrides:&#x20;**`Layer#addTo`
 
@@ -74,7 +76,7 @@ Adds layer to the planet.
 
 <MemberHeading id="getentities" depth="3" name="getEntities" sig="getEntities(): Array.<Entity>" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L364" sourceLabel="Vector.ts:364" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L427" sourceLabel="Vector.ts:427" />
 
 Returns stored entities.
 
@@ -84,7 +86,7 @@ Returns stored entities.
 
 <MemberHeading id="add" depth="3" name="add" sig="add(entity: Entity): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L374" sourceLabel="Vector.ts:374" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L437" sourceLabel="Vector.ts:437" />
 
 Adds entity to the layer.
 
@@ -98,7 +100,7 @@ Adds entity to the layer.
 
 <MemberHeading id="insert" depth="3" name="insert" sig="insert(entity: Entity, index: Number): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L392" sourceLabel="Vector.ts:392" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L455" sourceLabel="Vector.ts:455" />
 
 Adds entity to the layer in the index position.
 
@@ -113,7 +115,7 @@ Adds entity to the layer in the index position.
 
 <MemberHeading id="addentities" depth="3" name="addEntities" sig="addEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L465" sourceLabel="Vector.ts:465" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L528" sourceLabel="Vector.ts:528" />
 
 Adds entity array to the layer.
 
@@ -127,7 +129,7 @@ Adds entity array to the layer.
 
 <MemberHeading id="removeentity" depth="3" name="removeEntity" sig="removeEntity(entity: Entity): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L480" sourceLabel="Vector.ts:480" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L543" sourceLabel="Vector.ts:543" />
 
 Remove entity from layer. TODO: memory leaks.
 
@@ -141,7 +143,7 @@ Remove entity from layer. TODO: memory leaks.
 
 <MemberHeading id="reindexentitiesarray" depth="3" name="_reindexEntitiesArray" sig="_reindexEntitiesArray(startIndex: number)" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/vector-ts/#L553" sourceLabel="Vector.ts:553" />
+<MemberMeta badges="protected" sourceHref="/source/layer/vector-ts/#L616" sourceLabel="Vector.ts:616" />
 
 Refresh collected entities indexes from startIndex entities collection array position.
 
@@ -151,7 +153,7 @@ Refresh collected entities indexes from startIndex entities collection array pos
 
 <MemberHeading id="removeentities" depth="3" name="removeEntities" sig="removeEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L566" sourceLabel="Vector.ts:566" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L629" sourceLabel="Vector.ts:629" />
 
 Removes entities from layer.
 
@@ -165,7 +167,7 @@ Removes entities from layer.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L578" sourceLabel="Vector.ts:578" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L641" sourceLabel="Vector.ts:641" />
 
 **Overrides:&#x20;**`Layer#clear`
 
@@ -173,7 +175,7 @@ Clear the layer.
 
 <MemberHeading id="each" depth="3" name="each" sig="each(callback: function)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L607" sourceLabel="Vector.ts:607" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L670" sourceLabel="Vector.ts:670" />
 
 Safety entities loop.
 
@@ -183,7 +185,7 @@ Safety entities loop.
 
 <MemberHeading id="setentities" depth="3" name="setEntities" sig="setEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L621" sourceLabel="Vector.ts:621" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L684" sourceLabel="Vector.ts:684" />
 
 Removes current entities from layer and adds new entities.
 
@@ -197,7 +199,7 @@ Removes current entities from layer and adds new entities.
 
 <MemberHeading id="bindeventsdefault" depth="3" name="_bindEventsDefault" sig="_bindEventsDefault(entityCollection)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L682" sourceLabel="Vector.ts:682" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L745" sourceLabel="Vector.ts:745" />
 
 **Parameters**
 
@@ -208,7 +210,7 @@ Removes current entities from layer and adds new entities.
 
 <MemberHeading id="loadmaterial" depth="3" name="loadMaterial" sig="loadMaterial(material: Material)" />
 
-<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L873" sourceLabel="Vector.ts:873" />
+<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L936" sourceLabel="Vector.ts:936" />
 
 Start to load tile material.
 
@@ -218,7 +220,7 @@ Start to load tile material.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L895" sourceLabel="Vector.ts:895" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L958" sourceLabel="Vector.ts:958" />
 
 Abort exact material loading.
 
@@ -536,7 +538,7 @@ Special correction of the whole globe extent.
 
 <MemberHeading id="receiveprojectors" depth="3" name="receiveProjectors" sig="receiveProjectors" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L296" sourceLabel="Vector.ts:296" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L314" sourceLabel="Vector.ts:314" />
 
 Gets projector effect reception state for this vector layer entities.
 
@@ -546,7 +548,7 @@ Gets projector effect reception state for this vector layer entities.
 
 <MemberHeading id="receiveprojectors" depth="3" name="receiveProjectors" sig="receiveProjectors" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L305" sourceLabel="Vector.ts:305" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L323" sourceLabel="Vector.ts:323" />
 
 Enables/disables projector effect reception for this vector layer entities.
 
@@ -554,9 +556,49 @@ Enables/disables projector effect reception for this vector layer entities.
 
 - `v` (boolean) — `true` to receive projector effects, `false` to ignore them.
 
+<MemberHeading id="receiveframetransparency" depth="3" name="receiveFrameTransparency" sig="receiveFrameTransparency" />
+
+<MemberMeta sourceHref="/source/layer/vector-ts/#L336" sourceLabel="Vector.ts:336" />
+
+Gets frame transparency reception state for this vector layer entities.
+
+**Returns**
+
+- `boolean`
+
+<MemberHeading id="receiveframetransparency" depth="3" name="receiveFrameTransparency" sig="receiveFrameTransparency" />
+
+<MemberMeta sourceHref="/source/layer/vector-ts/#L345" sourceLabel="Vector.ts:345" />
+
+Enables/disables frame transparency reception for this vector layer entities.
+
+**Parameters**
+
+- `v` (boolean) — `true` to receive frame transparency, `false` to ignore it.
+
+<MemberHeading id="receiveshadows" depth="3" name="receiveShadows" sig="receiveShadows" />
+
+<MemberMeta sourceHref="/source/layer/vector-ts/#L358" sourceLabel="Vector.ts:358" />
+
+Gets shadow map reception state for this vector layer entities.
+
+**Returns**
+
+- `boolean`
+
+<MemberHeading id="receiveshadows" depth="3" name="receiveShadows" sig="receiveShadows" />
+
+<MemberMeta sourceHref="/source/layer/vector-ts/#L368" sourceLabel="Vector.ts:368" />
+
+Enables/disables shadow map reception for this vector layer entities. Stored in the same material flags channel as projectors and frame transparency.
+
+**Parameters**
+
+- `v` (boolean) — `true` to receive shadow map effects, `false` to ignore them.
+
 <MemberHeading id="pickingenabled" depth="3" name="pickingEnabled" sig="pickingEnabled" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L540" sourceLabel="Vector.ts:540" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L603" sourceLabel="Vector.ts:603" />
 
 Sets layer picking events active.
 

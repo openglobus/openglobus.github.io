@@ -9,7 +9,7 @@ description: Main class for rendering a planet.
 
 **Extends:&#x20;**[`Scene`](/scene)
 
-<SourceLink href="/source/scene/planet-ts/#L159" label="Planet.ts:159" />
+<SourceLink href="/source/scene/planet-ts/#L164" label="Planet.ts:164" />
 
 Main class for rendering a planet.
 
@@ -64,7 +64,7 @@ Main class for rendering a planet.
 
 <MemberHeading id="getnorthframerotation" depth="3" name="getNorthFrameRotation" sig="getNorthFrameRotation(cartesian: Vec3): Quat" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L545" sourceLabel="Planet.ts:545" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L550" sourceLabel="Planet.ts:550" />
 
 Returns local north frame rotation for a cartesian point.
 
@@ -78,7 +78,7 @@ Returns local north frame rotation for a cartesian point.
 
 <MemberHeading id="getframerotation" depth="3" name="getFrameRotation" sig="getFrameRotation(cartesian: Vec3): Quat" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L555" sourceLabel="Planet.ts:555" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L560" sourceLabel="Planet.ts:560" />
 
 Returns local frame rotation for a cartesian point.
 
@@ -92,7 +92,7 @@ Returns local frame rotation for a cartesian point.
 
 <MemberHeading id="addcontrol" depth="3" name="addControl" sig="addControl(control: Control)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L773" sourceLabel="Planet.ts:773" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L759" sourceLabel="Planet.ts:759" />
 
 Add the given control to the renderer of the planet scene.
 
@@ -102,7 +102,7 @@ Add the given control to the renderer of the planet scene.
 
 <MemberHeading id="addcontrols" depth="3" name="addControls" sig="addControls(cArr: Array.<Control>)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L783" sourceLabel="Planet.ts:783" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L769" sourceLabel="Planet.ts:769" />
 
 Add the given controls array to the renderer of the planet.
 
@@ -112,7 +112,7 @@ Add the given controls array to the renderer of the planet.
 
 <MemberHeading id="getlayerbyname" depth="3" name="getLayerByName" sig="getLayerByName(name: string): Layer | undefined" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L795" sourceLabel="Planet.ts:795" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L781" sourceLabel="Planet.ts:781" />
 
 Returns a layer by name.
 
@@ -126,7 +126,7 @@ Returns a layer by name.
 
 <MemberHeading id="addlayer" depth="3" name="addLayer" sig="addLayer(layer: Layer)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L808" sourceLabel="Planet.ts:808" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L794" sourceLabel="Planet.ts:794" />
 
 Adds layer to the planet.
 
@@ -136,7 +136,7 @@ Adds layer to the planet.
 
 <MemberHeading id="onlayervisibilitychanged" depth="3" name="_onLayerVisibilityChanged" sig="_onLayerVisibilityChanged(layer: Layer)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L817" sourceLabel="Planet.ts:817" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L803" sourceLabel="Planet.ts:803" />
 
 Dispatch layer visibility changing event.
 
@@ -146,7 +146,7 @@ Dispatch layer visibility changing event.
 
 <MemberHeading id="addlayers" depth="3" name="addLayers" sig="addLayers(layers: Array.<Layer>)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L826" sourceLabel="Planet.ts:826" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L812" sourceLabel="Planet.ts:812" />
 
 Adds the given layers array to the planet.
 
@@ -156,7 +156,7 @@ Adds the given layers array to the planet.
 
 <MemberHeading id="removelayer" depth="3" name="removeLayer" sig="removeLayer(layer: Layer)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L837" sourceLabel="Planet.ts:837" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L823" sourceLabel="Planet.ts:823" />
 
 Removes the given layer from the planet.
 
@@ -166,7 +166,7 @@ Removes the given layer from the planet.
 
 <MemberHeading id="clearlayermaterial" depth="3" name="_clearLayerMaterial" sig="_clearLayerMaterial(layer: Layer)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L846" sourceLabel="Planet.ts:846" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L832" sourceLabel="Planet.ts:832" />
 
 Clears material resources related to a layer in quadtree segments.
 
@@ -176,7 +176,7 @@ Clears material resources related to a layer in quadtree segments.
 
 <MemberHeading id="setbaselayer" depth="3" name="setBaseLayer" sig="setBaseLayer(layer: Layer)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L855" sourceLabel="Planet.ts:855" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L841" sourceLabel="Planet.ts:841" />
 
 Sets base layer coverage to the planet.
 
@@ -186,7 +186,7 @@ Sets base layer coverage to the planet.
 
 <MemberHeading id="setheightfactor" depth="3" name="setHeightFactor" sig="setHeightFactor(factor: number)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L896" sourceLabel="Planet.ts:896" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L882" sourceLabel="Planet.ts:882" />
 
 Sets elevation scale. 1.0 is default.
 
@@ -196,7 +196,7 @@ Sets elevation scale. 1.0 is default.
 
 <MemberHeading id="getheightfactor" depth="3" name="getHeightFactor" sig="getHeightFactor(): number" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L911" sourceLabel="Planet.ts:911" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L897" sourceLabel="Planet.ts:897" />
 
 Gets elevation scale.
 
@@ -215,7 +215,7 @@ Gets elevation scale.
 )"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L923" sourceLabel="Planet.ts:923" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L909" sourceLabel="Planet.ts:909" />
 
 Sets LOD thresholds for quadtree terrain rendering. Proxy to `QuadTreeStrategy.setLodSize`.
 
@@ -227,7 +227,7 @@ Sets LOD thresholds for quadtree terrain rendering. Proxy to `QuadTreeStrategy.s
 
 <MemberHeading id="setterrain" depth="3" name="setTerrain" sig="setTerrain(terrain: EmptyTerrain)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L932" sourceLabel="Planet.ts:932" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L918" sourceLabel="Planet.ts:918" />
 
 Sets terrain provider
 
@@ -237,7 +237,7 @@ Sets terrain provider
 
 <MemberHeading id="initatmosphereshader" depth="3" name="initAtmosphereShader" sig="initAtmosphereShader(atmosParams?: AtmosphereParameters)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L969" sourceLabel="Planet.ts:969" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L955" sourceLabel="Planet.ts:955" />
 
 Reinitializes terrain forward/deferred shaders for atmosphere mode.
 
@@ -247,13 +247,13 @@ Reinitializes terrain forward/deferred shaders for atmosphere mode.
 
 <MemberHeading id="init" depth="3" name="init" sig="init()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1087" sourceLabel="Planet.ts:1087" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1073" sourceLabel="Planet.ts:1073" />
 
 Initializes render resources, workers, shaders, and layer state.
 
 <MemberHeading id="initlayers" depth="3" name="initLayers" sig="initLayers()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1257" sourceLabel="Planet.ts:1257" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1247" sourceLabel="Planet.ts:1247" />
 
 Reattaches already registered layers to apply initialization logic.
 
@@ -267,7 +267,7 @@ Reattaches already registered layers to apply initialization logic.
 )"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1282" sourceLabel="Planet.ts:1282" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1272" sourceLabel="Planet.ts:1272" />
 
 Creates default textures first for the North Pole and whole globe and second for the South Pole.
 
@@ -278,43 +278,43 @@ Creates default textures first for the North Pole and whole globe and second for
 
 <MemberHeading id="updateattributionslist" depth="3" name="updateAttributionsList" sig="updateAttributionsList()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1310" sourceLabel="Planet.ts:1310" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1300" sourceLabel="Planet.ts:1300" />
 
 Updates attribution lists
 
 <MemberHeading id="updatevisiblelayers" depth="3" name="updateVisibleLayers" sig="updateVisibleLayers()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1327" sourceLabel="Planet.ts:1327" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1317" sourceLabel="Planet.ts:1317" />
 
 Schedules visible layers list refresh for the next frame.
 
 <MemberHeading id="applyattribution" depth="3" name="_applyAttribution" sig="_applyAttribution()" />
 
-<MemberMeta badges="protected" sourceHref="/source/scene/planet-ts/#L1379" sourceLabel="Planet.ts:1379" />
+<MemberMeta badges="protected" sourceHref="/source/scene/planet-ts/#L1369" sourceLabel="Planet.ts:1369" />
 
 Apply to render list of layer attributions
 
 <MemberHeading id="sortlayers" depth="3" name="_sortLayers" sig="_sortLayers()" />
 
-<MemberMeta badges="protected" sourceHref="/source/scene/planet-ts/#L1395" sourceLabel="Planet.ts:1395" />
+<MemberMeta badges="protected" sourceHref="/source/scene/planet-ts/#L1385" sourceLabel="Planet.ts:1385" />
 
 Sort visible layer - preparing for rendering.
 
 <MemberHeading id="lockquadtree" depth="3" name="lockQuadTree" sig="lockQuadTree()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1587" sourceLabel="Planet.ts:1587" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1577" sourceLabel="Planet.ts:1577" />
 
 Pauses quadtree render-node collection and disables camera terrain collision checks.
 
 <MemberHeading id="unlockquadtree" depth="3" name="unlockQuadTree" sig="unlockQuadTree()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1600" sourceLabel="Planet.ts:1600" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1590" sourceLabel="Planet.ts:1590" />
 
 Resumes quadtree render-node collection and enables camera terrain collision checks.
 
 <MemberHeading id="renderingopaquescreennodes" depth="3" name="_renderingOpaqueScreenNodes" sig="_renderingOpaqueScreenNodes()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L1846" sourceLabel="Planet.ts:1846" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L1874" sourceLabel="Planet.ts:1874" />
 
 Drawing nodes
 
@@ -328,7 +328,7 @@ Drawing nodes
 )"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2122" sourceLabel="Planet.ts:2122" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2155" sourceLabel="Planet.ts:2155" />
 
 Renders terrain depth and frustum id into the depth framebuffer.
 
@@ -339,13 +339,13 @@ Renders terrain depth and frustum id into the depth framebuffer.
 
 <MemberHeading id="memclear" depth="3" name="memClear" sig="memClear()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2191" sourceLabel="Planet.ts:2191" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2224" sourceLabel="Planet.ts:2224" />
 
 Starts a clear memory thread.
 
 <MemberHeading id="getrayintersectionellipsoid" depth="3" name="getRayIntersectionEllipsoid" sig="getRayIntersectionEllipsoid(ray: Ray): Vec3 | undefined" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2223" sourceLabel="Planet.ts:2223" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2256" sourceLabel="Planet.ts:2256" />
 
 Returns ray vector hit ellipsoid coordinates. If the ray doesn't hit ellipsoid, it returns 'undefined'.
 
@@ -366,7 +366,7 @@ Returns ray vector hit ellipsoid coordinates. If the ray doesn't hit ellipsoid, 
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2233" sourceLabel="Planet.ts:2233" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2266" sourceLabel="Planet.ts:2266" />
 
 Project screen coordinates to the planet ellipsoid.
 
@@ -380,7 +380,7 @@ Project screen coordinates to the planet ellipsoid.
 
 <MemberHeading id="getlonlatfrompixelellipsoid" depth="3" name="getLonLatFromPixelEllipsoid" sig="getLonLatFromPixelEllipsoid(px: Vec2): LonLat | undefined" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2244" sourceLabel="Planet.ts:2244" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2277" sourceLabel="Planet.ts:2277" />
 
 Project screen coordinates to the planet ellipsoid.
 
@@ -394,7 +394,7 @@ Project screen coordinates to the planet ellipsoid.
 
 <MemberHeading id="getcartesianfrommouseterrain" depth="3" name="getCartesianFromMouseTerrain" sig="getCartesianFromMouseTerrain(): Vec3 | undefined" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2256" sourceLabel="Planet.ts:2256" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2289" sourceLabel="Planet.ts:2289" />
 
 Returns mouse position cartesian coordinates on the current terrain.
 
@@ -411,7 +411,7 @@ Returns mouse position cartesian coordinates on the current terrain.
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2272" sourceLabel="Planet.ts:2272" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2305" sourceLabel="Planet.ts:2305" />
 
 Returns screen coordinates cartesian coordinates on the current terrain. position or null if input coordinates is outside the planet.
 
@@ -432,7 +432,7 @@ Returns screen coordinates cartesian coordinates on the current terrain. positio
 ): LonLat | undefined"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2296" sourceLabel="Planet.ts:2296" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2321" sourceLabel="Planet.ts:2321" />
 
 Returns geodetic coordinates on the current terrain planet by its screen coordinates. position or null if input coordinates is outside the planet.
 
@@ -446,7 +446,7 @@ Returns geodetic coordinates on the current terrain planet by its screen coordin
 
 <MemberHeading id="getpixelfromcartesian" depth="3" name="getPixelFromCartesian" sig="getPixelFromCartesian(coords: Vec3): Vec2" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2309" sourceLabel="Planet.ts:2309" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2334" sourceLabel="Planet.ts:2334" />
 
 Project cartesian coordinates to screen space.
 
@@ -460,7 +460,7 @@ Project cartesian coordinates to screen space.
 
 <MemberHeading id="getpixelfromlonlat" depth="3" name="getPixelFromLonLat" sig="getPixelFromLonLat(lonlat: LonLat): Vec2 | undefined" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2319" sourceLabel="Planet.ts:2319" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2344" sourceLabel="Planet.ts:2344" />
 
 Project geodetic coordinates to screen space.
 
@@ -481,7 +481,7 @@ Project geodetic coordinates to screen space.
 ): number | undefined"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2332" sourceLabel="Planet.ts:2332" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2357" sourceLabel="Planet.ts:2357" />
 
 Returns distance from an active (screen) camera to the planet ellipsoid.
 
@@ -495,7 +495,7 @@ Returns distance from an active (screen) camera to the planet ellipsoid.
 
 <MemberHeading id="getdistancefrompixel" depth="3" name="getDistanceFromPixel" sig="getDistanceFromPixel(px: Vec2 | IBaseInputState): number" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2348" sourceLabel="Planet.ts:2348" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2373" sourceLabel="Planet.ts:2373" />
 
 Returns distance from active (screen) camera to the planet terrain by screen coordinates.
 
@@ -509,7 +509,7 @@ Returns distance from active (screen) camera to the planet terrain by screen coo
 
 <MemberHeading id="viewextent" depth="3" name="viewExtent" sig="viewExtent(extent: Extent)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2357" sourceLabel="Planet.ts:2357" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2382" sourceLabel="Planet.ts:2382" />
 
 Sets camera to the planet geographical extent.
 
@@ -519,7 +519,7 @@ Sets camera to the planet geographical extent.
 
 <MemberHeading id="viewextentarr" depth="3" name="viewExtentArr" sig="viewExtentArr(extentArr: Array.<number>)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2371" sourceLabel="Planet.ts:2371" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2396" sourceLabel="Planet.ts:2396" />
 
 Fits camera position for the view extent.
 
@@ -529,7 +529,7 @@ Fits camera position for the view extent.
 
 <MemberHeading id="getextent" depth="3" name="getExtent" sig="getExtent(): Extent" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2380" sourceLabel="Planet.ts:2380" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2405" sourceLabel="Planet.ts:2405" />
 
 Gets current camera view extent.
 
@@ -539,7 +539,7 @@ Gets current camera view extent.
 
 <MemberHeading id="getviewextent" depth="3" name="getViewExtent" sig="getViewExtent(): Extent" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2417" sourceLabel="Planet.ts:2417" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2442" sourceLabel="Planet.ts:2442" />
 
 Returns currently cached quadtree view extent.
 
@@ -549,7 +549,7 @@ Returns currently cached quadtree view extent.
 
 <MemberHeading id="viewlonlat" depth="3" name="viewLonLat" sig="viewLonLat(lonlat: LonLat, lookLonLat?: LonLat, up?: Vec3)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2428" sourceLabel="Planet.ts:2428" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2453" sourceLabel="Planet.ts:2453" />
 
 Sets camera to the planet geographical position.
 
@@ -570,7 +570,7 @@ Sets camera to the planet geographical position.
 )"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2439" sourceLabel="Planet.ts:2439" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2464" sourceLabel="Planet.ts:2464" />
 
 Fly active camera to the view extent.
 
@@ -582,7 +582,7 @@ Fly active camera to the view extent.
 
 <MemberHeading id="flycartesian" depth="3" name="flyCartesian" sig="flyCartesian(cartesian: Vec3, params: IPlanetFlyCartesianParams)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2449" sourceLabel="Planet.ts:2449" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2474" sourceLabel="Planet.ts:2474" />
 
 Fly camera to the point.
 
@@ -593,7 +593,7 @@ Fly camera to the point.
 
 <MemberHeading id="flylonlat" depth="3" name="flyLonLat" sig="flyLonLat(lonlat: LonLat, params: IPlanetFlyCartesianParams)" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2459" sourceLabel="Planet.ts:2459" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2484" sourceLabel="Planet.ts:2484" />
 
 Fly camera to the geodetic position.
 
@@ -604,13 +604,13 @@ Fly camera to the geodetic position.
 
 <MemberHeading id="stopflying" depth="3" name="stopFlying" sig="stopFlying()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2467" sourceLabel="Planet.ts:2467" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2492" sourceLabel="Planet.ts:2492" />
 
 Stop current flight.
 
 <MemberHeading id="updatebillboardstexcoords" depth="3" name="updateBillboardsTexCoords" sig="updateBillboardsTexCoords()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2475" sourceLabel="Planet.ts:2475" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2500" sourceLabel="Planet.ts:2500" />
 
 Refreshes billboard texture coordinates for all visible entity collections.
 
@@ -624,7 +624,7 @@ Refreshes billboard texture coordinates for all visible entity collections.
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2501" sourceLabel="Planet.ts:2501" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2526" sourceLabel="Planet.ts:2526" />
 
 Finds terrain point under an entity in currently rendered segments.
 
@@ -639,7 +639,7 @@ Finds terrain point under an entity in currently rendered segments.
 
 <MemberHeading id="getheightdefault" depth="3" name="getHeightDefault" sig="getHeightDefault(lonLat: LonLat): Promise.<number>" />
 
-<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2517" sourceLabel="Planet.ts:2517" />
+<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2542" sourceLabel="Planet.ts:2542" />
 
 Returns terrain height at the given coordinates in default terrain datum.
 
@@ -653,7 +653,7 @@ Returns terrain height at the given coordinates in default terrain datum.
 
 <MemberHeading id="getheightaboveell" depth="3" name="getHeightAboveELL" sig="getHeightAboveELL(lonLat: LonLat): Promise.<number>" />
 
-<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2535" sourceLabel="Planet.ts:2535" />
+<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2560" sourceLabel="Planet.ts:2560" />
 
 Returns terrain height above ellipsoid at the given coordinates.
 
@@ -667,13 +667,13 @@ Returns terrain height above ellipsoid at the given coordinates.
 
 <MemberHeading id="onremove" depth="3" name="onremove" sig="onremove()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2551" sourceLabel="Planet.ts:2551" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2576" sourceLabel="Planet.ts:2576" />
 
 Handles node detachment and frees runtime terrain data.
 
 <MemberHeading id="destroy" depth="3" name="destroy" sig="destroy()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2565" sourceLabel="Planet.ts:2565" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2591" sourceLabel="Planet.ts:2591" />
 
 **Overrides:&#x20;**`Scene#destroy`
 
@@ -814,13 +814,13 @@ Draw entity collections picking frame.
 
 <MemberHeading id="terrainready" depth="3" name="terrainReady" sig="terrainReady" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L526" sourceLabel="Planet.ts:526" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L531" sourceLabel="Planet.ts:531" />
 
 Returns true if the current terrain data set is loaded
 
 <MemberHeading id="maxgridsize" depth="3" name="maxGridSize" sig="maxGridSize" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L535" sourceLabel="Planet.ts:535" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L540" sourceLabel="Planet.ts:540" />
 
 Returns max segment grid size used by the quadtree.
 
@@ -830,7 +830,7 @@ Returns max segment grid size used by the quadtree.
 
 <MemberHeading id="atmospheremaxopacity" depth="3" name="atmosphereMaxOpacity" sig="atmosphereMaxOpacity" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L564" sourceLabel="Planet.ts:564" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L569" sourceLabel="Planet.ts:569" />
 
 Sets maximum atmosphere opacity.
 
@@ -840,7 +840,7 @@ Sets maximum atmosphere opacity.
 
 <MemberHeading id="atmospheremaxopacity" depth="3" name="atmosphereMaxOpacity" sig="atmosphereMaxOpacity" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L573" sourceLabel="Planet.ts:573" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L578" sourceLabel="Planet.ts:578" />
 
 Gets maximum atmosphere opacity.
 
@@ -850,7 +850,7 @@ Gets maximum atmosphere opacity.
 
 <MemberHeading id="atmosphereminopacity" depth="3" name="atmosphereMinOpacity" sig="atmosphereMinOpacity" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L582" sourceLabel="Planet.ts:582" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L587" sourceLabel="Planet.ts:587" />
 
 Sets minimum atmosphere opacity.
 
@@ -860,7 +860,7 @@ Sets minimum atmosphere opacity.
 
 <MemberHeading id="atmosphereminopacity" depth="3" name="atmosphereMinOpacity" sig="atmosphereMinOpacity" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L591" sourceLabel="Planet.ts:591" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L596" sourceLabel="Planet.ts:596" />
 
 Gets minimum atmosphere opacity.
 
@@ -870,7 +870,7 @@ Gets minimum atmosphere opacity.
 
 <MemberHeading id="atmosphereopacitycurveshift" depth="3" name="atmosphereOpacityCurveShift" sig="atmosphereOpacityCurveShift" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L600" sourceLabel="Planet.ts:600" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L605" sourceLabel="Planet.ts:605" />
 
 Sets atmosphere opacity interpolation curve shift.
 
@@ -880,7 +880,7 @@ Sets atmosphere opacity interpolation curve shift.
 
 <MemberHeading id="atmosphereopacitycurveshift" depth="3" name="atmosphereOpacityCurveShift" sig="atmosphereOpacityCurveShift" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L609" sourceLabel="Planet.ts:609" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L614" sourceLabel="Planet.ts:614" />
 
 Gets atmosphere opacity interpolation curve shift.
 
@@ -890,7 +890,7 @@ Gets atmosphere opacity interpolation curve shift.
 
 <MemberHeading id="atmospheremaxminopacity" depth="3" name="atmosphereMaxMinOpacity" sig="atmosphereMaxMinOpacity" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L618" sourceLabel="Planet.ts:618" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L623" sourceLabel="Planet.ts:623" />
 
 Gets target atmosphere opacity parameters `[max, min, curveShift]`.
 
@@ -900,7 +900,7 @@ Gets target atmosphere opacity parameters `[max, min, curveShift]`.
 
 <MemberHeading id="atmosphereenabled" depth="3" name="atmosphereEnabled" sig="atmosphereEnabled" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L667" sourceLabel="Planet.ts:667" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L672" sourceLabel="Planet.ts:672" />
 
 Enables or disables atmosphere rendering and related programs.
 
@@ -910,7 +910,7 @@ Enables or disables atmosphere rendering and related programs.
 
 <MemberHeading id="atmosphereenabled" depth="3" name="atmosphereEnabled" sig="atmosphereEnabled" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L679" sourceLabel="Planet.ts:679" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L684" sourceLabel="Planet.ts:684" />
 
 Returns atmosphere activity flag.
 
@@ -920,7 +920,7 @@ Returns atmosphere activity flag.
 
 <MemberHeading id="shademode" depth="3" name="shadeMode" sig="shadeMode" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L688" sourceLabel="Planet.ts:688" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L693" sourceLabel="Planet.ts:693" />
 
 Returns active terrain shade mode.
 
@@ -930,7 +930,7 @@ Returns active terrain shade mode.
 
 <MemberHeading id="shademode" depth="3" name="shadeMode" sig="shadeMode" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L697" sourceLabel="Planet.ts:697" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L702" sourceLabel="Planet.ts:702" />
 
 Sets terrain shade mode.
 
@@ -940,7 +940,7 @@ Sets terrain shade mode.
 
 <MemberHeading id="normalmapcreator" depth="3" name="normalMapCreator" sig="normalMapCreator" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L737" sourceLabel="Planet.ts:737" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L723" sourceLabel="Planet.ts:723" />
 
 Returns normal-map generator used by the planet.
 
@@ -950,7 +950,7 @@ Returns normal-map generator used by the planet.
 
 <MemberHeading id="layers" depth="3" name="layers" sig="layers" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L746" sourceLabel="Planet.ts:746" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L732" sourceLabel="Planet.ts:732" />
 
 Returns current layers snapshot.
 
@@ -960,7 +960,7 @@ Returns current layers snapshot.
 
 <MemberHeading id="sun" depth="3" name="sun" sig="sun" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L755" sourceLabel="Planet.ts:755" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L741" sourceLabel="Planet.ts:741" />
 
 Returns Sun control instance if attached to the renderer.
 
@@ -970,7 +970,7 @@ Returns Sun control instance if attached to the renderer.
 
 <MemberHeading id="sunpos" depth="3" name="sunPos" sig="sunPos" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L764" sourceLabel="Planet.ts:764" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L750" sourceLabel="Planet.ts:750" />
 
 Returns current sun world position.
 
@@ -980,7 +980,7 @@ Returns current sun world position.
 
 <MemberHeading id="atmospherecontrol" depth="3" name="atmosphereControl" sig="atmosphereControl" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L987" sourceLabel="Planet.ts:987" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L973" sourceLabel="Planet.ts:973" />
 
 Returns atmosphere control instance bound to the planet.
 

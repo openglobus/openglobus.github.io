@@ -342,7 +342,7 @@ Returns seconds in days.
 ): Array.<Entity>"
 />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L50" sourceLabel="Vector.ts:50" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L52" sourceLabel="Vector.ts:52" />
 
 Creates entity instance array.
 
@@ -1284,49 +1284,49 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2592" sourceLabel="Planet.ts:2592" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2618" sourceLabel="Planet.ts:2618" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2598" sourceLabel="Planet.ts:2598" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2624" sourceLabel="Planet.ts:2624" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2604" sourceLabel="Planet.ts:2604" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2630" sourceLabel="Planet.ts:2630" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2610" sourceLabel="Planet.ts:2610" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2636" sourceLabel="Planet.ts:2636" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2616" sourceLabel="Planet.ts:2616" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2642" sourceLabel="Planet.ts:2642" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2622" sourceLabel="Planet.ts:2622" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2648" sourceLabel="Planet.ts:2648" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2628" sourceLabel="Planet.ts:2628" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2654" sourceLabel="Planet.ts:2654" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2634" sourceLabel="Planet.ts:2634" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2660" sourceLabel="Planet.ts:2660" />
 
 Triggered when layer data finishes loading.
 
@@ -1668,25 +1668,19 @@ Gets segment part left to right or up to downo ffset against neighbour side. Whe
 
 <MemberHeading id="maxprojectorlayers" depth="3" name="MAX_PROJECTOR_LAYERS" sig="MAX_PROJECTOR_LAYERS" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L15" sourceLabel="ProjectorManager.ts:15" />
+<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L13" sourceLabel="ProjectorManager.ts:13" />
 
 Maximum number of depth layers allocated in manager-owned projector array texture. Defines how many projectors can be added to the manager at once.
 
 <MemberHeading id="maxforwardprojectors" depth="3" name="MAX_FORWARD_PROJECTORS" sig="MAX_FORWARD_PROJECTORS" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L23" sourceLabel="ProjectorManager.ts:23" />
+<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L21" sourceLabel="ProjectorManager.ts:21" />
 
 Maximum number of projectors processed in a single shader invocation. Used by forward / WOIT paths as top-K by priority per draw call. Deferred projector pass binds one projector per draw (`chunkSize = 1`).
 
-<MemberHeading id="defaultprojectortextureunitstart" depth="3" name="DEFAULT_PROJECTOR_TEXTURE_UNIT_START" sig="DEFAULT_PROJECTOR_TEXTURE_UNIT_START" />
-
-<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L35" sourceLabel="ProjectorManager.ts:35" />
-
-Default texture unit where the depth array sampler is bound.
-
 <MemberHeading id="defaultmaxnodes" depth="3" name="DEFAULT_MAX_NODES" sig="DEFAULT_MAX_NODES: number" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L108" sourceLabel="Planet.ts:108" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L113" sourceLabel="Planet.ts:113" />
 
 Maximum created nodes count. The more nodes count the more memory usage. When the maximum node count is exceeded, memClear() will be called.
 
