@@ -227,7 +227,7 @@ Flies camera to a position at a fixed distance from the target point.
 
 <MemberHeading id="rotateleft" depth="3" name="rotateLeft" sig="rotateLeft(angle: number, spin?: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L704" sourceLabel="PlanetCamera.ts:704" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L689" sourceLabel="PlanetCamera.ts:689" />
 
 Rotates around planet to the left.
 
@@ -238,7 +238,7 @@ Rotates around planet to the left.
 
 <MemberHeading id="rotateright" depth="3" name="rotateRight" sig="rotateRight(angle: number, spin?: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L715" sourceLabel="PlanetCamera.ts:715" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L700" sourceLabel="PlanetCamera.ts:700" />
 
 Rotates around planet to the right.
 
@@ -249,7 +249,7 @@ Rotates around planet to the right.
 
 <MemberHeading id="rotateup" depth="3" name="rotateUp" sig="rotateUp(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L725" sourceLabel="PlanetCamera.ts:725" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L710" sourceLabel="PlanetCamera.ts:710" />
 
 Rotates around planet to the North Pole.
 
@@ -259,7 +259,7 @@ Rotates around planet to the North Pole.
 
 <MemberHeading id="rotatedown" depth="3" name="rotateDown" sig="rotateDown(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L735" sourceLabel="PlanetCamera.ts:735" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L720" sourceLabel="PlanetCamera.ts:720" />
 
 Rotates around planet to the South Pole.
 
@@ -269,7 +269,7 @@ Rotates around planet to the South Pole.
 
 <MemberHeading id="rotatevertical" depth="3" name="rotateVertical" sig="rotateVertical(angle: number, center: Vec3, minSlope?: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L747" sourceLabel="PlanetCamera.ts:747" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L732" sourceLabel="PlanetCamera.ts:732" />
 
 **Overrides:&#x20;**`Camera#rotateVertical`
 
@@ -283,7 +283,7 @@ Rotates camera vertically around the given center.
 
 <MemberHeading id="checkterraincollision" depth="3" name="checkTerrainCollision" sig="checkTerrainCollision(): Vec3 | undefined" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L786" sourceLabel="PlanetCamera.ts:786" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L771" sourceLabel="PlanetCamera.ts:771" />
 
 Updates terrain altitude and keeps camera above minimum altitude.
 
@@ -293,7 +293,7 @@ Updates terrain altitude and keeps camera above minimum altitude.
 
 <MemberHeading id="getsurfacevisibledistance" depth="3" name="getSurfaceVisibleDistance" sig="getSurfaceVisibleDistance(d: number): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L831" sourceLabel="PlanetCamera.ts:831" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L816" sourceLabel="PlanetCamera.ts:816" />
 
 Returns visible surface arc distance from current altitude.
 
@@ -315,7 +315,7 @@ Returns visible surface arc distance from current altitude.
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L844" sourceLabel="PlanetCamera.ts:844" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L829" sourceLabel="PlanetCamera.ts:829" />
 
 Returns the ellipsoid intersection point for a screen-space ray. If the ray doesn't hit ellipsoid, it returns 'undefined'.
 
@@ -330,7 +330,7 @@ Returns the ellipsoid intersection point for a screen-space ray. If the ray does
 
 <MemberHeading id="getheading" depth="3" name="getHeading" sig="getHeading(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L855" sourceLabel="PlanetCamera.ts:855" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L840" sourceLabel="PlanetCamera.ts:840" />
 
 Returns heading angle in degrees. Should match `getYaw()` in most cases.
 
@@ -340,7 +340,7 @@ Returns heading angle in degrees. Should match `getYaw()` in most cases.
 
 <MemberHeading id="isvisible" depth="3" name="isVisible" sig="isVisible(poi: Vec3): boolean" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L872" sourceLabel="PlanetCamera.ts:872" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L857" sourceLabel="PlanetCamera.ts:857" />
 
 Checks whether a cartesian point is visible above the horizon.
 
@@ -354,7 +354,7 @@ Checks whether a cartesian point is visible above the horizon.
 
 <MemberHeading id="getpitch" depth="3" name="getPitch" sig="getPitch(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L882" sourceLabel="PlanetCamera.ts:882" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L867" sourceLabel="PlanetCamera.ts:867" />
 
 **Overrides:&#x20;**`Camera#getPitch`
 
@@ -366,7 +366,7 @@ Returns pitch angle in local planet frame.
 
 <MemberHeading id="getyaw" depth="3" name="getYaw" sig="getYaw(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L893" sourceLabel="PlanetCamera.ts:893" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L878" sourceLabel="PlanetCamera.ts:878" />
 
 **Overrides:&#x20;**`Camera#getYaw`
 
@@ -378,7 +378,7 @@ Returns yaw angle in local planet frame. Should match `getHeading()` in most cas
 
 <MemberHeading id="getroll" depth="3" name="getRoll" sig="getRoll(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L903" sourceLabel="PlanetCamera.ts:903" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L888" sourceLabel="PlanetCamera.ts:888" />
 
 **Overrides:&#x20;**`Camera#getRoll`
 
@@ -390,7 +390,7 @@ Returns roll angle in local planet frame.
 
 <MemberHeading id="setpitch" depth="3" name="setPitch" sig="setPitch(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L913" sourceLabel="PlanetCamera.ts:913" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L898" sourceLabel="PlanetCamera.ts:898" />
 
 **Overrides:&#x20;**`Camera#setPitch`
 
@@ -402,7 +402,7 @@ Sets pitch angle in local planet frame.
 
 <MemberHeading id="setyaw" depth="3" name="setYaw" sig="setYaw(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L925" sourceLabel="PlanetCamera.ts:925" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L910" sourceLabel="PlanetCamera.ts:910" />
 
 **Overrides:&#x20;**`Camera#setYaw`
 
@@ -414,7 +414,7 @@ Sets yaw angle in local planet frame.
 
 <MemberHeading id="setroll" depth="3" name="setRoll" sig="setRoll(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L937" sourceLabel="PlanetCamera.ts:937" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L922" sourceLabel="PlanetCamera.ts:922" />
 
 **Overrides:&#x20;**`Camera#setRoll`
 
@@ -426,7 +426,7 @@ Sets roll angle in local planet frame.
 
 <MemberHeading id="setpitchyawroll" depth="3" name="setPitchYawRoll" sig="setPitchYawRoll(pitch: number, yaw: number, roll: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L951" sourceLabel="PlanetCamera.ts:951" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L936" sourceLabel="PlanetCamera.ts:936" />
 
 **Overrides:&#x20;**`Camera#setPitchYawRoll`
 
