@@ -9,7 +9,7 @@ description: Planet camera.
 
 **Extends:&#x20;**[`Camera`](/camera)
 
-<SourceLink href="/source/camera/planetcamera-ts/#L65" label="PlanetCamera.ts:65" />
+<SourceLink href="/source/camera/planetcamera-ts/#L69" label="PlanetCamera.ts:69" />
 
 Planet camera.
 
@@ -53,7 +53,7 @@ Planet camera.
 
 <MemberHeading id="setterraincollisionactivity" depth="3" name="setTerrainCollisionActivity" sig="setTerrainCollisionActivity(isActive: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L185" sourceLabel="PlanetCamera.ts:185" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L189" sourceLabel="PlanetCamera.ts:189" />
 
 Enables or disables terrain collision checks.
 
@@ -63,7 +63,7 @@ Enables or disables terrain collision checks.
 
 <MemberHeading id="update" depth="3" name="update" sig="update()" />
 
-<MemberMeta badges="abstract" sourceHref="/source/camera/planetcamera-ts/#L194" sourceLabel="PlanetCamera.ts:194" />
+<MemberMeta badges="abstract" sourceHref="/source/camera/planetcamera-ts/#L198" sourceLabel="PlanetCamera.ts:198" />
 
 **Overrides:&#x20;**`Camera#update`
 
@@ -71,7 +71,7 @@ Updates camera view space.
 
 <MemberHeading id="updatecameraslope" depth="3" name="updateCameraSlope" sig="updateCameraSlope()" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L210" sourceLabel="PlanetCamera.ts:210" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L214" sourceLabel="PlanetCamera.ts:214" />
 
 **Overrides:&#x20;**`Camera#updateCameraSlope`
 
@@ -79,13 +79,13 @@ Updates camera slope against the planet surface normal.
 
 <MemberHeading id="updategeodeticposition" depth="3" name="updateGeodeticPosition" sig="updateGeodeticPosition()" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L219" sourceLabel="PlanetCamera.ts:219" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L223" sourceLabel="PlanetCamera.ts:223" />
 
 Updates camera geographic coordinates from current cartesian position.
 
 <MemberHeading id="setaltitude" depth="3" name="setAltitude" sig="setAltitude(alt: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L231" sourceLabel="PlanetCamera.ts:231" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L235" sourceLabel="PlanetCamera.ts:235" />
 
 Sets altitude over the terrain.
 
@@ -95,7 +95,7 @@ Sets altitude over the terrain.
 
 <MemberHeading id="getaltitude" depth="3" name="getAltitude" sig="getAltitude()" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L246" sourceLabel="PlanetCamera.ts:246" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L250" sourceLabel="PlanetCamera.ts:250" />
 
 **Overrides:&#x20;**`Camera#getAltitude`
 
@@ -103,7 +103,7 @@ Gets altitude over the terrain.
 
 <MemberHeading id="setlonlat" depth="3" name="setLonLat" sig="setLonLat(lonlat: LonLat, lookLonLat?: LonLat, up?: Vec3)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L257" sourceLabel="PlanetCamera.ts:257" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L261" sourceLabel="PlanetCamera.ts:261" />
 
 Places camera to view to the geographical point.
 
@@ -111,11 +111,11 @@ Places camera to view to the geographical point.
 
 - `lonlat` ([LonLat](/lonlat)) — New camera and camera view position.
 - `lookLonLat` ([LonLat](/lonlat), optional) — Look up coordinates.
-- `up` ([Vec3](/vec3), optional) — Camera UP vector. Default (0,1,0)
+- `up` ([Vec3](/vec3), optional) — Camera UP vector. Defaults to the local surface normal for an explicit look point.
 
 <MemberHeading id="getlonlat" depth="3" name="getLonLat" sig="getLonLat(): LonLat" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L273" sourceLabel="PlanetCamera.ts:273" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L278" sourceLabel="PlanetCamera.ts:278" />
 
 Returns camera geographical position.
 
@@ -125,7 +125,7 @@ Returns camera geographical position.
 
 <MemberHeading id="getheight" depth="3" name="getHeight" sig="getHeight(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L282" sourceLabel="PlanetCamera.ts:282" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L287" sourceLabel="PlanetCamera.ts:287" />
 
 Returns camera height.
 
@@ -135,7 +135,7 @@ Returns camera height.
 
 <MemberHeading id="getextentposition" depth="3" name="getExtentPosition" sig="getExtentPosition(extent: Extent, height: Number): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L293" sourceLabel="PlanetCamera.ts:293" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L298" sourceLabel="PlanetCamera.ts:298" />
 
 Gets position by viewable extent.
 
@@ -150,7 +150,7 @@ Gets position by viewable extent.
 
 <MemberHeading id="viewextent" depth="3" name="viewExtent" sig="viewExtent(extent: Extent, height?: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L416" sourceLabel="PlanetCamera.ts:416" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L421" sourceLabel="PlanetCamera.ts:421" />
 
 View current extent.
 
@@ -170,7 +170,7 @@ View current extent.
 )"
 />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L459" sourceLabel="PlanetCamera.ts:459" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L464" sourceLabel="PlanetCamera.ts:464" />
 
 Flies to the current extent.
 
@@ -182,7 +182,7 @@ Flies to the current extent.
 
 <MemberHeading id="viewdistance" depth="3" name="viewDistance" sig="viewDistance(cartesian: Vec3, distance?: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L497" sourceLabel="PlanetCamera.ts:497" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L502" sourceLabel="PlanetCamera.ts:502" />
 
 **Overrides:&#x20;**`Camera#viewDistance`
 
@@ -195,7 +195,7 @@ Places camera at a fixed distance from a target point and looks at it.
 
 <MemberHeading id="flylonlat" depth="3" name="flyLonLat" sig="flyLonLat(lonlat: LonLat, params?: IPlanetFlyCartesianParams)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L517" sourceLabel="PlanetCamera.ts:517" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L522" sourceLabel="PlanetCamera.ts:522" />
 
 Flies to the geo coordinates.
 
@@ -215,7 +215,7 @@ Flies to the geo coordinates.
 )"
 />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L529" sourceLabel="PlanetCamera.ts:529" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L534" sourceLabel="PlanetCamera.ts:534" />
 
 Flies camera to a position at a fixed distance from the target point.
 
@@ -227,7 +227,7 @@ Flies camera to a position at a fixed distance from the target point.
 
 <MemberHeading id="rotateleft" depth="3" name="rotateLeft" sig="rotateLeft(angle: number, spin?: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L699" sourceLabel="PlanetCamera.ts:699" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L704" sourceLabel="PlanetCamera.ts:704" />
 
 Rotates around planet to the left.
 
@@ -238,7 +238,7 @@ Rotates around planet to the left.
 
 <MemberHeading id="rotateright" depth="3" name="rotateRight" sig="rotateRight(angle: number, spin?: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L710" sourceLabel="PlanetCamera.ts:710" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L715" sourceLabel="PlanetCamera.ts:715" />
 
 Rotates around planet to the right.
 
@@ -249,7 +249,7 @@ Rotates around planet to the right.
 
 <MemberHeading id="rotateup" depth="3" name="rotateUp" sig="rotateUp(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L720" sourceLabel="PlanetCamera.ts:720" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L725" sourceLabel="PlanetCamera.ts:725" />
 
 Rotates around planet to the North Pole.
 
@@ -259,7 +259,7 @@ Rotates around planet to the North Pole.
 
 <MemberHeading id="rotatedown" depth="3" name="rotateDown" sig="rotateDown(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L730" sourceLabel="PlanetCamera.ts:730" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L735" sourceLabel="PlanetCamera.ts:735" />
 
 Rotates around planet to the South Pole.
 
@@ -269,7 +269,7 @@ Rotates around planet to the South Pole.
 
 <MemberHeading id="rotatevertical" depth="3" name="rotateVertical" sig="rotateVertical(angle: number, center: Vec3, minSlope?: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L742" sourceLabel="PlanetCamera.ts:742" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L747" sourceLabel="PlanetCamera.ts:747" />
 
 **Overrides:&#x20;**`Camera#rotateVertical`
 
@@ -283,7 +283,7 @@ Rotates camera vertically around the given center.
 
 <MemberHeading id="checkterraincollision" depth="3" name="checkTerrainCollision" sig="checkTerrainCollision(): Vec3 | undefined" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L781" sourceLabel="PlanetCamera.ts:781" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L786" sourceLabel="PlanetCamera.ts:786" />
 
 Updates terrain altitude and keeps camera above minimum altitude.
 
@@ -293,7 +293,7 @@ Updates terrain altitude and keeps camera above minimum altitude.
 
 <MemberHeading id="getsurfacevisibledistance" depth="3" name="getSurfaceVisibleDistance" sig="getSurfaceVisibleDistance(d: number): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L826" sourceLabel="PlanetCamera.ts:826" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L831" sourceLabel="PlanetCamera.ts:831" />
 
 Returns visible surface arc distance from current altitude.
 
@@ -315,7 +315,7 @@ Returns visible surface arc distance from current altitude.
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L839" sourceLabel="PlanetCamera.ts:839" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L844" sourceLabel="PlanetCamera.ts:844" />
 
 Returns the ellipsoid intersection point for a screen-space ray. If the ray doesn't hit ellipsoid, it returns 'undefined'.
 
@@ -330,7 +330,7 @@ Returns the ellipsoid intersection point for a screen-space ray. If the ray does
 
 <MemberHeading id="getheading" depth="3" name="getHeading" sig="getHeading(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L850" sourceLabel="PlanetCamera.ts:850" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L855" sourceLabel="PlanetCamera.ts:855" />
 
 Returns heading angle in degrees. Should match `getYaw()` in most cases.
 
@@ -340,7 +340,7 @@ Returns heading angle in degrees. Should match `getYaw()` in most cases.
 
 <MemberHeading id="isvisible" depth="3" name="isVisible" sig="isVisible(poi: Vec3): boolean" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L867" sourceLabel="PlanetCamera.ts:867" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L872" sourceLabel="PlanetCamera.ts:872" />
 
 Checks whether a cartesian point is visible above the horizon.
 
@@ -354,7 +354,7 @@ Checks whether a cartesian point is visible above the horizon.
 
 <MemberHeading id="getpitch" depth="3" name="getPitch" sig="getPitch(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L877" sourceLabel="PlanetCamera.ts:877" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L882" sourceLabel="PlanetCamera.ts:882" />
 
 **Overrides:&#x20;**`Camera#getPitch`
 
@@ -366,7 +366,7 @@ Returns pitch angle in local planet frame.
 
 <MemberHeading id="getyaw" depth="3" name="getYaw" sig="getYaw(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L888" sourceLabel="PlanetCamera.ts:888" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L893" sourceLabel="PlanetCamera.ts:893" />
 
 **Overrides:&#x20;**`Camera#getYaw`
 
@@ -378,7 +378,7 @@ Returns yaw angle in local planet frame. Should match `getHeading()` in most cas
 
 <MemberHeading id="getroll" depth="3" name="getRoll" sig="getRoll(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L898" sourceLabel="PlanetCamera.ts:898" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L903" sourceLabel="PlanetCamera.ts:903" />
 
 **Overrides:&#x20;**`Camera#getRoll`
 
@@ -390,7 +390,7 @@ Returns roll angle in local planet frame.
 
 <MemberHeading id="setpitch" depth="3" name="setPitch" sig="setPitch(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L908" sourceLabel="PlanetCamera.ts:908" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L913" sourceLabel="PlanetCamera.ts:913" />
 
 **Overrides:&#x20;**`Camera#setPitch`
 
@@ -402,7 +402,7 @@ Sets pitch angle in local planet frame.
 
 <MemberHeading id="setyaw" depth="3" name="setYaw" sig="setYaw(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L920" sourceLabel="PlanetCamera.ts:920" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L925" sourceLabel="PlanetCamera.ts:925" />
 
 **Overrides:&#x20;**`Camera#setYaw`
 
@@ -414,7 +414,7 @@ Sets yaw angle in local planet frame.
 
 <MemberHeading id="setroll" depth="3" name="setRoll" sig="setRoll(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L932" sourceLabel="PlanetCamera.ts:932" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L937" sourceLabel="PlanetCamera.ts:937" />
 
 **Overrides:&#x20;**`Camera#setRoll`
 
@@ -426,7 +426,7 @@ Sets roll angle in local planet frame.
 
 <MemberHeading id="setpitchyawroll" depth="3" name="setPitchYawRoll" sig="setPitchYawRoll(pitch: number, yaw: number, roll: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L946" sourceLabel="PlanetCamera.ts:946" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L951" sourceLabel="PlanetCamera.ts:951" />
 
 **Overrides:&#x20;**`Camera#setPitchYawRoll`
 
