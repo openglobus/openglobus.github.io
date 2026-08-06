@@ -7,7 +7,7 @@ description: Creates a WebGL context with globe.
 
 # Globe
 
-<SourceLink href="/source/globe-ts/#L169" label="Globe.ts:169" />
+<SourceLink href="/source/globe-ts/#L170" label="Globe.ts:170" />
 
 Creates a WebGL context with globe.
 
@@ -81,13 +81,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L449" sourceLabel="Globe.ts:449" />
+<MemberMeta sourceHref="/source/globe-ts/#L453" sourceLabel="Globe.ts:453" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L457" sourceLabel="Globe.ts:457" />
+<MemberMeta sourceHref="/source/globe-ts/#L461" sourceLabel="Globe.ts:461" />
 
 Starts screen brightness fading out effect by the duration time.
 
@@ -95,6 +95,6 @@ Starts screen brightness fading out effect by the duration time.
 
 <MemberHeading id="inner" depth="3" name="$inner" sig="$inner: Element" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L222" sourceLabel="Globe.ts:222" />
+<MemberMeta sourceHref="/source/globe-ts/#L223" sourceLabel="Globe.ts:223" />
 
 Dom element where WebGL canvas creates

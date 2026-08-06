@@ -26,7 +26,7 @@ Converts atomic time to barycentric dynamical time.
 
 <MemberHeading id="getsunposition" depth="3" name="getSunPosition" sig="getSunPosition(jDate: JulianDate): Vec3" />
 
-<MemberMeta sourceHref="/source/astro/earth-ts/#L13" sourceLabel="earth.ts:13" />
+<MemberMeta sourceHref="/source/astro/earth-ts/#L20" sourceLabel="earth.ts:20" />
 
 Returns Sun position in the geocentric coordinate system by the time.
 
@@ -1365,6 +1365,12 @@ Earth gravitational parameter product of gravitational constant G and the mass M
 <MemberMeta sourceHref="/source/astro/astro-ts/#L38" sourceLabel="astro.ts:38" />
 
 Sun gravitational parameter product of gravitational constant G and the mass M of the Sun.
+
+<MemberHeading id="elementsepoch" depth="3" name="ELEMENTS_EPOCH" sig="ELEMENTS_EPOCH" />
+
+<MemberMeta sourceHref="/source/astro/earth-ts/#L13" sourceLabel="earth.ts:13" />
+
+Epoch of the Sun orbital elements below: 1999-12-31 00:00 UT, 1.5 days before J2000.
 
 <MemberHeading id="secondspermillisecond" depth="3" name="SECONDS_PER_MILLISECOND" sig="SECONDS_PER_MILLISECOND" />
 
