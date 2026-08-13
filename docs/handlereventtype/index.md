@@ -6,7 +6,7 @@ longname: HandlerEventType
 
 # HandlerEventType
 
-<SourceLink href="/source/webgl/handler-ts/#L78" label="Handler.ts:78" />
+<SourceLink href="/source/webgl/handler-ts/#L79" label="Handler.ts:79" />
 
 **Type**
 

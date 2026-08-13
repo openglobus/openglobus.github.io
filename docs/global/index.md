@@ -1056,277 +1056,277 @@ Triggered when all tiles have loaded or loading has stopped.
 
 <MemberHeading id="projchanged" depth="3" name="projchanged" sig="projchanged" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1048" sourceLabel="RendererEvents.ts:1048" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1062" sourceLabel="RendererEvents.ts:1062" />
 
 Triggered when camera projection is changed
 
 <MemberHeading id="changerelativecenter" depth="3" name="changerelativecenter" sig="changerelativecenter" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1054" sourceLabel="RendererEvents.ts:1054" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1068" sourceLabel="RendererEvents.ts:1068" />
 
 Triggered when a relative center is changed
 
 <MemberHeading id="predraw" depth="3" name="predraw" sig="predraw" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1060" sourceLabel="RendererEvents.ts:1060" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1074" sourceLabel="RendererEvents.ts:1074" />
 
 Triggered before the scene frame is rendered (before render nodes).
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1066" sourceLabel="RendererEvents.ts:1066" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1080" sourceLabel="RendererEvents.ts:1080" />
 
 Called after the scene frame callback and before the deferred, WOIT, and forward rendering passes.
 
 <MemberHeading id="forwardpass" depth="3" name="forwardpass" sig="forwardpass" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1072" sourceLabel="RendererEvents.ts:1072" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1086" sourceLabel="RendererEvents.ts:1086" />
 
 Triggered for forward pass
 
 <MemberHeading id="forwardpass" depth="3" name="forwardpass" sig="forwardpass" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1078" sourceLabel="RendererEvents.ts:1078" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1092" sourceLabel="RendererEvents.ts:1092" />
 
 Triggered after all
 
 <MemberHeading id="transparentpass" depth="3" name="transparentpass" sig="transparentpass" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1084" sourceLabel="RendererEvents.ts:1084" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1098" sourceLabel="RendererEvents.ts:1098" />
 
 Triggered for WOIT (transparency) pass
 
 <MemberHeading id="gbufferpass" depth="3" name="gbufferpass" sig="gbufferpass" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1090" sourceLabel="RendererEvents.ts:1090" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1104" sourceLabel="RendererEvents.ts:1104" />
 
 Triggered for deferred opaque geometry pass
 
 <MemberHeading id="postdraw" depth="3" name="postdraw" sig="postdraw" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1096" sourceLabel="RendererEvents.ts:1096" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1110" sourceLabel="RendererEvents.ts:1110" />
 
 Triggered after a scene frame is rendered (after render nodes).
 
 <MemberHeading id="resize" depth="3" name="resize" sig="resize" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1102" sourceLabel="RendererEvents.ts:1102" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1116" sourceLabel="RendererEvents.ts:1116" />
 
 Triggered when the screen is resized.
 
 <MemberHeading id="resizeend" depth="3" name="resizeend" sig="resizeend" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1108" sourceLabel="RendererEvents.ts:1108" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1122" sourceLabel="RendererEvents.ts:1122" />
 
 Triggered when the screen is resized.
 
 <MemberHeading id="mouseenter" depth="3" name="mouseenter" sig="mouseenter" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1114" sourceLabel="RendererEvents.ts:1114" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1128" sourceLabel="RendererEvents.ts:1128" />
 
 Mouse enters the work screen
 
 <MemberHeading id="mouseleave" depth="3" name="mouseleave" sig="mouseleave" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1120" sourceLabel="RendererEvents.ts:1120" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1134" sourceLabel="RendererEvents.ts:1134" />
 
 Mouse leaves the work screen
 
 <MemberHeading id="mousemove" depth="3" name="mousemove" sig="mousemove" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1126" sourceLabel="RendererEvents.ts:1126" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1140" sourceLabel="RendererEvents.ts:1140" />
 
 Mouse is moving.
 
 <MemberHeading id="mousestop" depth="3" name="mousestop" sig="mousestop" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1132" sourceLabel="RendererEvents.ts:1132" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1146" sourceLabel="RendererEvents.ts:1146" />
 
 Mouse is just stopped.
 
 <MemberHeading id="lclick" depth="3" name="lclick" sig="lclick" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1138" sourceLabel="RendererEvents.ts:1138" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1152" sourceLabel="RendererEvents.ts:1152" />
 
 Mouse left button clicked.
 
 <MemberHeading id="rclick" depth="3" name="rclick" sig="rclick" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1144" sourceLabel="RendererEvents.ts:1144" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1158" sourceLabel="RendererEvents.ts:1158" />
 
 Mouse right button clicked.
 
 <MemberHeading id="mclick" depth="3" name="mclick" sig="mclick" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1150" sourceLabel="RendererEvents.ts:1150" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1164" sourceLabel="RendererEvents.ts:1164" />
 
 Mouse middle button clicked.
 
 <MemberHeading id="ldblclick" depth="3" name="ldblclick" sig="ldblclick" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1156" sourceLabel="RendererEvents.ts:1156" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1170" sourceLabel="RendererEvents.ts:1170" />
 
 Mouse left button double-click.
 
 <MemberHeading id="rdblclick" depth="3" name="rdblclick" sig="rdblclick" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1162" sourceLabel="RendererEvents.ts:1162" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1176" sourceLabel="RendererEvents.ts:1176" />
 
 Mouse right button double click.
 
 <MemberHeading id="mdblclick" depth="3" name="mdblclick" sig="mdblclick" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1168" sourceLabel="RendererEvents.ts:1168" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1182" sourceLabel="RendererEvents.ts:1182" />
 
 Mouse middle button double click.
 
 <MemberHeading id="lup" depth="3" name="lup" sig="lup" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1174" sourceLabel="RendererEvents.ts:1174" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1188" sourceLabel="RendererEvents.ts:1188" />
 
 Mouse left button up (stop pressing).
 
 <MemberHeading id="rup" depth="3" name="rup" sig="rup" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1180" sourceLabel="RendererEvents.ts:1180" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1194" sourceLabel="RendererEvents.ts:1194" />
 
 Mouse the right button up (stop pressing).
 
 <MemberHeading id="mup" depth="3" name="mup" sig="mup" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1186" sourceLabel="RendererEvents.ts:1186" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1200" sourceLabel="RendererEvents.ts:1200" />
 
 Mouse the middle button up (stop pressing).
 
 <MemberHeading id="ldown" depth="3" name="ldown" sig="ldown" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1192" sourceLabel="RendererEvents.ts:1192" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1206" sourceLabel="RendererEvents.ts:1206" />
 
 Mouse left button is just pressed down (start pressing).
 
 <MemberHeading id="rdown" depth="3" name="rdown" sig="rdown" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1198" sourceLabel="RendererEvents.ts:1198" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1212" sourceLabel="RendererEvents.ts:1212" />
 
 Mouse right button is just pressed down (start pressing).
 
 <MemberHeading id="mdown" depth="3" name="mdown" sig="mdown" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1204" sourceLabel="RendererEvents.ts:1204" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1218" sourceLabel="RendererEvents.ts:1218" />
 
 Mouse middle button is just pressed down (start pressing).
 
 <MemberHeading id="lhold" depth="3" name="lhold" sig="lhold" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1210" sourceLabel="RendererEvents.ts:1210" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1224" sourceLabel="RendererEvents.ts:1224" />
 
 Mouse left button is pressing.
 
 <MemberHeading id="rhold" depth="3" name="rhold" sig="rhold" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1216" sourceLabel="RendererEvents.ts:1216" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1230" sourceLabel="RendererEvents.ts:1230" />
 
 Mouse right button is pressing.
 
 <MemberHeading id="mhold" depth="3" name="mhold" sig="mhold" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1222" sourceLabel="RendererEvents.ts:1222" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1236" sourceLabel="RendererEvents.ts:1236" />
 
 Mouse middle button is pressing.
 
 <MemberHeading id="mousewheel" depth="3" name="mousewheel" sig="mousewheel" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1228" sourceLabel="RendererEvents.ts:1228" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1242" sourceLabel="RendererEvents.ts:1242" />
 
 Mouse wheel is rotated.
 
 <MemberHeading id="touchstart" depth="3" name="touchstart" sig="touchstart" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1234" sourceLabel="RendererEvents.ts:1234" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1248" sourceLabel="RendererEvents.ts:1248" />
 
 Triggered when touching starts.
 
 <MemberHeading id="touchend" depth="3" name="touchend" sig="touchend" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1240" sourceLabel="RendererEvents.ts:1240" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1254" sourceLabel="RendererEvents.ts:1254" />
 
 Triggered when touching ends.
 
 <MemberHeading id="touchcancel" depth="3" name="touchcancel" sig="touchcancel" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1246" sourceLabel="RendererEvents.ts:1246" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1260" sourceLabel="RendererEvents.ts:1260" />
 
 Triggered when touching cancel.
 
 <MemberHeading id="touchmove" depth="3" name="touchmove" sig="touchmove" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1252" sourceLabel="RendererEvents.ts:1252" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1266" sourceLabel="RendererEvents.ts:1266" />
 
 Triggered when touch is move.
 
 <MemberHeading id="doubletouch" depth="3" name="doubletouch" sig="doubletouch" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1258" sourceLabel="RendererEvents.ts:1258" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1272" sourceLabel="RendererEvents.ts:1272" />
 
 Triggered when double touch.
 
 <MemberHeading id="touchleave" depth="3" name="touchleave" sig="touchleave" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1264" sourceLabel="RendererEvents.ts:1264" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1278" sourceLabel="RendererEvents.ts:1278" />
 
 Triggered when touch leaves a picked object.
 
 <MemberHeading id="touchenter" depth="3" name="touchenter" sig="touchenter" />
 
-<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1270" sourceLabel="RendererEvents.ts:1270" />
+<MemberMeta badges="event" sourceHref="/source/renderer/rendererevents-ts/#L1284" sourceLabel="RendererEvents.ts:1284" />
 
 Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2618" sourceLabel="Planet.ts:2618" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2635" sourceLabel="Planet.ts:2635" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2624" sourceLabel="Planet.ts:2624" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2641" sourceLabel="Planet.ts:2641" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2630" sourceLabel="Planet.ts:2630" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2647" sourceLabel="Planet.ts:2647" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2636" sourceLabel="Planet.ts:2636" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2653" sourceLabel="Planet.ts:2653" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2642" sourceLabel="Planet.ts:2642" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2659" sourceLabel="Planet.ts:2659" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2648" sourceLabel="Planet.ts:2648" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2665" sourceLabel="Planet.ts:2665" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2654" sourceLabel="Planet.ts:2654" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2671" sourceLabel="Planet.ts:2671" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2660" sourceLabel="Planet.ts:2660" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2677" sourceLabel="Planet.ts:2677" />
 
 Triggered when layer data finishes loading.
 
@@ -1334,7 +1334,7 @@ Triggered when layer data finishes loading.
 
 <MemberHeading id="planetnameprefix" depth="3" name="PLANET_NAME_PREFIX" sig="PLANET_NAME_PREFIX: string" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L41" sourceLabel="Globe.ts:41" />
+<MemberMeta sourceHref="/source/globe-ts/#L42" sourceLabel="Globe.ts:42" />
 
 <MemberHeading id="j2000obliquity" depth="3" name="J2000_OBLIQUITY" sig="J2000_OBLIQUITY" />
 
@@ -1497,6 +1497,12 @@ Modified julian date difference.
 <MemberMeta sourceHref="/source/astro/jd-ts/#L129" sourceLabel="jd.ts:129" />
 
 Julian date of 2000 year. Epoch.
+
+<MemberHeading id="sundatethreshold" depth="3" name="SUN_DATE_THRESHOLD" sig="SUN_DATE_THRESHOLD: number" />
+
+<MemberMeta sourceHref="/source/control/sun-ts/#L16" sourceLabel="Sun.ts:16" />
+
+Minimal julian date change that moves the sunlight position, about 30 seconds.
 
 <MemberHeading id="safe" depth="3" name="SAFE" sig="SAFE" />
 

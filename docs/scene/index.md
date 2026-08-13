@@ -118,7 +118,7 @@ Sets draw mode
 
 <MemberHeading id="drawpickingentitycollections" depth="3" name="drawPickingEntityCollections" sig="drawPickingEntityCollections(ec: Array.<EntityCollection>)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L333" sourceLabel="Scene.ts:333" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L334" sourceLabel="Scene.ts:334" />
 
 Draw entity collections picking frame.
 

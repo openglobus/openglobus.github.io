@@ -124,7 +124,7 @@ Creates atlas gl texture.
 
 <MemberHeading id="loadimage" depth="3" name="loadImage" sig="loadImage(src: string, success: ImagesCacheManagerCallback)" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L266" sourceLabel="TextureAtlas.ts:266" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L267" sourceLabel="TextureAtlas.ts:267" />
 
 Asynchronous function that loads and creates image to the image cache, and call success callback when it's done.
 

@@ -102,7 +102,7 @@ Assign renderer to the control.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/control/control-ts/#L132" sourceLabel="Control.ts:132" />
+<MemberMeta sourceHref="/source/control/control-ts/#L137" sourceLabel="Control.ts:137" />
 
 _Inherited from `Control#remove`_
 
@@ -112,7 +112,7 @@ Removes control.
 
 <MemberHeading id="activate" depth="3" name="activate" sig="activate()" />
 
-<MemberMeta sourceHref="/source/control/control-ts/#L159" sourceLabel="Control.ts:159" />
+<MemberMeta sourceHref="/source/control/control-ts/#L164" sourceLabel="Control.ts:164" />
 
 _Inherited from `Control#activate`_
 
@@ -122,7 +122,7 @@ Activate control.
 
 <MemberHeading id="deactivate" depth="3" name="deactivate" sig="deactivate()" />
 
-<MemberMeta sourceHref="/source/control/control-ts/#L178" sourceLabel="Control.ts:178" />
+<MemberMeta sourceHref="/source/control/control-ts/#L183" sourceLabel="Control.ts:183" />
 
 _Inherited from `Control#deactivate`_
 
@@ -132,7 +132,7 @@ Deactivate control.
 
 <MemberHeading id="isactive" depth="3" name="isActive" sig="isActive()" />
 
-<MemberMeta sourceHref="/source/control/control-ts/#L191" sourceLabel="Control.ts:191" />
+<MemberMeta sourceHref="/source/control/control-ts/#L196" sourceLabel="Control.ts:196" />
 
 _Inherited from `Control#isActive`_
 

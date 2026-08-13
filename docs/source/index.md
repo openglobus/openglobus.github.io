@@ -55,6 +55,7 @@ kind: guide
 - [control/entityTree/EntityTree.ts](/source/control/entitytree/entitytree-ts/)
 - [control/entityTree/EntityTreeView.ts](/source/control/entitytree/entitytreeview-ts/)
 - [control/FramebufferPreview.ts](/source/control/framebufferpreview-ts/)
+- [control/FreeNavigation.ts](/source/control/freenavigation-ts/)
 - [control/GeoImageDragControl.ts](/source/control/geoimagedragcontrol-ts/)
 - [control/heightRuler/HeightRuler.ts](/source/control/heightruler/heightruler-ts/)
 - [control/heightRuler/HeightRulerScene.ts](/source/control/heightruler/heightrulerscene-ts/)

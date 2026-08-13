@@ -84,9 +84,15 @@ Sets collection visibility.
 
 - `visibility` (boolean) — Visibility flag.
 
-<MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
+<MemberHeading id="requestredraw" depth="3" name="requestRedraw" sig="requestRedraw()" />
 
 <MemberMeta sourceHref="/source/entity/entitycollection-ts/#L378" sourceLabel="EntityCollection.ts:378" />
+
+Requests the next frame to be rendered.
+
+<MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
+
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L387" sourceLabel="EntityCollection.ts:387" />
 
 Returns collection visibility.
 
@@ -96,7 +102,7 @@ Returns collection visibility.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L387" sourceLabel="EntityCollection.ts:387" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L396" sourceLabel="EntityCollection.ts:396" />
 
 Sets collection opacity.
 
@@ -106,7 +112,7 @@ Sets collection opacity.
 
 <MemberHeading id="setpickingenabled" depth="3" name="setPickingEnabled" sig="setPickingEnabled(enable: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L396" sourceLabel="EntityCollection.ts:396" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L406" sourceLabel="EntityCollection.ts:406" />
 
 Sets collection picking ability.
 
@@ -116,7 +122,7 @@ Sets collection picking ability.
 
 <MemberHeading id="setreceiveprojectors" depth="3" name="setReceiveProjectors" sig="setReceiveProjectors(enable: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L411" sourceLabel="EntityCollection.ts:411" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L421" sourceLabel="EntityCollection.ts:421" />
 
 Sets whether this collection receives projector effects.
 
@@ -126,7 +132,7 @@ Sets whether this collection receives projector effects.
 
 <MemberHeading id="setreceiveframetransparency" depth="3" name="setReceiveFrameTransparency" sig="setReceiveFrameTransparency(enable: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L420" sourceLabel="EntityCollection.ts:420" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L430" sourceLabel="EntityCollection.ts:430" />
 
 Sets whether this collection receives frame transparency.
 
@@ -136,7 +142,7 @@ Sets whether this collection receives frame transparency.
 
 <MemberHeading id="setreceiveshadows" depth="3" name="setReceiveShadows" sig="setReceiveShadows(enable: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L429" sourceLabel="EntityCollection.ts:429" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L439" sourceLabel="EntityCollection.ts:439" />
 
 Sets whether this collection receives shadow map effects.
 
@@ -146,7 +152,7 @@ Sets whether this collection receives shadow map effects.
 
 <MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L438" sourceLabel="EntityCollection.ts:438" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L448" sourceLabel="EntityCollection.ts:448" />
 
 Gets collection opacity.
 
@@ -165,7 +171,7 @@ Gets collection opacity.
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L449" sourceLabel="EntityCollection.ts:449" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L459" sourceLabel="EntityCollection.ts:459" />
 
 Sets scale by distance parameters.
 
@@ -177,13 +183,13 @@ Sets scale by distance parameters.
 
 <MemberHeading id="applyterraincollision" depth="3" name="applyTerrainCollision" sig="applyTerrainCollision()" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L463" sourceLabel="EntityCollection.ts:463" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L474" sourceLabel="EntityCollection.ts:474" />
 
 Aligns collection entities to terrain. Currently applies to polyline entities.
 
 <MemberHeading id="add" depth="3" name="add" sig="add(entity: Entity): EntityCollection" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L572" sourceLabel="EntityCollection.ts:572" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L583" sourceLabel="EntityCollection.ts:583" />
 
 Adds entity to the collection and returns collection.
 
@@ -197,7 +203,7 @@ Adds entity to the collection and returns collection.
 
 <MemberHeading id="addentities" depth="3" name="addEntities" sig="addEntities(entities: Array.<Entity>): EntityCollection" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L588" sourceLabel="EntityCollection.ts:588" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L600" sourceLabel="EntityCollection.ts:600" />
 
 Adds entities array to the collection and returns collection.
 
@@ -211,7 +217,7 @@ Adds entities array to the collection and returns collection.
 
 <MemberHeading id="belongs" depth="3" name="belongs" sig="belongs(entity: Entity): boolean" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L601" sourceLabel="EntityCollection.ts:601" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L613" sourceLabel="EntityCollection.ts:613" />
 
 Returns true if the entity belongs to this collection, otherwise returns false.
 
@@ -225,7 +231,7 @@ Returns true if the entity belongs to this collection, otherwise returns false.
 
 <MemberHeading id="removeentity" depth="3" name="removeEntity" sig="removeEntity(entity: Entity)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L664" sourceLabel="EntityCollection.ts:664" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L676" sourceLabel="EntityCollection.ts:676" />
 
 Removes entity from this collection.
 
@@ -235,13 +241,13 @@ Removes entity from this collection.
 
 <MemberHeading id="createpickingcolors" depth="3" name="createPickingColors" sig="createPickingColors()" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L681" sourceLabel="EntityCollection.ts:681" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L695" sourceLabel="EntityCollection.ts:695" />
 
 Creates or refresh collected entities picking color.
 
 <MemberHeading id="reindexentitiesarray" depth="3" name="reindexEntitiesArray" sig="reindexEntitiesArray(startIndex: number)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L707" sourceLabel="EntityCollection.ts:707" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L721" sourceLabel="EntityCollection.ts:721" />
 
 Refresh collected entities indexes from startIndex entities collection array position.
 
@@ -251,7 +257,7 @@ Refresh collected entities indexes from startIndex entities collection array pos
 
 <MemberHeading id="addto" depth="3" name="addTo" sig="addTo(scene: Scene, isHidden?: boolean): EntityCollection" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L721" sourceLabel="EntityCollection.ts:721" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L735" sourceLabel="EntityCollection.ts:735" />
 
 Adds this collection to render node.
 
@@ -266,7 +272,7 @@ Adds this collection to render node.
 
 <MemberHeading id="bindscene" depth="3" name="bindScene" sig="bindScene(scene: Scene)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L733" sourceLabel="EntityCollection.ts:733" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L747" sourceLabel="EntityCollection.ts:747" />
 
 This function is called in the Scene assign function.
 
@@ -276,7 +282,7 @@ This function is called in the Scene assign function.
 
 <MemberHeading id="updategeodeticcoordinates" depth="3" name="_updateGeodeticCoordinates" sig="_updateGeodeticCoordinates(ellipsoid: Ellipsoid)" />
 
-<MemberMeta badges="protected" sourceHref="/source/entity/entitycollection-ts/#L764" sourceLabel="EntityCollection.ts:764" />
+<MemberMeta badges="protected" sourceHref="/source/entity/entitycollection-ts/#L778" sourceLabel="EntityCollection.ts:778" />
 
 Updates coordinates all lonLat entities in collection after collection attached to the planet node.
 
@@ -286,31 +292,31 @@ Updates coordinates all lonLat entities in collection after collection attached 
 
 <MemberHeading id="updatebillboardstextureatlas" depth="3" name="updateBillboardsTextureAtlas" sig="updateBillboardsTextureAtlas()" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L777" sourceLabel="EntityCollection.ts:777" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L791" sourceLabel="EntityCollection.ts:791" />
 
 Updates billboard texture atlas.
 
 <MemberHeading id="updatelabelsfontatlas" depth="3" name="updateLabelsFontAtlas" sig="updateLabelsFontAtlas()" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L788" sourceLabel="EntityCollection.ts:788" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L802" sourceLabel="EntityCollection.ts:802" />
 
 Updates labels font atlas.
 
 <MemberHeading id="updatestroketextureatlas" depth="3" name="updateStrokeTextureAtlas" sig="updateStrokeTextureAtlas()" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L803" sourceLabel="EntityCollection.ts:803" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L817" sourceLabel="EntityCollection.ts:817" />
 
 Updates stroke texture atlas.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L818" sourceLabel="EntityCollection.ts:818" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L832" sourceLabel="EntityCollection.ts:832" />
 
 Removes collection from render node.
 
 <MemberHeading id="getentities" depth="3" name="getEntities" sig="getEntities(): Array.<Entity>" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L832" sourceLabel="EntityCollection.ts:832" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L846" sourceLabel="EntityCollection.ts:846" />
 
 Gets entity array.
 
@@ -320,7 +326,7 @@ Gets entity array.
 
 <MemberHeading id="each" depth="3" name="each" sig="each(callback: function)" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L841" sourceLabel="EntityCollection.ts:841" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L855" sourceLabel="EntityCollection.ts:855" />
 
 Safety entities loop.
 
@@ -330,7 +336,7 @@ Safety entities loop.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L853" sourceLabel="EntityCollection.ts:853" />
+<MemberMeta sourceHref="/source/entity/entitycollection-ts/#L867" sourceLabel="EntityCollection.ts:867" />
 
 Removes all entities from collection and clear handlers.
 
@@ -338,192 +344,192 @@ Removes all entities from collection and clear handlers.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L938" sourceLabel="EntityCollection.ts:938" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L954" sourceLabel="EntityCollection.ts:954" />
 
 Triggered when collection entities begin draw.
 
 <MemberHeading id="drawend" depth="3" name="drawend" sig="drawend" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L944" sourceLabel="EntityCollection.ts:944" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L960" sourceLabel="EntityCollection.ts:960" />
 
 Triggered after collection has drawn.
 
 <MemberHeading id="add" depth="3" name="add" sig="add" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L950" sourceLabel="EntityCollection.ts:950" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L966" sourceLabel="EntityCollection.ts:966" />
 
 Triggered when added to the render node.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L956" sourceLabel="EntityCollection.ts:956" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L972" sourceLabel="EntityCollection.ts:972" />
 
 Triggered when removed from the render node.
 
 <MemberHeading id="entityadd" depth="3" name="entityadd" sig="entityadd" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L962" sourceLabel="EntityCollection.ts:962" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L978" sourceLabel="EntityCollection.ts:978" />
 
 Triggered when new entity added to the collection.
 
 <MemberHeading id="entityremove" depth="3" name="entityremove" sig="entityremove" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L968" sourceLabel="EntityCollection.ts:968" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L984" sourceLabel="EntityCollection.ts:984" />
 
 Triggered when entity removes from the collection.
 
 <MemberHeading id="visibilitychange" depth="3" name="visibilitychange" sig="visibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L974" sourceLabel="EntityCollection.ts:974" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L990" sourceLabel="EntityCollection.ts:990" />
 
 Triggered when visibility changes.
 
 <MemberHeading id="mousemove" depth="3" name="mousemove" sig="mousemove" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L980" sourceLabel="EntityCollection.ts:980" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L996" sourceLabel="EntityCollection.ts:996" />
 
 Triggered when mouse moves over the entity.
 
 <MemberHeading id="mouseenter" depth="3" name="mouseenter" sig="mouseenter" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L986" sourceLabel="EntityCollection.ts:986" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1002" sourceLabel="EntityCollection.ts:1002" />
 
 Triggered when mouse has entered over the entity.
 
 <MemberHeading id="mouseleave" depth="3" name="mouseleave" sig="mouseleave" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L992" sourceLabel="EntityCollection.ts:992" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1008" sourceLabel="EntityCollection.ts:1008" />
 
 Triggered when mouse leaves the entity.
 
 <MemberHeading id="lclick" depth="3" name="lclick" sig="lclick" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L998" sourceLabel="EntityCollection.ts:998" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1014" sourceLabel="EntityCollection.ts:1014" />
 
 Mouse left button clicked.
 
 <MemberHeading id="rclick" depth="3" name="rclick" sig="rclick" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1004" sourceLabel="EntityCollection.ts:1004" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1020" sourceLabel="EntityCollection.ts:1020" />
 
 Mouse right button clicked.
 
 <MemberHeading id="mclick" depth="3" name="mclick" sig="mclick" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1010" sourceLabel="EntityCollection.ts:1010" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1026" sourceLabel="EntityCollection.ts:1026" />
 
 Mouse right button clicked.
 
 <MemberHeading id="ldblclick" depth="3" name="ldblclick" sig="ldblclick" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1016" sourceLabel="EntityCollection.ts:1016" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1032" sourceLabel="EntityCollection.ts:1032" />
 
 Mouse left button double click.
 
 <MemberHeading id="rdblclick" depth="3" name="rdblclick" sig="rdblclick" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1022" sourceLabel="EntityCollection.ts:1022" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1038" sourceLabel="EntityCollection.ts:1038" />
 
 Mouse right button double click.
 
 <MemberHeading id="mdblclick" depth="3" name="mdblclick" sig="mdblclick" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1028" sourceLabel="EntityCollection.ts:1028" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1044" sourceLabel="EntityCollection.ts:1044" />
 
 Mouse middle button double click.
 
 <MemberHeading id="lup" depth="3" name="lup" sig="lup" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1034" sourceLabel="EntityCollection.ts:1034" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1050" sourceLabel="EntityCollection.ts:1050" />
 
 Mouse left button up(stop pressing).
 
 <MemberHeading id="rup" depth="3" name="rup" sig="rup" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1040" sourceLabel="EntityCollection.ts:1040" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1056" sourceLabel="EntityCollection.ts:1056" />
 
 Mouse right button up(stop pressing).
 
 <MemberHeading id="mup" depth="3" name="mup" sig="mup" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1046" sourceLabel="EntityCollection.ts:1046" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1062" sourceLabel="EntityCollection.ts:1062" />
 
 Mouse middle button up(stop pressing).
 
 <MemberHeading id="ldown" depth="3" name="ldown" sig="ldown" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1052" sourceLabel="EntityCollection.ts:1052" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1068" sourceLabel="EntityCollection.ts:1068" />
 
 Mouse left button is just pressed down(start pressing).
 
 <MemberHeading id="rdown" depth="3" name="rdown" sig="rdown" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1058" sourceLabel="EntityCollection.ts:1058" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1074" sourceLabel="EntityCollection.ts:1074" />
 
 Mouse right button is just pressed down(start pressing).
 
 <MemberHeading id="mdown" depth="3" name="mdown" sig="mdown" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1064" sourceLabel="EntityCollection.ts:1064" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1080" sourceLabel="EntityCollection.ts:1080" />
 
 Mouse middle button is just pressed down(start pressing).
 
 <MemberHeading id="lhold" depth="3" name="lhold" sig="lhold" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1070" sourceLabel="EntityCollection.ts:1070" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1086" sourceLabel="EntityCollection.ts:1086" />
 
 Mouse left button is pressing.
 
 <MemberHeading id="rhold" depth="3" name="rhold" sig="rhold" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1076" sourceLabel="EntityCollection.ts:1076" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1092" sourceLabel="EntityCollection.ts:1092" />
 
 Mouse right button is pressing.
 
 <MemberHeading id="mhold" depth="3" name="mhold" sig="mhold" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1082" sourceLabel="EntityCollection.ts:1082" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1098" sourceLabel="EntityCollection.ts:1098" />
 
 Mouse middle button is pressing.
 
 <MemberHeading id="mousewheel" depth="3" name="mousewheel" sig="mousewheel" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1088" sourceLabel="EntityCollection.ts:1088" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1104" sourceLabel="EntityCollection.ts:1104" />
 
 Mouse wheel is rotated.
 
 <MemberHeading id="touchmove" depth="3" name="touchmove" sig="touchmove" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1094" sourceLabel="EntityCollection.ts:1094" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1110" sourceLabel="EntityCollection.ts:1110" />
 
 Triggered when touch moves over the entity.
 
 <MemberHeading id="touchstart" depth="3" name="touchstart" sig="touchstart" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1100" sourceLabel="EntityCollection.ts:1100" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1116" sourceLabel="EntityCollection.ts:1116" />
 
 Triggered when entity begins to touch.
 
 <MemberHeading id="touchend" depth="3" name="touchend" sig="touchend" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1106" sourceLabel="EntityCollection.ts:1106" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1122" sourceLabel="EntityCollection.ts:1122" />
 
 Triggered when entity ends touching.
 
 <MemberHeading id="doubletouch" depth="3" name="doubletouch" sig="doubletouch" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1112" sourceLabel="EntityCollection.ts:1112" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1128" sourceLabel="EntityCollection.ts:1128" />
 
 Triggered entity double touch.
 
 <MemberHeading id="touchleave" depth="3" name="touchleave" sig="touchleave" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1118" sourceLabel="EntityCollection.ts:1118" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1134" sourceLabel="EntityCollection.ts:1134" />
 
 Triggered when touching leaves entity.
 
 <MemberHeading id="touchenter" depth="3" name="touchenter" sig="touchenter" />
 
-<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1124" sourceLabel="EntityCollection.ts:1124" />
+<MemberMeta badges="event" sourceHref="/source/entity/entitycollection-ts/#L1140" sourceLabel="EntityCollection.ts:1140" />
 
 Triggered when touch enters over the entity.

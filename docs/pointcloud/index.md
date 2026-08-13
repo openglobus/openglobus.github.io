@@ -63,7 +63,7 @@ Sets cloud visibility.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L259" sourceLabel="PointCloud.ts:259" />
+<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L260" sourceLabel="PointCloud.ts:260" />
 
 Sets opacity for all points in the cloud.
 
@@ -73,7 +73,7 @@ Sets opacity for all points in the cloud.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L276" sourceLabel="PointCloud.ts:276" />
+<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L277" sourceLabel="PointCloud.ts:277" />
 
 **Returns**
 
@@ -81,7 +81,7 @@ Sets opacity for all points in the cloud.
 
 <MemberHeading id="bindscene" depth="3" name="bindScene" sig="bindScene(scene: Scene)" />
 
-<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L285" sourceLabel="PointCloud.ts:285" />
+<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L286" sourceLabel="PointCloud.ts:286" />
 
 Assign rendering scene node.
 
@@ -91,13 +91,13 @@ Assign rendering scene node.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L294" sourceLabel="PointCloud.ts:294" />
+<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L295" sourceLabel="PointCloud.ts:295" />
 
 Removes from entity.
 
 <MemberHeading id="setpoints" depth="3" name="setPoints" sig="setPoints(points: Array.<Poi>)" />
 
-<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L306" sourceLabel="PointCloud.ts:306" />
+<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L307" sourceLabel="PointCloud.ts:307" />
 
 Adds points to render.
 
@@ -113,7 +113,7 @@ var points = [[0, 0, 0, 255, 255, 255, 255, { 'name': 'White point' }], [100, 10
 
 <MemberHeading id="getpoint" depth="3" name="getPoint" sig="getPoint(index: number): IPoint" />
 
-<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L377" sourceLabel="PointCloud.ts:377" />
+<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L378" sourceLabel="PointCloud.ts:378" />
 
 Returns specific point by index.
 
@@ -127,13 +127,13 @@ Returns specific point by index.
 
 <MemberHeading id="update" depth="3" name="_update" sig="_update()" />
 
-<MemberMeta badges="protected" sourceHref="/source/entity/pointcloud/pointcloud-ts/#L455" sourceLabel="PointCloud.ts:455" />
+<MemberMeta badges="protected" sourceHref="/source/entity/pointcloud/pointcloud-ts/#L461" sourceLabel="PointCloud.ts:461" />
 
 Update gl buffers.
 
 <MemberHeading id="deletebuffers" depth="3" name="_deleteBuffers" sig="_deleteBuffers()" />
 
-<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L471" sourceLabel="PointCloud.ts:471" />
+<MemberMeta sourceHref="/source/entity/pointcloud/pointcloud-ts/#L477" sourceLabel="PointCloud.ts:477" />
 
 Delete buffers
 

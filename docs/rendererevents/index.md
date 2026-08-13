@@ -53,12 +53,12 @@ Renderer events initialization.
 
 <MemberHeading id="onmousewheel" depth="3" name="onMouseWheel" sig="onMouseWheel()" />
 
-<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L982" sourceLabel="RendererEvents.ts:982" />
+<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L996" sourceLabel="RendererEvents.ts:996" />
 
 <MemberHeading id="onpointerup" depth="3" name="onPointerUp" sig="onPointerUp()" />
 
-<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L982" sourceLabel="RendererEvents.ts:982" />
+<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L996" sourceLabel="RendererEvents.ts:996" />
 
 <MemberHeading id="handletouchevents" depth="3" name="handleTouchEvents" sig="handleTouchEvents()" />
 
-<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L982" sourceLabel="RendererEvents.ts:982" />
+<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L996" sourceLabel="RendererEvents.ts:996" />

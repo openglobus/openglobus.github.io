@@ -227,7 +227,7 @@ Flies camera to a position at a fixed distance from the target point.
 
 <MemberHeading id="rotateleft" depth="3" name="rotateLeft" sig="rotateLeft(angle: number, spin?: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L689" sourceLabel="PlanetCamera.ts:689" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L687" sourceLabel="PlanetCamera.ts:687" />
 
 Rotates around planet to the left.
 
@@ -238,7 +238,7 @@ Rotates around planet to the left.
 
 <MemberHeading id="rotateright" depth="3" name="rotateRight" sig="rotateRight(angle: number, spin?: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L700" sourceLabel="PlanetCamera.ts:700" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L698" sourceLabel="PlanetCamera.ts:698" />
 
 Rotates around planet to the right.
 
@@ -249,7 +249,7 @@ Rotates around planet to the right.
 
 <MemberHeading id="rotateup" depth="3" name="rotateUp" sig="rotateUp(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L710" sourceLabel="PlanetCamera.ts:710" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L708" sourceLabel="PlanetCamera.ts:708" />
 
 Rotates around planet to the North Pole.
 
@@ -259,7 +259,7 @@ Rotates around planet to the North Pole.
 
 <MemberHeading id="rotatedown" depth="3" name="rotateDown" sig="rotateDown(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L720" sourceLabel="PlanetCamera.ts:720" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L718" sourceLabel="PlanetCamera.ts:718" />
 
 Rotates around planet to the South Pole.
 
@@ -269,7 +269,7 @@ Rotates around planet to the South Pole.
 
 <MemberHeading id="rotatevertical" depth="3" name="rotateVertical" sig="rotateVertical(angle: number, center: Vec3, minSlope?: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L732" sourceLabel="PlanetCamera.ts:732" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L730" sourceLabel="PlanetCamera.ts:730" />
 
 **Overrides:&#x20;**`Camera#rotateVertical`
 
@@ -283,7 +283,7 @@ Rotates camera vertically around the given center.
 
 <MemberHeading id="checkterraincollision" depth="3" name="checkTerrainCollision" sig="checkTerrainCollision(): Vec3 | undefined" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L771" sourceLabel="PlanetCamera.ts:771" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L769" sourceLabel="PlanetCamera.ts:769" />
 
 Updates terrain altitude and keeps camera above minimum altitude.
 
@@ -293,7 +293,7 @@ Updates terrain altitude and keeps camera above minimum altitude.
 
 <MemberHeading id="getsurfacevisibledistance" depth="3" name="getSurfaceVisibleDistance" sig="getSurfaceVisibleDistance(d: number): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L816" sourceLabel="PlanetCamera.ts:816" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L814" sourceLabel="PlanetCamera.ts:814" />
 
 Returns visible surface arc distance from current altitude.
 
@@ -315,7 +315,7 @@ Returns visible surface arc distance from current altitude.
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L829" sourceLabel="PlanetCamera.ts:829" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L827" sourceLabel="PlanetCamera.ts:827" />
 
 Returns the ellipsoid intersection point for a screen-space ray. If the ray doesn't hit ellipsoid, it returns 'undefined'.
 
@@ -330,7 +330,7 @@ Returns the ellipsoid intersection point for a screen-space ray. If the ray does
 
 <MemberHeading id="getheading" depth="3" name="getHeading" sig="getHeading(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L840" sourceLabel="PlanetCamera.ts:840" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L838" sourceLabel="PlanetCamera.ts:838" />
 
 Returns heading angle in degrees. Should match `getYaw()` in most cases.
 
@@ -340,7 +340,7 @@ Returns heading angle in degrees. Should match `getYaw()` in most cases.
 
 <MemberHeading id="isvisible" depth="3" name="isVisible" sig="isVisible(poi: Vec3): boolean" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L857" sourceLabel="PlanetCamera.ts:857" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L855" sourceLabel="PlanetCamera.ts:855" />
 
 Checks whether a cartesian point is visible above the horizon.
 
@@ -354,7 +354,7 @@ Checks whether a cartesian point is visible above the horizon.
 
 <MemberHeading id="getpitch" depth="3" name="getPitch" sig="getPitch(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L867" sourceLabel="PlanetCamera.ts:867" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L865" sourceLabel="PlanetCamera.ts:865" />
 
 **Overrides:&#x20;**`Camera#getPitch`
 
@@ -366,7 +366,7 @@ Returns pitch angle in local planet frame.
 
 <MemberHeading id="getyaw" depth="3" name="getYaw" sig="getYaw(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L878" sourceLabel="PlanetCamera.ts:878" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L876" sourceLabel="PlanetCamera.ts:876" />
 
 **Overrides:&#x20;**`Camera#getYaw`
 
@@ -378,7 +378,7 @@ Returns yaw angle in local planet frame. Should match `getHeading()` in most cas
 
 <MemberHeading id="getroll" depth="3" name="getRoll" sig="getRoll(): number" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L888" sourceLabel="PlanetCamera.ts:888" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L886" sourceLabel="PlanetCamera.ts:886" />
 
 **Overrides:&#x20;**`Camera#getRoll`
 
@@ -390,7 +390,7 @@ Returns roll angle in local planet frame.
 
 <MemberHeading id="setpitch" depth="3" name="setPitch" sig="setPitch(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L898" sourceLabel="PlanetCamera.ts:898" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L896" sourceLabel="PlanetCamera.ts:896" />
 
 **Overrides:&#x20;**`Camera#setPitch`
 
@@ -402,7 +402,7 @@ Sets pitch angle in local planet frame.
 
 <MemberHeading id="setyaw" depth="3" name="setYaw" sig="setYaw(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L910" sourceLabel="PlanetCamera.ts:910" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L908" sourceLabel="PlanetCamera.ts:908" />
 
 **Overrides:&#x20;**`Camera#setYaw`
 
@@ -414,7 +414,7 @@ Sets yaw angle in local planet frame.
 
 <MemberHeading id="setroll" depth="3" name="setRoll" sig="setRoll(a: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L922" sourceLabel="PlanetCamera.ts:922" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L920" sourceLabel="PlanetCamera.ts:920" />
 
 **Overrides:&#x20;**`Camera#setRoll`
 
@@ -426,7 +426,7 @@ Sets roll angle in local planet frame.
 
 <MemberHeading id="setpitchyawroll" depth="3" name="setPitchYawRoll" sig="setPitchYawRoll(pitch: number, yaw: number, roll: number)" />
 
-<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L936" sourceLabel="PlanetCamera.ts:936" />
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L934" sourceLabel="PlanetCamera.ts:934" />
 
 **Overrides:&#x20;**`Camera#setPitchYawRoll`
 
@@ -440,7 +440,7 @@ Sets orientation from pitch, yaw and roll in local planet frame.
 
 <MemberHeading id="setdepthzerotoone" depth="3" name="setDepthZeroToOne" sig="setDepthZeroToOne(enabled: boolean)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L390" sourceLabel="Camera.ts:390" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L398" sourceLabel="Camera.ts:398" />
 
 _Inherited from `Camera#setDepthZeroToOne`_
 
@@ -454,7 +454,7 @@ Enables or disables ZERO\_TO\_ONE depth range mode.
 
 <MemberHeading id="flycartesian" depth="3" name="flyCartesian" sig="flyCartesian(cartesian?: Vec3, params?: IFlyCartesianParams)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L453" sourceLabel="Camera.ts:453" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L461" sourceLabel="Camera.ts:461" />
 
 _Inherited from `Camera#flyCartesian`_
 
@@ -469,7 +469,7 @@ Flies to the cartesian coordinates.
 
 <MemberHeading id="stopflying" depth="3" name="stopFlying" sig="stopFlying()" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L515" sourceLabel="Camera.ts:515" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L528" sourceLabel="Camera.ts:528" />
 
 _Inherited from `Camera#stopFlying`_
 
@@ -479,7 +479,7 @@ Breaks the flight.
 
 <MemberHeading id="checkfly" depth="3" name="checkFly" sig="checkFly()" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L529" sourceLabel="Camera.ts:529" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L542" sourceLabel="Camera.ts:542" />
 
 _Inherited from `Camera#checkFly`_
 
@@ -489,7 +489,7 @@ Prepare camera to the frame. Used in render node frame function.
 
 <MemberHeading id="isflying" depth="3" name="isFlying" sig="isFlying(): boolean" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L562" sourceLabel="Camera.ts:562" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L575" sourceLabel="Camera.ts:575" />
 
 _Inherited from `Camera#isFlying`_
 
@@ -503,7 +503,7 @@ Returns camera is flying.
 
 <MemberHeading id="checkviewchanges" depth="3" name="checkViewChanges" sig="checkViewChanges()" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L570" sourceLabel="Camera.ts:570" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L583" sourceLabel="Camera.ts:583" />
 
 _Inherited from `Camera#checkViewChanges`_
 
@@ -513,7 +513,7 @@ Checks camera movement and projection changes.
 
 <MemberHeading id="checkmoveend" depth="3" name="checkMoveEnd" sig="checkMoveEnd(): boolean" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L580" sourceLabel="Camera.ts:580" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L593" sourceLabel="Camera.ts:593" />
 
 _Inherited from `Camera#checkMoveEnd`_
 
@@ -527,7 +527,7 @@ Checks whether the camera stopped moving and dispatches `moveend`.
 
 <MemberHeading id="checkviewchange" depth="3" name="_checkViewChange" sig="_checkViewChange()" />
 
-<MemberMeta badges="protected" sourceHref="/source/camera/camera-ts/#L608" sourceLabel="Camera.ts:608" />
+<MemberMeta badges="protected" sourceHref="/source/camera/camera-ts/#L621" sourceLabel="Camera.ts:621" />
 
 _Inherited from `Camera#_checkViewChange`_
 
@@ -537,7 +537,7 @@ Checks whether the camera view or projection changed and dispatches `viewchange`
 
 <MemberHeading id="bindfrustumspickingcolors" depth="3" name="bindFrustumsPickingColors" sig="bindFrustumsPickingColors(renderer: Renderer)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L636" sourceLabel="Camera.ts:636" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L650" sourceLabel="Camera.ts:650" />
 
 _Inherited from `Camera#bindFrustumsPickingColors`_
 
@@ -551,7 +551,7 @@ Binds picking colors for all frustums.
 
 <MemberHeading id="init" depth="3" name="_init" sig="_init(options?: Object)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L654" sourceLabel="Camera.ts:654" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L668" sourceLabel="Camera.ts:668" />
 
 _Inherited from `Camera#_init`_
 
@@ -571,7 +571,7 @@ Camera initialization.
 
 <MemberHeading id="getup" depth="3" name="getUp" sig="getUp(): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L669" sourceLabel="Camera.ts:669" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L683" sourceLabel="Camera.ts:683" />
 
 _Inherited from `Camera#getUp`_
 
@@ -585,7 +585,7 @@ Returns up direction vector.
 
 <MemberHeading id="getdown" depth="3" name="getDown" sig="getDown(): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L678" sourceLabel="Camera.ts:678" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L692" sourceLabel="Camera.ts:692" />
 
 _Inherited from `Camera#getDown`_
 
@@ -599,7 +599,7 @@ Returns down direction vector.
 
 <MemberHeading id="getright" depth="3" name="getRight" sig="getRight(): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L687" sourceLabel="Camera.ts:687" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L701" sourceLabel="Camera.ts:701" />
 
 _Inherited from `Camera#getRight`_
 
@@ -613,7 +613,7 @@ Returns right direction vector.
 
 <MemberHeading id="getleft" depth="3" name="getLeft" sig="getLeft(): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L696" sourceLabel="Camera.ts:696" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L710" sourceLabel="Camera.ts:710" />
 
 _Inherited from `Camera#getLeft`_
 
@@ -627,7 +627,7 @@ Returns left direction vector.
 
 <MemberHeading id="getforward" depth="3" name="getForward" sig="getForward(): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L705" sourceLabel="Camera.ts:705" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L719" sourceLabel="Camera.ts:719" />
 
 _Inherited from `Camera#getForward`_
 
@@ -641,7 +641,7 @@ Returns forward direction vector.
 
 <MemberHeading id="getbackward" depth="3" name="getBackward" sig="getBackward(): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L714" sourceLabel="Camera.ts:714" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L728" sourceLabel="Camera.ts:728" />
 
 _Inherited from `Camera#getBackward`_
 
@@ -655,7 +655,7 @@ Returns backward direction vector.
 
 <MemberHeading id="refresh" depth="3" name="refresh" sig="refresh()" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L774" sourceLabel="Camera.ts:774" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L788" sourceLabel="Camera.ts:788" />
 
 _Inherited from `Camera#refresh`_
 
@@ -665,7 +665,7 @@ Refresh camera matrices
 
 <MemberHeading id="setviewportsize" depth="3" name="setViewportSize" sig="setViewportSize(width: number, height: number)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L803" sourceLabel="Camera.ts:803" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L818" sourceLabel="Camera.ts:818" />
 
 _Inherited from `Camera#setViewportSize`_
 
@@ -680,7 +680,7 @@ Sets viewport size and updates projection.
 
 <MemberHeading id="getaspectratio" depth="3" name="getAspectRatio" sig="getAspectRatio(): number" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L814" sourceLabel="Camera.ts:814" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L829" sourceLabel="Camera.ts:829" />
 
 _Inherited from `Camera#getAspectRatio`_
 
@@ -694,7 +694,7 @@ Returns aspect ratio.
 
 <MemberHeading id="setproj" depth="3" name="_setProj" sig="_setProj(viewAngle: number, aspect: number)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L824" sourceLabel="Camera.ts:824" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L839" sourceLabel="Camera.ts:839" />
 
 _Inherited from `Camera#_setProj`_
 
@@ -709,7 +709,7 @@ Sets camera projection.
 
 <MemberHeading id="setnearfar" depth="3" name="setNearFar" sig="setNearFar(near: number, far?: number, frustumIndex?: number)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L850" sourceLabel="Camera.ts:850" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L865" sourceLabel="Camera.ts:865" />
 
 _Inherited from `Camera#setNearFar`_
 
@@ -725,7 +725,7 @@ Updates near/far planes for one frustum.
 
 <MemberHeading id="setfrustums" depth="3" name="setFrustums" sig="setFrustums(frustums: Array.<NumberArray2>)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L859" sourceLabel="Camera.ts:859" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L874" sourceLabel="Camera.ts:874" />
 
 _Inherited from `Camera#setFrustums`_
 
@@ -739,7 +739,7 @@ Replaces camera frustum ranges.
 
 <MemberHeading id="setviewangle" depth="3" name="setViewAngle" sig="setViewAngle(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L922" sourceLabel="Camera.ts:922" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L937" sourceLabel="Camera.ts:937" />
 
 _Inherited from `Camera#setViewAngle`_
 
@@ -753,7 +753,7 @@ Sets camera view angle in degrees
 
 <MemberHeading id="sethorizontalviewangle" depth="3" name="setHorizontalViewAngle" sig="setHorizontalViewAngle(angle: number)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L932" sourceLabel="Camera.ts:932" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L947" sourceLabel="Camera.ts:947" />
 
 _Inherited from `Camera#setHorizontalViewAngle`_
 
@@ -767,7 +767,7 @@ Sets camera horizontal view angle in degrees.
 
 <MemberHeading id="getviewangle" depth="3" name="getViewAngle" sig="getViewAngle(): number" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L942" sourceLabel="Camera.ts:942" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L957" sourceLabel="Camera.ts:957" />
 
 _Inherited from `Camera#getViewAngle`_
 
@@ -781,7 +781,7 @@ Returns camera vertical view angle in degrees.
 
 <MemberHeading id="set" depth="3" name="set" sig="set(eye: Vec3, look: Vec3, up: Vec3): Camera" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L981" sourceLabel="Camera.ts:981" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L996" sourceLabel="Camera.ts:996" />
 
 _Inherited from `Camera#set`_
 
@@ -801,7 +801,7 @@ Sets camera to eye position
 
 <MemberHeading id="look" depth="3" name="look" sig="look(look: Vec3, up?: Vec3)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1004" sourceLabel="Camera.ts:1004" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1019" sourceLabel="Camera.ts:1019" />
 
 _Inherited from `Camera#look`_
 
@@ -816,7 +816,7 @@ Sets camera look point
 
 <MemberHeading id="slide" depth="3" name="slide" sig="slide(du: number, dv: number, dn: number)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1020" sourceLabel="Camera.ts:1020" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1035" sourceLabel="Camera.ts:1035" />
 
 _Inherited from `Camera#slide`_
 
@@ -832,7 +832,7 @@ Slides camera to vector d - (du, dv, dn)
 
 <MemberHeading id="getabsolutepitch" depth="3" name="getAbsolutePitch" sig="getAbsolutePitch(): number" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1110" sourceLabel="Camera.ts:1110" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1125" sourceLabel="Camera.ts:1125" />
 
 _Inherited from `Camera#getAbsolutePitch`_
 
@@ -846,7 +846,7 @@ Returns absolute pitch angle.
 
 <MemberHeading id="getabsoluteyaw" depth="3" name="getAbsoluteYaw" sig="getAbsoluteYaw(): number" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1119" sourceLabel="Camera.ts:1119" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1134" sourceLabel="Camera.ts:1134" />
 
 _Inherited from `Camera#getAbsoluteYaw`_
 
@@ -860,7 +860,7 @@ Returns absolute yaw angle.
 
 <MemberHeading id="getabsoluteroll" depth="3" name="getAbsoluteRoll" sig="getAbsoluteRoll(): number" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1128" sourceLabel="Camera.ts:1128" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1143" sourceLabel="Camera.ts:1143" />
 
 _Inherited from `Camera#getAbsoluteRoll`_
 
@@ -874,7 +874,7 @@ Returns absolute roll angle.
 
 <MemberHeading id="getrotation" depth="3" name="getRotation" sig="getRotation(): Quat" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1137" sourceLabel="Camera.ts:1137" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1152" sourceLabel="Camera.ts:1152" />
 
 _Inherited from `Camera#getRotation`_
 
@@ -888,7 +888,7 @@ Returns camera rotation quaternion.
 
 <MemberHeading id="setrotation" depth="3" name="setRotation" sig="setRotation(rot: Quat, up?: Vec3, right?: Vec3, back?: Vec3)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1149" sourceLabel="Camera.ts:1149" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1164" sourceLabel="Camera.ts:1164" />
 
 _Inherited from `Camera#setRotation`_
 
@@ -905,7 +905,7 @@ Sets camera orientation from a quaternion.
 
 <MemberHeading id="rotate" depth="3" name="rotate" sig="rotate(rot: Quat)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1161" sourceLabel="Camera.ts:1161" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1176" sourceLabel="Camera.ts:1176" />
 
 _Inherited from `Camera#rotate`_
 
@@ -919,7 +919,7 @@ Rotates current camera basis by quaternion.
 
 <MemberHeading id="unproject2v" depth="3" name="unproject2v" sig="unproject2v(pos: Vec2, dist?: number, outPos?: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1176" sourceLabel="Camera.ts:1176" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1191" sourceLabel="Camera.ts:1191" />
 
 _Inherited from `Camera#unproject2v`_
 
@@ -949,7 +949,7 @@ Returns normal vector direction to the unprojected screen point from camera eye
 ): Vec3"
 />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1189" sourceLabel="Camera.ts:1189" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1204" sourceLabel="Camera.ts:1204" />
 
 _Inherited from `Camera#unproject`_
 
@@ -970,7 +970,7 @@ Returns normal vector direction to the unprojected screen point from camera eye
 
 <MemberHeading id="getray" depth="3" name="getRay" sig="getRay(x: number, y: number): Ray" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1244" sourceLabel="Camera.ts:1244" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1259" sourceLabel="Camera.ts:1259" />
 
 _Inherited from `Camera#getRay`_
 
@@ -989,7 +989,7 @@ Returns a world-space ray corresponding to the given screen point. For perspecti
 
 <MemberHeading id="getray2v" depth="3" name="getRay2v" sig="getRay2v(pos: Vec2): Ray" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1265" sourceLabel="Camera.ts:1265" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1280" sourceLabel="Camera.ts:1280" />
 
 _Inherited from `Camera#getRay2v`_
 
@@ -1007,7 +1007,7 @@ Returns a world-space ray corresponding to the given screen point.
 
 <MemberHeading id="project3v" depth="3" name="project3v" sig="project3v(v: Vec3): Vec2" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1275" sourceLabel="Camera.ts:1275" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1290" sourceLabel="Camera.ts:1290" />
 
 _Inherited from `Camera#project3v`_
 
@@ -1025,7 +1025,7 @@ Gets projected 3d point to the 2d screen coordinates
 
 <MemberHeading id="project" depth="3" name="project" sig="project(x: number, y: number, z: number): Vec2" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1287" sourceLabel="Camera.ts:1287" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1302" sourceLabel="Camera.ts:1302" />
 
 _Inherited from `Camera#project`_
 
@@ -1055,7 +1055,7 @@ Gets projected 3d point to the 2d screen coordinates
 )"
 />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1301" sourceLabel="Camera.ts:1301" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1316" sourceLabel="Camera.ts:1316" />
 
 _Inherited from `Camera#rotateAround`_
 
@@ -1082,7 +1082,7 @@ Rotates camera around center point
 )"
 />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1321" sourceLabel="Camera.ts:1321" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1336" sourceLabel="Camera.ts:1336" />
 
 _Inherited from `Camera#rotateHorizontal`_
 
@@ -1099,7 +1099,7 @@ Rotates camera around the center point by horizontal.
 
 <MemberHeading id="projectedsize" depth="3" name="projectedSize" sig="projectedSize(p: Vec3, r: Vec3): number" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1342" sourceLabel="Camera.ts:1342" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1357" sourceLabel="Camera.ts:1357" />
 
 _Inherited from `Camera#projectedSize`_
 
@@ -1118,7 +1118,7 @@ Gets 3d size factor. Uses in LOD distance calculation. It is a very important fu
 
 <MemberHeading id="getviewmatrix" depth="3" name="getViewMatrix" sig="getViewMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1358" sourceLabel="Camera.ts:1358" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1373" sourceLabel="Camera.ts:1373" />
 
 _Inherited from `Camera#getViewMatrix`_
 
@@ -1132,7 +1132,7 @@ Returns model matrix.
 
 <MemberHeading id="getnormalmatrix" depth="3" name="getNormalMatrix" sig="getNormalMatrix(): NumberArray9" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1367" sourceLabel="Camera.ts:1367" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1382" sourceLabel="Camera.ts:1382" />
 
 _Inherited from `Camera#getNormalMatrix`_
 
@@ -1146,7 +1146,7 @@ Returns camera normal matrix.
 
 <MemberHeading id="setcurrentfrustum" depth="3" name="setCurrentFrustum" sig="setCurrentFrustum(k: number)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1376" sourceLabel="Camera.ts:1376" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1391" sourceLabel="Camera.ts:1391" />
 
 _Inherited from `Camera#setCurrentFrustum`_
 
@@ -1160,7 +1160,7 @@ Sets current active frustum index.
 
 <MemberHeading id="getcurrentfrustum" depth="3" name="getCurrentFrustum" sig="getCurrentFrustum(): number" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1387" sourceLabel="Camera.ts:1387" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1402" sourceLabel="Camera.ts:1402" />
 
 _Inherited from `Camera#getCurrentFrustum`_
 
@@ -1174,7 +1174,7 @@ Returns current active frustum index.
 
 <MemberHeading id="containssphere" depth="3" name="containsSphere" sig="containsSphere(sphere: Sphere): boolean" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1397" sourceLabel="Camera.ts:1397" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1412" sourceLabel="Camera.ts:1412" />
 
 _Inherited from `Camera#containsSphere`_
 
@@ -1192,7 +1192,7 @@ Checks whether the sphere intersects any camera frustum.
 
 <MemberHeading id="containspoint" depth="3" name="containsPoint" sig="containsPoint(point: Vec3): boolean" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1412" sourceLabel="Camera.ts:1412" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1427" sourceLabel="Camera.ts:1427" />
 
 _Inherited from `Camera#containsPoint`_
 
@@ -1210,7 +1210,7 @@ Checks whether a point is inside any camera frustum.
 
 <MemberHeading id="getprojectionmatrix" depth="3" name="getProjectionMatrix" sig="getProjectionMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1435" sourceLabel="Camera.ts:1435" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1450" sourceLabel="Camera.ts:1450" />
 
 _Inherited from `Camera#getProjectionMatrix`_
 
@@ -1224,7 +1224,7 @@ Returns projection matrix.
 
 <MemberHeading id="getprojectionviewmatrix" depth="3" name="getProjectionViewMatrix" sig="getProjectionViewMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1444" sourceLabel="Camera.ts:1444" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1459" sourceLabel="Camera.ts:1459" />
 
 _Inherited from `Camera#getProjectionViewMatrix`_
 
@@ -1238,7 +1238,7 @@ Returns projection-view matrix.
 
 <MemberHeading id="getprojectionviewrtematrix" depth="3" name="getProjectionViewRTEMatrix" sig="getProjectionViewRTEMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1453" sourceLabel="Camera.ts:1453" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1468" sourceLabel="Camera.ts:1468" />
 
 _Inherited from `Camera#getProjectionViewRTEMatrix`_
 
@@ -1252,7 +1252,7 @@ Returns projection-view RTE matrix.
 
 <MemberHeading id="getinverseprojectionviewmatrix" depth="3" name="getInverseProjectionViewMatrix" sig="getInverseProjectionViewMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1462" sourceLabel="Camera.ts:1462" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1477" sourceLabel="Camera.ts:1477" />
 
 _Inherited from `Camera#getInverseProjectionViewMatrix`_
 
@@ -1266,7 +1266,7 @@ Returns inverse projection-view matrix.
 
 <MemberHeading id="getinverseprojectionmatrix" depth="3" name="getInverseProjectionMatrix" sig="getInverseProjectionMatrix(): NumberArray16" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1471" sourceLabel="Camera.ts:1471" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1486" sourceLabel="Camera.ts:1486" />
 
 _Inherited from `Camera#getInverseProjectionMatrix`_
 
@@ -1280,7 +1280,7 @@ Returns inverse projection matrix.
 
 <MemberHeading id="copy" depth="3" name="copy" sig="copy(cam: Camera)" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1492" sourceLabel="Camera.ts:1492" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1507" sourceLabel="Camera.ts:1507" />
 
 _Inherited from `Camera#copy`_
 
@@ -1296,7 +1296,7 @@ Copies camera pose and projection settings from another camera.
 
 <MemberHeading id="isorthographic" depth="3" name="isOrthographic" sig="isOrthographic" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L354" sourceLabel="Camera.ts:354" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L362" sourceLabel="Camera.ts:362" />
 
 _Inherited from `Camera#isOrthographic`_
 
@@ -1310,7 +1310,7 @@ Returns current projection mode.
 
 <MemberHeading id="reversedepth" depth="3" name="reverseDepth" sig="reverseDepth" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L363" sourceLabel="Camera.ts:363" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L371" sourceLabel="Camera.ts:371" />
 
 _Inherited from `Camera#reverseDepth`_
 
@@ -1324,7 +1324,7 @@ Returns reverse depth flag.
 
 <MemberHeading id="reversedepthactive" depth="3" name="reverseDepthActive" sig="reverseDepthActive" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L372" sourceLabel="Camera.ts:372" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L380" sourceLabel="Camera.ts:380" />
 
 _Inherited from `Camera#reverseDepthActive`_
 
@@ -1338,7 +1338,7 @@ Returns active reverse depth state.
 
 <MemberHeading id="depthzerotoone" depth="3" name="depthZeroToOne" sig="depthZeroToOne" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L381" sourceLabel="Camera.ts:381" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L389" sourceLabel="Camera.ts:389" />
 
 _Inherited from `Camera#depthZeroToOne`_
 
@@ -1352,7 +1352,7 @@ Returns active depth range mode.
 
 <MemberHeading id="focusdistance" depth="3" name="focusDistance" sig="focusDistance" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L414" sourceLabel="Camera.ts:414" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L422" sourceLabel="Camera.ts:422" />
 
 _Inherited from `Camera#focusDistance`_
 
@@ -1366,7 +1366,7 @@ Returns focus distance used for orthographic projection size.
 
 <MemberHeading id="id" depth="3" name="id" sig="id" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L443" sourceLabel="Camera.ts:443" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L451" sourceLabel="Camera.ts:451" />
 
 _Inherited from `Camera#id`_
 
@@ -1380,7 +1380,7 @@ Returns camera identifier.
 
 <MemberHeading id="width" depth="3" name="width" sig="width" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L784" sourceLabel="Camera.ts:784" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L799" sourceLabel="Camera.ts:799" />
 
 _Inherited from `Camera#width`_
 
@@ -1394,7 +1394,7 @@ Returns viewport width.
 
 <MemberHeading id="height" depth="3" name="height" sig="height" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L793" sourceLabel="Camera.ts:793" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L808" sourceLabel="Camera.ts:808" />
 
 _Inherited from `Camera#height`_
 
@@ -1408,7 +1408,7 @@ Returns viewport height.
 
 <MemberHeading id="viewangle" depth="3" name="viewAngle" sig="viewAngle" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L960" sourceLabel="Camera.ts:960" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L975" sourceLabel="Camera.ts:975" />
 
 _Inherited from `Camera#viewAngle`_
 
@@ -1422,7 +1422,7 @@ Returns camera vertical view angle in degrees.
 
 <MemberHeading id="verticalviewangle" depth="3" name="verticalViewAngle" sig="verticalViewAngle" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L960" sourceLabel="Camera.ts:960" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L975" sourceLabel="Camera.ts:975" />
 
 _Inherited from `Camera#verticalViewAngle`_
 
@@ -1436,7 +1436,7 @@ Returns camera vertical view angle in degrees.
 
 <MemberHeading id="horizontalviewangle" depth="3" name="horizontalViewAngle" sig="horizontalViewAngle" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L969" sourceLabel="Camera.ts:969" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L984" sourceLabel="Camera.ts:984" />
 
 _Inherited from `Camera#horizontalViewAngle`_
 
@@ -1450,7 +1450,7 @@ Returns camera horizontal view angle in degrees.
 
 <MemberHeading id="frustum" depth="3" name="frustum" sig="frustum" />
 
-<MemberMeta sourceHref="/source/camera/camera-ts/#L1426" sourceLabel="Camera.ts:1426" />
+<MemberMeta sourceHref="/source/camera/camera-ts/#L1441" sourceLabel="Camera.ts:1441" />
 
 _Inherited from `Camera#frustum`_
 

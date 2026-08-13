@@ -7,7 +7,7 @@ description: A WebGL handler for accessing low-level WebGL capabilities.
 
 # Handler
 
-<SourceLink href="/source/webgl/handler-ts/#L89" label="Handler.ts:89" />
+<SourceLink href="/source/webgl/handler-ts/#L90" label="Handler.ts:90" />
 
 A WebGL handler for accessing low-level WebGL capabilities.
 
@@ -37,7 +37,7 @@ A WebGL handler for accessing low-level WebGL capabilities.
 
 <MemberHeading id="setframecallback" depth="3" name="setFrameCallback" sig="setFrameCallback(callback: function)" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L361" sourceLabel="Handler.ts:361" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L390" sourceLabel="Handler.ts:390" />
 
 Sets animation frame function.
 
@@ -59,7 +59,7 @@ Sets animation frame function.
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L376" sourceLabel="Handler.ts:376" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L405" sourceLabel="Handler.ts:405" />
 
 Creates an empty immutable 2D texture (WebGL2).
 
@@ -91,7 +91,7 @@ Creates an empty immutable 2D texture (WebGL2).
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L412" sourceLabel="Handler.ts:412" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L441" sourceLabel="Handler.ts:441" />
 
 Creates an empty immutable 2D array texture (WebGL2).
 
@@ -121,7 +121,7 @@ Creates an empty immutable 2D array texture (WebGL2).
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L446" sourceLabel="Handler.ts:446" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L475" sourceLabel="Handler.ts:475" />
 
 Creates Empty NEAREST filtered texture.
 
@@ -148,7 +148,7 @@ Creates Empty NEAREST filtered texture.
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L476" sourceLabel="Handler.ts:476" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L505" sourceLabel="Handler.ts:505" />
 
 Creates empty LINEAR filtered texture.
 
@@ -175,7 +175,7 @@ Creates empty LINEAR filtered texture.
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L506" sourceLabel="Handler.ts:506" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L535" sourceLabel="Handler.ts:535" />
 
 Creates NEAREST filter texture.
 
@@ -202,7 +202,7 @@ Creates NEAREST filter texture.
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L538" sourceLabel="Handler.ts:538" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L567" sourceLabel="Handler.ts:567" />
 
 Creates LINEAR filter texture.
 
@@ -229,7 +229,7 @@ Creates LINEAR filter texture.
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L570" sourceLabel="Handler.ts:570" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L599" sourceLabel="Handler.ts:599" />
 
 Creates MIPMAP filter texture.
 
@@ -256,7 +256,7 @@ Creates MIPMAP filter texture.
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L602" sourceLabel="Handler.ts:602" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L631" sourceLabel="Handler.ts:631" />
 
 Creates ANISOTROPY filter texture.
 
@@ -282,7 +282,7 @@ Creates ANISOTROPY filter texture.
 ): WebGLTexture | null"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L644" sourceLabel="Handler.ts:644" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L673" sourceLabel="Handler.ts:673" />
 
 Creates cube texture.
 
@@ -312,7 +312,7 @@ Creates cube texture.
 ): ShaderProgram"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L706" sourceLabel="Handler.ts:706" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L735" sourceLabel="Handler.ts:735" />
 
 Adds shader program to the handler.
 
@@ -327,7 +327,7 @@ Adds shader program to the handler.
 
 <MemberHeading id="removeprogram" depth="3" name="removeProgram" sig="removeProgram(name: string)" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L725" sourceLabel="Handler.ts:725" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L754" sourceLabel="Handler.ts:754" />
 
 Removes shader program from handler.
 
@@ -337,7 +337,7 @@ Removes shader program from handler.
 
 <MemberHeading id="addprograms" depth="3" name="addPrograms" sig="addPrograms(programsArr: Array.<ShaderProgram>)" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L734" sourceLabel="Handler.ts:734" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L763" sourceLabel="Handler.ts:763" />
 
 Adds shader programs to the handler.
 
@@ -347,7 +347,7 @@ Adds shader programs to the handler.
 
 <MemberHeading id="initprogram" depth="3" name="_initProgram" sig="_initProgram(program: ShaderProgram)" />
 
-<MemberMeta badges="protected" sourceHref="/source/webgl/handler-ts/#L745" sourceLabel="Handler.ts:745" />
+<MemberMeta badges="protected" sourceHref="/source/webgl/handler-ts/#L774" sourceLabel="Handler.ts:774" />
 
 Used in addProgram
 
@@ -357,7 +357,7 @@ Used in addProgram
 
 <MemberHeading id="initializeextension" depth="3" name="initializeExtension" sig="initializeExtension(extensionStr: string, showLog: boolean): any" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L776" sourceLabel="Handler.ts:776" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L805" sourceLabel="Handler.ts:805" />
 
 Initialize additional WebGL extensions.
 
@@ -372,19 +372,19 @@ Initialize additional WebGL extensions.
 
 <MemberHeading id="initialize" depth="3" name="initialize" sig="initialize()" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L792" sourceLabel="Handler.ts:792" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L821" sourceLabel="Handler.ts:821" />
 
 Main function that initializes handler.
 
 <MemberHeading id="setdefaults" depth="3" name="_setDefaults" sig="_setDefaults()" />
 
-<MemberMeta badges="protected" sourceHref="/source/webgl/handler-ts/#L869" sourceLabel="Handler.ts:869" />
+<MemberMeta badges="protected" sourceHref="/source/webgl/handler-ts/#L899" sourceLabel="Handler.ts:899" />
 
 Sets default gl render parameters. Used in init function.
 
 <MemberHeading id="setclipcontrolzerotoone" depth="3" name="setClipControlZeroToOne" sig="setClipControlZeroToOne(useZeroToOne: boolean)" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L906" sourceLabel="Handler.ts:906" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L936" sourceLabel="Handler.ts:936" />
 
 Switches clip-control depth range between ZERO\_TO\_ONE and NEGATIVE\_ONE\_TO\_ONE. If EXT\_clip\_control is unavailable, the internal ZERO\_TO\_ONE flag is reset to false.
 
@@ -404,7 +404,7 @@ Switches clip-control depth range between ZERO\_TO\_ONE and NEGATIVE\_ONE\_TO\_O
 ): WebGLBufferExt"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L932" sourceLabel="Handler.ts:932" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L962" sourceLabel="Handler.ts:962" />
 
 Creates ARRAY\_BUFFER storage for frequently updated data.
 
@@ -430,7 +430,7 @@ Creates ARRAY\_BUFFER storage for frequently updated data.
 ): WebGLBufferExt"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L956" sourceLabel="Handler.ts:956" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L986" sourceLabel="Handler.ts:986" />
 
 Uploads data to an existing ARRAY\_BUFFER via bufferSubData.
 
@@ -456,7 +456,7 @@ Uploads data to an existing ARRAY\_BUFFER via bufferSubData.
 ): WebGLBufferExt"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L973" sourceLabel="Handler.ts:973" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1003" sourceLabel="Handler.ts:1003" />
 
 Creates and initializes ARRAY\_BUFFER from a typed array.
 
@@ -481,7 +481,7 @@ Creates and initializes ARRAY\_BUFFER from a typed array.
 ): WebGLBufferExt"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L991" sourceLabel="Handler.ts:991" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1021" sourceLabel="Handler.ts:1021" />
 
 Creates ARRAY\_BUFFER storage with a specific byte length and no initial data.
 
@@ -506,7 +506,7 @@ Creates ARRAY\_BUFFER storage with a specific byte length and no initial data.
 ): Object"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1011" sourceLabel="Handler.ts:1011" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1041" sourceLabel="Handler.ts:1041" />
 
 Creates ELEMENT ARRAY buffer.
 
@@ -523,7 +523,7 @@ Creates ELEMENT ARRAY buffer.
 
 <MemberHeading id="setsize" depth="3" name="setSize" sig="setSize(w: number, h: number)" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1033" sourceLabel="Handler.ts:1033" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1063" sourceLabel="Handler.ts:1063" />
 
 Sets handler canvas size.
 
@@ -534,7 +534,7 @@ Sets handler canvas size.
 
 <MemberHeading id="getwidth" depth="3" name="getWidth" sig="getWidth(): number" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1065" sourceLabel="Handler.ts:1065" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1096" sourceLabel="Handler.ts:1096" />
 
 Returns context screen width.
 
@@ -544,7 +544,7 @@ Returns context screen width.
 
 <MemberHeading id="getheight" depth="3" name="getHeight" sig="getHeight(): number" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1074" sourceLabel="Handler.ts:1074" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1105" sourceLabel="Handler.ts:1105" />
 
 Returns context screen height.
 
@@ -554,7 +554,7 @@ Returns context screen height.
 
 <MemberHeading id="getclientaspect" depth="3" name="getClientAspect" sig="getClientAspect(): number" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1083" sourceLabel="Handler.ts:1083" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1114" sourceLabel="Handler.ts:1114" />
 
 Returns canvas aspect ratio.
 
@@ -564,7 +564,7 @@ Returns canvas aspect ratio.
 
 <MemberHeading id="getcenter" depth="3" name="getCenter" sig="getCenter(): number" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1092" sourceLabel="Handler.ts:1092" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1123" sourceLabel="Handler.ts:1123" />
 
 Returns canvas center coordinates.
 
@@ -574,25 +574,25 @@ Returns canvas center coordinates.
 
 <MemberHeading id="clearframe" depth="3" name="clearFrame" sig="clearFrame()" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1144" sourceLabel="Handler.ts:1144" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1181" sourceLabel="Handler.ts:1181" />
 
 Clearing gl frame.
 
 <MemberHeading id="start" depth="3" name="start" sig="start()" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1154" sourceLabel="Handler.ts:1154" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1191" sourceLabel="Handler.ts:1191" />
 
 Starts animation loop.
 
 <MemberHeading id="iswebgl2" depth="3" name="isWebGl2" sig="isWebGl2()" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1175" sourceLabel="Handler.ts:1175" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1213" sourceLabel="Handler.ts:1213" />
 
 Check is gl context type equals webgl2
 
 <MemberHeading id="animationframecallback" depth="3" name="_animationFrameCallback" sig="_animationFrameCallback()" />
 
-<MemberMeta badges="protected" sourceHref="/source/webgl/handler-ts/#L1183" sourceLabel="Handler.ts:1183" />
+<MemberMeta badges="protected" sourceHref="/source/webgl/handler-ts/#L1221" sourceLabel="Handler.ts:1221" />
 
 Make animation.
 
@@ -606,7 +606,7 @@ Make animation.
 )"
 />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1199" sourceLabel="Handler.ts:1199" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1237" sourceLabel="Handler.ts:1237" />
 
 Creates a default 2x2 texture and passes it to callback. If `params.color` is set, a solid color texture is created. If `params.url` is set, the image is loaded asynchronously. Otherwise a fallback gray texture is created.
 
@@ -617,7 +617,7 @@ Creates a default 2x2 texture and passes it to callback. If `params.color` is se
 
 <MemberHeading id="deletetexture" depth="3" name="deleteTexture" sig="deleteTexture(texture: WebGLTextureExt | null | undefined)" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1236" sourceLabel="Handler.ts:1236" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1274" sourceLabel="Handler.ts:1274" />
 
 Deletes texture if it is not marked as default.
 
@@ -627,7 +627,7 @@ Deletes texture if it is not marked as default.
 
 <MemberHeading id="destroy" depth="3" name="destroy" sig="destroy()" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L1246" sourceLabel="Handler.ts:1246" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L1284" sourceLabel="Handler.ts:1284" />
 
 Releases handler resources, WebGL objects, observers and canvas.
 
@@ -643,7 +643,7 @@ Releases handler resources, WebGL objects, observers and canvas.
 ): any"
 />
 
-<MemberMeta badges="static" sourceHref="/source/webgl/handler-ts/#L321" sourceLabel="Handler.ts:321" />
+<MemberMeta badges="static" sourceHref="/source/webgl/handler-ts/#L350" sourceLabel="Handler.ts:350" />
 
 The return value is null if the extension is not supported, or an extension object otherwise.
 
@@ -666,7 +666,7 @@ The return value is null if the extension is not supported, or an extension obje
 ): WebGLContextExt | null"
 />
 
-<MemberMeta badges="static" sourceHref="/source/webgl/handler-ts/#L337" sourceLabel="Handler.ts:337" />
+<MemberMeta badges="static" sourceHref="/source/webgl/handler-ts/#L366" sourceLabel="Handler.ts:366" />
 
 Returns a drawing context on the canvas, or null if the context identifier is not supported.
 
@@ -681,9 +681,21 @@ Returns a drawing context on the canvas, or null if the context identifier is no
 
 ## Instance Fields
 
+<MemberHeading id="idlemode" depth="3" name="idleMode" sig="idleMode" />
+
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L299" sourceLabel="Handler.ts:299" />
+
+Idle mode skips a frame rendering when nothing has been changed since the previous frame.
+
+<MemberHeading id="isidle" depth="3" name="isIdle" sig="isIdle" />
+
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L313" sourceLabel="Handler.ts:313" />
+
+Returns true when the idle mode is on and nothing has requested a frame yet, i.e. the next frame is going to be skipped.
+
 <MemberHeading id="isclipcontrolzerotoone" depth="3" name="isClipControlZeroToOne" sig="isClipControlZeroToOne" />
 
-<MemberMeta sourceHref="/source/webgl/handler-ts/#L896" sourceLabel="Handler.ts:896" />
+<MemberMeta sourceHref="/source/webgl/handler-ts/#L926" sourceLabel="Handler.ts:926" />
 
 Returns true when clip-control depth range is currently ZERO\_TO\_ONE.
 

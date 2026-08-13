@@ -7,7 +7,7 @@ description: Real Sun geocentric position control that place the Sun on the righ
 
 # Sun
 
-<SourceLink href="/source/control/sun-ts/#L38" label="Sun.ts:38" />
+<SourceLink href="/source/control/sun-ts/#L44" label="Sun.ts:44" />
 
 Real Sun geocentric position control that place the Sun on the right place by the Earth.
 
@@ -40,7 +40,7 @@ new Sun({ localDateTime: new Date(2026, 7, 3, 21, 30) })
 
 <MemberHeading id="setlocaldatetime" depth="3" name="setLocalDateTime" sig="setLocalDateTime(localDateTime: Date | null)" />
 
-<MemberMeta sourceHref="/source/control/sun-ts/#L138" sourceLabel="Sun.ts:138" />
+<MemberMeta sourceHref="/source/control/sun-ts/#L162" sourceLabel="Sun.ts:162" />
 
 Sets a fixed local apparent solar time under the camera.
 
@@ -50,7 +50,7 @@ Sets a fixed local apparent solar time under the camera.
 
 <MemberHeading id="getcamerafollowingposition" depth="3" name="_getCameraFollowingPosition" sig="_getCameraFollowingPosition(cam: PlanetCamera): Vec3" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L156" sourceLabel="Sun.ts:156" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L180" sourceLabel="Sun.ts:180" />
 
 Returns a light position offset from the camera along its own up and right axes, so that nearby terrain is lit regardless of the real Sun direction.
 
@@ -64,7 +64,7 @@ Returns a light position offset from the camera along its own up and right axes,
 
 <MemberHeading id="getlocaldatetimejulian" depth="3" name="_getLocalDateTimeJulian" sig="_getLocalDateTimeJulian(lon: number): JulianDate" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L183" sourceLabel="Sun.ts:183" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L205" sourceLabel="Sun.ts:205" />
 
 Returns the julian date at which localDateTime is the local apparent solar time at lon. Local mean solar time is the first guess, then the measured subsolar longitude corrects it; that point drifts -360 degrees a day, so a residual of d degrees is worth -d / 360 of a day.
 
@@ -78,7 +78,7 @@ Returns the julian date at which localDateTime is the local apparent solar time 
 
 <MemberHeading id="getlocaldatetimeposition" depth="3" name="_getLocalDateTimePosition" sig="_getLocalDateTimePosition(cam: PlanetCamera): Vec3" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L212" sourceLabel="Sun.ts:212" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L234" sourceLabel="Sun.ts:234" />
 
 Returns the Sun position for localDateTime at the location under the camera.
 
