@@ -7,7 +7,7 @@ description: Quad tree planet segment node.
 
 # Node
 
-<SourceLink href="/source/quadtree/node-ts/#L77" label="Node.ts:77" />
+<SourceLink href="/source/quadtree/node-ts/#L72" label="Node.ts:72" />
 
 Quad tree planet segment node.
 
@@ -43,7 +43,7 @@ Quad tree planet segment node.
 
 <MemberHeading id="getequalneighbor" depth="3" name="getEqualNeighbor" sig="getEqualNeighbor(side: number): Node" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L208" sourceLabel="Node.ts:208" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L203" sourceLabel="Node.ts:203" />
 
 Returns the same deep existent neighbour node.
 
@@ -57,19 +57,19 @@ Returns the same deep existent neighbour node.
 
 <MemberHeading id="addtorender" depth="3" name="addToRender" sig="addToRender()" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L565" sourceLabel="Node.ts:565" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L560" sourceLabel="Node.ts:560" />
 
 Picking up current node to render processing.
 
 <MemberHeading id="getrenderednodesneighbors" depth="3" name="getRenderedNodesNeighbors" sig="getRenderedNodesNeighbors()" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L642" sourceLabel="Node.ts:642" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L625" sourceLabel="Node.ts:625" />
 
 Searching current node for its neighbours.
 
 <MemberHeading id="getcommonside" depth="3" name="getCommonSide" sig="getCommonSide(node: Node): number" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L660" sourceLabel="Node.ts:660" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L643" sourceLabel="Node.ts:643" />
 
 Checking if current node has a common side with input node and return side index N, E, S or W. Otherwise returns -1.
 

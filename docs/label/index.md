@@ -9,7 +9,7 @@ description: Billboard text label.
 
 **Extends:&#x20;**[`BaseBillboard`](/basebillboard)
 
-<SourceLink href="/source/entity/label/label-ts/#L59" label="Label.ts:59" />
+<SourceLink href="/source/entity/label/label-ts/#L65" label="Label.ts:65" />
 
 Billboard text label.
 
@@ -43,7 +43,7 @@ Billboard text label.
 
 <MemberHeading id="settext" depth="3" name="setText" sig="setText(text: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L160" sourceLabel="Label.ts:160" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L166" sourceLabel="Label.ts:166" />
 
 Sets label text.
 
@@ -53,7 +53,7 @@ Sets label text.
 
 <MemberHeading id="setletterspacing" depth="3" name="setLetterSpacing" sig="setLetterSpacing(letterSpacing: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L179" sourceLabel="Label.ts:179" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L185" sourceLabel="Label.ts:185" />
 
 Sets text letter spacing.
 
@@ -63,13 +63,13 @@ Sets text letter spacing.
 
 <MemberHeading id="getletterspacing" depth="3" name="getLetterSpacing" sig="getLetterSpacing()" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L197" sourceLabel="Label.ts:197" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L203" sourceLabel="Label.ts:203" />
 
 Returns label text letter spacing.
 
 <MemberHeading id="setrtl" depth="3" name="setRtl" sig="setRtl(isRTL: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L206" sourceLabel="Label.ts:206" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L212" sourceLabel="Label.ts:212" />
 
 Change text direction.
 
@@ -79,7 +79,7 @@ Change text direction.
 
 <MemberHeading id="gettext" depth="3" name="getText" sig="getText(): string" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L225" sourceLabel="Label.ts:225" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L231" sourceLabel="Label.ts:231" />
 
 Gets current text string.
 
@@ -89,7 +89,7 @@ Gets current text string.
 
 <MemberHeading id="setalign" depth="3" name="setAlign" sig="setAlign(align: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L234" sourceLabel="Label.ts:234" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L240" sourceLabel="Label.ts:240" />
 
 Sets label text align. Could be center, left or right. Left is default.
 
@@ -99,7 +99,7 @@ Sets label text align. Could be center, left or right. Left is default.
 
 <MemberHeading id="getalign" depth="3" name="getAlign" sig="getAlign(): string" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L255" sourceLabel="Label.ts:255" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L262" sourceLabel="Label.ts:262" />
 
 Gets label text current alignment.
 
@@ -109,7 +109,7 @@ Gets label text current alignment.
 
 <MemberHeading id="setface" depth="3" name="setFace" sig="setFace(face: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L264" sourceLabel="Label.ts:264" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L271" sourceLabel="Label.ts:271" />
 
 Sets font face family.
 
@@ -119,7 +119,7 @@ Sets font face family.
 
 <MemberHeading id="getface" depth="3" name="getFace" sig="getFace(): string" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L274" sourceLabel="Label.ts:274" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L281" sourceLabel="Label.ts:281" />
 
 Gets current font face.
 
@@ -129,7 +129,7 @@ Gets current font face.
 
 <MemberHeading id="setsize" depth="3" name="setSize" sig="setSize(size: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L283" sourceLabel="Label.ts:283" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L290" sourceLabel="Label.ts:290" />
 
 Sets label font size in pixels.
 
@@ -139,7 +139,7 @@ Sets label font size in pixels.
 
 <MemberHeading id="getsize" depth="3" name="getSize" sig="getSize(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L299" sourceLabel="Label.ts:299" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L306" sourceLabel="Label.ts:306" />
 
 Gets label size in pixels.
 
@@ -149,7 +149,7 @@ Gets label size in pixels.
 
 <MemberHeading id="setoutline" depth="3" name="setOutline" sig="setOutline(outline: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L308" sourceLabel="Label.ts:308" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L315" sourceLabel="Label.ts:315" />
 
 Sets text outline border size. Where 0 - is no outline, and 1 - is the maximum outline size.
 
@@ -159,7 +159,7 @@ Sets text outline border size. Where 0 - is no outline, and 1 - is the maximum o
 
 <MemberHeading id="getoutline" depth="3" name="getOutline" sig="getOutline(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L322" sourceLabel="Label.ts:322" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L329" sourceLabel="Label.ts:329" />
 
 Gets text current outline size.
 
@@ -169,7 +169,7 @@ Gets text current outline size.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(a: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L331" sourceLabel="Label.ts:331" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L338" sourceLabel="Label.ts:338" />
 
 **Overrides:&#x20;**`BaseBillboard#setOpacity`
 
@@ -181,7 +181,7 @@ Sets label opacity.
 
 <MemberHeading id="setoutlinecolor" depth="3" name="setOutlineColor" sig="setOutlineColor(r: number, g: number, b: number, a: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L344" sourceLabel="Label.ts:344" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L351" sourceLabel="Label.ts:351" />
 
 Sets text outline color.
 
@@ -194,7 +194,7 @@ Sets text outline color.
 
 <MemberHeading id="setoutlinecolor4v" depth="3" name="setOutlineColor4v" sig="setOutlineColor4v(rgba: Vec4)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L368" sourceLabel="Label.ts:368" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L375" sourceLabel="Label.ts:375" />
 
 Sets text outline color.
 
@@ -204,7 +204,7 @@ Sets text outline color.
 
 <MemberHeading id="setoutlinecolorhtml" depth="3" name="setOutlineColorHTML" sig="setOutlineColorHTML(color: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L377" sourceLabel="Label.ts:377" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L384" sourceLabel="Label.ts:384" />
 
 Sets text outline color HTML string.
 
@@ -214,7 +214,7 @@ Sets text outline color HTML string.
 
 <MemberHeading id="getoutlinecolor" depth="3" name="getOutlineColor" sig="getOutlineColor(): Vec4" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L386" sourceLabel="Label.ts:386" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L393" sourceLabel="Label.ts:393" />
 
 Gets outline color vector.
 
@@ -224,7 +224,7 @@ Gets outline color vector.
 
 <MemberHeading id="setoutlineopacity" depth="3" name="setOutlineOpacity" sig="setOutlineOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L395" sourceLabel="Label.ts:395" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L402" sourceLabel="Label.ts:402" />
 
 Sets outline opacity. Actually outline color alpha value.
 
@@ -234,7 +234,7 @@ Sets outline opacity. Actually outline color alpha value.
 
 <MemberHeading id="getoutlineopacity" depth="3" name="getOutlineOpacity" sig="getOutlineOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L411" sourceLabel="Label.ts:411" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L418" sourceLabel="Label.ts:418" />
 
 Gets outline opacity value.
 
@@ -244,13 +244,13 @@ Gets outline opacity value.
 
 <MemberHeading id="update" depth="3" name="update" sig="update()" />
 
-<MemberMeta badges="async" sourceHref="/source/entity/label/label-ts/#L419" sourceLabel="Label.ts:419" />
+<MemberMeta badges="async" sourceHref="/source/entity/label/label-ts/#L426" sourceLabel="Label.ts:426" />
 
 Updates label parameters.
 
 <MemberHeading id="assignfontatlas" depth="3" name="assignFontAtlas" sig="assignFontAtlas(fontAtlas: FontAtlas)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L448" sourceLabel="Label.ts:448" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L455" sourceLabel="Label.ts:455" />
 
 Assigns font atlas and update.
 

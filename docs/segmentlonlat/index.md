@@ -263,7 +263,7 @@ Gets specific layer material.
 
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1387" sourceLabel="Segment.ts:1387" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1375" sourceLabel="Segment.ts:1375" />
 
 _Inherited from `Segment#_setExtentLonLat`_
 
@@ -280,7 +280,7 @@ _Inherited from `Segment#_setExtentLonLat`_
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1824" sourceLabel="Segment.ts:1824" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1801" sourceLabel="Segment.ts:1801" />
 
 _Inherited from `Segment#_getCyclicLonShift`_
 

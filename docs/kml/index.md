@@ -208,7 +208,7 @@ Adds entity array to the layer.
 
 <MemberHeading id="removeentity" depth="3" name="removeEntity" sig="removeEntity(entity: Entity): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L543" sourceLabel="Vector.ts:543" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L542" sourceLabel="Vector.ts:542" />
 
 _Inherited from `Vector#removeEntity`_
 
@@ -226,7 +226,7 @@ Remove entity from layer. TODO: memory leaks.
 
 <MemberHeading id="reindexentitiesarray" depth="3" name="_reindexEntitiesArray" sig="_reindexEntitiesArray(startIndex: number)" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/vector-ts/#L616" sourceLabel="Vector.ts:616" />
+<MemberMeta badges="protected" sourceHref="/source/layer/vector-ts/#L615" sourceLabel="Vector.ts:615" />
 
 _Inherited from `Vector#_reindexEntitiesArray`_
 
@@ -240,7 +240,7 @@ Refresh collected entities indexes from startIndex entities collection array pos
 
 <MemberHeading id="removeentities" depth="3" name="removeEntities" sig="removeEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L629" sourceLabel="Vector.ts:629" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L628" sourceLabel="Vector.ts:628" />
 
 _Inherited from `Vector#removeEntities`_
 
@@ -258,7 +258,7 @@ Removes entities from layer.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L641" sourceLabel="Vector.ts:641" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L640" sourceLabel="Vector.ts:640" />
 
 _Inherited from `Vector#clear`_
 
@@ -268,7 +268,7 @@ Clear the layer.
 
 <MemberHeading id="each" depth="3" name="each" sig="each(callback: function)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L670" sourceLabel="Vector.ts:670" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L669" sourceLabel="Vector.ts:669" />
 
 _Inherited from `Vector#each`_
 
@@ -282,7 +282,7 @@ Safety entities loop.
 
 <MemberHeading id="setentities" depth="3" name="setEntities" sig="setEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L684" sourceLabel="Vector.ts:684" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L683" sourceLabel="Vector.ts:683" />
 
 _Inherited from `Vector#setEntities`_
 
@@ -300,7 +300,7 @@ Removes current entities from layer and adds new entities.
 
 <MemberHeading id="bindeventsdefault" depth="3" name="_bindEventsDefault" sig="_bindEventsDefault(entityCollection)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L745" sourceLabel="Vector.ts:745" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L744" sourceLabel="Vector.ts:744" />
 
 _Inherited from `Vector#_bindEventsDefault`_
 
@@ -315,7 +315,7 @@ _Inherited from `Vector#_bindEventsDefault`_
 
 <MemberHeading id="loadmaterial" depth="3" name="loadMaterial" sig="loadMaterial(material: Material)" />
 
-<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L936" sourceLabel="Vector.ts:936" />
+<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L935" sourceLabel="Vector.ts:935" />
 
 _Inherited from `Vector#loadMaterial`_
 
@@ -329,7 +329,7 @@ Start to load tile material.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L958" sourceLabel="Vector.ts:958" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L957" sourceLabel="Vector.ts:957" />
 
 _Inherited from `Vector#abortMaterialLoading`_
 
@@ -647,7 +647,7 @@ Special correction of the whole globe extent.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L958" sourceLabel="Vector.ts:958" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L957" sourceLabel="Vector.ts:957" />
 
 _Inherited from `Vector#abortMaterialLoading`_
 
@@ -703,7 +703,7 @@ Gets shadow map reception state for this vector layer entities.
 
 <MemberHeading id="pickingenabled" depth="3" name="pickingEnabled" sig="pickingEnabled" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L603" sourceLabel="Vector.ts:603" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L602" sourceLabel="Vector.ts:602" />
 
 _Inherited from `Vector#pickingEnabled`_
 
