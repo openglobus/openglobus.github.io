@@ -1,1 +1,0 @@
-import{n as e}from"./rolldown-runtime-DkW27tQK.js";import{b as t,c as n}from"./Globe-B2Ta13j5.js";var r;function i(){return(i=e((()=>{t(),r=e=>e instanceof n?e:new n(e[0],e[1],e[2]??0)})))()}export{r as n,i as t};
