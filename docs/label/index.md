@@ -33,7 +33,7 @@ Billboard text label.
   - `options.size` (number, optional) — Font size in pixels.
   - `options.style` (string, optional) — HTML5 font style. Example 'normal', 'italic'.
   - `options.weight` (string, optional) — HTML5 font weight. Example 'normal', 'bold'.
-  - `options.outline` (number, optional) — Text outline size. 0 - no outline, 1 - maximum outline. Default 0.58.
+  - `options.outline` (number, optional) — Text outline width in pixels. 0 - no outline. Default 0.
   - `options.outlineColor` ([Vec4](/vec4) | string | Array.\<number>, optional) — Outline color.
   - `options.align` (string, optional) — Text horizontal align: "left", "right" and "center".
 
@@ -149,19 +149,19 @@ Gets label size in pixels.
 
 <MemberHeading id="setoutline" depth="3" name="setOutline" sig="setOutline(outline: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L315" sourceLabel="Label.ts:315" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L317" sourceLabel="Label.ts:317" />
 
-Sets text outline border size. Where 0 - is no outline, and 1 - is the maximum outline size.
+Sets text outline border width in pixels. Where 0 - is no outline. The visible width is capped by the font atlas distance field range, which grows with the label font size.
 
 **Parameters**
 
-- `outline` (number) — Text outline size.
+- `outline` (number) — Text outline width in pixels.
 
 <MemberHeading id="getoutline" depth="3" name="getOutline" sig="getOutline(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L329" sourceLabel="Label.ts:329" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L331" sourceLabel="Label.ts:331" />
 
-Gets text current outline size.
+Gets text current outline width in pixels.
 
 **Returns**
 
@@ -169,7 +169,7 @@ Gets text current outline size.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(a: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L338" sourceLabel="Label.ts:338" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L340" sourceLabel="Label.ts:340" />
 
 **Overrides:&#x20;**`BaseBillboard#setOpacity`
 
@@ -181,7 +181,7 @@ Sets label opacity.
 
 <MemberHeading id="setoutlinecolor" depth="3" name="setOutlineColor" sig="setOutlineColor(r: number, g: number, b: number, a: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L351" sourceLabel="Label.ts:351" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L353" sourceLabel="Label.ts:353" />
 
 Sets text outline color.
 
@@ -194,7 +194,7 @@ Sets text outline color.
 
 <MemberHeading id="setoutlinecolor4v" depth="3" name="setOutlineColor4v" sig="setOutlineColor4v(rgba: Vec4)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L375" sourceLabel="Label.ts:375" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L377" sourceLabel="Label.ts:377" />
 
 Sets text outline color.
 
@@ -204,7 +204,7 @@ Sets text outline color.
 
 <MemberHeading id="setoutlinecolorhtml" depth="3" name="setOutlineColorHTML" sig="setOutlineColorHTML(color: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L384" sourceLabel="Label.ts:384" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L386" sourceLabel="Label.ts:386" />
 
 Sets text outline color HTML string.
 
@@ -214,7 +214,7 @@ Sets text outline color HTML string.
 
 <MemberHeading id="getoutlinecolor" depth="3" name="getOutlineColor" sig="getOutlineColor(): Vec4" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L393" sourceLabel="Label.ts:393" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L395" sourceLabel="Label.ts:395" />
 
 Gets outline color vector.
 
@@ -224,7 +224,7 @@ Gets outline color vector.
 
 <MemberHeading id="setoutlineopacity" depth="3" name="setOutlineOpacity" sig="setOutlineOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L402" sourceLabel="Label.ts:402" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L404" sourceLabel="Label.ts:404" />
 
 Sets outline opacity. Actually outline color alpha value.
 
@@ -234,7 +234,7 @@ Sets outline opacity. Actually outline color alpha value.
 
 <MemberHeading id="getoutlineopacity" depth="3" name="getOutlineOpacity" sig="getOutlineOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L418" sourceLabel="Label.ts:418" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L420" sourceLabel="Label.ts:420" />
 
 Gets outline opacity value.
 
@@ -244,13 +244,13 @@ Gets outline opacity value.
 
 <MemberHeading id="update" depth="3" name="update" sig="update()" />
 
-<MemberMeta badges="async" sourceHref="/source/entity/label/label-ts/#L426" sourceLabel="Label.ts:426" />
+<MemberMeta badges="async" sourceHref="/source/entity/label/label-ts/#L428" sourceLabel="Label.ts:428" />
 
 Updates label parameters.
 
 <MemberHeading id="assignfontatlas" depth="3" name="assignFontAtlas" sig="assignFontAtlas(fontAtlas: FontAtlas)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L455" sourceLabel="Label.ts:455" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L457" sourceLabel="Label.ts:457" />
 
 Assigns font atlas and update.
 
