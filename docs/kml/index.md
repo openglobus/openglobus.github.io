@@ -125,7 +125,7 @@ Creates billboards or polylines from array of lonlat.
 
 <MemberHeading id="addto" depth="3" name="addTo" sig="addTo(planet: Planet)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L393" sourceLabel="Vector.ts:393" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L397" sourceLabel="Vector.ts:397" />
 
 _Inherited from `Vector#addTo`_
 
@@ -139,7 +139,7 @@ Adds layer to the planet.
 
 <MemberHeading id="getentities" depth="3" name="getEntities" sig="getEntities(): Array.<Entity>" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L427" sourceLabel="Vector.ts:427" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L431" sourceLabel="Vector.ts:431" />
 
 _Inherited from `Vector#getEntities`_
 
@@ -153,7 +153,7 @@ Returns stored entities.
 
 <MemberHeading id="add" depth="3" name="add" sig="add(entity: Entity): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L437" sourceLabel="Vector.ts:437" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L441" sourceLabel="Vector.ts:441" />
 
 _Inherited from `Vector#add`_
 
@@ -171,7 +171,7 @@ Adds entity to the layer.
 
 <MemberHeading id="insert" depth="3" name="insert" sig="insert(entity: Entity, index: Number): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L455" sourceLabel="Vector.ts:455" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L459" sourceLabel="Vector.ts:459" />
 
 _Inherited from `Vector#insert`_
 
@@ -190,7 +190,7 @@ Adds entity to the layer in the index position.
 
 <MemberHeading id="addentities" depth="3" name="addEntities" sig="addEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L528" sourceLabel="Vector.ts:528" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L532" sourceLabel="Vector.ts:532" />
 
 _Inherited from `Vector#addEntities`_
 
@@ -208,7 +208,7 @@ Adds entity array to the layer.
 
 <MemberHeading id="removeentity" depth="3" name="removeEntity" sig="removeEntity(entity: Entity): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L542" sourceLabel="Vector.ts:542" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L546" sourceLabel="Vector.ts:546" />
 
 _Inherited from `Vector#removeEntity`_
 
@@ -226,7 +226,7 @@ Remove entity from layer. TODO: memory leaks.
 
 <MemberHeading id="reindexentitiesarray" depth="3" name="_reindexEntitiesArray" sig="_reindexEntitiesArray(startIndex: number)" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/vector-ts/#L615" sourceLabel="Vector.ts:615" />
+<MemberMeta badges="protected" sourceHref="/source/layer/vector-ts/#L619" sourceLabel="Vector.ts:619" />
 
 _Inherited from `Vector#_reindexEntitiesArray`_
 
@@ -240,7 +240,7 @@ Refresh collected entities indexes from startIndex entities collection array pos
 
 <MemberHeading id="removeentities" depth="3" name="removeEntities" sig="removeEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L628" sourceLabel="Vector.ts:628" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L632" sourceLabel="Vector.ts:632" />
 
 _Inherited from `Vector#removeEntities`_
 
@@ -258,7 +258,7 @@ Removes entities from layer.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L640" sourceLabel="Vector.ts:640" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L644" sourceLabel="Vector.ts:644" />
 
 _Inherited from `Vector#clear`_
 
@@ -268,7 +268,7 @@ Clear the layer.
 
 <MemberHeading id="each" depth="3" name="each" sig="each(callback: function)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L669" sourceLabel="Vector.ts:669" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L673" sourceLabel="Vector.ts:673" />
 
 _Inherited from `Vector#each`_
 
@@ -282,7 +282,7 @@ Safety entities loop.
 
 <MemberHeading id="setentities" depth="3" name="setEntities" sig="setEntities(entities: Array.<Entity>): Vector" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L683" sourceLabel="Vector.ts:683" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L687" sourceLabel="Vector.ts:687" />
 
 _Inherited from `Vector#setEntities`_
 
@@ -300,7 +300,7 @@ Removes current entities from layer and adds new entities.
 
 <MemberHeading id="bindeventsdefault" depth="3" name="_bindEventsDefault" sig="_bindEventsDefault(entityCollection)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L744" sourceLabel="Vector.ts:744" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L748" sourceLabel="Vector.ts:748" />
 
 _Inherited from `Vector#_bindEventsDefault`_
 
@@ -315,7 +315,7 @@ _Inherited from `Vector#_bindEventsDefault`_
 
 <MemberHeading id="loadmaterial" depth="3" name="loadMaterial" sig="loadMaterial(material: Material)" />
 
-<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L935" sourceLabel="Vector.ts:935" />
+<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L939" sourceLabel="Vector.ts:939" />
 
 _Inherited from `Vector#loadMaterial`_
 
@@ -329,7 +329,7 @@ Start to load tile material.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L957" sourceLabel="Vector.ts:957" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L961" sourceLabel="Vector.ts:961" />
 
 _Inherited from `Vector#abortMaterialLoading`_
 
@@ -647,7 +647,7 @@ Special correction of the whole globe extent.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L957" sourceLabel="Vector.ts:957" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L961" sourceLabel="Vector.ts:961" />
 
 _Inherited from `Vector#abortMaterialLoading`_
 
@@ -661,7 +661,7 @@ Abort exact material loading.
 
 <MemberHeading id="receiveprojectors" depth="3" name="receiveProjectors" sig="receiveProjectors" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L314" sourceLabel="Vector.ts:314" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L318" sourceLabel="Vector.ts:318" />
 
 _Inherited from `Vector#receiveProjectors`_
 
@@ -675,7 +675,7 @@ Gets projector effect reception state for this vector layer entities.
 
 <MemberHeading id="receiveframetransparency" depth="3" name="receiveFrameTransparency" sig="receiveFrameTransparency" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L336" sourceLabel="Vector.ts:336" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L340" sourceLabel="Vector.ts:340" />
 
 _Inherited from `Vector#receiveFrameTransparency`_
 
@@ -689,7 +689,7 @@ Gets frame transparency reception state for this vector layer entities.
 
 <MemberHeading id="receiveshadows" depth="3" name="receiveShadows" sig="receiveShadows" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L358" sourceLabel="Vector.ts:358" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L362" sourceLabel="Vector.ts:362" />
 
 _Inherited from `Vector#receiveShadows`_
 
@@ -703,7 +703,7 @@ Gets shadow map reception state for this vector layer entities.
 
 <MemberHeading id="pickingenabled" depth="3" name="pickingEnabled" sig="pickingEnabled" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L602" sourceLabel="Vector.ts:602" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L606" sourceLabel="Vector.ts:606" />
 
 _Inherited from `Vector#pickingEnabled`_
 

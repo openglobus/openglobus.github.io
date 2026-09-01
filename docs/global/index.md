@@ -441,9 +441,25 @@ log(64, 2)
 //returns 6
 ```
 
+<MemberHeading id="smoothstep" depth="3" name="smoothstep" sig="smoothstep(edge0: number, edge1: number, x: number): number" />
+
+<MemberMeta sourceHref="/source/math-ts/#L91" sourceLabel="math.ts:91" />
+
+Smooth Hermite interpolation between 0 and 1, the same as GLSL `smoothstep`.
+
+**Parameters**
+
+- `edge0` (number) — Lower edge.
+- `edge1` (number) — Upper edge.
+- `x` (number) — Source value.
+
+**Returns**
+
+- `number`
+
 <MemberHeading id="clamp" depth="3" name="clamp" sig="clamp(value: number, min: number, max: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L95" sourceLabel="math.ts:95" />
+<MemberMeta sourceHref="/source/math-ts/#L110" sourceLabel="math.ts:110" />
 
 Clamp the number.
 
@@ -466,7 +482,7 @@ clamp(12, 1, 5)
 
 <MemberHeading id="deg2rad" depth="3" name="DEG2RAD" sig="DEG2RAD(degrees: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L105" sourceLabel="math.ts:105" />
+<MemberMeta sourceHref="/source/math-ts/#L120" sourceLabel="math.ts:120" />
 
 Converts degrees value to radians.
 
@@ -480,7 +496,7 @@ Converts degrees value to radians.
 
 <MemberHeading id="rad2deg" depth="3" name="RAD2DEG" sig="RAD2DEG(angle: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L115" sourceLabel="math.ts:115" />
+<MemberMeta sourceHref="/source/math-ts/#L130" sourceLabel="math.ts:130" />
 
 Converts radians value to degrees.
 
@@ -494,7 +510,7 @@ Converts radians value to degrees.
 
 <MemberHeading id="ispoweroftwo" depth="3" name="isPowerOfTwo" sig="isPowerOfTwo(x: number): boolean" />
 
-<MemberMeta sourceHref="/source/math-ts/#L125" sourceLabel="math.ts:125" />
+<MemberMeta sourceHref="/source/math-ts/#L140" sourceLabel="math.ts:140" />
 
 Check the number is a power of two.
 
@@ -508,7 +524,7 @@ Check the number is a power of two.
 
 <MemberHeading id="nexthighestpoweroftwo" depth="3" name="nextHighestPowerOfTwo" sig="nextHighestPowerOfTwo(x: number, maxValue?: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L136" sourceLabel="math.ts:136" />
+<MemberMeta sourceHref="/source/math-ts/#L151" sourceLabel="math.ts:151" />
 
 Returns next value that is power of two.
 
@@ -523,7 +539,7 @@ Returns next value that is power of two.
 
 <MemberHeading id="randomi" depth="3" name="randomi" sig="randomi(min: number, max: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L151" sourceLabel="math.ts:151" />
+<MemberMeta sourceHref="/source/math-ts/#L166" sourceLabel="math.ts:166" />
 
 Returns random integer number within the bounds.
 
@@ -538,7 +554,7 @@ Returns random integer number within the bounds.
 
 <MemberHeading id="random" depth="3" name="random" sig="random(min?: number, max?: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L162" sourceLabel="math.ts:162" />
+<MemberMeta sourceHref="/source/math-ts/#L177" sourceLabel="math.ts:177" />
 
 Returns random number within the bounds.
 
@@ -553,7 +569,7 @@ Returns random number within the bounds.
 
 <MemberHeading id="degtodec" depth="3" name="degToDec" sig="degToDec(d: number, m: number, s: number, p?: boolean): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L206" sourceLabel="math.ts:206" />
+<MemberMeta sourceHref="/source/math-ts/#L222" sourceLabel="math.ts:222" />
 
 Converts degrees value to decimal.
 
@@ -570,7 +586,7 @@ Converts degrees value to decimal.
 
 <MemberHeading id="mod" depth="3" name="mod" sig="mod(m: number, n: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L221" sourceLabel="math.ts:221" />
+<MemberMeta sourceHref="/source/math-ts/#L237" sourceLabel="math.ts:237" />
 
 The modulo operation that also works for negative dividends.
 
@@ -585,7 +601,7 @@ The modulo operation that also works for negative dividends.
 
 <MemberHeading id="zerotwopi" depth="3" name="zeroTwoPI" sig="zeroTwoPI(a: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L200" sourceLabel="math.ts:200" />
+<MemberMeta sourceHref="/source/math-ts/#L215" sourceLabel="math.ts:215" />
 
 Returns an angle in the range 0 \<= angle \<= 2Pi which is equivalent to the provided angle.
 
@@ -599,7 +615,7 @@ Returns an angle in the range 0 \<= angle \<= 2Pi which is equivalent to the pro
 
 <MemberHeading id="step" depth="3" name="step" sig="step(edge: number, x: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L215" sourceLabel="math.ts:215" />
+<MemberMeta sourceHref="/source/math-ts/#L230" sourceLabel="math.ts:230" />
 
 Returns 0.0 if x is smaller than edge and otherwise 1.0.
 
@@ -614,7 +630,7 @@ Returns 0.0 if x is smaller than edge and otherwise 1.0.
 
 <MemberHeading id="frac" depth="3" name="frac" sig="frac(x: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L225" sourceLabel="math.ts:225" />
+<MemberMeta sourceHref="/source/math-ts/#L240" sourceLabel="math.ts:240" />
 
 The frac function returns the fractional part of x, i.e. x minus floor(x).
 
@@ -628,7 +644,7 @@ The frac function returns the fractional part of x, i.e. x minus floor(x).
 
 <MemberHeading id="log2" depth="3" name="log2" sig="log2(x: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L236" sourceLabel="math.ts:236" />
+<MemberMeta sourceHref="/source/math-ts/#L251" sourceLabel="math.ts:251" />
 
 Returns Math.log(x) / Math.log(2)
 
@@ -642,7 +658,7 @@ Returns Math.log(x) / Math.log(2)
 
 <MemberHeading id="exp2" depth="3" name="exp2" sig="exp2(n: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L246" sourceLabel="math.ts:246" />
+<MemberMeta sourceHref="/source/math-ts/#L261" sourceLabel="math.ts:261" />
 
 Returns two power of n.
 
@@ -656,7 +672,7 @@ Returns two power of n.
 
 <MemberHeading id="pow2i" depth="3" name="pow2i" sig="pow2i(n: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L256" sourceLabel="math.ts:256" />
+<MemberMeta sourceHref="/source/math-ts/#L271" sourceLabel="math.ts:271" />
 
 Returns two power of integer n.
 
@@ -670,7 +686,7 @@ Returns two power of integer n.
 
 <MemberHeading id="slice" depth="3" name="slice" sig="slice(t: number, h1: number, h0: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L267" sourceLabel="math.ts:267" />
+<MemberMeta sourceHref="/source/math-ts/#L282" sourceLabel="math.ts:282" />
 
 Returns a slice of linear interpolation t \* (h1 - h0)
 
@@ -686,7 +702,7 @@ Returns a slice of linear interpolation t \* (h1 - h0)
 
 <MemberHeading id="lerp" depth="3" name="lerp" sig="lerp(t: number, h1: number, h0: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L279" sourceLabel="math.ts:279" />
+<MemberMeta sourceHref="/source/math-ts/#L294" sourceLabel="math.ts:294" />
 
 Performs a linear interpolation.
 
@@ -713,7 +729,7 @@ Performs a linear interpolation.
 ): Vec3"
 />
 
-<MemberMeta sourceHref="/source/math-ts/#L305" sourceLabel="math.ts:305" />
+<MemberMeta sourceHref="/source/math-ts/#L320" sourceLabel="math.ts:320" />
 
 Performs a 3D bezier interpolation.
 
@@ -731,7 +747,7 @@ Performs a 3D bezier interpolation.
 
 <MemberHeading id="rev" depth="3" name="rev" sig="rev(x: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L325" sourceLabel="math.ts:325" />
+<MemberMeta sourceHref="/source/math-ts/#L340" sourceLabel="math.ts:340" />
 
 Clamp angle value within 360.
 
@@ -745,7 +761,7 @@ Clamp angle value within 360.
 
 <MemberHeading id="normlon" depth="3" name="norm_lon" sig="norm_lon(lon: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L335" sourceLabel="math.ts:335" />
+<MemberMeta sourceHref="/source/math-ts/#L350" sourceLabel="math.ts:350" />
 
 Clamp longitude within: -180 to +180 degrees.
 
@@ -759,7 +775,7 @@ Clamp longitude within: -180 to +180 degrees.
 
 <MemberHeading id="negativepitopi" depth="3" name="negativePItoPI" sig="negativePItoPI(a: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L345" sourceLabel="math.ts:345" />
+<MemberMeta sourceHref="/source/math-ts/#L360" sourceLabel="math.ts:360" />
 
 Returns an angle in the range -Pi \<= angle \<= Pi which is equivalent to the provided angle.
 
@@ -782,7 +798,7 @@ Returns an angle in the range -Pi \<= angle \<= Pi which is equivalent to the pr
 ): number"
 />
 
-<MemberMeta sourceHref="/source/math-ts/#L357" sourceLabel="math.ts:357" />
+<MemberMeta sourceHref="/source/math-ts/#L372" sourceLabel="math.ts:372" />
 
 Solve using iteration method and a fixed number of steps.
 
@@ -808,7 +824,7 @@ Solve using iteration method and a fixed number of steps.
 ): number"
 />
 
-<MemberMeta sourceHref="/source/math-ts/#L377" sourceLabel="math.ts:377" />
+<MemberMeta sourceHref="/source/math-ts/#L392" sourceLabel="math.ts:392" />
 
 Solve using iteration; terminate when error is below err or the maximum number of iterations is reached. Used in Euler's equation(see og.orbit) solving.
 
@@ -825,7 +841,7 @@ Solve using iteration; terminate when error is below err or the maximum number o
 
 <MemberHeading id="getangledirection" depth="3" name="getAngleDirection" sig="getAngleDirection(a, b): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L396" sourceLabel="math.ts:396" />
+<MemberMeta sourceHref="/source/math-ts/#L411" sourceLabel="math.ts:411" />
 
 **Parameters**
 
@@ -838,7 +854,7 @@ Solve using iteration; terminate when error is below err or the maximum number o
 
 <MemberHeading id="getanglebetweenazimuths" depth="3" name="getAngleBetweenAzimuths" sig="getAngleBetweenAzimuths(a: number, b: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L415" sourceLabel="math.ts:415" />
+<MemberMeta sourceHref="/source/math-ts/#L430" sourceLabel="math.ts:430" />
 
 Returns angle between two azimuths
 
@@ -1544,7 +1560,7 @@ WGS84 ellipsoid object.
 
 <MemberHeading id="twopi" depth="3" name="TWO_PI" sig="TWO_PI" />
 
-<MemberMeta sourceHref="/source/math-ts/#L38" sourceLabel="math.ts:38" />
+<MemberMeta sourceHref="/source/math-ts/#L40" sourceLabel="math.ts:40" />
 
 <MemberHeading id="pitwo" depth="3" name="PI_TWO" sig="PI_TWO" />
 
@@ -1552,59 +1568,59 @@ WGS84 ellipsoid object.
 
 <MemberHeading id="log2" depth="3" name="LOG2" sig="LOG2" />
 
-<MemberMeta sourceHref="/source/math-ts/#L49" sourceLabel="math.ts:49" />
+<MemberMeta sourceHref="/source/math-ts/#L50" sourceLabel="math.ts:50" />
 
 <MemberHeading id="max32" depth="3" name="MAX32" sig="MAX32" />
 
-<MemberMeta sourceHref="/source/math-ts/#L51" sourceLabel="math.ts:51" />
+<MemberMeta sourceHref="/source/math-ts/#L52" sourceLabel="math.ts:52" />
 
 <MemberHeading id="max" depth="3" name="MAX" sig="MAX" />
 
-<MemberMeta sourceHref="/source/math-ts/#L53" sourceLabel="math.ts:53" />
+<MemberMeta sourceHref="/source/math-ts/#L54" sourceLabel="math.ts:54" />
 
 <MemberHeading id="min" depth="3" name="MIN" sig="MIN" />
 
-<MemberMeta sourceHref="/source/math-ts/#L55" sourceLabel="math.ts:55" />
+<MemberMeta sourceHref="/source/math-ts/#L56" sourceLabel="math.ts:56" />
 
 <MemberHeading id="radians" depth="3" name="RADIANS" sig="RADIANS" />
 
-<MemberMeta sourceHref="/source/math-ts/#L58" sourceLabel="math.ts:58" />
+<MemberMeta sourceHref="/source/math-ts/#L59" sourceLabel="math.ts:59" />
 
 <MemberHeading id="degrees" depth="3" name="DEGREES" sig="DEGREES" />
 
-<MemberMeta sourceHref="/source/math-ts/#L60" sourceLabel="math.ts:60" />
+<MemberMeta sourceHref="/source/math-ts/#L61" sourceLabel="math.ts:61" />
 
 <MemberHeading id="degreesdouble" depth="3" name="DEGREES_DOUBLE" sig="DEGREES_DOUBLE" />
 
-<MemberMeta sourceHref="/source/math-ts/#L63" sourceLabel="math.ts:63" />
+<MemberMeta sourceHref="/source/math-ts/#L64" sourceLabel="math.ts:64" />
 
 <MemberHeading id="radianshalf" depth="3" name="RADIANS_HALF" sig="RADIANS_HALF" />
 
-<MemberMeta sourceHref="/source/math-ts/#L65" sourceLabel="math.ts:65" />
+<MemberMeta sourceHref="/source/math-ts/#L66" sourceLabel="math.ts:66" />
 
 <MemberHeading id="arcsecondstoradians" depth="3" name="ARCSECONDS_TO_RADIANS" sig="ARCSECONDS_TO_RADIANS" />
 
-<MemberMeta sourceHref="/source/math-ts/#L68" sourceLabel="math.ts:68" />
+<MemberMeta sourceHref="/source/math-ts/#L69" sourceLabel="math.ts:69" />
 
 <MemberHeading id="radianstohours" depth="3" name="RADIANS_TO_HOURS" sig="RADIANS_TO_HOURS" />
 
-<MemberMeta sourceHref="/source/math-ts/#L80" sourceLabel="math.ts:80" />
+<MemberMeta sourceHref="/source/math-ts/#L71" sourceLabel="math.ts:71" />
 
 <MemberHeading id="hourstoradians" depth="3" name="HOURS_TO_RADIANS" sig="HOURS_TO_RADIANS" />
 
-<MemberMeta sourceHref="/source/math-ts/#L72" sourceLabel="math.ts:72" />
+<MemberMeta sourceHref="/source/math-ts/#L73" sourceLabel="math.ts:73" />
 
 <MemberHeading id="hourstodegrees" depth="3" name="HOURS_TO_DEGREES" sig="HOURS_TO_DEGREES" />
 
-<MemberMeta sourceHref="/source/math-ts/#L74" sourceLabel="math.ts:74" />
+<MemberMeta sourceHref="/source/math-ts/#L75" sourceLabel="math.ts:75" />
 
 <MemberHeading id="degreestohours" depth="3" name="DEGREES_TO_HOURS" sig="DEGREES_TO_HOURS" />
 
-<MemberMeta sourceHref="/source/math-ts/#L76" sourceLabel="math.ts:76" />
+<MemberMeta sourceHref="/source/math-ts/#L77" sourceLabel="math.ts:77" />
 
 <MemberHeading id="sqrthalf" depth="3" name="SQRT_HALF" sig="SQRT_HALF" />
 
-<MemberMeta sourceHref="/source/math-ts/#L79" sourceLabel="math.ts:79" />
+<MemberMeta sourceHref="/source/math-ts/#L80" sourceLabel="math.ts:80" />
 
 <MemberHeading id="pole" depth="3" name="POLE" sig="POLE: number" />
 
@@ -1697,3 +1713,9 @@ Maximum number of projectors processed in a single shader invocation. Used by fo
 Maximum created nodes count. The more nodes count the more memory usage. When the maximum node count is exceeded, memClear() will be called.
 
 **Default:** `400`
+
+<MemberHeading id="defaultwidth" depth="3" name="DEFAULT_WIDTH" sig="DEFAULT_WIDTH" />
+
+<MemberMeta sourceHref="/source/ui/dialog-ts/#L18" sourceLabel="Dialog.ts:18" />
+
+Preferred side of the anchor element a dialog opens on.

@@ -14,7 +14,7 @@ longname: module:og/utils/shared
 
 <MemberHeading id="isundef" depth="3" name="isUndef" sig="isUndef(obj: Object): boolean" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L33" sourceLabel="shared.ts:33" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L34" sourceLabel="shared.ts:34" />
 
 Returns true if the object pointer is undefined.
 
@@ -28,7 +28,7 @@ Returns true if the object pointer is undefined.
 
 <MemberHeading id="htmlcolortorgba" depth="3" name="htmlColorToRgba" sig="htmlColorToRgba(htmlColor: string, opacity?: number): Vec4" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L119" sourceLabel="shared.ts:119" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L120" sourceLabel="shared.ts:120" />
 
 Convert html color string to the RGBA number vector.
 
@@ -43,7 +43,7 @@ Convert html color string to the RGBA number vector.
 
 <MemberHeading id="htmlcolortorgb" depth="3" name="htmlColorToRgb" sig="htmlColorToRgb(htmlColor: string): Vec3" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L173" sourceLabel="shared.ts:173" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L174" sourceLabel="shared.ts:174" />
 
 Convert html color string to the RGB number vector.
 
@@ -57,7 +57,7 @@ Convert html color string to the RGB number vector.
 
 <MemberHeading id="stringtemplate" depth="3" name="stringTemplate" sig="stringTemplate(template: string, params: Object): string" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L223" sourceLabel="shared.ts:223" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L224" sourceLabel="shared.ts:224" />
 
 Replace template substrings between '{' and '}' tokens.
 
@@ -86,7 +86,7 @@ og.utils.stringTemplate("http://earth3.openglobus.org/{z}/{y}/{x}.ddm", substrin
 
 <MemberHeading id="stringtemplate2" depth="3" name="stringTemplate2" sig="stringTemplate2(template: string, params: Object): string" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L245" sourceLabel="shared.ts:245" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L246" sourceLabel="shared.ts:246" />
 
 Replace template substrings between '${...}' tokens. Also supports escaped '${...}' tokens emitted by GLSL bundlers.
 
@@ -114,6 +114,29 @@ og.utils.stringTemplate2("http://earth3.openglobus.org/${z}/${y}/${x}.ddm", subs
 ```
 
 <MemberHeading
+  id="createscalebydistance"
+  depth="3"
+  name="createScaleByDistance"
+  sig="createScaleByDistance(
+	v?: NumberArray3 | NumberArray4,
+	def: NumberArray4,
+): NumberArray4"
+/>
+
+<MemberMeta sourceHref="/source/utils/shared-ts/#L315" sourceLabel="shared.ts:315" />
+
+Normalizes `[near, far, vanish, scale]`, defaulting `scale` to `1`. `near <= 0` disables world scaling. It is set to `far` so the shader scale remains `1`. If `far <= 0`, both use a small epsilon to avoid division by zero without affecting fading.
+
+**Parameters**
+
+- `v` (NumberArray3 | NumberArray4, optional) — Source parameters.
+- `def` (NumberArray4) — Default parameters.
+
+**Returns**
+
+- `NumberArray4` — Normalized parameters.
+
+<MemberHeading
   id="binarysearch"
   depth="3"
   name="binarySearch"
@@ -124,7 +147,7 @@ og.utils.stringTemplate2("http://earth3.openglobus.org/${z}/${y}/${x}.ddm", subs
 ): number"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L420" sourceLabel="shared.ts:420" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L446" sourceLabel="shared.ts:446" />
 
 Finds an item in a sorted array.
 
@@ -160,7 +183,7 @@ var index = og.utils.binarySearch(numbers, 6, comparator); // 3
 ): number"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L446" sourceLabel="shared.ts:446" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L472" sourceLabel="shared.ts:472" />
 
 **Parameters**
 
@@ -174,7 +197,7 @@ var index = og.utils.binarySearch(numbers, 6, comparator); // 3
 
 <MemberHeading id="throttle" depth="3" name="throttle" sig="throttle(func: any, limit: Number, skip?: boolean)" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L704" sourceLabel="shared.ts:704" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L730" sourceLabel="shared.ts:730" />
 
 Callback throttling
 
@@ -202,7 +225,7 @@ Callback throttling
 )"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L757" sourceLabel="shared.ts:757" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L783" sourceLabel="shared.ts:783" />
 
 y2-----Q12--------------Q22--- | | | | | | | | y-------|-----P----------|---- | | | | | | | | | | | | | | | | | | | | y1-----Q11----|---------Q21--- | | | | | | x1 x x2
 
@@ -221,7 +244,7 @@ y2-----Q12--------------Q22--- | | | | | | | | y-------|-----P----------|---- | 
 
 <MemberHeading id="concattypedarrays" depth="3" name="concatTypedArrays" sig="concatTypedArrays(a: TypedArray, b: TypedArray | Array.<number>)" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L889" sourceLabel="shared.ts:889" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L915" sourceLabel="shared.ts:915" />
 
 Concatenates two the same type arrays
 
@@ -240,7 +263,7 @@ Concatenates two the same type arrays
 ): TypedArray | Array.<number>"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L914" sourceLabel="shared.ts:914" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L940" sourceLabel="shared.ts:940" />
 
 Concatenates two the same arrays
 
@@ -263,7 +286,7 @@ Concatenates two the same arrays
 ): TypedArray"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L931" sourceLabel="shared.ts:931" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L957" sourceLabel="shared.ts:957" />
 
 Convert simple array to typed
 
@@ -278,7 +301,7 @@ Convert simple array to typed
 
 <MemberHeading id="makearray" depth="3" name="makeArray" sig="makeArray(arr: TypedArray | Array.<number>): Array.<number>" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L946" sourceLabel="shared.ts:946" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L972" sourceLabel="shared.ts:972" />
 
 Convert typed array to array
 
@@ -302,7 +325,7 @@ Convert typed array to array
 )"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L962" sourceLabel="shared.ts:962" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L988" sourceLabel="shared.ts:988" />
 
 **Parameters**
 
@@ -323,7 +346,7 @@ Convert typed array to array
 )"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L999" sourceLabel="shared.ts:999" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1025" sourceLabel="shared.ts:1025" />
 
 **Parameters**
 
@@ -334,13 +357,13 @@ Convert typed array to array
 
 <MemberHeading id="getmatrixsubarrayboundsext" depth="3" name="getMatrixSubArrayBoundsExt" sig="getMatrixSubArrayBoundsExt()" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1099" sourceLabel="shared.ts:1099" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1125" sourceLabel="shared.ts:1125" />
 
 Returns two float32 triangle coordinate arrays from inside of the source triangle array.
 
 <MemberHeading id="loadimage" depth="3" name="loadImage" sig="loadImage(url: string): Promise.<Image>" />
 
-<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1177" sourceLabel="shared.ts:1177" />
+<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1203" sourceLabel="shared.ts:1203" />
 
 Promise for load images
 
@@ -354,7 +377,7 @@ Promise for load images
 
 <MemberHeading id="isimageloaded" depth="3" name="isImageLoaded" sig="isImageLoaded(image: HTMLImageElement): boolean" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1260" sourceLabel="shared.ts:1260" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1286" sourceLabel="shared.ts:1286" />
 
 Gets image is loaded
 
@@ -368,7 +391,7 @@ Gets image is loaded
 
 <MemberHeading id="gettileimageresolution" depth="3" name="getTileImageResolution" sig="getTileImageResolution(x, y, z, imageSize, ellipsoid)" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1318" sourceLabel="shared.ts:1318" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1344" sourceLabel="shared.ts:1344" />
 
 **Parameters**
 
@@ -393,7 +416,7 @@ Gets image is loaded
 ): Vec2"
 />
 
-<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L465" sourceLabel="shared.ts:465" />
+<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L491" sourceLabel="shared.ts:491" />
 
 Returns two segment lines intersection coordinate.
 
@@ -422,7 +445,7 @@ Returns two segment lines intersection coordinate.
 ): Vec2"
 />
 
-<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L508" sourceLabel="shared.ts:508" />
+<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L534" sourceLabel="shared.ts:534" />
 
 Returns two segment lines intersection coordinate.
 
@@ -440,7 +463,7 @@ Returns two segment lines intersection coordinate.
 
 <MemberHeading id="xmltojson" depth="3" name="xmlToJson" sig="xmlToJson(xml: Object): Object" />
 
-<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L547" sourceLabel="shared.ts:547" />
+<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L573" sourceLabel="shared.ts:573" />
 
 Converts XML to JSON
 
@@ -465,7 +488,7 @@ Converts XML to JSON
 ): Float64Array"
 />
 
-<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1031" sourceLabel="shared.ts:1031" />
+<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1057" sourceLabel="shared.ts:1057" />
 
 Returns 64-bit triangle coordinate array from inside of the source triangle array.
 
@@ -494,7 +517,7 @@ Returns 64-bit triangle coordinate array from inside of the source triangle arra
 ): Float32Array"
 />
 
-<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1068" sourceLabel="shared.ts:1068" />
+<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1094" sourceLabel="shared.ts:1094" />
 
 Returns 32-bit triangle coordinate array from inside of the source triangle array.
 
