@@ -51,7 +51,7 @@ Entity combines multiple visual features into one object. You can create it manu
 
 <MemberHeading id="isequal" depth="3" name="isEqual" sig="isEqual(entity: Entity): boolean" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L515" sourceLabel="Entity.ts:515" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L517" sourceLabel="Entity.ts:517" />
 
 Checks if the given entity is equal to the current entity.
 
@@ -65,7 +65,7 @@ Checks if the given entity is equal to the current entity.
 
 <MemberHeading id="getcollectionindex" depth="3" name="getCollectionIndex" sig="getCollectionIndex(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L547" sourceLabel="Entity.ts:547" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L549" sourceLabel="Entity.ts:549" />
 
 Gets the collection index of the entity.
 
@@ -75,7 +75,7 @@ Gets the collection index of the entity.
 
 <MemberHeading id="addto" depth="3" name="addTo" sig="addTo(collection: EntityCollection | Vector): Entity" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L557" sourceLabel="Entity.ts:557" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L559" sourceLabel="Entity.ts:559" />
 
 Adds the entity to a collection or vector layer.
 
@@ -89,13 +89,13 @@ Adds the entity to a collection or vector layer.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L566" sourceLabel="Entity.ts:566" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L568" sourceLabel="Entity.ts:568" />
 
 Removes the entity from its collection or layer.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L577" sourceLabel="Entity.ts:577" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L579" sourceLabel="Entity.ts:579" />
 
 Sets the entity visibility.
 
@@ -105,7 +105,7 @@ Sets the entity visibility.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L608" sourceLabel="Entity.ts:608" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L610" sourceLabel="Entity.ts:610" />
 
 Sets entity opacity for all available features.
 
@@ -115,7 +115,7 @@ Sets entity opacity for all available features.
 
 <MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L636" sourceLabel="Entity.ts:636" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L638" sourceLabel="Entity.ts:638" />
 
 Returns entity opacity.
 
@@ -125,7 +125,7 @@ Returns entity opacity.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L645" sourceLabel="Entity.ts:645" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L647" sourceLabel="Entity.ts:647" />
 
 Returns entity visibility.
 
@@ -135,7 +135,7 @@ Returns entity visibility.
 
 <MemberHeading id="setcartesian3v" depth="3" name="setCartesian3v" sig="setCartesian3v(cartesian: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L654" sourceLabel="Entity.ts:654" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L656" sourceLabel="Entity.ts:656" />
 
 Sets entity cartesian position.
 
@@ -145,7 +145,7 @@ Sets entity cartesian position.
 
 <MemberHeading id="getscale" depth="3" name="getScale" sig="getScale(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L663" sourceLabel="Entity.ts:663" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L665" sourceLabel="Entity.ts:665" />
 
 Returns the local scale.
 
@@ -155,7 +155,7 @@ Returns the local scale.
 
 <MemberHeading id="setscale3v" depth="3" name="setScale3v" sig="setScale3v(scale: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L672" sourceLabel="Entity.ts:672" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L674" sourceLabel="Entity.ts:674" />
 
 Sets per-axis local scale.
 
@@ -165,7 +165,7 @@ Sets per-axis local scale.
 
 <MemberHeading id="setscale" depth="3" name="setScale" sig="setScale(val: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L693" sourceLabel="Entity.ts:693" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L695" sourceLabel="Entity.ts:695" />
 
 Sets uniform local scale.
 
@@ -175,7 +175,7 @@ Sets uniform local scale.
 
 <MemberHeading id="getabsoluterotation" depth="3" name="getAbsoluteRotation" sig="getAbsoluteRotation(): Quat" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L704" sourceLabel="Entity.ts:704" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L706" sourceLabel="Entity.ts:706" />
 
 Gets the absolute rotation direction of the entity.
 
@@ -185,7 +185,7 @@ Gets the absolute rotation direction of the entity.
 
 <MemberHeading id="getrotation" depth="3" name="getRotation" sig="getRotation(): Quat" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L713" sourceLabel="Entity.ts:713" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L715" sourceLabel="Entity.ts:715" />
 
 Gets the local rotation of the entity. For the root entity it is equal to the absolute rotation.
 
@@ -195,7 +195,7 @@ Gets the local rotation of the entity. For the root entity it is equal to the ab
 
 <MemberHeading id="setlook3v" depth="3" name="setLook3v" sig="setLook3v(cart: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L722" sourceLabel="Entity.ts:722" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L724" sourceLabel="Entity.ts:724" />
 
 Rotates the entity to look at a given point in world coordinates.
 
@@ -205,7 +205,7 @@ Rotates the entity to look at a given point in world coordinates.
 
 <MemberHeading id="setlooklonlat" depth="3" name="setLookLonLat" sig="setLookLonLat(lonLat: LonLat)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L740" sourceLabel="Entity.ts:740" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L742" sourceLabel="Entity.ts:742" />
 
 Rotates the entity to look at a given geographic coordinate.
 
@@ -215,7 +215,7 @@ Rotates the entity to look at a given geographic coordinate.
 
 <MemberHeading id="setabsoluterotation" depth="3" name="setAbsoluteRotation" sig="setAbsoluteRotation(rot: Quat)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L752" sourceLabel="Entity.ts:752" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L754" sourceLabel="Entity.ts:754" />
 
 Sets the absolute rotation of the entity.
 
@@ -225,7 +225,7 @@ Sets the absolute rotation of the entity.
 
 <MemberHeading id="setrotation" depth="3" name="setRotation" sig="setRotation(rot: Quat)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L761" sourceLabel="Entity.ts:761" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L763" sourceLabel="Entity.ts:763" />
 
 Sets the local rotation of the entity.
 
@@ -235,7 +235,7 @@ Sets the local rotation of the entity.
 
 <MemberHeading id="setdirectquaternionrotation" depth="3" name="setDirectQuaternionRotation" sig="setDirectQuaternionRotation(rot: Quat)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L777" sourceLabel="Entity.ts:777" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L779" sourceLabel="Entity.ts:779" />
 
 Sets rotation directly from glTF quaternion with common coordinate system conversion. This method avoids the current pitch/yaw/roll conversion.
 
@@ -245,7 +245,7 @@ Sets rotation directly from glTF quaternion with common coordinate system conver
 
 <MemberHeading id="setpitch" depth="3" name="setPitch" sig="setPitch(val: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L795" sourceLabel="Entity.ts:795" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L794" sourceLabel="Entity.ts:794" />
 
 Sets the pitch rotation of the entity.
 
@@ -255,7 +255,7 @@ Sets the pitch rotation of the entity.
 
 <MemberHeading id="setyaw" depth="3" name="setYaw" sig="setYaw(val: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L805" sourceLabel="Entity.ts:805" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L804" sourceLabel="Entity.ts:804" />
 
 Sets the yaw rotation of the entity.
 
@@ -265,7 +265,7 @@ Sets the yaw rotation of the entity.
 
 <MemberHeading id="setroll" depth="3" name="setRoll" sig="setRoll(val: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L816" sourceLabel="Entity.ts:816" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L815" sourceLabel="Entity.ts:815" />
 
 Sets the roll rotation of the entity.
 
@@ -275,7 +275,7 @@ Sets the roll rotation of the entity.
 
 <MemberHeading id="setpitchyawroll" depth="3" name="setPitchYawRoll" sig="setPitchYawRoll(pitch: number, yaw: number, roll: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L829" sourceLabel="Entity.ts:829" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L828" sourceLabel="Entity.ts:828" />
 
 Sets pitch, yaw and roll at once.
 
@@ -287,7 +287,7 @@ Sets pitch, yaw and roll at once.
 
 <MemberHeading id="getpitch" depth="3" name="getPitch" sig="getPitch(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L842" sourceLabel="Entity.ts:842" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L841" sourceLabel="Entity.ts:841" />
 
 Gets the pitch angle of the entity.
 
@@ -297,7 +297,7 @@ Gets the pitch angle of the entity.
 
 <MemberHeading id="getyaw" depth="3" name="getYaw" sig="getYaw(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L851" sourceLabel="Entity.ts:851" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L850" sourceLabel="Entity.ts:850" />
 
 Gets the yaw angle of the entity.
 
@@ -307,7 +307,7 @@ Gets the yaw angle of the entity.
 
 <MemberHeading id="getroll" depth="3" name="getRoll" sig="getRoll(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L860" sourceLabel="Entity.ts:860" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L859" sourceLabel="Entity.ts:859" />
 
 Gets the roll angle of the entity.
 
@@ -317,7 +317,7 @@ Gets the roll angle of the entity.
 
 <MemberHeading id="setabsolutepitch" depth="3" name="setAbsolutePitch" sig="setAbsolutePitch(val: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L869" sourceLabel="Entity.ts:869" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L868" sourceLabel="Entity.ts:868" />
 
 Sets the absolute pitch of the entity.
 
@@ -327,7 +327,7 @@ Sets the absolute pitch of the entity.
 
 <MemberHeading id="setabsoluteyaw" depth="3" name="setAbsoluteYaw" sig="setAbsoluteYaw(val: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L883" sourceLabel="Entity.ts:883" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L882" sourceLabel="Entity.ts:882" />
 
 Sets the absolute yaw of the entity.
 
@@ -337,7 +337,7 @@ Sets the absolute yaw of the entity.
 
 <MemberHeading id="setabsoluteroll" depth="3" name="setAbsoluteRoll" sig="setAbsoluteRoll(val: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L897" sourceLabel="Entity.ts:897" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L896" sourceLabel="Entity.ts:896" />
 
 Sets the absolute roll of the entity.
 
@@ -347,7 +347,7 @@ Sets the absolute roll of the entity.
 
 <MemberHeading id="getabsolutepitch" depth="3" name="getAbsolutePitch" sig="getAbsolutePitch(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L911" sourceLabel="Entity.ts:911" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L910" sourceLabel="Entity.ts:910" />
 
 Gets the absolute pitch angle of the entity.
 
@@ -357,7 +357,7 @@ Gets the absolute pitch angle of the entity.
 
 <MemberHeading id="getabsoluteyaw" depth="3" name="getAbsoluteYaw" sig="getAbsoluteYaw(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L924" sourceLabel="Entity.ts:924" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L923" sourceLabel="Entity.ts:923" />
 
 Gets the absolute yaw angle of the entity.
 
@@ -367,7 +367,7 @@ Gets the absolute yaw angle of the entity.
 
 <MemberHeading id="getabsoluteroll" depth="3" name="getAbsoluteRoll" sig="getAbsoluteRoll(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L936" sourceLabel="Entity.ts:936" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L935" sourceLabel="Entity.ts:935" />
 
 Gets the absolute roll angle of the entity.
 
@@ -377,7 +377,7 @@ Gets the absolute roll angle of the entity.
 
 <MemberHeading id="setabsolutecartesian" depth="3" name="setAbsoluteCartesian" sig="setAbsoluteCartesian(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L974" sourceLabel="Entity.ts:974" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L973" sourceLabel="Entity.ts:973" />
 
 Sets the absolute cartesian position of the entity.
 
@@ -389,7 +389,7 @@ Sets the absolute cartesian position of the entity.
 
 <MemberHeading id="setabsolutecartesian3v" depth="3" name="setAbsoluteCartesian3v" sig="setAbsoluteCartesian3v(absolutCartesian: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L983" sourceLabel="Entity.ts:983" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L982" sourceLabel="Entity.ts:982" />
 
 Sets absolute cartesian position using a vector.
 
@@ -399,7 +399,7 @@ Sets absolute cartesian position using a vector.
 
 <MemberHeading id="getabsolutecartesian" depth="3" name="getAbsoluteCartesian" sig="getAbsoluteCartesian(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1003" sourceLabel="Entity.ts:1003" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1002" sourceLabel="Entity.ts:1002" />
 
 Returns absolute cartesian position.
 
@@ -409,7 +409,7 @@ Returns absolute cartesian position.
 
 <MemberHeading id="setcartesian" depth="3" name="setCartesian" sig="setCartesian(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1020" sourceLabel="Entity.ts:1020" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1019" sourceLabel="Entity.ts:1019" />
 
 Sets local cartesian position.
 
@@ -421,7 +421,7 @@ Sets local cartesian position.
 
 <MemberHeading id="setcartesian3vsilent" depth="3" name="_setCartesian3vSilent" sig="_setCartesian3vSilent(cartesian: Vec3, skipLonLat: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1130" sourceLabel="Entity.ts:1130" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1129" sourceLabel="Entity.ts:1129" />
 
 Sets local cartesian position without dispatching events.
 
@@ -432,7 +432,7 @@ Sets local cartesian position without dispatching events.
 
 <MemberHeading id="getlonlat" depth="3" name="getLonLat" sig="getLonLat(): LonLat" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1168" sourceLabel="Entity.ts:1168" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1167" sourceLabel="Entity.ts:1167" />
 
 Returns geodetic coordinates.
 
@@ -442,7 +442,7 @@ Returns geodetic coordinates.
 
 <MemberHeading id="setlonlat" depth="3" name="setLonLat" sig="setLonLat(lonlat: LonLat)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1177" sourceLabel="Entity.ts:1177" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1176" sourceLabel="Entity.ts:1176" />
 
 Sets geodetic coordinates.
 
@@ -452,7 +452,7 @@ Sets geodetic coordinates.
 
 <MemberHeading id="setlonlat2" depth="3" name="setLonLat2" sig="setLonLat2(lon: number, lat: number, height?: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1206" sourceLabel="Entity.ts:1206" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1205" sourceLabel="Entity.ts:1205" />
 
 Sets geodetic coordinates.
 
@@ -464,7 +464,7 @@ Sets geodetic coordinates.
 
 <MemberHeading id="setaltitude" depth="3" name="setAltitude" sig="setAltitude(altitude: number)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1233" sourceLabel="Entity.ts:1233" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1232" sourceLabel="Entity.ts:1232" />
 
 Sets entity altitude over the planet.
 
@@ -474,7 +474,7 @@ Sets entity altitude over the planet.
 
 <MemberHeading id="getaltitude" depth="3" name="getAltitude" sig="getAltitude(): number" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1242" sourceLabel="Entity.ts:1242" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1241" sourceLabel="Entity.ts:1241" />
 
 Returns entity altitude over the planet.
 
@@ -484,7 +484,7 @@ Returns entity altitude over the planet.
 
 <MemberHeading id="getcartesian" depth="3" name="getCartesian" sig="getCartesian(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1251" sourceLabel="Entity.ts:1251" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1250" sourceLabel="Entity.ts:1250" />
 
 Returns cartesian position.
 
@@ -494,7 +494,7 @@ Returns cartesian position.
 
 <MemberHeading id="setbillboard" depth="3" name="setBillboard" sig="setBillboard(billboard: Billboard): Billboard" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1261" sourceLabel="Entity.ts:1261" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1260" sourceLabel="Entity.ts:1260" />
 
 Sets entity billboard.
 
@@ -508,7 +508,7 @@ Sets entity billboard.
 
 <MemberHeading id="setlabel" depth="3" name="setLabel" sig="setLabel(label: Label): Label" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1280" sourceLabel="Entity.ts:1280" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1279" sourceLabel="Entity.ts:1279" />
 
 Sets entity label.
 
@@ -522,7 +522,7 @@ Sets entity label.
 
 <MemberHeading id="setray" depth="3" name="setRay" sig="setRay(ray: Ray): Ray" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1299" sourceLabel="Entity.ts:1299" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1298" sourceLabel="Entity.ts:1298" />
 
 Sets entity ray.
 
@@ -536,7 +536,7 @@ Sets entity ray.
 
 <MemberHeading id="setpolyline" depth="3" name="setPolyline" sig="setPolyline(polyline: Polyline): Polyline" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1317" sourceLabel="Entity.ts:1317" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1316" sourceLabel="Entity.ts:1316" />
 
 Sets entity polyline.
 
@@ -550,7 +550,7 @@ Sets entity polyline.
 
 <MemberHeading id="setpointcloud" depth="3" name="setPointCloud" sig="setPointCloud(pointCloud: PointCloud): PointCloud" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1335" sourceLabel="Entity.ts:1335" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1334" sourceLabel="Entity.ts:1334" />
 
 Sets entity pointCloud.
 
@@ -564,7 +564,7 @@ Sets entity pointCloud.
 
 <MemberHeading id="setgeometry" depth="3" name="setGeometry" sig="setGeometry(geometry: Geometry): Geometry" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1353" sourceLabel="Entity.ts:1353" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1352" sourceLabel="Entity.ts:1352" />
 
 Sets entity geometry.
 
@@ -578,7 +578,7 @@ Sets entity geometry.
 
 <MemberHeading id="setgeoobject" depth="3" name="setGeoObject" sig="setGeoObject(geoObject: GeoObject): GeoObject" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1376" sourceLabel="Entity.ts:1376" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1375" sourceLabel="Entity.ts:1375" />
 
 Sets entity geoObject.
 
@@ -592,7 +592,7 @@ Sets entity geoObject.
 
 <MemberHeading id="setstrip" depth="3" name="setStrip" sig="setStrip(strip: Strip): Strip" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1395" sourceLabel="Entity.ts:1395" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1394" sourceLabel="Entity.ts:1394" />
 
 Sets entity strip.
 
@@ -614,7 +614,7 @@ Sets entity strip.
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1431" sourceLabel="Entity.ts:1431" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1430" sourceLabel="Entity.ts:1430" />
 
 Appends child entities.
 
@@ -625,7 +625,7 @@ Appends child entities.
 
 <MemberHeading id="appendchild" depth="3" name="appendChild" sig="appendChild(entity: Entity)" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1445" sourceLabel="Entity.ts:1445" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1444" sourceLabel="Entity.ts:1444" />
 
 Appends a child entity.
 
@@ -635,13 +635,13 @@ Appends a child entity.
 
 <MemberHeading id="setpickingcolor" depth="3" name="setPickingColor" sig="setPickingColor()" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1459" sourceLabel="Entity.ts:1459" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1458" sourceLabel="Entity.ts:1458" />
 
 Applies entity picking color to all supported features.
 
 <MemberHeading id="getextent" depth="3" name="getExtent" sig="getExtent(): Extent" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1484" sourceLabel="Entity.ts:1484" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1483" sourceLabel="Entity.ts:1483" />
 
 Returns geodetic extent.
 
@@ -653,7 +653,7 @@ Returns geodetic extent.
 
 <MemberHeading id="rootentity" depth="3" name="rootEntity" sig="rootEntity" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L440" sourceLabel="Entity.ts:440" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L442" sourceLabel="Entity.ts:442" />
 
 Returns the root entity.
 
@@ -663,7 +663,7 @@ Returns the root entity.
 
 <MemberHeading id="relativeposition" depth="3" name="relativePosition" sig="relativePosition" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L455" sourceLabel="Entity.ts:455" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L457" sourceLabel="Entity.ts:457" />
 
 Sets whether the entity position is relative to its parent.
 
@@ -673,7 +673,7 @@ Sets whether the entity position is relative to its parent.
 
 <MemberHeading id="relativeposition" depth="3" name="relativePosition" sig="relativePosition" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L488" sourceLabel="Entity.ts:488" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L490" sourceLabel="Entity.ts:490" />
 
 Returns whether the entity position is relative to its parent.
 
@@ -683,7 +683,7 @@ Returns whether the entity position is relative to its parent.
 
 <MemberHeading id="entitycollection" depth="3" name="entityCollection" sig="entityCollection" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L497" sourceLabel="Entity.ts:497" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L499" sourceLabel="Entity.ts:499" />
 
 Gets current entity collection container.
 
@@ -693,7 +693,7 @@ Gets current entity collection container.
 
 <MemberHeading id="id" depth="3" name="id" sig="id" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L506" sourceLabel="Entity.ts:506" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L508" sourceLabel="Entity.ts:508" />
 
 Returns the entity id.
 
@@ -703,7 +703,7 @@ Returns the entity id.
 
 <MemberHeading id="layerindex" depth="3" name="layerIndex" sig="layerIndex" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L523" sourceLabel="Entity.ts:523" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L525" sourceLabel="Entity.ts:525" />
 
 Gets the layer index of the entity.
 
@@ -713,7 +713,7 @@ Gets the layer index of the entity.
 
 <MemberHeading id="instancename" depth="3" name="instanceName" sig="instanceName" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L531" sourceLabel="Entity.ts:531" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L533" sourceLabel="Entity.ts:533" />
 
 Returns the instance class name.
 
@@ -723,7 +723,7 @@ Returns the instance class name.
 
 <MemberHeading id="layer" depth="3" name="layer" sig="layer" />
 
-<MemberMeta sourceHref="/source/entity/entity-ts/#L1412" sourceLabel="Entity.ts:1412" />
+<MemberMeta sourceHref="/source/entity/entity-ts/#L1411" sourceLabel="Entity.ts:1411" />
 
 Returns the assigned vector layer.
 
