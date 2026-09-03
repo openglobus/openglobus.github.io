@@ -271,7 +271,7 @@ Sets visibility.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L943" sourceLabel="Polyline.ts:943" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L958" sourceLabel="Polyline.ts:958" />
 
 Gets Polyline visibility.
 
@@ -281,7 +281,7 @@ Gets Polyline visibility.
 
 <MemberHeading id="setcolorhtml" depth="3" name="setColorHTML" sig="setColorHTML(htmlColor: string)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L986" sourceLabel="Polyline.ts:986" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1001" sourceLabel="Polyline.ts:1001" />
 
 Sets polyline color
 
@@ -291,7 +291,7 @@ Sets polyline color
 
 <MemberHeading id="getcolorhtml" depth="3" name="getColorHTML" sig="getColorHTML(index?: number): string | undefined" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1001" sourceLabel="Polyline.ts:1001" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1016" sourceLabel="Polyline.ts:1016" />
 
 Gets polyline HTML color.
 
@@ -305,7 +305,7 @@ Gets polyline HTML color.
 
 <MemberHeading id="getcolor4v" depth="3" name="getColor4v" sig="getColor4v(index?: number): Vec4 | undefined" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1011" sourceLabel="Polyline.ts:1011" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1026" sourceLabel="Polyline.ts:1026" />
 
 Gets polyline color as a normalized RGBA vector.
 
@@ -319,13 +319,13 @@ Gets polyline color as a normalized RGBA vector.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1023" sourceLabel="Polyline.ts:1023" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1038" sourceLabel="Polyline.ts:1038" />
 
 Clear polyline data.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1035" sourceLabel="Polyline.ts:1035" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1050" sourceLabel="Polyline.ts:1050" />
 
 Removes from an entity.
 
