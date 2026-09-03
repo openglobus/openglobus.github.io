@@ -1024,41 +1024,33 @@ Reference surface points under the four screen corners, as \[leftTop, rightTop, 
 
 <MemberHeading id="projperp" depth="3" name="projPerp" sig="projPerp()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L59" sourceLabel="shadowCameraFit.ts:59" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L53" sourceLabel="shadowCameraFit.ts:53" />
 
 Last fit measurements, for readouts and debugging.
 
 <MemberHeading id="getleastalignedaxis" depth="3" name="getLeastAlignedAxis" sig="getLeastAlignedAxis()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L198" sourceLabel="shadowCameraFit.ts:198" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L179" sourceLabel="shadowCameraFit.ts:179" />
 
 Fallback seed for the light space up vector, for when the preferred one turns out to be parallel to the light.
 
 <MemberHeading id="getstablelightup" depth="3" name="getStableLightUp" sig="getStableLightUp()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L214" sourceLabel="shadowCameraFit.ts:214" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L195" sourceLabel="shadowCameraFit.ts:195" />
 
 Up vector of the light space basis, that is, how the shadow rectangle is turned around the sun direction.
 
 <MemberHeading id="getstrategyrelief" depth="3" name="getStrategyRelief" sig="getStrategyRelief()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L232" sourceLabel="shadowCameraFit.ts:232" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L210" sourceLabel="shadowCameraFit.ts:210" />
 
 How high the rendered terrain rises above a reference radius, and how deep it drops below it, as two positive heights.
 
-Nothing is measured here: the traversal already keeps the highest and the lowest point it draws, so the answer costs a subtraction and stays right whatever is still loading.
-
 <MemberHeading id="getcasterminz" depth="3" name="getCasterMinZ" sig="getCasterMinZ()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L266" sourceLabel="shadowCameraFit.ts:266" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L244" sourceLabel="shadowCameraFit.ts:244" />
 
 Light space depth of the closest point of the caster volume, which is the footprint raised by the caster height. Only the near plane has to clear it: a caster whose shadow lands on the footprint shares the light space XY of that shadow, so it is already inside the fitted bounds sideways.
-
-<MemberHeading id="quantizeup" depth="3" name="quantizeUp" sig="quantizeUp()" />
-
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L321" sourceLabel="shadowCameraFit.ts:321" />
-
-Rounds a value up to the next step of a ladder that takes `stepsPerOctave` steps to double: at one step the ladder is 128, 256, 512, at four it is every 19% in between. For quantities that only have to be roughly right, and badly need to stop moving every frame.
 
 ## Instance Fields
 
@@ -1799,38 +1791,36 @@ Preferred side of the anchor element a dialog opens on.
 
 <MemberHeading id="shadowcasterrelieffactor" depth="3" name="SHADOW_CASTER_RELIEF_FACTOR" sig="SHADOW_CASTER_RELIEF_FACTOR" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L15" sourceLabel="shadowCameraFit.ts:15" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L12" sourceLabel="shadowCameraFit.ts:12" />
 
-How high above the footprint a caster may stand and still reach the shadow map: the measured terrain relief, or a share of the footprint radius over flat ground, whichever is larger.
-
-Raising it is cheap. It only moves the camera sunward, which lengthens the depth range and leaves the orthographic bounds - and the texel size with them - untouched.
+How high above the footprint a caster may stand and still reach the shadow map. Raising it is cheap. It only moves the camera sunward.
 
 <MemberHeading id="shadowcasterheightsteps" depth="3" name="SHADOW_CASTER_HEIGHT_STEPS" sig="SHADOW_CASTER_HEIGHT_STEPS" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L25" sourceLabel="shadowCameraFit.ts:25" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L21" sourceLabel="shadowCameraFit.ts:21" />
 
-Steps per doubling the caster height is rounded up to. One, so the allowed heights are 128, 256, 512 metres and so on: the height places the shadow camera eye, and that eye has to stay put, so it is better for it to jump rarely and by a lot than to drift a little every frame.
+Controls shadow camera height snapping. A value of 1 uses 128, 256, 512 m, etc., preventing small movements every frame.
 
 <MemberHeading id="shadowreceiverdepthpadding" depth="3" name="SHADOW_RECEIVER_DEPTH_PADDING" sig="SHADOW_RECEIVER_DEPTH_PADDING" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L31" sourceLabel="shadowCameraFit.ts:31" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L27" sourceLabel="shadowCameraFit.ts:27" />
 
-Smallest distance the far plane is pushed past the farthest receiver, so that terrain lying lower than the fitted points still falls inside the map. The measured descent adds to it, see fit().
+Minimum far-plane margin for terrain below the fitted receivers. fit() adds the measured terrain descent to this value.
 
 <MemberHeading id="shadoworthotexelpadding" depth="3" name="SHADOW_ORTHO_TEXEL_PADDING" sig="SHADOW_ORTHO_TEXEL_PADDING" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L38" sourceLabel="shadowCameraFit.ts:38" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L33" sourceLabel="shadowCameraFit.ts:33" />
 
-Border, in texels, added around the fitted bounds. The soft shadow filter samples the neighbours of each texel, and a sample taken outside the map reads as lit, so without the border shadows break up along the edge of the covered area.
+Extra border around the fitted bounds, in texels. Keeps soft-shadow samples inside the map and prevents edge artifacts.
 
 <MemberHeading id="orthotexelquantizationsteps" depth="3" name="ORTHO_TEXEL_QUANTIZATION_STEPS" sig="ORTHO_TEXEL_QUANTIZATION_STEPS" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L46" sourceLabel="shadowCameraFit.ts:46" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L40" sourceLabel="shadowCameraFit.ts:40" />
 
-The fitted extent is not used as measured. It is rounded up to one of four sizes per doubling, about 19% apart, and drops to a finer one only when the fit asks for clearly less - that is the slack. A size that changed every frame would drag the texel grid along with it and make the shadow edges shimmer. See \_quantizeOrthoTexelSize.
+Snaps the fitted extent to four size levels per doubling. Slack delays shrinking, preventing texel-grid movement and shadow shimmer. See \_quantizeOrthoTexelSize().
 
 <MemberHeading id="minshadoworthosize" depth="3" name="MIN_SHADOW_ORTHO_SIZE" sig="MIN_SHADOW_ORTHO_SIZE" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L55" sourceLabel="shadowCameraFit.ts:55" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L49" sourceLabel="shadowCameraFit.ts:49" />
 
 Smallest bounds padding and far-near gap, in world units.
