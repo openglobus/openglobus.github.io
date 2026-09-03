@@ -1030,19 +1030,19 @@ Last fit measurements, for readouts and debugging.
 
 <MemberHeading id="getleastalignedaxis" depth="3" name="getLeastAlignedAxis" sig="getLeastAlignedAxis()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L197" sourceLabel="shadowCameraFit.ts:197" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L198" sourceLabel="shadowCameraFit.ts:198" />
 
 Fallback seed for the light space up vector, for when the preferred one turns out to be parallel to the light.
 
 <MemberHeading id="getstablelightup" depth="3" name="getStableLightUp" sig="getStableLightUp()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L213" sourceLabel="shadowCameraFit.ts:213" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L214" sourceLabel="shadowCameraFit.ts:214" />
 
 Up vector of the light space basis, that is, how the shadow rectangle is turned around the sun direction.
 
 <MemberHeading id="getstrategyrelief" depth="3" name="getStrategyRelief" sig="getStrategyRelief()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L231" sourceLabel="shadowCameraFit.ts:231" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L232" sourceLabel="shadowCameraFit.ts:232" />
 
 How high the rendered terrain rises above a reference radius, and how deep it drops below it, as two positive heights.
 
@@ -1050,13 +1050,13 @@ Nothing is measured here: the traversal already keeps the highest and the lowest
 
 <MemberHeading id="getcasterminz" depth="3" name="getCasterMinZ" sig="getCasterMinZ()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L265" sourceLabel="shadowCameraFit.ts:265" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L266" sourceLabel="shadowCameraFit.ts:266" />
 
 Light space depth of the closest point of the caster volume, which is the footprint raised by the caster height. Only the near plane has to clear it: a caster whose shadow lands on the footprint shares the light space XY of that shadow, so it is already inside the fitted bounds sideways.
 
 <MemberHeading id="quantizeup" depth="3" name="quantizeUp" sig="quantizeUp()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L320" sourceLabel="shadowCameraFit.ts:320" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L321" sourceLabel="shadowCameraFit.ts:321" />
 
 Rounds a value up to the next step of a ladder that takes `stepsPerOctave` steps to double: at one step the ladder is 128, 256, 512, at four it is every 19% in between. For quantities that only have to be roughly right, and badly need to stop moving every frame.
 

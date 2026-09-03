@@ -7,7 +7,7 @@ description: Places and sizes an orthographic depth camera over a camera footpri
 
 # ShadowCameraFit
 
-<SourceLink href="/source/utils/shadowcamerafit-ts/#L335" label="shadowCameraFit.ts:335" />
+<SourceLink href="/source/utils/shadowcamerafit-ts/#L336" label="shadowCameraFit.ts:336" />
 
 Places and sizes an orthographic depth camera over a camera footprint, so that the shadow map covers the ground the main camera sees, and everything that casts onto it, at the tightest texel the footprint allows.
 
@@ -25,7 +25,7 @@ The fit holds state between frames - the texel grid step and the camera displace
 
 <MemberHeading id="reset" depth="3" name="reset" sig="reset()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L243" sourceLabel="shadowCameraFit.ts:243" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L245" sourceLabel="shadowCameraFit.ts:245" />
 
 Drops the state carried between frames, for a camera that has been teleported.
 
@@ -40,7 +40,7 @@ Drops the state carried between frames, for a camera that has been teleported.
 ): boolean"
 />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L412" sourceLabel="shadowCameraFit.ts:412" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L415" sourceLabel="shadowCameraFit.ts:415" />
 
 Places the depth camera over the footprint and sets its orthographic projection and depth biases.
 
@@ -56,24 +56,24 @@ Places the depth camera over the footprint and sets its orthographic projection 
 
 <MemberHeading id="getterrainrelief" depth="3" name="_getTerrainRelief" sig="_getTerrainRelief()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L327" sourceLabel="shadowCameraFit.ts:327" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L336" sourceLabel="shadowCameraFit.ts:336" />
 
 Returns how much higher and how much lower the terrain goes than the four footprint corners.
 
 <MemberHeading id="getreceiverboundspoints" depth="3" name="_getReceiverBoundsPoints" sig="_getReceiverBoundsPoints()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L535" sourceLabel="shadowCameraFit.ts:535" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L538" sourceLabel="shadowCameraFit.ts:538" />
 
 Returns the points the bounds are fitted to: the four footprint corners, plus the relief they hide, reached by walking each corner along its own view ray. Along the ray, because that is where the hidden terrain lies - pushing the corners sideways instead would widen the bounds for relief that is only ever an estimate.
 
 <MemberHeading id="getcasterheight" depth="3" name="_getCasterHeight" sig="_getCasterHeight()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L576" sourceLabel="shadowCameraFit.ts:576" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L579" sourceLabel="shadowCameraFit.ts:579" />
 
 Returns the caster height, rounded to a coarse step. It decides where the shadow camera stands, and a camera that jumps every time the terrain range is revised makes the whole map blink.
 
 <MemberHeading id="quantizeorthotexelsize" depth="3" name="_quantizeOrthoTexelSize" sig="_quantizeOrthoTexelSize()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L614" sourceLabel="shadowCameraFit.ts:614" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L617" sourceLabel="shadowCameraFit.ts:617" />
 
 Returns the texel size to fit the extent onto, keeping the previous one while it is still large enough.
