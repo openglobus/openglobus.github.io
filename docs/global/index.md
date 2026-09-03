@@ -983,6 +983,83 @@ Examples:
 
 The "default" value means that the texture will be created using the default behavior of Handler.createTextureDefault(...) for this parameter.
 
+<MemberHeading id="getellipsoidhit" depth="3" name="getEllipsoidHit" sig="getEllipsoidHit()" />
+
+<MemberMeta sourceHref="/source/utils/camerafootprint-ts/#L13" sourceLabel="cameraFootprint.ts:13" />
+
+Points under the screen corners, as \[leftTop, rightTop, leftBottom, rightBottom].
+
+<MemberHeading id="gethorizonpointbydirection" depth="3" name="getHorizonPointByDirection" sig="getHorizonPointByDirection()" />
+
+<MemberMeta sourceHref="/source/utils/camerafootprint-ts/#L31" sourceLabel="cameraFootprint.ts:31" />
+
+Returns the horizon point in the given direction: the tangency point of the line drawn from the camera to the sphere of radius `radius`. Seen from the sphere center, that point sits `r^2 / d` along the camera up axis and `r * sqrt(d^2 - r^2) / d` along the horizontal direction.
+
+<MemberHeading id="getfootprintboundaryonscreensegment" depth="3" name="getFootprintBoundaryOnScreenSegment" sig="getFootprintBoundaryOnScreenSegment()" />
+
+<MemberMeta sourceHref="/source/utils/camerafootprint-ts/#L57" sourceLabel="cameraFootprint.ts:57" />
+
+Search for the boundary point between a hit and a miss along a screen row.
+
+<MemberHeading
+  id="getcamerafootprint"
+  depth="3"
+  name="getCameraFootprint"
+  sig="getCameraFootprint(
+	camera: PlanetCamera,
+	screenMargin?: number,
+	ellipsoid?: Ellipsoid,
+)"
+/>
+
+<MemberMeta sourceHref="/source/utils/camerafootprint-ts/#L99" sourceLabel="cameraFootprint.ts:99" />
+
+Reference surface points under the four screen corners, as \[leftTop, rightTop, leftBottom, rightBottom].
+
+**Parameters**
+
+- `camera` ([PlanetCamera](/planetcamera)) — Camera to take the footprint of.
+- `screenMargin` (number, optional, default: 100) — Border of the screen, in screen pixels, the corners are sampled inside of.
+- `ellipsoid` ([Ellipsoid](/ellipsoid), optional) — Reference surface, the planet ellipsoid by default. See CameraFootprint for one raised to the terrain under the camera.
+
+<MemberHeading id="projperp" depth="3" name="projPerp" sig="projPerp()" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L59" sourceLabel="shadowCameraFit.ts:59" />
+
+Last fit measurements, for readouts and debugging.
+
+<MemberHeading id="getleastalignedaxis" depth="3" name="getLeastAlignedAxis" sig="getLeastAlignedAxis()" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L197" sourceLabel="shadowCameraFit.ts:197" />
+
+Fallback seed for the light space up vector, for when the preferred one turns out to be parallel to the light.
+
+<MemberHeading id="getstablelightup" depth="3" name="getStableLightUp" sig="getStableLightUp()" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L213" sourceLabel="shadowCameraFit.ts:213" />
+
+Up vector of the light space basis, that is, how the shadow rectangle is turned around the sun direction.
+
+<MemberHeading id="getstrategyrelief" depth="3" name="getStrategyRelief" sig="getStrategyRelief()" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L231" sourceLabel="shadowCameraFit.ts:231" />
+
+How high the rendered terrain rises above a reference radius, and how deep it drops below it, as two positive heights.
+
+Nothing is measured here: the traversal already keeps the highest and the lowest point it draws, so the answer costs a subtraction and stays right whatever is still loading.
+
+<MemberHeading id="getcasterminz" depth="3" name="getCasterMinZ" sig="getCasterMinZ()" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L265" sourceLabel="shadowCameraFit.ts:265" />
+
+Light space depth of the closest point of the caster volume, which is the footprint raised by the caster height. Only the near plane has to clear it: a caster whose shadow lands on the footprint shares the light space XY of that shadow, so it is already inside the fitted bounds sideways.
+
+<MemberHeading id="quantizeup" depth="3" name="quantizeUp" sig="quantizeUp()" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L320" sourceLabel="shadowCameraFit.ts:320" />
+
+Rounds a value up to the next step of a ladder that takes `stepsPerOctave` steps to double: at one step the ladder is 128, 256, 512, at four it is every 19% in between. For quantities that only have to be roughly right, and badly need to stop moving every frame.
+
 ## Instance Fields
 
 <MemberHeading id="mat3" depth="3" name="Mat3" sig="Mat3" />
@@ -1300,49 +1377,49 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2635" sourceLabel="Planet.ts:2635" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2665" sourceLabel="Planet.ts:2665" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2641" sourceLabel="Planet.ts:2641" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2671" sourceLabel="Planet.ts:2671" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2647" sourceLabel="Planet.ts:2647" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2677" sourceLabel="Planet.ts:2677" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2653" sourceLabel="Planet.ts:2653" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2683" sourceLabel="Planet.ts:2683" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2659" sourceLabel="Planet.ts:2659" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2689" sourceLabel="Planet.ts:2689" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2665" sourceLabel="Planet.ts:2665" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2695" sourceLabel="Planet.ts:2695" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2671" sourceLabel="Planet.ts:2671" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2701" sourceLabel="Planet.ts:2701" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2677" sourceLabel="Planet.ts:2677" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2707" sourceLabel="Planet.ts:2707" />
 
 Triggered when layer data finishes loading.
 
@@ -1719,3 +1796,41 @@ Maximum created nodes count. The more nodes count the more memory usage. When th
 <MemberMeta sourceHref="/source/ui/dialog-ts/#L18" sourceLabel="Dialog.ts:18" />
 
 Preferred side of the anchor element a dialog opens on.
+
+<MemberHeading id="shadowcasterrelieffactor" depth="3" name="SHADOW_CASTER_RELIEF_FACTOR" sig="SHADOW_CASTER_RELIEF_FACTOR" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L15" sourceLabel="shadowCameraFit.ts:15" />
+
+How high above the footprint a caster may stand and still reach the shadow map: the measured terrain relief, or a share of the footprint radius over flat ground, whichever is larger.
+
+Raising it is cheap. It only moves the camera sunward, which lengthens the depth range and leaves the orthographic bounds - and the texel size with them - untouched.
+
+<MemberHeading id="shadowcasterheightsteps" depth="3" name="SHADOW_CASTER_HEIGHT_STEPS" sig="SHADOW_CASTER_HEIGHT_STEPS" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L25" sourceLabel="shadowCameraFit.ts:25" />
+
+Steps per doubling the caster height is rounded up to. One, so the allowed heights are 128, 256, 512 metres and so on: the height places the shadow camera eye, and that eye has to stay put, so it is better for it to jump rarely and by a lot than to drift a little every frame.
+
+<MemberHeading id="shadowreceiverdepthpadding" depth="3" name="SHADOW_RECEIVER_DEPTH_PADDING" sig="SHADOW_RECEIVER_DEPTH_PADDING" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L31" sourceLabel="shadowCameraFit.ts:31" />
+
+Smallest distance the far plane is pushed past the farthest receiver, so that terrain lying lower than the fitted points still falls inside the map. The measured descent adds to it, see fit().
+
+<MemberHeading id="shadoworthotexelpadding" depth="3" name="SHADOW_ORTHO_TEXEL_PADDING" sig="SHADOW_ORTHO_TEXEL_PADDING" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L38" sourceLabel="shadowCameraFit.ts:38" />
+
+Border, in texels, added around the fitted bounds. The soft shadow filter samples the neighbours of each texel, and a sample taken outside the map reads as lit, so without the border shadows break up along the edge of the covered area.
+
+<MemberHeading id="orthotexelquantizationsteps" depth="3" name="ORTHO_TEXEL_QUANTIZATION_STEPS" sig="ORTHO_TEXEL_QUANTIZATION_STEPS" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L46" sourceLabel="shadowCameraFit.ts:46" />
+
+The fitted extent is not used as measured. It is rounded up to one of four sizes per doubling, about 19% apart, and drops to a finer one only when the fit asks for clearly less - that is the slack. A size that changed every frame would drag the texel grid along with it and make the shadow edges shimmer. See \_quantizeOrthoTexelSize.
+
+<MemberHeading id="minshadoworthosize" depth="3" name="MIN_SHADOW_ORTHO_SIZE" sig="MIN_SHADOW_ORTHO_SIZE" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L55" sourceLabel="shadowCameraFit.ts:55" />
+
+Smallest bounds padding and far-near gap, in world units.

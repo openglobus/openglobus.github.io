@@ -363,7 +363,7 @@ Returns two float32 triangle coordinate arrays from inside of the source triangl
 
 <MemberHeading id="loadimage" depth="3" name="loadImage" sig="loadImage(url: string): Promise.<Image>" />
 
-<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1203" sourceLabel="shared.ts:1203" />
+<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1207" sourceLabel="shared.ts:1207" />
 
 Promise for load images
 
@@ -377,7 +377,7 @@ Promise for load images
 
 <MemberHeading id="isimageloaded" depth="3" name="isImageLoaded" sig="isImageLoaded(image: HTMLImageElement): boolean" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1286" sourceLabel="shared.ts:1286" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1290" sourceLabel="shared.ts:1290" />
 
 Gets image is loaded
 
@@ -391,7 +391,7 @@ Gets image is loaded
 
 <MemberHeading id="gettileimageresolution" depth="3" name="getTileImageResolution" sig="getTileImageResolution(x, y, z, imageSize, ellipsoid)" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1344" sourceLabel="shared.ts:1344" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1348" sourceLabel="shared.ts:1348" />
 
 **Parameters**
 

@@ -637,9 +637,32 @@ Finds terrain point under an entity in currently rendered segments.
 
 - [`Vec3`](/vec3)` | undefined`
 
+<MemberHeading
+  id="getcartesianterrainpoint"
+  depth="3"
+  name="getCartesianTerrainPoint"
+  sig="getCartesianTerrainPoint(
+	cart: Vec3,
+	res: Vec3,
+): number | undefined"
+/>
+
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2561" sourceLabel="Planet.ts:2561" />
+
+Finds terrain point under a cartesian point.
+
+**Parameters**
+
+- `cart` ([Vec3](/vec3)) — Cartesian point to test.
+- `res` ([Vec3](/vec3)) — Output vector for terrain point.
+
+**Returns**
+
+- `number | undefined`
+
 <MemberHeading id="getheightdefault" depth="3" name="getHeightDefault" sig="getHeightDefault(lonLat: LonLat): Promise.<number>" />
 
-<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2559" sourceLabel="Planet.ts:2559" />
+<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2589" sourceLabel="Planet.ts:2589" />
 
 Returns terrain height at the given coordinates in default terrain datum.
 
@@ -653,7 +676,7 @@ Returns terrain height at the given coordinates in default terrain datum.
 
 <MemberHeading id="getheightaboveell" depth="3" name="getHeightAboveELL" sig="getHeightAboveELL(lonLat: LonLat): Promise.<number>" />
 
-<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2577" sourceLabel="Planet.ts:2577" />
+<MemberMeta badges="async" sourceHref="/source/scene/planet-ts/#L2607" sourceLabel="Planet.ts:2607" />
 
 Returns terrain height above ellipsoid at the given coordinates.
 
@@ -667,13 +690,13 @@ Returns terrain height above ellipsoid at the given coordinates.
 
 <MemberHeading id="onremove" depth="3" name="onremove" sig="onremove()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2593" sourceLabel="Planet.ts:2593" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2623" sourceLabel="Planet.ts:2623" />
 
 Handles node detachment and frees runtime terrain data.
 
 <MemberHeading id="destroy" depth="3" name="destroy" sig="destroy()" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L2608" sourceLabel="Planet.ts:2608" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L2638" sourceLabel="Planet.ts:2638" />
 
 **Overrides:&#x20;**`Scene#destroy`
 
