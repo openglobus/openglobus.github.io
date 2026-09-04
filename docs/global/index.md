@@ -1369,49 +1369,49 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2665" sourceLabel="Planet.ts:2665" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2664" sourceLabel="Planet.ts:2664" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2671" sourceLabel="Planet.ts:2671" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2670" sourceLabel="Planet.ts:2670" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2677" sourceLabel="Planet.ts:2677" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2676" sourceLabel="Planet.ts:2676" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2683" sourceLabel="Planet.ts:2683" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2682" sourceLabel="Planet.ts:2682" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2689" sourceLabel="Planet.ts:2689" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2688" sourceLabel="Planet.ts:2688" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2695" sourceLabel="Planet.ts:2695" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2694" sourceLabel="Planet.ts:2694" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2701" sourceLabel="Planet.ts:2701" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2700" sourceLabel="Planet.ts:2700" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2707" sourceLabel="Planet.ts:2707" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2706" sourceLabel="Planet.ts:2706" />
 
 Triggered when layer data finishes loading.
 
