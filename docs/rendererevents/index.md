@@ -33,7 +33,7 @@ Used in render node frame.
 
 <MemberHeading id="iskeypressed" depth="3" name="isKeyPressed" sig="isKeyPressed(keyCode: number): boolean" />
 
-<MemberMeta sourceHref="/source/renderer/rendererevents-ts/#L414" sourceLabel="RendererEvents.ts:414" />
+<MemberMeta sourceHref="/source/renderer/rendererevents-ts/#L418" sourceLabel="RendererEvents.ts:418" />
 
 Check key is pressed.
 
@@ -47,18 +47,18 @@ Check key is pressed.
 
 <MemberHeading id="initialize" depth="3" name="initialize" sig="initialize()" />
 
-<MemberMeta sourceHref="/source/renderer/rendererevents-ts/#L426" sourceLabel="RendererEvents.ts:426" />
+<MemberMeta sourceHref="/source/renderer/rendererevents-ts/#L430" sourceLabel="RendererEvents.ts:430" />
 
 Renderer events initialization.
 
 <MemberHeading id="onmousewheel" depth="3" name="onMouseWheel" sig="onMouseWheel()" />
 
-<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L996" sourceLabel="RendererEvents.ts:996" />
+<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L1000" sourceLabel="RendererEvents.ts:1000" />
 
 <MemberHeading id="onpointerup" depth="3" name="onPointerUp" sig="onPointerUp()" />
 
-<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L996" sourceLabel="RendererEvents.ts:996" />
+<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L1000" sourceLabel="RendererEvents.ts:1000" />
 
 <MemberHeading id="handletouchevents" depth="3" name="handleTouchEvents" sig="handleTouchEvents()" />
 
-<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L996" sourceLabel="RendererEvents.ts:996" />
+<MemberMeta badges="protected" sourceHref="/source/renderer/rendererevents-ts/#L1000" sourceLabel="RendererEvents.ts:1000" />
