@@ -237,7 +237,7 @@ Returns distance from object to terrain coordinates and terrain point that calcu
 
 <MemberHeading id="projectnative" depth="3" name="projectNative" sig="projectNative(lonlat: LonLat): LonLat" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L649" sourceLabel="Segment.ts:649" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L653" sourceLabel="Segment.ts:653" />
 
 Project wgs86 to segment native projection.
 
@@ -251,7 +251,7 @@ Project wgs86 to segment native projection.
 
 <MemberHeading id="elevationsexists" depth="3" name="elevationsExists" sig="elevationsExists(elevations: Float32Array)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L678" sourceLabel="Segment.ts:678" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L682" sourceLabel="Segment.ts:682" />
 
 Terrain obtained from server.
 
@@ -261,7 +261,7 @@ Terrain obtained from server.
 
 <MemberHeading id="elevationsnotexists" depth="3" name="elevationsNotExists" sig="elevationsNotExists()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L704" sourceLabel="Segment.ts:704" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L708" sourceLabel="Segment.ts:708" />
 
 Keep plain elevation segment for rendering
 
@@ -269,11 +269,11 @@ Keep plain elevation segment for rendering
 
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1387" sourceLabel="Segment.ts:1387" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1391" sourceLabel="Segment.ts:1391" />
 
 <MemberHeading id="getmaterialbylayer" depth="3" name="getMaterialByLayer" sig="getMaterialByLayer(layer: Layer): Material | undefined" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1811" sourceLabel="Segment.ts:1811" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1815" sourceLabel="Segment.ts:1815" />
 
 Gets specific layer material.
 
@@ -296,7 +296,7 @@ Gets specific layer material.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1824" sourceLabel="Segment.ts:1824" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1828" sourceLabel="Segment.ts:1828" />
 
 Computes cyclic longitude shift for `sourceExtent` to align it with `targetExtent` in wrapped horizontal coordinate space (for example, Web Mercator world copies).
 

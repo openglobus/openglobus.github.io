@@ -146,9 +146,37 @@ Converts loaded data to segment elevation data type(column major elevation data 
 
 <MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L502" sourceLabel="GlobusTerrain.ts:502" />
 
+<MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L216" sourceLabel="EmptyTerrain.ts:216" />
+
+_Inherited from `EmptyTerrain#setAttribution`_
+
+**Overrides:&#x20;**`EmptyTerrain#setAttribution`
+
+Sets terrain provider attribution text.
+
+**Parameters**
+
+- `html` (string) — HTML string that represents terrain provider attribution.
+
+<MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L228" sourceLabel="EmptyTerrain.ts:228" />
+
+_Inherited from `EmptyTerrain#getAttribution`_
+
+**Overrides:&#x20;**`EmptyTerrain#getAttribution`
+
+Gets terrain provider attribution.
+
+**Returns**
+
+- `string` — Terrain provider attribution.
+
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L218" sourceLabel="EmptyTerrain.ts:218" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L286" sourceLabel="EmptyTerrain.ts:286" />
 
 _Inherited from `EmptyTerrain#handleSegmentTerrain`_
 
@@ -159,3 +187,19 @@ Loads or creates segment elevation data.
 **Parameters**
 
 - `segment` ([Segment](/segment)) — Segment to create elevation data.
+
+## Instance Fields
+
+<MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L237" sourceLabel="EmptyTerrain.ts:237" />
+
+_Inherited from `EmptyTerrain#iconSrc`_
+
+**Overrides:&#x20;**`EmptyTerrain#iconSrc`
+
+Gets terrain provider icon.
+
+**Returns**
+
+- `string | null` — Icon source.

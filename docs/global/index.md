@@ -1369,51 +1369,69 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2664" sourceLabel="Planet.ts:2664" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2761" sourceLabel="Planet.ts:2761" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2670" sourceLabel="Planet.ts:2670" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2767" sourceLabel="Planet.ts:2767" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2676" sourceLabel="Planet.ts:2676" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2773" sourceLabel="Planet.ts:2773" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2682" sourceLabel="Planet.ts:2682" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2779" sourceLabel="Planet.ts:2779" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2688" sourceLabel="Planet.ts:2688" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2785" sourceLabel="Planet.ts:2785" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2694" sourceLabel="Planet.ts:2694" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2791" sourceLabel="Planet.ts:2791" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2700" sourceLabel="Planet.ts:2700" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2797" sourceLabel="Planet.ts:2797" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2706" sourceLabel="Planet.ts:2706" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2803" sourceLabel="Planet.ts:2803" />
 
 Triggered when layer data finishes loading.
+
+<MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
+
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2809" sourceLabel="Planet.ts:2809" />
+
+Triggered when a terrain provider is added to the planet.
+
+<MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
+
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2815" sourceLabel="Planet.ts:2815" />
+
+Triggered when a terrain provider is removed from the planet.
+
+<MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
+
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2821" sourceLabel="Planet.ts:2821" />
+
+Triggered when the current terrain provider changes.
 
 ## Other
 
@@ -1777,7 +1795,7 @@ Maximum number of projectors processed in a single shader invocation. Used by fo
 
 <MemberHeading id="defaultmaxnodes" depth="3" name="DEFAULT_MAX_NODES" sig="DEFAULT_MAX_NODES: number" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L113" sourceLabel="Planet.ts:113" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L116" sourceLabel="Planet.ts:116" />
 
 Maximum created nodes count. The more nodes count the more memory usage. When the maximum node count is exceeded, memClear() will be called.
 

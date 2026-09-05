@@ -45,7 +45,7 @@ globus = new Globe({
 - `options` (IGlobeParams) — Options:
   - `options.target` (string | HTMLElement) — HTML element id where planet canvas have to be created.
   - `options.name` (string, optional) — Planet name. Default is uniq identifier.
-  - `options.terrain` ([EmptyTerrain](/emptyterrain), optional) — Terrain provider. Default no terrain - og.terrain.EmptyTerrain.
+  - `options.terrain` ([EmptyTerrain](/emptyterrain) | Array.\<[EmptyTerrain](/emptyterrain)>, optional) — Terrain provider or providers array, where the first one becomes active. Default no terrain - og.terrain.EmptyTerrain.
   - `options.controls` (Array.\<[Control](/control)>, optional) — Controls.
   - `options.layers` (Array.\<[Layer](/layer)>, optional) — Planet layers.
   - `options.viewExtent` ([Extent](/extent) | [ExtentBoundingBox](/extentboundingbox), optional) — \[options.viewExtent] - Viewable starting extent.
@@ -82,13 +82,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L458" sourceLabel="Globe.ts:458" />
+<MemberMeta sourceHref="/source/globe-ts/#L459" sourceLabel="Globe.ts:459" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L466" sourceLabel="Globe.ts:466" />
+<MemberMeta sourceHref="/source/globe-ts/#L467" sourceLabel="Globe.ts:467" />
 
 Starts screen brightness fading out effect by the duration time.
 
