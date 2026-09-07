@@ -23,6 +23,6 @@ A colored time interval shown on the timeline scale.
 
 <MemberHeading id="lanecount" depth="3" name="laneCount" sig="laneCount" />
 
-<MemberMeta sourceHref="/source/control/timeline/timelinemodel-ts/#L146" sourceLabel="TimelineModel.ts:146" />
+<MemberMeta sourceHref="/source/control/timeline/timelinemodel-ts/#L153" sourceLabel="TimelineModel.ts:153" />
 
 Number of rows the current spans need, at least one when there are any.
