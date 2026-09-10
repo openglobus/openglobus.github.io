@@ -71,13 +71,13 @@ The control conflicts with the [Navigation](/navigation) control, so an active [
 
 <MemberHeading id="toggle" depth="3" name="toggle" sig="toggle()" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L304" sourceLabel="FreeNavigation.ts:304" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L303" sourceLabel="FreeNavigation.ts:303" />
 
 Activates the control when it is inactive and deactivates it otherwise.
 
 <MemberHeading id="setspeed" depth="3" name="setSpeed" sig="setSpeed(speed: number)" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L418" sourceLabel="FreeNavigation.ts:418" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L417" sourceLabel="FreeNavigation.ts:417" />
 
 Sets selected movement speed in meters per second, clamped to the min and max speed.
 
@@ -87,7 +87,7 @@ Sets selected movement speed in meters per second, clamped to the min and max sp
 
 <MemberHeading id="stepspeed" depth="3" name="stepSpeed" sig="stepSpeed(steps: number)" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L435" sourceLabel="FreeNavigation.ts:435" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L434" sourceLabel="FreeNavigation.ts:434" />
 
 Changes the movement speed by the given number of wheel steps.
 
@@ -99,7 +99,7 @@ The speed step increases with the current speed. Changes are reversible, and zer
 
 <MemberHeading id="ispointerlocked" depth="3" name="isPointerLocked" sig="isPointerLocked(): boolean" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L466" sourceLabel="FreeNavigation.ts:466" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L465" sourceLabel="FreeNavigation.ts:465" />
 
 True when the mouse pointer is locked by the control.
 
@@ -109,19 +109,19 @@ True when the mouse pointer is locked by the control.
 
 <MemberHeading id="requestpointerlock" depth="3" name="requestPointerLock" sig="requestPointerLock()" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L475" sourceLabel="FreeNavigation.ts:475" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L474" sourceLabel="FreeNavigation.ts:474" />
 
 Locks and hides the mouse pointer over the canvas.
 
 <MemberHeading id="exitpointerlock" depth="3" name="exitPointerLock" sig="exitPointerLock()" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L500" sourceLabel="FreeNavigation.ts:500" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L499" sourceLabel="FreeNavigation.ts:499" />
 
 Releases the mouse pointer.
 
 <MemberHeading id="locktarget" depth="3" name="lockTarget" sig="lockTarget(point?: Vec3)" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L520" sourceLabel="FreeNavigation.ts:520" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L519" sourceLabel="FreeNavigation.ts:519" />
 
 Locks the target point, so the camera keeps looking at it wherever it moves,
 
@@ -131,13 +131,13 @@ Locks the target point, so the camera keeps looking at it wherever it moves,
 
 <MemberHeading id="unlocktarget" depth="3" name="unlockTarget" sig="unlockTarget()" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L544" sourceLabel="FreeNavigation.ts:544" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L543" sourceLabel="FreeNavigation.ts:543" />
 
 Releases the locked target point.
 
 <MemberHeading id="stop" depth="3" name="stop" sig="stop()" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L553" sourceLabel="FreeNavigation.ts:553" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L552" sourceLabel="FreeNavigation.ts:552" />
 
 Stops the camera movement and releases the locked target point.
 
@@ -153,7 +153,7 @@ Stops the camera movement and releases the locked target point.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/control/freenavigation-ts/#L806" sourceLabel="FreeNavigation.ts:806" />
+<MemberMeta badges="protected" sourceHref="/source/control/freenavigation-ts/#L805" sourceLabel="FreeNavigation.ts:805" />
 
 Clamps the pitch rotation angle.
 
@@ -170,13 +170,13 @@ Clamps the pitch rotation angle.
 
 <MemberHeading id="handleroll" depth="3" name="_handleRoll" sig="_handleRoll()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/freenavigation-ts/#L839" sourceLabel="FreeNavigation.ts:839" />
+<MemberMeta badges="protected" sourceHref="/source/control/freenavigation-ts/#L838" sourceLabel="FreeNavigation.ts:838" />
 
 Rollls the camera around its forward axis and keeps its angular velocity smoothed.
 
 <MemberHeading id="handlemove" depth="3" name="_handleMove" sig="_handleMove()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/freenavigation-ts/#L872" sourceLabel="FreeNavigation.ts:872" />
+<MemberMeta badges="protected" sourceHref="/source/control/freenavigation-ts/#L871" sourceLabel="FreeNavigation.ts:871" />
 
 Moves the camera and keeps its orientation in the local reference frame.
 
@@ -284,7 +284,7 @@ Is control active.
 
 <MemberHeading id="speed" depth="3" name="speed" sig="speed" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L400" sourceLabel="FreeNavigation.ts:400" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L399" sourceLabel="FreeNavigation.ts:399" />
 
 Returns selected movement speed in meters per second.
 
@@ -294,7 +294,7 @@ Returns selected movement speed in meters per second.
 
 <MemberHeading id="speed" depth="3" name="speed" sig="speed" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L409" sourceLabel="FreeNavigation.ts:409" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L408" sourceLabel="FreeNavigation.ts:408" />
 
 Sets selected movement speed in meters per second.
 
@@ -304,7 +304,7 @@ Sets selected movement speed in meters per second.
 
 <MemberHeading id="targetpoint" depth="3" name="targetPoint" sig="targetPoint" />
 
-<MemberMeta sourceHref="/source/control/freenavigation-ts/#L511" sourceLabel="FreeNavigation.ts:511" />
+<MemberMeta sourceHref="/source/control/freenavigation-ts/#L510" sourceLabel="FreeNavigation.ts:510" />
 
 Locked target point in the cartesian coordinates, or null when no target is locked.
 

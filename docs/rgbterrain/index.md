@@ -173,7 +173,7 @@ _Inherited from `GlobusTerrain#_applyElevationsData`_
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L216" sourceLabel="EmptyTerrain.ts:216" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L217" sourceLabel="EmptyTerrain.ts:217" />
 
 _Inherited from `EmptyTerrain#setAttribution`_
 
@@ -187,7 +187,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L228" sourceLabel="EmptyTerrain.ts:228" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L229" sourceLabel="EmptyTerrain.ts:229" />
 
 _Inherited from `EmptyTerrain#getAttribution`_
 
@@ -201,7 +201,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L286" sourceLabel="EmptyTerrain.ts:286" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L287" sourceLabel="EmptyTerrain.ts:287" />
 
 _Inherited from `EmptyTerrain#handleSegmentTerrain`_
 
@@ -217,7 +217,7 @@ Loads or creates segment elevation data.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L237" sourceLabel="EmptyTerrain.ts:237" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L238" sourceLabel="EmptyTerrain.ts:238" />
 
 _Inherited from `EmptyTerrain#iconSrc`_
 

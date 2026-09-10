@@ -7,7 +7,7 @@ description: Creates a WebGL context with globe.
 
 # Globe
 
-<SourceLink href="/source/globe-ts/#L173" label="Globe.ts:173" />
+<SourceLink href="/source/globe-ts/#L175" label="Globe.ts:175" />
 
 Creates a WebGL context with globe.
 
@@ -52,6 +52,7 @@ globus = new Globe({
   - `options.autoActivate` (boolean, optional, default: true) — Globe rendering auto activation flag. True is default.
   - `options.idleMode` (boolean, optional, default: false) — Skips a frame rendering when nothing has been changed. False is default.
   - `options.attributionContainer` (HTMLElement, optional) — Container for attribution list.
+  - `options.uiContainer` (HTMLElement, optional) — Container for dialogs, the render container by default.
   - `options.maxGridSize` (number, optional, default: 128) — = Maximal segment grid size. 128 is default
   - `options.fontsSrc` (string, optional) — Fonts collection url.
   - `options.resourcesSrc` (string, optional) — Resources root src.
@@ -82,13 +83,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L459" sourceLabel="Globe.ts:459" />
+<MemberMeta sourceHref="/source/globe-ts/#L462" sourceLabel="Globe.ts:462" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L467" sourceLabel="Globe.ts:467" />
+<MemberMeta sourceHref="/source/globe-ts/#L470" sourceLabel="Globe.ts:470" />
 
 Starts screen brightness fading out effect by the duration time.
 
@@ -96,6 +97,6 @@ Starts screen brightness fading out effect by the duration time.
 
 <MemberHeading id="inner" depth="3" name="$inner" sig="$inner: Element" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L226" sourceLabel="Globe.ts:226" />
+<MemberMeta sourceHref="/source/globe-ts/#L228" sourceLabel="Globe.ts:228" />
 
 Dom element where WebGL canvas creates
