@@ -248,6 +248,7 @@ kind: guide
 - [ui/Checkbox.ts](/source/ui/checkbox-ts/)
 - [ui/Color.ts](/source/ui/color-ts/)
 - [ui/Dialog.ts](/source/ui/dialog-ts/)
+- [ui/Dock.ts](/source/ui/dock-ts/)
 - [ui/icons.ts](/source/ui/icons-ts/)
 - [ui/index.ts](/source/ui/index-ts/)
 - [ui/Input.ts](/source/ui/input-ts/)
