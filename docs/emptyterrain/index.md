@@ -7,7 +7,7 @@ description: Class represents terrain provider without elevation data.
 
 # EmptyTerrain
 
-<SourceLink href="/source/terrain/emptyterrain-ts/#L45" label="EmptyTerrain.ts:45" />
+<SourceLink href="/source/terrain/emptyterrain-ts/#L44" label="EmptyTerrain.ts:44" />
 
 Class represents terrain provider without elevation data.
 
@@ -37,7 +37,7 @@ Class represents terrain provider without elevation data.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L202" sourceLabel="EmptyTerrain.ts:202" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L201" sourceLabel="EmptyTerrain.ts:201" />
 
 Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
@@ -47,7 +47,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L217" sourceLabel="EmptyTerrain.ts:217" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L216" sourceLabel="EmptyTerrain.ts:216" />
 
 Sets terrain provider attribution text.
 
@@ -57,7 +57,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L229" sourceLabel="EmptyTerrain.ts:229" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L228" sourceLabel="EmptyTerrain.ts:228" />
 
 Gets terrain provider attribution.
 
@@ -67,7 +67,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L287" sourceLabel="EmptyTerrain.ts:287" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L286" sourceLabel="EmptyTerrain.ts:286" />
 
 Loads or creates segment elevation data.
 
@@ -79,7 +79,7 @@ Loads or creates segment elevation data.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L238" sourceLabel="EmptyTerrain.ts:238" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L237" sourceLabel="EmptyTerrain.ts:237" />
 
 Gets terrain provider icon.
 
@@ -89,7 +89,7 @@ Gets terrain provider icon.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L247" sourceLabel="EmptyTerrain.ts:247" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L246" sourceLabel="EmptyTerrain.ts:246" />
 
 Sets terrain provider icon.
 

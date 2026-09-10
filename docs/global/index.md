@@ -967,24 +967,6 @@ Converts geodetic coordinate array to mercator coordinate array.
 
 - `Array.<`[`LonLat`](/lonlat)`>` — Converted mercator coordinates.
 
-<MemberHeading id="isvertical" depth="3" name="isVertical" sig="isVertical()" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L49" sourceLabel="Dock.ts:49" />
-
-A draggable edge: the side's own when `after` is null, otherwise a seam inside its stack.
-
-<MemberHeading id="alongdirection" depth="3" name="alongDirection" sig="alongDirection()" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L54" sourceLabel="Dock.ts:54" />
-
-Stacking that runs the length of a side.
-
-<MemberHeading id="acrossdirection" depth="3" name="acrossDirection" sig="acrossDirection()" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L59" sourceLabel="Dock.ts:59" />
-
-Stacking that cuts a side across, so its dialogs divide its thickness.
-
 <MemberHeading id="tokeyfield" depth="3" name="toKeyField" sig="toKeyField()" />
 
 <MemberMeta sourceHref="/source/utils/textureresourcemanager-ts/#L49" sourceLabel="TextureResourceManager.ts:49" />
@@ -1387,67 +1369,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2757" sourceLabel="Planet.ts:2757" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2761" sourceLabel="Planet.ts:2761" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2763" sourceLabel="Planet.ts:2763" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2767" sourceLabel="Planet.ts:2767" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2769" sourceLabel="Planet.ts:2769" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2773" sourceLabel="Planet.ts:2773" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2775" sourceLabel="Planet.ts:2775" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2779" sourceLabel="Planet.ts:2779" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2781" sourceLabel="Planet.ts:2781" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2785" sourceLabel="Planet.ts:2785" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2787" sourceLabel="Planet.ts:2787" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2791" sourceLabel="Planet.ts:2791" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2793" sourceLabel="Planet.ts:2793" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2797" sourceLabel="Planet.ts:2797" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2799" sourceLabel="Planet.ts:2799" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2803" sourceLabel="Planet.ts:2803" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2805" sourceLabel="Planet.ts:2805" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2809" sourceLabel="Planet.ts:2809" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2811" sourceLabel="Planet.ts:2811" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2815" sourceLabel="Planet.ts:2815" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2817" sourceLabel="Planet.ts:2817" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2821" sourceLabel="Planet.ts:2821" />
 
 Triggered when the current terrain provider changes.
 
@@ -1821,63 +1803,9 @@ Maximum created nodes count. The more nodes count the more memory usage. When th
 
 <MemberHeading id="defaultwidth" depth="3" name="DEFAULT_WIDTH" sig="DEFAULT_WIDTH" />
 
-<MemberMeta sourceHref="/source/ui/dialog-ts/#L20" sourceLabel="Dialog.ts:20" />
+<MemberMeta sourceHref="/source/ui/dialog-ts/#L18" sourceLabel="Dialog.ts:18" />
 
 Preferred side of the anchor element a dialog opens on.
-
-<MemberHeading id="dockevents" depth="3" name="DOCK_EVENTS" sig="DOCK_EVENTS" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L18" sourceLabel="Dock.ts:18" />
-
-Which third of a side a dialog was dropped on, and so where it goes.
-
-<MemberHeading id="defaultedgethreshold" depth="3" name="DEFAULT_EDGE_THRESHOLD" sig="DEFAULT_EDGE_THRESHOLD" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L20" sourceLabel="Dock.ts:20" />
-
-Default `edgeThreshold`: the band along a free edge where an unused side offers itself.
-
-<MemberHeading id="defaultsize" depth="3" name="DEFAULT_SIZE" sig="DEFAULT_SIZE" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L23" sourceLabel="Dock.ts:23" />
-
-Default `defaultSize`: what a side opens at when the dialog it takes has no size drawn yet.
-
-<MemberHeading id="minzonesize" depth="3" name="MIN_ZONE_SIZE" sig="MIN_ZONE_SIZE" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L26" sourceLabel="Dock.ts:26" />
-
-No side gets thinner than this, however far its seam is dragged inwards.
-
-<MemberHeading id="minfreesize" depth="3" name="MIN_FREE_SIZE" sig="MIN_FREE_SIZE" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L29" sourceLabel="Dock.ts:29" />
-
-What a side has to leave of the rectangle it takes from, so the sides after it still fit.
-
-<MemberHeading id="minitemshare" depth="3" name="MIN_ITEM_SHARE" sig="MIN_ITEM_SHARE" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L32" sourceLabel="Dock.ts:32" />
-
-The least of a side a dialog stacked in it keeps, so a seam never squeezes one out of sight.
-
-<MemberHeading id="endband" depth="3" name="END_BAND" sig="END_BAND" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L35" sourceLabel="Dock.ts:35" />
-
-How much of a side's length each of its end bands takes.
-
-<MemberHeading id="splittergrab" depth="3" name="SPLITTER_GRAB" sig="SPLITTER_GRAB" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L38" sourceLabel="Dock.ts:38" />
-
-What the pointer gets. The seam it paints is a hairline in the middle of that.
-
-<MemberHeading id="splittergrabcoarse" depth="3" name="SPLITTER_GRAB_COARSE" sig="SPLITTER_GRAB_COARSE" />
-
-<MemberMeta sourceHref="/source/ui/dock-ts/#L41" sourceLabel="Dock.ts:41" />
-
-A finger is blunter than a cursor and needs more of an edge to catch.
 
 <MemberHeading id="shadowcasterrelieffactor" depth="3" name="SHADOW_CASTER_RELIEF_FACTOR" sig="SHADOW_CASTER_RELIEF_FACTOR" />
 
