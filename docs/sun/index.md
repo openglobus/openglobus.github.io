@@ -32,7 +32,8 @@ new Sun({ localDateTime: new Date(2026, 7, 3, 21, 30) })
   - `options.offsetVertical` (number, optional, default: -5000000) — Vertical offset of the camera following light.
   - `options.offsetHorizontal` (number, optional, default: 5000000) — Horizontal offset of the camera following light.
   - `options.stopped` (boolean, optional, default: false) — Stops the control, leaving the Sun on its real position by the clock.
-  - `options.localDateTime` (Date, optional) — Lights the scene by the local apparent solar time under the camera instead of the camera following light. At 12:00 the Sun stands on the meridian there, while the date sets the season. Read by its UTC clock, so it is not an instant in time but the numbers a wall clock shows: build it with Date.UTC. While it is set it drives the light at any height, whether the control is stopped or not, and the Clock is left untouched.
+  - `options.localDateTime` (Date, optional) — Local apparent solar time under the camera, read by its UTC clock — wall-clock numbers, not an instant: build it with Date.UTC. At 12:00 the Sun stands on the meridian there.
+  - `options.dateTime` (Date, optional) — Instant in time the Sun takes its real position at.
 
 ---
 
@@ -40,7 +41,7 @@ new Sun({ localDateTime: new Date(2026, 7, 3, 21, 30) })
 
 <MemberHeading id="setlocaldatetime" depth="3" name="setLocalDateTime" sig="setLocalDateTime(localDateTime: Date | null)" />
 
-<MemberMeta sourceHref="/source/control/sun-ts/#L163" sourceLabel="Sun.ts:163" />
+<MemberMeta sourceHref="/source/control/sun-ts/#L173" sourceLabel="Sun.ts:173" />
 
 Sets the local apparent solar time under the camera, read by its UTC clock.
 
@@ -48,9 +49,19 @@ Sets the local apparent solar time under the camera, read by its UTC clock.
 
 - `localDateTime` (Date | null) — Local date and time, or null to restore the camera following light.
 
+<MemberHeading id="setdatetime" depth="3" name="setDateTime" sig="setDateTime(dateTime: Date | null)" />
+
+<MemberMeta sourceHref="/source/control/sun-ts/#L183" sourceLabel="Sun.ts:183" />
+
+Sets the instant in time the Sun takes its real position at.
+
+**Parameters**
+
+- `dateTime` (Date | null) — Instant in time, or null to restore the camera following light.
+
 <MemberHeading id="getcamerafollowingposition" depth="3" name="_getCameraFollowingPosition" sig="_getCameraFollowingPosition(cam: PlanetCamera): Vec3" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L181" sourceLabel="Sun.ts:181" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L202" sourceLabel="Sun.ts:202" />
 
 Returns a light position offset from the camera along its own up and right axes, so that nearby terrain is lit regardless of the real Sun direction.
 
@@ -64,7 +75,7 @@ Returns a light position offset from the camera along its own up and right axes,
 
 <MemberHeading id="getlocaljulian" depth="3" name="_getLocalJulian" sig="_getLocalJulian(utc: JulianDate, lon: number): JulianDate" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L208" sourceLabel="Sun.ts:208" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L229" sourceLabel="Sun.ts:229" />
 
 Returns the julian date at which the clock of the given one, read as UTC, is the local apparent solar time at lon. Local mean solar time is the first guess, then the measured subsolar longitude corrects it; that point drifts -360 degrees a day, so a residual of d degrees is worth -d / 360 of a day.
 
@@ -79,7 +90,7 @@ Returns the julian date at which the clock of the given one, read as UTC, is the
 
 <MemberHeading id="getlocaldatetimeposition" depth="3" name="_getLocalDateTimePosition" sig="_getLocalDateTimePosition(cam: PlanetCamera): Vec3" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L229" sourceLabel="Sun.ts:229" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L250" sourceLabel="Sun.ts:250" />
 
 Returns the Sun position for localDateTime at the location under the camera.
 
