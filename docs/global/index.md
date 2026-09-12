@@ -1825,6 +1825,12 @@ Maximum created nodes count. The more nodes count the more memory usage. When th
 
 Preferred side of the anchor element a dialog opens on.
 
+<MemberHeading id="dragthreshold" depth="3" name="DRAG_THRESHOLD" sig="DRAG_THRESHOLD" />
+
+<MemberMeta sourceHref="/source/ui/dialog-ts/#L25" sourceLabel="Dialog.ts:25" />
+
+Pixels the pointer has to move past its header press before that counts as a drag
+
 <MemberHeading id="dockevents" depth="3" name="DOCK_EVENTS" sig="DOCK_EVENTS" />
 
 <MemberMeta sourceHref="/source/ui/dock-ts/#L18" sourceLabel="Dock.ts:18" />
