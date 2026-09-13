@@ -1621,7 +1621,7 @@ Julian date of 2000 year. Epoch.
 
 <MemberHeading id="sundatethreshold" depth="3" name="SUN_DATE_THRESHOLD" sig="SUN_DATE_THRESHOLD: number" />
 
-<MemberMeta sourceHref="/source/control/sun-ts/#L16" sourceLabel="Sun.ts:16" />
+<MemberMeta sourceHref="/source/control/sun-ts/#L18" sourceLabel="Sun.ts:18" />
 
 Minimal julian date change that moves the sunlight position, about 30 seconds.
 
