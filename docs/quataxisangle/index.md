@@ -6,7 +6,7 @@ longname: QuatAxisAngle
 
 # QuatAxisAngle
 
-<SourceLink href="/source/math/quat-ts/#L497" label="Quat.ts:497" />
+<SourceLink href="/source/math/quat-ts/#L503" label="Quat.ts:503" />
 
 **Properties**
 

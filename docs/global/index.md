@@ -356,7 +356,7 @@ Creates entity instance array.
 
 <MemberHeading id="quat" depth="3" name="Quat" sig="Quat(x?: Number, y?: Number, z?: Number, w?: Number): Quat" />
 
-<MemberMeta sourceHref="/source/math/quat-ts/#L1116" sourceLabel="Quat.ts:1116" />
+<MemberMeta sourceHref="/source/math/quat-ts/#L1153" sourceLabel="Quat.ts:1153" />
 
 Creates Quat instance.
 
@@ -1662,6 +1662,12 @@ Moon ellipsoid object.
 <MemberMeta sourceHref="/source/ellipsoid/wgs84-ts/#L7" sourceLabel="wgs84.ts:7" />
 
 WGS84 ellipsoid object.
+
+<MemberHeading id="eulerpolesin" depth="3" name="EULER_POLE_SIN" sig="EULER_POLE_SIN" />
+
+<MemberMeta sourceHref="/source/math/quat-ts/#L11" sourceLabel="Quat.ts:11" />
+
+|sin(pitch)| above which pitch counts as vertical and the euler decomposition switches to its gimbal lock branch.
 
 <MemberHeading id="twopi" depth="3" name="TWO_PI" sig="TWO_PI" />
 
