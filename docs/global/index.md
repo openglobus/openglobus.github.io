@@ -333,6 +333,12 @@ Returns seconds in days.
 
 - `number` — Seconds
 
+<MemberHeading id="formatdate" depth="3" name="formatDate" sig="formatDate()" />
+
+<MemberMeta sourceHref="/source/control/timeline/timelineutils-ts/#L50" sourceLabel="timelineUtils.ts:50" />
+
+Formats a date by a template, e.g. "MM/dd/yyyy", "hh:mm:ss.ms". Tokens: yyyy/yy year, MMM month name, MM/M month, dd/d day, hh/h hours, mm/m minutes, ss/s seconds, ms milliseconds, a/A am/pm. Case matters for M/m only. On a 12-hour clock am/pm is appended after the time unless the template places it with "a".
+
 <MemberHeading
   id="entitiesconstructor"
   depth="3"
@@ -1069,6 +1075,21 @@ How high the rendered terrain rises above a reference radius, and how deep it dr
 <MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L244" sourceLabel="shadowCameraFit.ts:244" />
 
 Light space depth of the closest point of the caster volume, which is the footprint raised by the caster height. Only the near plane has to clear it: a caster whose shadow lands on the footprint shares the light space XY of that shadow, so it is already inside the fitted bounds sideways.
+
+<MemberHeading id="tzoffsetminutes" depth="3" name="tzOffsetMinutes" sig="tzOffsetMinutes(tzid: string, date: Date): number" />
+
+<MemberMeta sourceHref="/source/utils/tz-ts/#L74" sourceLabel="tz.ts:74" />
+
+UTC offset of the zone at the given instant, minutes. DST is applied by the tzdb rules the browser ships, which the zone data deliberately does not carry: the file only stores the standard and summer offsets, not the switch dates.
+
+**Parameters**
+
+- `tzid` (string) — IANA time zone name.
+- `date` (Date) — Instant to read the offset at.
+
+**Returns**
+
+- `number`
 
 ## Instance Fields
 
@@ -1883,7 +1904,7 @@ How much of a side's length each of its end bands takes.
 
 <MemberMeta sourceHref="/source/ui/dock-ts/#L38" sourceLabel="Dock.ts:38" />
 
-What the pointer gets. The seam it paints is a hairline in the middle of that.
+What the pointer gets, centered on the gap between docked dialogs.
 
 <MemberHeading id="splittergrabcoarse" depth="3" name="SPLITTER_GRAB_COARSE" sig="SPLITTER_GRAB_COARSE" />
 
@@ -1926,3 +1947,13 @@ Snaps the fitted extent to four size levels per doubling. Slack delays shrinking
 <MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L49" sourceLabel="shadowCameraFit.ts:49" />
 
 Smallest bounds padding and far-near gap, in world units.
+
+<MemberHeading id="defaultsrc" depth="3" name="DEFAULT_SRC" sig="DEFAULT_SRC" />
+
+<MemberMeta sourceHref="/source/utils/tz-ts/#L14" sourceLabel="tz.ts:14" />
+
+Zone data — a plain GeoJSON FeatureCollection:
+
+- properties.tzid: IANA name ("Europe/Paris", "Etc/GMT+3") — what lookup returns; the bundled file also carries zone (standard offset, hours), zone\_dst and utc\_format.
+- geometry: Polygon or MultiPolygon in lon/lat degrees, first ring outer, rest holes.
+- non-overlapping, lon within \[-180, 180] split at the antimeridian, lat within ±89.9 (the mercator rendering limit; ±90 breaks the triangulation). Bundled res/tz/timezones.geojson: timezone-boundary-builder with oceans, dissolved by the (standard, DST) offset pair.

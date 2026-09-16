@@ -280,6 +280,7 @@ kind: guide
 - [utils/TextureAtlas.ts](/source/utils/textureatlas-ts/)
 - [utils/TextureResourceManager.ts](/source/utils/textureresourcemanager-ts/)
 - [utils/textureResourceMeta.ts](/source/utils/textureresourcemeta-ts/)
+- [utils/tz.ts](/source/utils/tz-ts/)
 - [utils/units.ts](/source/utils/units-ts/)
 - [utils/VectorTileCreator.ts](/source/utils/vectortilecreator-ts/)
 - [webgl/BaseFramebuffer.ts](/source/webgl/baseframebuffer-ts/)

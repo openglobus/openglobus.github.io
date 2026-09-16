@@ -7,7 +7,7 @@ description: Real Sun geocentric position control that place the Sun on the righ
 
 # Sun
 
-<SourceLink href="/source/control/sun-ts/#L48" label="Sun.ts:48" />
+<SourceLink href="/source/control/sun-ts/#L66" label="Sun.ts:66" />
 
 Real Sun geocentric position control that place the Sun on the right place by the Earth.
 
@@ -35,6 +35,7 @@ new Sun({ localDateTime: new Date(Date.UTC(2026, 7, 3, 21, 30)) })
   - `options.localDateTime` (Date, optional) — Local clock time under the camera — wall-clock numbers, not an instant: build it with Date.UTC. Civil time with useTimeZones, solar time otherwise.
   - `options.dateTime` (Date, optional) — Instant in time the Sun takes its real position at.
   - `options.useTimeZones` (boolean, optional, default: false) — Reads localDateTime by the time zone of the point. Leave off on bodies without civil time.
+  - `options.timeZoneProvider` (TimeZoneProviderLike, optional) — Time zone source for the point under the camera: a function, or an object like TimeZoneProvider — its lazy load is kicked off on first use, and the built-in lookup answers until the data arrives.
 
 ---
 
@@ -42,7 +43,7 @@ new Sun({ localDateTime: new Date(Date.UTC(2026, 7, 3, 21, 30)) })
 
 <MemberHeading id="setlocaldatetime" depth="3" name="setLocalDateTime" sig="setLocalDateTime(localDateTime: Date | null)" />
 
-<MemberMeta sourceHref="/source/control/sun-ts/#L205" sourceLabel="Sun.ts:205" />
+<MemberMeta sourceHref="/source/control/sun-ts/#L295" sourceLabel="Sun.ts:295" />
 
 Sets the local clock time under the camera, read by its UTC clock.
 
@@ -52,7 +53,7 @@ Sets the local clock time under the camera, read by its UTC clock.
 
 <MemberHeading id="setdatetime" depth="3" name="setDateTime" sig="setDateTime(dateTime: Date | null)" />
 
-<MemberMeta sourceHref="/source/control/sun-ts/#L218" sourceLabel="Sun.ts:218" />
+<MemberMeta sourceHref="/source/control/sun-ts/#L308" sourceLabel="Sun.ts:308" />
 
 Sets the instant in time the Sun takes its real position at.
 
@@ -62,7 +63,7 @@ Sets the instant in time the Sun takes its real position at.
 
 <MemberHeading id="getcamerafollowingposition" depth="3" name="_getCameraFollowingPosition" sig="_getCameraFollowingPosition(cam: PlanetCamera): Vec3" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L237" sourceLabel="Sun.ts:237" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L327" sourceLabel="Sun.ts:327" />
 
 Returns a light position offset from the camera along its own up and right axes, so that nearby terrain is lit regardless of the real Sun direction.
 
@@ -76,7 +77,7 @@ Returns a light position offset from the camera along its own up and right axes,
 
 <MemberHeading id="getsolarjulian" depth="3" name="_getSolarJulian" sig="_getSolarJulian(utc: JulianDate, lon: number): JulianDate" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L264" sourceLabel="Sun.ts:264" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L354" sourceLabel="Sun.ts:354" />
 
 Returns the julian date at which the clock of the given one, read as UTC, is the local apparent solar time at lon. Local mean solar time is the first guess, then the measured subsolar longitude corrects it; that point drifts -360 degrees a day, so a residual of d degrees is worth -d / 360 of a day.
 
@@ -91,7 +92,7 @@ Returns the julian date at which the clock of the given one, read as UTC, is the
 
 <MemberHeading id="getlocaldatetimeposition" depth="3" name="_getLocalDateTimePosition" sig="_getLocalDateTimePosition(cam: PlanetCamera): Vec3" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L313" sourceLabel="Sun.ts:313" />
+<MemberMeta badges="protected" sourceHref="/source/control/sun-ts/#L403" sourceLabel="Sun.ts:403" />
 
 Returns the Sun position for localDateTime at the location under the camera: the real position at the civil instant with useTimeZones, the solar reading otherwise.
 
@@ -107,6 +108,12 @@ Returns the Sun position for localDateTime at the location under the camera: the
 
 <MemberHeading id="usetimezones" depth="3" name="useTimeZones" sig="useTimeZones: boolean" />
 
-<MemberMeta sourceHref="/source/control/sun-ts/#L189" sourceLabel="Sun.ts:189" />
+<MemberMeta sourceHref="/source/control/sun-ts/#L216" sourceLabel="Sun.ts:216" />
 
 Reads localDateTime by the time zone of the point instead of the solar clock.
+
+<MemberHeading id="timezoneprovider" depth="3" name="timeZoneProvider" sig="timeZoneProvider: TimeZoneProviderLike | null" />
+
+<MemberMeta sourceHref="/source/control/sun-ts/#L234" sourceLabel="Sun.ts:234" />
+
+Time zone source for the point under the camera: a function, or an object like TimeZoneProvider — its lazy load is kicked off on first use, and the built-in lookup answers until the data arrives. The built-in lookup when null.
