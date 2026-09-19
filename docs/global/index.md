@@ -360,6 +360,84 @@ Creates entity instance array.
 
 - `Array.<`[`Entity`](/entity)`>`
 
+<MemberHeading id="parsecolor" depth="3" name="parseColor" sig="parseColor()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L531" sourceLabel="ColorScale.ts:531" />
+
+Parses a hex, rgb, or named color string into RGBA \[0..255] values.
+
+<MemberHeading id="buildcolorlut" depth="3" name="buildColorLUT" sig="buildColorLUT()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L572" sourceLabel="ColorScale.ts:572" />
+
+Builds a 256-color RGBA Lookup Table (Uint8Array of size 1024) from render options.
+
+<MemberHeading id="parsenodatavalue" depth="3" name="parseNoDataValue" sig="parseNoDataValue()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L655" sourceLabel="ColorScale.ts:655" />
+
+Parses and normalizes a nodata value from various representations (number, null, string "NaN", NaN, etc.).
+
+<MemberHeading id="isnodata" depth="3" name="isNoData" sig="isNoData()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L674" sourceLabel="ColorScale.ts:674" />
+
+Checks if a raster value represents NoData, taking NaN, null, and float precision into account.
+
+<MemberHeading id="getfastnodatachecker" depth="3" name="getFastNoDataChecker" sig="getFastNoDataChecker()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L689" sourceLabel="ColorScale.ts:689" />
+
+Returns a high-performance nodata checking predicate for inner pixel loops.
+
+<MemberHeading id="getrasterminmax" depth="3" name="getRasterMinMax" sig="getRasterMinMax()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L707" sourceLabel="ColorScale.ts:707" />
+
+Calculates min and max from a raster array, ignoring NaN and NoData.
+
+<MemberHeading id="createimagedata" depth="3" name="createImageData" sig="createImageData()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L733" sourceLabel="ColorScale.ts:733" />
+
+Creates an ImageData instance with fallback for non-browser/worker/test environments.
+
+<MemberHeading id="rendersinglebandtoimagedata" depth="3" name="renderSingleBandToImageData" sig="renderSingleBandToImageData()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L748" sourceLabel="ColorScale.ts:748" />
+
+Renders a single band raster to an ImageData using a color LUT.
+
+<MemberHeading id="rendermultibandtoimagedata" depth="3" name="renderMultiBandToImageData" sig="renderMultiBandToImageData()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L813" sourceLabel="ColorScale.ts:813" />
+
+Renders 3 separate band arrays into an RGB ImageData.
+
+<MemberHeading id="renderrgbrasterstoimagedata" depth="3" name="renderRgbRastersToImageData" sig="renderRgbRastersToImageData()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/colorscale-ts/#L913" sourceLabel="ColorScale.ts:913" />
+
+Converts raw RGB/RGBA raster array(s) directly to an ImageData.
+
+<MemberHeading id="forwardutm" depth="3" name="forwardUTM" sig="forwardUTM()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L16" sourceLabel="utm.ts:16" />
+
+Projects WGS84 LonLat degrees \[lon, lat] to UTM coordinates \[easting, northing] in meters.
+
+<MemberHeading id="inverseutm" depth="3" name="inverseUTM" sig="inverseUTM()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L66" sourceLabel="utm.ts:66" />
+
+Unprojects UTM coordinates \[easting, northing] in meters to WGS84 \[lon, lat] in degrees.
+
+<MemberHeading id="getprojectionhelper" depth="3" name="getProjectionHelper" sig="getProjectionHelper()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L119" sourceLabel="utm.ts:119" />
+
+Returns a projection helper { project, unproject } if the given code is a supported UTM EPSG code (EPSG:32601-32660 or EPSG:32701-32760), or if proj4 is globally registered.
+
 <MemberHeading id="quat" depth="3" name="Quat" sig="Quat(x?: Number, y?: Number, z?: Number, w?: Number): Quat" />
 
 <MemberMeta sourceHref="/source/math/quat-ts/#L1153" sourceLabel="Quat.ts:1153" />
@@ -1683,6 +1761,42 @@ Moon ellipsoid object.
 <MemberMeta sourceHref="/source/ellipsoid/wgs84-ts/#L7" sourceLabel="wgs84.ts:7" />
 
 WGS84 ellipsoid object.
+
+<MemberHeading id="gridminsize" depth="3" name="GRID_MIN_SIZE" sig="GRID_MIN_SIZE" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L16" sourceLabel="GeoTIFFReader.ts:16" />
+
+Sampling grid of a tile, source pixel positions are interpolated between its nodes.
+
+<MemberHeading id="gridmaxsize" depth="3" name="GRID_MAX_SIZE" sig="GRID_MAX_SIZE" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L31" sourceLabel="GeoTIFFReader.ts:31" />
+
+Finest grid, reached only by tiles that span a large part of the globe.
+
+<MemberHeading id="gridmaxerror" depth="3" name="GRID_MAX_ERROR" sig="GRID_MAX_ERROR" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L36" sourceLabel="GeoTIFFReader.ts:36" />
+
+Allowed interpolation error between the grid nodes, in tile pixels.
+
+<MemberHeading id="blocksize" depth="3" name="BLOCK_SIZE" sig="BLOCK_SIZE" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L41" sourceLabel="GeoTIFFReader.ts:41" />
+
+Size of a cached byte range of a remote file.
+
+<MemberHeading id="blockcachesize" depth="3" name="BLOCK_CACHE_SIZE" sig="BLOCK_CACHE_SIZE" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L46" sourceLabel="GeoTIFFReader.ts:46" />
+
+Number of cached byte ranges, 512 blocks of 64 KB take about 32 MB.
+
+<MemberHeading id="wgs84a" depth="3" name="WGS84_A" sig="WGS84_A" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L7" sourceLabel="utm.ts:7" />
+
+High precision Transverse Mercator (UTM) forward & inverse projection for WGS84 ellipsoid. Supports EPSG:32601 - EPSG:32660 (UTM North zones 1N-60N) and EPSG:32701 - EPSG:32760 (UTM South zones 1S-60S).
 
 <MemberHeading id="eulerpolesin" depth="3" name="EULER_POLE_SIN" sig="EULER_POLE_SIN" />
 

@@ -1,0 +1,972 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>layer/geotiff/ColorScale.ts | OpenGlobus v1.0.0-rc27</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/docs/_assets/styles.mu8bmj8g-a33ee902.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/docs" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">OpenGlobus v1.0.0-rc27</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/docs/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/docs/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/docs/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/docs/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/docs/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/docs/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/docs/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/docs/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/docs/camerafootprint" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CameraFootprint</span></a></li><li class="my-0.5"><a href="/docs/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/docs/cascadeshadowmap" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CascadeShadowMap</span></a></li><li class="my-0.5"><a href="/docs/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/docs/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/docs/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/docs/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/docs/dialog" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Dialog</span></a></li><li class="my-0.5"><a href="/docs/dockmanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DockManager</span></a></li><li class="my-0.5"><a href="/docs/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/docs/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/docs/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/docs/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/docs/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/docs/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/docs/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/docs/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/docs/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/docs/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/docs/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/docs/freenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">FreeNavigation</span></a></li><li class="my-0.5"><a href="/docs/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/docs/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/docs/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/docs/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/docs/geotifflayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoTIFFLayer</span></a></li><li class="my-0.5"><a href="/docs/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/docs/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/docs/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/docs/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/docs/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/docs/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/docs/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/docs/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/docs/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/docs/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/docs/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/docs/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/docs/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/docs/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/docs/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/docs/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/docs/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/docs/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/docs/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/docs/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/docs/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/docs/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/docs/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/docs/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/docs/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/docs/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/docs/projectormanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorManager</span></a></li><li class="my-0.5"><a href="/docs/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/docs/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/docs/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/docs/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/docs/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/docs/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/docs/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/docs/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/docs/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/docs/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/docs/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/docs/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/docs/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/docs/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/docs/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/docs/shadowcamerafit" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShadowCameraFit</span></a></li><li class="my-0.5"><a href="/docs/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/docs/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/docs/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/docs/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/docs/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/docs/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/docs/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/docs/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/docs/timelinemodel" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TimelineModel</span></a></li><li class="my-0.5"><a href="/docs/timezoneprovider" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TimeZoneProvider</span></a></li><li class="my-0.5"><a href="/docs/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/docs/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/docs/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/docs/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/docs/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/docs/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/docs/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/docs/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/docs/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/docs/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/docs/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/docs/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/docs/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/docs/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/docs/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/docs/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/docs/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">layer/geotiff/ColorScale.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">import type { ColorScaleName, ColorStop, IMultiBandRenderOptions, ISingleBandRenderOptions } from &quot;./types&quot;;
+
+export type TypedRasterArray =
+    | Int8Array
+    | Uint8Array
+    | Uint8ClampedArray
+    | Int16Array
+    | Uint16Array
+    | Int32Array
+    | Uint32Array
+    | Float32Array
+    | Float64Array
+    | number[];
+
+interface ColorScaleDefinition {
+    colors: string[] | Uint8Array;
+    positions?: number[];
+}
+
+export const COLORSCALES: Record&lt;string, ColorScaleDefinition> = {
+    viridis: {
+        colors: new Uint8Array([
+            68, 1, 84, 255, 68, 2, 86, 255, 69, 4, 87, 255, 69, 5, 89, 255, 70, 7, 90, 255, 70, 8, 92, 255, 70, 10, 93,
+            255, 70, 11, 94, 255, 71, 13, 96, 255, 71, 14, 97, 255, 71, 16, 99, 255, 71, 17, 100, 255, 71, 19, 101, 255,
+            72, 20, 103, 255, 72, 22, 104, 255, 72, 23, 105, 255, 72, 24, 106, 255, 72, 26, 108, 255, 72, 27, 109, 255,
+            72, 28, 110, 255, 72, 29, 111, 255, 72, 31, 112, 255, 72, 32, 113, 255, 72, 33, 115, 255, 72, 35, 116, 255,
+            72, 36, 117, 255, 72, 37, 118, 255, 72, 38, 119, 255, 72, 40, 120, 255, 72, 41, 121, 255, 71, 42, 122, 255,
+            71, 44, 122, 255, 71, 45, 123, 255, 71, 46, 124, 255, 71, 47, 125, 255, 70, 48, 126, 255, 70, 50, 126, 255,
+            70, 51, 127, 255, 70, 52, 128, 255, 69, 53, 129, 255, 69, 55, 129, 255, 69, 56, 130, 255, 68, 57, 131, 255,
+            68, 58, 131, 255, 68, 59, 132, 255, 67, 61, 132, 255, 67, 62, 133, 255, 66, 63, 133, 255, 66, 64, 134, 255,
+            66, 65, 134, 255, 65, 66, 135, 255, 65, 68, 135, 255, 64, 69, 136, 255, 64, 70, 136, 255, 63, 71, 136, 255,
+            63, 72, 137, 255, 62, 73, 137, 255, 62, 74, 137, 255, 62, 76, 138, 255, 61, 77, 138, 255, 61, 78, 138, 255,
+            60, 79, 138, 255, 60, 80, 139, 255, 59, 81, 139, 255, 59, 82, 139, 255, 58, 83, 139, 255, 58, 84, 140, 255,
+            57, 85, 140, 255, 57, 86, 140, 255, 56, 88, 140, 255, 56, 89, 140, 255, 55, 90, 140, 255, 55, 91, 141, 255,
+            54, 92, 141, 255, 54, 93, 141, 255, 53, 94, 141, 255, 53, 95, 141, 255, 52, 96, 141, 255, 52, 97, 141, 255,
+            51, 98, 141, 255, 51, 99, 141, 255, 50, 100, 142, 255, 50, 101, 142, 255, 49, 102, 142, 255, 49, 103, 142,
+            255, 49, 104, 142, 255, 48, 105, 142, 255, 48, 106, 142, 255, 47, 107, 142, 255, 47, 108, 142, 255, 46, 109,
+            142, 255, 46, 110, 142, 255, 46, 111, 142, 255, 45, 112, 142, 255, 45, 113, 142, 255, 44, 113, 142, 255, 44,
+            114, 142, 255, 44, 115, 142, 255, 43, 116, 142, 255, 43, 117, 142, 255, 42, 118, 142, 255, 42, 119, 142,
+            255, 42, 120, 142, 255, 41, 121, 142, 255, 41, 122, 142, 255, 41, 123, 142, 255, 40, 124, 142, 255, 40, 125,
+            142, 255, 39, 126, 142, 255, 39, 127, 142, 255, 39, 128, 142, 255, 38, 129, 142, 255, 38, 130, 142, 255, 38,
+            130, 142, 255, 37, 131, 142, 255, 37, 132, 142, 255, 37, 133, 142, 255, 36, 134, 142, 255, 36, 135, 142,
+            255, 35, 136, 142, 255, 35, 137, 142, 255, 35, 138, 141, 255, 34, 139, 141, 255, 34, 140, 141, 255, 34, 141,
+            141, 255, 33, 142, 141, 255, 33, 143, 141, 255, 33, 144, 141, 255, 33, 145, 140, 255, 32, 146, 140, 255, 32,
+            146, 140, 255, 32, 147, 140, 255, 31, 148, 140, 255, 31, 149, 139, 255, 31, 150, 139, 255, 31, 151, 139,
+            255, 31, 152, 139, 255, 31, 153, 138, 255, 31, 154, 138, 255, 30, 155, 138, 255, 30, 156, 137, 255, 30, 157,
+            137, 255, 31, 158, 137, 255, 31, 159, 136, 255, 31, 160, 136, 255, 31, 161, 136, 255, 31, 161, 135, 255, 31,
+            162, 135, 255, 32, 163, 134, 255, 32, 164, 134, 255, 33, 165, 133, 255, 33, 166, 133, 255, 34, 167, 133,
+            255, 34, 168, 132, 255, 35, 169, 131, 255, 36, 170, 131, 255, 37, 171, 130, 255, 37, 172, 130, 255, 38, 173,
+            129, 255, 39, 173, 129, 255, 40, 174, 128, 255, 41, 175, 127, 255, 42, 176, 127, 255, 44, 177, 126, 255, 45,
+            178, 125, 255, 46, 179, 124, 255, 47, 180, 124, 255, 49, 181, 123, 255, 50, 182, 122, 255, 52, 182, 121,
+            255, 53, 183, 121, 255, 55, 184, 120, 255, 56, 185, 119, 255, 58, 186, 118, 255, 59, 187, 117, 255, 61, 188,
+            116, 255, 63, 188, 115, 255, 64, 189, 114, 255, 66, 190, 113, 255, 68, 191, 112, 255, 70, 192, 111, 255, 72,
+            193, 110, 255, 74, 193, 109, 255, 76, 194, 108, 255, 78, 195, 107, 255, 80, 196, 106, 255, 82, 197, 105,
+            255, 84, 197, 104, 255, 86, 198, 103, 255, 88, 199, 101, 255, 90, 200, 100, 255, 92, 200, 99, 255, 94, 201,
+            98, 255, 96, 202, 96, 255, 99, 203, 95, 255, 101, 203, 94, 255, 103, 204, 92, 255, 105, 205, 91, 255, 108,
+            205, 90, 255, 110, 206, 88, 255, 112, 207, 87, 255, 115, 208, 86, 255, 117, 208, 84, 255, 119, 209, 83, 255,
+            122, 209, 81, 255, 124, 210, 80, 255, 127, 211, 78, 255, 129, 211, 77, 255, 132, 212, 75, 255, 134, 213, 73,
+            255, 137, 213, 72, 255, 139, 214, 70, 255, 142, 214, 69, 255, 144, 215, 67, 255, 147, 215, 65, 255, 149,
+            216, 64, 255, 152, 216, 62, 255, 155, 217, 60, 255, 157, 217, 59, 255, 160, 218, 57, 255, 162, 218, 55, 255,
+            165, 219, 54, 255, 168, 219, 52, 255, 170, 220, 50, 255, 173, 220, 48, 255, 176, 221, 47, 255, 178, 221, 45,
+            255, 181, 222, 43, 255, 184, 222, 41, 255, 186, 222, 40, 255, 189, 223, 38, 255, 192, 223, 37, 255, 194,
+            223, 35, 255, 197, 224, 33, 255, 200, 224, 32, 255, 202, 225, 31, 255, 205, 225, 29, 255, 208, 225, 28, 255,
+            210, 226, 27, 255, 213, 226, 26, 255, 216, 226, 25, 255, 218, 227, 25, 255, 221, 227, 24, 255, 223, 227, 24,
+            255, 226, 228, 24, 255, 229, 228, 25, 255, 231, 228, 25, 255, 234, 229, 26, 255, 236, 229, 27, 255, 239,
+            229, 28, 255, 241, 229, 29, 255, 244, 230, 30, 255, 246, 230, 32, 255, 248, 230, 33, 255, 251, 231, 35, 255,
+            253, 231, 37, 255
+        ])
+    },
+    turbo: {
+        colors: [
+            &quot;#30123b&quot;,
+            &quot;#321543&quot;,
+            &quot;#33184a&quot;,
+            &quot;#341b51&quot;,
+            &quot;#351e58&quot;,
+            &quot;#36215f&quot;,
+            &quot;#372466&quot;,
+            &quot;#38276d&quot;,
+            &quot;#392a73&quot;,
+            &quot;#3a2d79&quot;,
+            &quot;#3b2f80&quot;,
+            &quot;#3c3286&quot;,
+            &quot;#3d358b&quot;,
+            &quot;#3e3891&quot;,
+            &quot;#3f3b97&quot;,
+            &quot;#3f3e9c&quot;,
+            &quot;#4040a2&quot;,
+            &quot;#4143a7&quot;,
+            &quot;#4146ac&quot;,
+            &quot;#4249b1&quot;,
+            &quot;#424bb5&quot;,
+            &quot;#434eba&quot;,
+            &quot;#4451bf&quot;,
+            &quot;#4454c3&quot;,
+            &quot;#4456c7&quot;,
+            &quot;#4559cb&quot;,
+            &quot;#455ccf&quot;,
+            &quot;#455ed3&quot;,
+            &quot;#4661d6&quot;,
+            &quot;#4664da&quot;,
+            &quot;#4666dd&quot;,
+            &quot;#4669e0&quot;,
+            &quot;#466be3&quot;,
+            &quot;#476ee6&quot;,
+            &quot;#4771e9&quot;,
+            &quot;#4773eb&quot;,
+            &quot;#4776ee&quot;,
+            &quot;#4778f0&quot;,
+            &quot;#477bf2&quot;,
+            &quot;#467df4&quot;,
+            &quot;#4680f6&quot;,
+            &quot;#4682f8&quot;,
+            &quot;#4685fa&quot;,
+            &quot;#4687fb&quot;,
+            &quot;#458afc&quot;,
+            &quot;#458cfd&quot;,
+            &quot;#448ffe&quot;,
+            &quot;#4391fe&quot;,
+            &quot;#4294ff&quot;,
+            &quot;#4196ff&quot;,
+            &quot;#4099ff&quot;,
+            &quot;#3e9bfe&quot;,
+            &quot;#3d9efe&quot;,
+            &quot;#3ba0fd&quot;,
+            &quot;#3aa3fc&quot;,
+            &quot;#38a5fb&quot;,
+            &quot;#37a8fa&quot;,
+            &quot;#35aaf8&quot;,
+            &quot;#33acf7&quot;,
+            &quot;#31aff5&quot;,
+            &quot;#2fb1f4&quot;,
+            &quot;#2eb3f2&quot;,
+            &quot;#2cb6f0&quot;,
+            &quot;#2ab8ee&quot;,
+            &quot;#28baeb&quot;,
+            &quot;#27bde9&quot;,
+            &quot;#25bfe7&quot;,
+            &quot;#23c1e4&quot;,
+            &quot;#22c3e2&quot;,
+            &quot;#20c5df&quot;,
+            &quot;#1fc7dd&quot;,
+            &quot;#1ec9da&quot;,
+            &quot;#1ccbd8&quot;,
+            &quot;#1bced5&quot;,
+            &quot;#1ad0d2&quot;,
+            &quot;#19d2d0&quot;,
+            &quot;#18d4cd&quot;,
+            &quot;#18d5cb&quot;,
+            &quot;#17d7c8&quot;,
+            &quot;#17d9c5&quot;,
+            &quot;#17dbc2&quot;,
+            &quot;#17ddc0&quot;,
+            &quot;#17dfbd&quot;,
+            &quot;#17e0ba&quot;,
+            &quot;#18e2b8&quot;,
+            &quot;#19e3b5&quot;,
+            &quot;#1ae4b2&quot;,
+            &quot;#1ce6af&quot;,
+            &quot;#1de7ac&quot;,
+            &quot;#1fe8a9&quot;,
+            &quot;#20e9a6&quot;,
+            &quot;#22eba3&quot;,
+            &quot;#25eca0&quot;,
+            &quot;#27eda0&quot;,
+            &quot;#2aeea0&quot;,
+            &quot;#2ceea0&quot;,
+            &quot;#2feea0&quot;,
+            &quot;#32eea0&quot;,
+            &quot;#35efa0&quot;,
+            &quot;#38efa0&quot;,
+            &quot;#3befa0&quot;,
+            &quot;#3eefa0&quot;,
+            &quot;#42eea0&quot;,
+            &quot;#45eea0&quot;,
+            &quot;#48eea0&quot;,
+            &quot;#4beea0&quot;,
+            &quot;#4eeea0&quot;,
+            &quot;#51eda0&quot;,
+            &quot;#55eda0&quot;,
+            &quot;#58eda0&quot;,
+            &quot;#5beca0&quot;,
+            &quot;#5eeca0&quot;,
+            &quot;#62eca0&quot;,
+            &quot;#65eba0&quot;,
+            &quot;#69eba0&quot;,
+            &quot;#6ceaa0&quot;,
+            &quot;#70eaa0&quot;,
+            &quot;#73e9a0&quot;,
+            &quot;#77e8a0&quot;,
+            &quot;#7ae8a0&quot;,
+            &quot;#7ee7a0&quot;,
+            &quot;#81e6a0&quot;,
+            &quot;#85e5a0&quot;,
+            &quot;#89e4a0&quot;,
+            &quot;#8ce3a0&quot;,
+            &quot;#90e2a0&quot;,
+            &quot;#94e1a0&quot;,
+            &quot;#97e0a0&quot;,
+            &quot;#9bdfa0&quot;,
+            &quot;#9fdda0&quot;,
+            &quot;#a2dca0&quot;,
+            &quot;#a6dba0&quot;,
+            &quot;#a9d9a0&quot;,
+            &quot;#add8a0&quot;,
+            &quot;#b0d6a0&quot;,
+            &quot;#b4d5a0&quot;,
+            &quot;#b7d3a0&quot;,
+            &quot;#bbd2a0&quot;,
+            &quot;#bed0a0&quot;,
+            &quot;#c1cea0&quot;,
+            &quot;#c5cda0&quot;,
+            &quot;#c8cba0&quot;,
+            &quot;#cbc9a0&quot;,
+            &quot;#cec7a0&quot;,
+            &quot;#d1c5a0&quot;,
+            &quot;#d4c3a0&quot;,
+            &quot;#d7c1a0&quot;,
+            &quot;#d9bfa0&quot;,
+            &quot;#dcbea0&quot;,
+            &quot;#dfbca0&quot;,
+            &quot;#e1baa0&quot;,
+            &quot;#e4b8a0&quot;,
+            &quot;#e6b6a0&quot;,
+            &quot;#e8b4a0&quot;,
+            &quot;#ebb2a0&quot;,
+            &quot;#edb0a0&quot;,
+            &quot;#efaea0&quot;,
+            &quot;#f1aca0&quot;,
+            &quot;#f3aaa0&quot;,
+            &quot;#f5a8a0&quot;,
+            &quot;#f6a6a0&quot;,
+            &quot;#f8a4a0&quot;,
+            &quot;#f9a2a0&quot;,
+            &quot;#fba0a0&quot;,
+            &quot;#fc9ea0&quot;,
+            &quot;#fd9ca0&quot;,
+            &quot;#fe9aa0&quot;,
+            &quot;#ff98a0&quot;,
+            &quot;#ff96a0&quot;,
+            &quot;#ff94a0&quot;
+        ]
+    },
+    inferno: {
+        colors: [
+            &quot;#000004&quot;,
+            &quot;#010005&quot;,
+            &quot;#010106&quot;,
+            &quot;#010108&quot;,
+            &quot;#02010a&quot;,
+            &quot;#02020c&quot;,
+            &quot;#02020e&quot;,
+            &quot;#030210&quot;,
+            &quot;#040312&quot;,
+            &quot;#040314&quot;,
+            &quot;#050417&quot;,
+            &quot;#060419&quot;,
+            &quot;#07051b&quot;,
+            &quot;#08051d&quot;,
+            &quot;#09061f&quot;,
+            &quot;#0a0722&quot;,
+            &quot;#0b0724&quot;,
+            &quot;#0c0826&quot;,
+            &quot;#0d0829&quot;,
+            &quot;#0e092b&quot;,
+            &quot;#10092d&quot;,
+            &quot;#110a30&quot;,
+            &quot;#120a32&quot;,
+            &quot;#140b34&quot;,
+            &quot;#150b37&quot;,
+            &quot;#160b39&quot;,
+            &quot;#180c3c&quot;,
+            &quot;#190c3e&quot;,
+            &quot;#1b0c41&quot;,
+            &quot;#1c0c43&quot;,
+            &quot;#1e0c45&quot;,
+            &quot;#1f0c48&quot;,
+            &quot;#210c4a&quot;,
+            &quot;#230c4c&quot;,
+            &quot;#240c4f&quot;,
+            &quot;#260c51&quot;,
+            &quot;#280b53&quot;,
+            &quot;#290b55&quot;,
+            &quot;#2b0b57&quot;,
+            &quot;#2d0b59&quot;,
+            &quot;#2f0a5b&quot;,
+            &quot;#310a5c&quot;,
+            &quot;#320a5e&quot;,
+            &quot;#340a5f&quot;,
+            &quot;#360961&quot;,
+            &quot;#380962&quot;,
+            &quot;#390963&quot;,
+            &quot;#3b0964&quot;,
+            &quot;#3d0965&quot;,
+            &quot;#3e0966&quot;,
+            &quot;#400a67&quot;,
+            &quot;#420a68&quot;,
+            &quot;#440a68&quot;,
+            &quot;#450a69&quot;,
+            &quot;#470b6a&quot;,
+            &quot;#490b6a&quot;,
+            &quot;#4a0c6b&quot;,
+            &quot;#4c0c6b&quot;,
+            &quot;#4d0d6c&quot;,
+            &quot;#4f0d6c&quot;,
+            &quot;#510e6c&quot;,
+            &quot;#520e6d&quot;,
+            &quot;#540f6d&quot;,
+            &quot;#550f6d&quot;,
+            &quot;#57106e&quot;,
+            &quot;#59106e&quot;,
+            &quot;#5a116e&quot;,
+            &quot;#5c126e&quot;,
+            &quot;#5d126e&quot;,
+            &quot;#5f136e&quot;,
+            &quot;#61136e&quot;,
+            &quot;#62146e&quot;,
+            &quot;#64156e&quot;,
+            &quot;#65156e&quot;,
+            &quot;#67166e&quot;,
+            &quot;#69166e&quot;,
+            &quot;#6a176e&quot;,
+            &quot;#6c186e&quot;,
+            &quot;#6d186e&quot;,
+            &quot;#6f196e&quot;,
+            &quot;#71196e&quot;,
+            &quot;#721a6e&quot;,
+            &quot;#741a6e&quot;,
+            &quot;#751b6e&quot;,
+            &quot;#771c6d&quot;,
+            &quot;#781c6d&quot;,
+            &quot;#7a1d6d&quot;,
+            &quot;#7c1d6d&quot;,
+            &quot;#7d1e6d&quot;,
+            &quot;#7f1e6c&quot;,
+            &quot;#801f6c&quot;,
+            &quot;#82206c&quot;,
+            &quot;#84206b&quot;,
+            &quot;#85216b&quot;,
+            &quot;#87216b&quot;,
+            &quot;#88226a&quot;,
+            &quot;#8a226a&quot;,
+            &quot;#8c2369&quot;,
+            &quot;#8d2369&quot;,
+            &quot;#8f2469&quot;,
+            &quot;#902568&quot;,
+            &quot;#922568&quot;,
+            &quot;#932667&quot;,
+            &quot;#952667&quot;,
+            &quot;#972766&quot;,
+            &quot;#982766&quot;,
+            &quot;#9a2865&quot;,
+            &quot;#9b2964&quot;,
+            &quot;#9d2964&quot;,
+            &quot;#9f2a63&quot;,
+            &quot;#a02a63&quot;,
+            &quot;#a22b62&quot;,
+            &quot;#a32c61&quot;,
+            &quot;#a52c60&quot;,
+            &quot;#a62d60&quot;,
+            &quot;#a82e5f&quot;,
+            &quot;#a92e5e&quot;,
+            &quot;#ab2f5e&quot;,
+            &quot;#ad305d&quot;,
+            &quot;#ae305c&quot;,
+            &quot;#b0315b&quot;,
+            &quot;#b1325a&quot;,
+            &quot;#b3325a&quot;,
+            &quot;#b43359&quot;,
+            &quot;#b63458&quot;,
+            &quot;#b73557&quot;,
+            &quot;#b93556&quot;,
+            &quot;#ba3655&quot;,
+            &quot;#bc3754&quot;,
+            &quot;#bd3853&quot;,
+            &quot;#bf3952&quot;,
+            &quot;#c03a51&quot;,
+            &quot;#c13a50&quot;,
+            &quot;#c33b4f&quot;,
+            &quot;#c43c4e&quot;,
+            &quot;#c63d4d&quot;,
+            &quot;#c73e4c&quot;,
+            &quot;#c83f4b&quot;,
+            &quot;#ca404a&quot;,
+            &quot;#cb4149&quot;,
+            &quot;#cc4248&quot;,
+            &quot;#ce4347&quot;,
+            &quot;#cf4446&quot;,
+            &quot;#d04545&quot;,
+            &quot;#d24644&quot;,
+            &quot;#d34743&quot;,
+            &quot;#d44842&quot;,
+            &quot;#d54a41&quot;,
+            &quot;#d74b3f&quot;,
+            &quot;#d84c3e&quot;,
+            &quot;#d94d3d&quot;,
+            &quot;#da4e3c&quot;,
+            &quot;#db503b&quot;,
+            &quot;#dc513a&quot;,
+            &quot;#de5238&quot;,
+            &quot;#df5337&quot;,
+            &quot;#e05536&quot;,
+            &quot;#e15635&quot;,
+            &quot;#e25734&quot;,
+            &quot;#e35933&quot;,
+            &quot;#e45a31&quot;,
+            &quot;#e55c30&quot;,
+            &quot;#e65d2f&quot;,
+            &quot;#e75e2e&quot;,
+            &quot;#e8602d&quot;,
+            &quot;#e9612b&quot;,
+            &quot;#ea632a&quot;,
+            &quot;#eb6429&quot;,
+            &quot;#eb6628&quot;,
+            &quot;#ec6726&quot;,
+            &quot;#ed6925&quot;,
+            &quot;#ee6a24&quot;,
+            &quot;#ef6c23&quot;,
+            &quot;#ef6e21&quot;,
+            &quot;#f06f20&quot;,
+            &quot;#f1711f&quot;,
+            &quot;#f1731d&quot;,
+            &quot;#f2741c&quot;,
+            &quot;#f3761b&quot;,
+            &quot;#f37819&quot;,
+            &quot;#f47918&quot;,
+            &quot;#f57b17&quot;,
+            &quot;#f57d15&quot;,
+            &quot;#f67e14&quot;,
+            &quot;#f68013&quot;,
+            &quot;#f78212&quot;,
+            &quot;#f78410&quot;,
+            &quot;#f8850f&quot;,
+            &quot;#f8870e&quot;,
+            &quot;#f8890c&quot;,
+            &quot;#f98b0b&quot;,
+            &quot;#f98c0a&quot;,
+            &quot;#f98e09&quot;,
+            &quot;#fa9008&quot;,
+            &quot;#fa9207&quot;,
+            &quot;#fa9407&quot;,
+            &quot;#fb9606&quot;,
+            &quot;#fb9706&quot;,
+            &quot;#fb9906&quot;,
+            &quot;#fb9b06&quot;,
+            &quot;#fb9d07&quot;,
+            &quot;#fc9f07&quot;,
+            &quot;#fca108&quot;,
+            &quot;#fca309&quot;,
+            &quot;#fca50a&quot;,
+            &quot;#fca60c&quot;,
+            &quot;#fca80d&quot;,
+            &quot;#fcaa0f&quot;,
+            &quot;#fcac11&quot;,
+            &quot;#fcae12&quot;,
+            &quot;#fcb014&quot;,
+            &quot;#fcb216&quot;,
+            &quot;#fcb418&quot;,
+            &quot;#fbb61a&quot;,
+            &quot;#fbb81d&quot;,
+            &quot;#fbbb1f&quot;,
+            &quot;#fbbd21&quot;,
+            &quot;#fbbf23&quot;,
+            &quot;#fbc126&quot;,
+            &quot;#fac328&quot;,
+            &quot;#fac52b&quot;,
+            &quot;#fac72d&quot;,
+            &quot;#f9c930&quot;,
+            &quot;#f9cb33&quot;,
+            &quot;#f8cd35&quot;,
+            &quot;#f8cf38&quot;,
+            &quot;#f7d13b&quot;,
+            &quot;#f7d33e&quot;,
+            &quot;#f6d541&quot;,
+            &quot;#f6d744&quot;,
+            &quot;#f5d947&quot;,
+            &quot;#f5db4a&quot;,
+            &quot;#f4dd4d&quot;,
+            &quot;#f4df51&quot;,
+            &quot;#f3e154&quot;,
+            &quot;#f3e357&quot;,
+            &quot;#f3e55a&quot;,
+            &quot;#f2e75e&quot;,
+            &quot;#f2e961&quot;,
+            &quot;#f1eb65&quot;,
+            &quot;#f1ed68&quot;,
+            &quot;#f1ef6c&quot;,
+            &quot;#f1f170&quot;,
+            &quot;#f2f274&quot;,
+            &quot;#f2f479&quot;,
+            &quot;#f3f67d&quot;,
+            &quot;#f4f882&quot;,
+            &quot;#f5f986&quot;,
+            &quot;#f6fa8b&quot;,
+            &quot;#f8fb90&quot;
+        ]
+    },
+    rainbow: {
+        colors: [&quot;#96005A&quot;, &quot;#0000C8&quot;, &quot;#0019FF&quot;, &quot;#0098FF&quot;, &quot;#2CFF96&quot;, &quot;#97FF00&quot;, &quot;#FFEA00&quot;, &quot;#FF6F00&quot;, &quot;#FF0000&quot;],
+        positions: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
+    },
+    jet: {
+        colors: [&quot;#000083&quot;, &quot;#003CAA&quot;, &quot;#05FFFF&quot;, &quot;#FFFF00&quot;, &quot;#FA0000&quot;, &quot;#800000&quot;],
+        positions: [0, 0.125, 0.375, 0.625, 0.875, 1]
+    },
+    greys: {
+        colors: [&quot;#000000&quot;, &quot;#ffffff&quot;],
+        positions: [0, 1]
+    },
+    earth: {
+        colors: [&quot;#000082&quot;, &quot;#00b4b4&quot;, &quot;#28d228&quot;, &quot;#e6e632&quot;, &quot;#784614&quot;, &quot;#ffffff&quot;],
+        positions: [0, 0.1, 0.2, 0.4, 0.6, 1]
+    },
+    coolwarm: {
+        colors: [&quot;#0000ff&quot;, &quot;#ffffff&quot;, &quot;#ff0000&quot;],
+        positions: [0, 0.5, 1]
+    },
+    hot: {
+        colors: [&quot;#000000&quot;, &quot;#e60000&quot;, &quot;#ffd200&quot;, &quot;#ffffff&quot;],
+        positions: [0, 0.3, 0.6, 1]
+    },
+    cool: {
+        colors: [&quot;#00ffff&quot;, &quot;#ff00ff&quot;],
+        positions: [0, 1]
+    }
+};
+
+/**
+ * Parses a hex, rgb, or named color string into RGBA [0..255] values.
+ */
+export function parseColor(color: string): [number, number, number, number] {
+    const trimmed = color.trim().toLowerCase();
+
+    if (trimmed.startsWith(&quot;#&quot;)) {
+        const hex = trimmed.slice(1);
+        if (hex.length === 3) {
+            return [parseInt(hex[0] + hex[0], 16), parseInt(hex[1] + hex[1], 16), parseInt(hex[2] + hex[2], 16), 255];
+        }
+        if (hex.length === 6) {
+            return [parseInt(hex.slice(0, 2), 16), parseInt(hex.slice(2, 4), 16), parseInt(hex.slice(4, 6), 16), 255];
+        }
+        if (hex.length === 8) {
+            return [
+                parseInt(hex.slice(0, 2), 16),
+                parseInt(hex.slice(2, 4), 16),
+                parseInt(hex.slice(4, 6), 16),
+                parseInt(hex.slice(6, 8), 16)
+            ];
+        }
+    }
+
+    if (trimmed.startsWith(&quot;rgb&quot;)) {
+        const parts = trimmed
+            .replace(/[rgba()]/g, &quot;&quot;)
+            .split(&quot;,&quot;)
+            .map((s) => parseFloat(s.trim()));
+        return [
+            Math.round(parts[0] || 0),
+            Math.round(parts[1] || 0),
+            Math.round(parts[2] || 0),
+            parts.length > 3 ? Math.round((parts[3] ?? 1) * 255) : 255
+        ];
+    }
+
+    // Default fallback (black)
+    return [0, 0, 0, 255];
+}
+
+/**
+ * Builds a 256-color RGBA Lookup Table (Uint8Array of size 1024) from render options.
+ */
+export function buildColorLUT(options?: ISingleBandRenderOptions): Uint8Array {
+    const lut = new Uint8Array(256 * 4);
+
+    let stops: { pos: number; color: [number, number, number, number] }[] = [];
+
+    if (options?.colors &amp;&amp; options.colors.length > 0) {
+        if (Array.isArray(options.colors[0])) {
+            const arr = options.colors as ColorStop[];
+            stops = arr.map(([pos, col]) => ({
+                pos: Math.max(0, Math.min(1, pos)),
+                color: parseColor(col)
+            }));
+        } else {
+            const colList = options.colors as string[];
+            const count = colList.length;
+            stops = colList.map((col, idx) => ({
+                pos: count > 1 ? idx / (count - 1) : 0,
+                color: parseColor(col)
+            }));
+        }
+        stops.sort((a, b) => a.pos - b.pos);
+    } else {
+        const scaleName = (options?.colorScale || &quot;viridis&quot;).toLowerCase();
+        const def = COLORSCALES[scaleName] || COLORSCALES.viridis;
+
+        if (def.colors instanceof Uint8Array) {
+            // Already a precomputed 256*4 table
+            if (def.colors.length === 256 * 4) {
+                lut.set(def.colors);
+                return lut;
+            }
+        }
+
+        const colList = def.colors as string[];
+        const positions = def.positions || colList.map((_, i) => i / Math.max(1, colList.length - 1));
+        stops = colList.map((col, idx) => ({
+            pos: positions[idx] ?? idx / (colList.length - 1),
+            color: parseColor(col)
+        }));
+    }
+
+    if (stops.length === 0) {
+        stops = [
+            { pos: 0, color: [0, 0, 0, 255] },
+            { pos: 1, color: [255, 255, 255, 255] }
+        ];
+    }
+
+    // Interpolate 256 entries
+    for (let i = 0; i &lt; 256; i++) {
+        const t = i / 255;
+        let c0 = stops[0];
+        let c1 = stops[stops.length - 1];
+
+        for (let j = 0; j &lt; stops.length - 1; j++) {
+            if (t >= stops[j].pos &amp;&amp; t &lt;= stops[j + 1].pos) {
+                c0 = stops[j];
+                c1 = stops[j + 1];
+                break;
+            }
+        }
+
+        const range = c1.pos - c0.pos;
+        const localT = range > 0 ? (t - c0.pos) / range : 0;
+
+        const r = Math.round(c0.color[0] + (c1.color[0] - c0.color[0]) * localT);
+        const g = Math.round(c0.color[1] + (c1.color[1] - c0.color[1]) * localT);
+        const b = Math.round(c0.color[2] + (c1.color[2] - c0.color[2]) * localT);
+        const a = Math.round(c0.color[3] + (c1.color[3] - c0.color[3]) * localT);
+
+        const offset = i * 4;
+        lut[offset] = r;
+        lut[offset + 1] = g;
+        lut[offset + 2] = b;
+        lut[offset + 3] = a;
+    }
+
+    return lut;
+}
+
+/**
+ * Parses and normalizes a nodata value from various representations (number, null, string &quot;NaN&quot;, NaN, etc.).
+ */
+export function parseNoDataValue(val: any): number | null | undefined {
+    if (val === undefined) return undefined;
+    if (val === null) return null;
+    if (typeof val === &quot;string&quot;) {
+        const lower = val.trim().toLowerCase();
+        if (lower === &quot;nan&quot; || lower === &quot;-nan&quot; || lower === &quot;+nan&quot;) return NaN;
+        if (lower === &quot;none&quot; || lower === &quot;null&quot; || lower === &quot;&quot;) return null;
+        const parsed = Number(val);
+        return Number.isNaN(parsed) ? null : parsed;
+    }
+    if (typeof val === &quot;number&quot;) {
+        return val;
+    }
+    return undefined;
+}
+
+/**
+ * Checks if a raster value represents NoData, taking NaN, null, and float precision into account.
+ */
+export function isNoData(val: number, nodata: number | null | undefined): boolean {
+    if (Number.isNaN(val)) return true;
+    if (nodata === null || nodata === undefined || Number.isNaN(nodata)) return false;
+    if (val === nodata) return true;
+    if (Math.fround(val) === Math.fround(nodata)) return true;
+    const absDiff = Math.abs(val - nodata);
+    if (absDiff &lt; 1e-6) return true;
+    const maxVal = Math.max(Math.abs(val), Math.abs(nodata));
+    if (maxVal > 0 &amp;&amp; absDiff / maxVal &lt; 1e-5) return true;
+    return false;
+}
+
+/**
+ * Returns a high-performance nodata checking predicate for inner pixel loops.
+ */
+export function getFastNoDataChecker(nodata: number | null | undefined): (val: number) => boolean {
+    if (nodata === null || nodata === undefined || Number.isNaN(nodata)) {
+        return (val: number) => Number.isNaN(val);
+    }
+    const fNodata = Math.fround(nodata);
+    return (val: number) => {
+        if (val === nodata || Number.isNaN(val)) return true;
+        if (Math.fround(val) === fNodata) return true;
+        const absDiff = Math.abs(val - nodata);
+        if (absDiff &lt; 1e-6) return true;
+        const maxVal = Math.max(Math.abs(val), Math.abs(nodata));
+        return maxVal > 0 &amp;&amp; absDiff / maxVal &lt; 1e-5;
+    };
+}
+
+/**
+ * Calculates min and max from a raster array, ignoring NaN and NoData.
+ */
+export function getRasterMinMax(
+    data: TypedRasterArray,
+    nodata: number | null | undefined
+): { min: number; max: number } {
+    let min = Infinity;
+    let max = -Infinity;
+    const len = data.length;
+
+    for (let i = 0; i &lt; len; i++) {
+        const val = data[i];
+        if (isNoData(val, nodata)) {
+            continue;
+        }
+        if (val &lt; min) min = val;
+        if (val > max) max = val;
+    }
+
+    if (min === Infinity || max === -Infinity) {
+        return { min: 0, max: 1 };
+    }
+    return { min, max };
+}
+
+/**
+ * Creates an ImageData instance with fallback for non-browser/worker/test environments.
+ */
+export function createImageData(width: number, height: number): ImageData {
+    if (typeof ImageData !== &quot;undefined&quot;) {
+        return new ImageData(width, height);
+    }
+    return {
+        width,
+        height,
+        data: new Uint8ClampedArray(width * height * 4),
+        colorSpace: &quot;srgb&quot;
+    } as unknown as ImageData;
+}
+
+/**
+ * Renders a single band raster to an ImageData using a color LUT.
+ */
+export function renderSingleBandToImageData(
+    raster: TypedRasterArray,
+    width: number,
+    height: number,
+    options?: ISingleBandRenderOptions,
+    nodata: number | null = null,
+    outImageData?: ImageData
+): ImageData {
+    const imgData = outImageData || createImageData(width, height);
+    const rgba = imgData.data;
+    const lut = buildColorLUT(options);
+
+    let [min, max] = options?.domain || [undefined, undefined];
+    if (min === undefined || max === undefined) {
+        const minMax = getRasterMinMax(raster, nodata);
+        min = min ?? minMax.min;
+        max = max ?? minMax.max;
+    }
+
+    const diff = max - min || 1e-6;
+    const scale = 255 / diff;
+    const displayRange = options?.displayRange;
+    const clampLow = options?.clampLow ?? true;
+    const clampHigh = options?.clampHigh ?? true;
+    const pixelCount = width * height;
+    const hasNoData = nodata !== null &amp;&amp; nodata !== undefined &amp;&amp; !Number.isNaN(nodata);
+    const checkNoData = hasNoData ? getFastNoDataChecker(nodata) : null;
+
+    for (let i = 0; i &lt; pixelCount; i++) {
+        const val = raster[i];
+        const outIdx = i * 4;
+
+        if (checkNoData ? checkNoData(val) : Number.isNaN(val)) {
+            rgba[outIdx + 3] = 0;
+            continue;
+        }
+
+        if (displayRange &amp;&amp; (val &lt; displayRange[0] || val > displayRange[1])) {
+            rgba[outIdx + 3] = 0;
+            continue;
+        }
+
+        let norm255 = ((val - min) * scale + 0.5) | 0;
+
+        if (clampLow &amp;&amp; norm255 &lt; 0) norm255 = 0;
+        if (clampHigh &amp;&amp; norm255 > 255) norm255 = 255;
+
+        if (norm255 &lt; 0 || norm255 > 255) {
+            rgba[outIdx + 3] = 0;
+            continue;
+        }
+
+        const lutIdx = norm255 * 4;
+        rgba[outIdx] = lut[lutIdx];
+        rgba[outIdx + 1] = lut[lutIdx + 1];
+        rgba[outIdx + 2] = lut[lutIdx + 2];
+        rgba[outIdx + 3] = lut[lutIdx + 3];
+    }
+
+    return imgData;
+}
+
+/**
+ * Renders 3 separate band arrays into an RGB ImageData.
+ */
+export function renderMultiBandToImageData(
+    rBand: TypedRasterArray,
+    gBand: TypedRasterArray,
+    bBand: TypedRasterArray,
+    width: number,
+    height: number,
+    options?: IMultiBandRenderOptions,
+    nodata: number | null = null,
+    outImageData?: ImageData
+): ImageData {
+    const imgData = outImageData || createImageData(width, height);
+    const rgba = imgData.data;
+    const pixelCount = width * height;
+
+    const rMin = options?.r?.min ?? 0;
+    const rMax = options?.r?.max ?? 255;
+    const rDiff = rMax - rMin || 1;
+
+    const gMin = options?.g?.min ?? 0;
+    const gMax = options?.g?.max ?? 255;
+    const gDiff = gMax - gMin || 1;
+
+    const bMin = options?.b?.min ?? 0;
+    const bMax = options?.b?.max ?? 255;
+    const bDiff = bMax - bMin || 1;
+
+    const rScale = 255 / rDiff;
+    const gScale = 255 / gDiff;
+    const bScale = 255 / bDiff;
+
+    const hasNoData = nodata !== null &amp;&amp; nodata !== undefined &amp;&amp; !Number.isNaN(nodata);
+
+    if (!hasNoData) {
+        for (let i = 0; i &lt; pixelCount; i++) {
+            const outIdx = i * 4;
+
+            const rVal = rBand[i];
+            const gVal = gBand[i];
+            const bVal = bBand[i];
+
+            if (Number.isNaN(rVal) || Number.isNaN(gVal) || Number.isNaN(bVal)) {
+                rgba[outIdx + 3] = 0;
+                continue;
+            }
+
+            let r = ((rVal - rMin) * rScale + 0.5) | 0;
+            if (r &lt; 0) r = 0;
+            else if (r > 255) r = 255;
+
+            let g = ((gVal - gMin) * gScale + 0.5) | 0;
+            if (g &lt; 0) g = 0;
+            else if (g > 255) g = 255;
+
+            let b = ((bVal - bMin) * bScale + 0.5) | 0;
+            if (b &lt; 0) b = 0;
+            else if (b > 255) b = 255;
+
+            rgba[outIdx] = r;
+            rgba[outIdx + 1] = g;
+            rgba[outIdx + 2] = b;
+            rgba[outIdx + 3] = 255;
+        }
+    } else {
+        const checkNoData = getFastNoDataChecker(nodata);
+        for (let i = 0; i &lt; pixelCount; i++) {
+            const outIdx = i * 4;
+            const rVal = rBand[i];
+            const gVal = gBand[i];
+            const bVal = bBand[i];
+
+            if (checkNoData(rVal) || checkNoData(gVal) || checkNoData(bVal)) {
+                rgba[outIdx + 3] = 0;
+                continue;
+            }
+
+            let r = ((rVal - rMin) * rScale + 0.5) | 0;
+            if (r &lt; 0) r = 0;
+            else if (r > 255) r = 255;
+
+            let g = ((gVal - gMin) * gScale + 0.5) | 0;
+            if (g &lt; 0) g = 0;
+            else if (g > 255) g = 255;
+
+            let b = ((bVal - bMin) * bScale + 0.5) | 0;
+            if (b &lt; 0) b = 0;
+            else if (b > 255) b = 255;
+
+            rgba[outIdx] = r;
+            rgba[outIdx + 1] = g;
+            rgba[outIdx + 2] = b;
+            rgba[outIdx + 3] = 255;
+        }
+    }
+
+    return imgData;
+}
+
+/**
+ * Converts raw RGB/RGBA raster array(s) directly to an ImageData.
+ */
+export function renderRgbRastersToImageData(
+    rasters: TypedRasterArray[],
+    width: number,
+    height: number,
+    nodata: number | null = null,
+    outImageData?: ImageData
+): ImageData {
+    const imgData = outImageData || createImageData(width, height);
+    const rgba = imgData.data;
+    const pixelCount = width * height;
+    const isRgba = rasters.length >= 4;
+
+    const rBand = rasters[0];
+    const gBand = rasters[1] || rasters[0];
+    const bBand = rasters[2] || rasters[0];
+    const aBand = isRgba ? rasters[3] : null;
+
+    const hasNoData = nodata !== null &amp;&amp; nodata !== undefined &amp;&amp; !Number.isNaN(nodata);
+
+    if (!hasNoData) {
+        for (let i = 0; i &lt; pixelCount; i++) {
+            const outIdx = i * 4;
+            const r = rBand[i];
+            const g = gBand[i];
+            const b = bBand[i];
+
+            if (Number.isNaN(r) || Number.isNaN(g) || Number.isNaN(b)) {
+                rgba[outIdx + 3] = 0;
+                continue;
+            }
+
+            rgba[outIdx] = r;
+            rgba[outIdx + 1] = g;
+            rgba[outIdx + 2] = b;
+            rgba[outIdx + 3] = isRgba ? aBand![i] : 255;
+        }
+    } else {
+        const checkNoData = getFastNoDataChecker(nodata);
+        for (let i = 0; i &lt; pixelCount; i++) {
+            const outIdx = i * 4;
+            const r = rBand[i];
+            const g = gBand[i];
+            const b = bBand[i];
+            const a = aBand ? aBand[i] : 255;
+
+            if (checkNoData(r) || checkNoData(g) || checkNoData(b)) {
+                rgba[outIdx + 3] = 0;
+                continue;
+            }
+
+            rgba[outIdx] = r;
+            rgba[outIdx + 1] = g;
+            rgba[outIdx + 2] = b;
+            rgba[outIdx + 3] = a;
+        }
+    }
+
+    return imgData;
+}
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>OpenGlobus v1.0.0-rc27</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"layer/geotiff/ColorScale.ts"},"i1":{"basePath":"/docs","searchIndexUrl":"/docs/_assets/search-index.mu8bmj8g-a33ee902.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CameraFootprint","slug":"camerafootprint","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"CascadeShadowMap","slug":"cascadeshadowmap","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"Dialog","slug":"dialog","group":"Classes","order":0},{"label":"DockManager","slug":"dockmanager","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"FreeNavigation","slug":"freenavigation","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoTIFFLayer","slug":"geotifflayer","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorManager","slug":"projectormanager","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShadowCameraFit","slug":"shadowcamerafit","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"TimelineModel","slug":"timelinemodel","group":"Classes","order":0},{"label":"TimeZoneProvider","slug":"timezoneprovider","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/layer/geotiff/colorscale-ts","siteName":"OpenGlobus v1.0.0-rc27","basePath":"/docs","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CameraFootprint","slug":"camerafootprint","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"CascadeShadowMap","slug":"cascadeshadowmap","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"Dialog","slug":"dialog","group":"Classes","order":0},{"label":"DockManager","slug":"dockmanager","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"FreeNavigation","slug":"freenavigation","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoTIFFLayer","slug":"geotifflayer","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorManager","slug":"projectormanager","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShadowCameraFit","slug":"shadowcamerafit","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"TimelineModel","slug":"timelinemodel","group":"Classes","order":0},{"label":"TimeZoneProvider","slug":"timezoneprovider","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/layer/geotiff/colorscale-ts","basePath":"/docs","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/docs/_islands/theme-toggle-MFKEIGBZ.js","settings":"/docs/_islands/settings-TVWSQT6I.js","code-viewer":"/docs/_islands/code-viewer-S3DIZRC3.js","embed":"/docs/_islands/embed-24QZS4CF.js","playground":"/docs/_islands/playground-N5NFYMP6.js","tabs":"/docs/_islands/tabs-NRSQKCSU.js","sidebar":"/docs/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/docs/_islands/mobile-nav-ZFIZP3CE.js","toc":"/docs/_islands/toc-W36SMPYU.js","toc-mobile":"/docs/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/docs/_islands/cmdk-SWB64M4V.js","code-tabs":"/docs/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/docs/_islands/copy-btn-5O25GXTU.js","copy-page":"/docs/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>

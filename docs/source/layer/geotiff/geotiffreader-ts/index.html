@@ -1,0 +1,730 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="generator" content="clean-jsdoc-theme 5.1.0" /><title>layer/geotiff/GeoTIFFReader.ts | OpenGlobus v1.0.0-rc27</title><script>(function(){try{var d=document.documentElement;var t=localStorage.getItem('theme');if(t==='dark'){d.dataset.theme='dark'}else{d.dataset.theme='light'}var fs=localStorage.getItem('clean-font-size');if(fs==='sm'){d.style.fontSize='15px'}else if(fs==='lg'){d.style.fontSize='18px'}var ls=localStorage.getItem('clean-line-spacing');if(ls==='compact'){d.style.setProperty('--clean-line-height','1.4')}else if(ls==='relaxed'){d.style.setProperty('--clean-line-height','1.8')}}catch(_){}}());</script><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700&amp;family=Roboto:wght@400;500;600;700&amp;display=swap" /><link rel="stylesheet" href="/docs/_assets/styles.mu8bmj8g-a33ee902.css" /></head><body><div class="flex min-h-screen flex-col bg-background text-(--clean-fg)"><header class="sticky top-0 z-30 border-b border-(--clean-border) bg-background"><div class="mx-auto flex h-16 w-full min-w-0 max-w-screen-2xl items-center gap-4 px-4"><a href="/docs" class="flex min-w-0 items-center pl-3 no-underline"><span class="truncate text-lg font-heading font-bold text-(--clean-fg)">OpenGlobus v1.0.0-rc27</span></a><div class="ml-auto flex shrink-0 items-center gap-1"><div class="flex items-center gap-1"><div data-island="cmdk" data-island-id="i1"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Search" title="Search (Ctrl K)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></div></div><div class="hidden items-center gap-1 md:flex"><div data-island="theme-toggle" data-island-id="i2"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-label="Switch to dark theme" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg></button></div><div data-island="settings" data-island-id="i3"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Settings" title="Settings"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button></div></div><div class="md:hidden"><div data-island="mobile-nav" data-island-id="i4"><button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-muted-foreground hover:bg-accent hover:text-accent-foreground h-9 w-9" type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open navigation" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-panel-right" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg></button></div></div></div></div></header><div class="mx-auto grid w-full max-w-screen-2xl flex-1 grid-cols-1 gap-6 px-4 py-6 md:grid-cols-[16rem_minmax(0,1fr)]"><aside class="hidden md:block"><div class="sticky overflow-y-auto [scrollbar-gutter:stable] pr-2 top-20 max-h-[calc(100vh-6rem)]"><div data-island="sidebar" data-island-id="i5"><nav aria-label="Documentation navigation" class="text-(--clean-fg)"><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Home</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Classes</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/atmosphereconfig" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">AtmosphereConfig</span></a></li><li class="my-0.5"><a href="/docs/basebillboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboard</span></a></li><li class="my-0.5"><a href="/docs/basebillboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseBillboardHandler</span></a></li><li class="my-0.5"><a href="/docs/basegeoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseGeoImage</span></a></li><li class="my-0.5"><a href="/docs/basetilemateriallayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BaseTileMaterialLayer</span></a></li><li class="my-0.5"><a href="/docs/billboard" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Billboard</span></a></li><li class="my-0.5"><a href="/docs/billboardhandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">BillboardHandler</span></a></li><li class="my-0.5"><a href="/docs/box" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Box</span></a></li><li class="my-0.5"><a href="/docs/camera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Camera</span></a></li><li class="my-0.5"><a href="/docs/camerafootprint" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CameraFootprint</span></a></li><li class="my-0.5"><a href="/docs/canvastiles" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CanvasTiles</span></a></li><li class="my-0.5"><a href="/docs/cascadeshadowmap" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CascadeShadowMap</span></a></li><li class="my-0.5"><a href="/docs/clock" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Clock</span></a></li><li class="my-0.5"><a href="/docs/compassbutton" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">CompassButton</span></a></li><li class="my-0.5"><a href="/docs/cons" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Cons</span></a></li><li class="my-0.5"><a href="/docs/control" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Control</span></a></li><li class="my-0.5"><a href="/docs/dialog" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Dialog</span></a></li><li class="my-0.5"><a href="/docs/dockmanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DockManager</span></a></li><li class="my-0.5"><a href="/docs/drawingswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">DrawingSwitcher</span></a></li><li class="my-0.5"><a href="/docs/earthcoordinates" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EarthCoordinates</span></a></li><li class="my-0.5"><a href="/docs/elevationprofile" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ElevationProfile</span></a></li><li class="my-0.5"><a href="/docs/ellipsoid" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ellipsoid</span></a></li><li class="my-0.5"><a href="/docs/emptyterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EmptyTerrain</span></a></li><li class="my-0.5"><a href="/docs/entity" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Entity</span></a></li><li class="my-0.5"><a href="/docs/entitycollection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollection</span></a></li><li class="my-0.5"><a href="/docs/entitycollectionnode" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">EntityCollectionNode</span></a></li><li class="my-0.5"><a href="/docs/events" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Events</span></a></li><li class="my-0.5"><a href="/docs/extent" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Extent</span></a></li><li class="my-0.5"><a href="/docs/framebuffer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Framebuffer</span></a></li><li class="my-0.5"><a href="/docs/freenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">FreeNavigation</span></a></li><li class="my-0.5"><a href="/docs/frustum" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Frustum</span></a></li><li class="my-0.5"><a href="/docs/geoimage" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoImage</span></a></li><li class="my-0.5"><a href="/docs/geoobject" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObject</span></a></li><li class="my-0.5"><a href="/docs/geoobjecthandler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoObjectHandler</span></a></li><li class="my-0.5"><a href="/docs/geotifflayer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoTIFFLayer</span></a></li><li class="my-0.5"><a href="/docs/geovideo" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GeoVideo</span></a></li><li class="my-0.5"><a href="/docs/globe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globe</span></a></li><li class="my-0.5"><a href="/docs/globusterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">GlobusTerrain</span></a></li><li class="my-0.5"><a href="/docs/handler" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Handler</span></a></li><li class="my-0.5"><a href="/docs/imagecanvas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ImageCanvas</span></a></li><li class="my-0.5"><a href="/docs/keyboardnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KeyboardNavigation</span></a></li><li class="my-0.5"><a href="/docs/kml" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">KML</span></a></li><li class="my-0.5"><a href="/docs/label" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Label</span></a></li><li class="my-0.5"><a href="/docs/layer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Layer</span></a></li><li class="my-0.5"><a href="/docs/layerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LayerSwitcher</span></a></li><li class="my-0.5"><a href="/docs/lighting" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Lighting</span></a></li><li class="my-0.5"><a href="/docs/line3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Line3</span></a></li><li class="my-0.5"><a href="/docs/lonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">LonLat</span></a></li><li class="my-0.5"><a href="/docs/mapterhornterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">MapterhornTerrain</span></a></li><li class="my-0.5"><a href="/docs/mat3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat3</span></a></li><li class="my-0.5"><a href="/docs/mat4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Mat4</span></a></li><li class="my-0.5"><a href="/docs/material" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Material</span></a></li><li class="my-0.5"><a href="/docs/multisample" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Multisample</span></a></li><li class="my-0.5"><a href="/docs/navigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Navigation</span></a></li><li class="my-0.5"><a href="/docs/node" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Node</span></a></li><li class="my-0.5"><a href="/docs/orthoswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">OrthoSwitcher</span></a></li><li class="my-0.5"><a href="/docs/plane" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Plane</span></a></li><li class="my-0.5"><a href="/docs/planet" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Planet</span></a></li><li class="my-0.5"><a href="/docs/planetcamera" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PlanetCamera</span></a></li><li class="my-0.5"><a href="/docs/pointcloud" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">PointCloud</span></a></li><li class="my-0.5"><a href="/docs/polyline" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Polyline</span></a></li><li class="my-0.5"><a href="/docs/projectormanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorManager</span></a></li><li class="my-0.5"><a href="/docs/projectorspass" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ProjectorsPass</span></a></li><li class="my-0.5"><a href="/docs/quat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Quat</span></a></li><li class="my-0.5"><a href="/docs/ray" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Ray</span></a></li><li class="my-0.5"><a href="/docs/rectangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Rectangle</span></a></li><li class="my-0.5"><a href="/docs/renderer" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Renderer</span></a></li><li class="my-0.5"><a href="/docs/rendererevents" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RendererEvents</span></a></li><li class="my-0.5"><a href="/docs/rgbterrain" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RgbTerrain</span></a></li><li class="my-0.5"><a href="/docs/rulerswitcher" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">RulerSwitcher</span></a></li><li class="my-0.5"><a href="/docs/scalecontrol" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ScaleControl</span></a></li><li class="my-0.5"><a href="/docs/scene" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Scene</span></a></li><li class="my-0.5"><a href="/docs/segment" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Segment</span></a></li><li class="my-0.5"><a href="/docs/segmentboundvisualization" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentBoundVisualization</span></a></li><li class="my-0.5"><a href="/docs/segmentlonlat" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SegmentLonLat</span></a></li><li class="my-0.5"><a href="/docs/selection" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Selection</span></a></li><li class="my-0.5"><a href="/docs/shaderprogram" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShaderProgram</span></a></li><li class="my-0.5"><a href="/docs/shadowcamerafit" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShadowCameraFit</span></a></li><li class="my-0.5"><a href="/docs/showfps" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ShowFps</span></a></li><li class="my-0.5"><a href="/docs/simplenavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">SimpleNavigation</span></a></li><li class="my-0.5"><a href="/docs/sphere" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sphere</span></a></li><li class="my-0.5"><a href="/docs/stack-t" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Stack&lt;T></span></a></li><li class="my-0.5"><a href="/docs/strip" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Strip</span></a></li><li class="my-0.5"><a href="/docs/sun" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Sun</span></a></li><li class="my-0.5"><a href="/docs/textureatlas" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureAtlas</span></a></li><li class="my-0.5"><a href="/docs/textureresourcemanager" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TextureResourceManager</span></a></li><li class="my-0.5"><a href="/docs/timelinemodel" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TimelineModel</span></a></li><li class="my-0.5"><a href="/docs/timezoneprovider" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TimeZoneProvider</span></a></li><li class="my-0.5"><a href="/docs/togglewireframe" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ToggleWireframe</span></a></li><li class="my-0.5"><a href="/docs/touchnavigation" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">TouchNavigation</span></a></li><li class="my-0.5"><a href="/docs/vec2" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec2</span></a></li><li class="my-0.5"><a href="/docs/vec3" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec3</span></a></li><li class="my-0.5"><a href="/docs/vec4" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vec4</span></a></li><li class="my-0.5"><a href="/docs/vector" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Vector</span></a></li><li class="my-0.5"><a href="/docs/wms" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">WMS</span></a></li><li class="my-0.5"><a href="/docs/xyz" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">XYZ</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Modules</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/module/og-math-coder" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/math/coder</span></a></li><li class="my-0.5"><a href="/docs/module/og-proj-epsg3857" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG3857</span></a></li><li class="my-0.5"><a href="/docs/module/og-proj-epsg4326" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/EPSG4326</span></a></li><li class="my-0.5"><a href="/docs/module/og-proj-equi" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/proj/equi</span></a></li><li class="my-0.5"><a href="/docs/module/og-segment-segmenthelper" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/segment/SegmentHelper</span></a></li><li class="my-0.5"><a href="/docs/module/og-utils-shared" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/utils/shared</span></a></li><li class="my-0.5"><a href="/docs/module/og-webgl-types" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/types</span></a></li><li class="my-0.5"><a href="/docs/module/og-webgl-variablehandlers" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">og/webgl/variableHandlers</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Interfaces</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/igeoobjectparams" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">IGeoObjectParams</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Typedefs</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/extentboundingbox" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">ExtentBoundingBox</span></a></li><li class="my-0.5"><a href="/docs/handlereventtype" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">HandlerEventType</span></a></li><li class="my-0.5"><a href="/docs/quataxisangle" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">QuatAxisAngle</span></a></li></ul></div><div class="mt-4 first:mt-0"><button type="button" aria-expanded="true" class="mb-1 flex w-full items-center rounded-xl py-1.5 px-3 text-left text-sm font-bold text-(--clean-fg) cursor-pointer hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-auto shrink-0 transition-transform rotate-90" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/global" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Globals</span></a></li></ul></div><div class="mt-4 first:mt-0"><ul class="m-0 list-none p-0"><li class="my-0.5"><a href="/docs/source" class="group flex items-start gap-x-3 w-full px-3 py-1.5 text-left text-sm no-underline break-words hyphens-auto overflow-hidden rounded-xl outline-offset-[-1px] cursor-pointer text-[var(--clean-fg)] hover:bg-[var(--clean-bg-muted)]"><span class="min-w-0 wrap-break-words">Source Files</span></a></li></ul></div></nav></div></div></aside><main class="min-w-0 px-4 md:px-8 lg:px-12"><div data-island="code-viewer" data-island-id="i0"><div class="my-4 overflow-hidden rounded-lg border border-(--clean-border) bg-(--clean-bg)"><div class="flex items-center justify-between border-b border-(--clean-border) bg-(--clean-bg-muted) px-3 py-2 text-sm"><span class="font-mono text-(--clean-fg)">layer/geotiff/GeoTIFFReader.ts</span><span class="text-xs text-(--clean-fg-muted)">typescript</span></div><div class="h-[calc(100vh-13rem)] min-h-[24rem]"><pre class="m-0 h-full overflow-auto whitespace-pre p-4 text-sm leading-relaxed text-(--clean-fg)"><code class="language-typescript">import { fromArrayBuffer, fromBlob, fromUrl, GeoTIFF, GeoTIFFImage, Pool } from &quot;geotiff&quot;;
+import type { ReadRastersOptions, TypedArray } from &quot;geotiff&quot;;
+import { Extent } from &quot;../../Extent&quot;;
+import { LonLat } from &quot;../../LonLat&quot;;
+import * as mercator from &quot;../../mercator&quot;;
+import { getFastNoDataChecker, getRasterMinMax, parseNoDataValue } from &quot;./ColorScale&quot;;
+import { getProjectionHelper, type IProjectionHelper } from &quot;./utm&quot;;
+import { Proj } from &quot;../../proj/Proj&quot;;
+import { EPSG3857 } from &quot;../../proj/EPSG3857&quot;;
+import { EPSG4326 } from &quot;../../proj/EPSG4326&quot;;
+import type { DecodedTileData, IGeoTIFFLayerParams, IGeoTIFFMetadata, ProjFunc } from &quot;./types&quot;;
+
+/**
+ * Sampling grid of a tile, source pixel positions are interpolated between its nodes.
+ */
+interface TileGrid {
+    gridU: Float64Array;
+    gridV: Float64Array;
+    gridSize: number;
+    uMin: number;
+    uMax: number;
+    vMin: number;
+    vMax: number;
+}
+
+const GRID_MIN_SIZE = 4;
+
+/**
+ * Finest grid, reached only by tiles that span a large part of the globe.
+ */
+const GRID_MAX_SIZE = 64;
+
+/**
+ * Allowed interpolation error between the grid nodes, in tile pixels.
+ */
+const GRID_MAX_ERROR = 0.25;
+
+/**
+ * Size of a cached byte range of a remote file.
+ */
+const BLOCK_SIZE = 65536;
+
+/**
+ * Number of cached byte ranges, 512 blocks of 64 KB take about 32 MB.
+ */
+const BLOCK_CACHE_SIZE = 512;
+
+const OVERVIEW_RESOLUTION_TOLERANCE = 1.4;
+
+export class GeoTIFFReader {
+    public source: GeoTIFF | null = null;
+    public images: GeoTIFFImage[] = [];
+    public workerPool: Pool | null = null;
+    public metadata: IGeoTIFFMetadata | null = null;
+    public extentWgs84: Extent = new Extent();
+    public nativeBBox: [number, number, number, number] = [0, 0, 0, 0];
+    public crsCode: number = 4326;
+    public projFunc?: ProjFunc;
+    public reverseY: boolean = false;
+    public requestLevels: number[] = [];
+    public isReady: boolean = false;
+
+    private _ownsWorkerPool: boolean = false;
+    private _projHelper: IProjectionHelper | null = null;
+
+    constructor(public options: IGeoTIFFLayerParams = {}) {
+        this.projFunc = options.projFunc;
+    }
+
+    /**
+     * Initializes and parses the GeoTIFF source and its overview pyramid.
+     */
+    public async init(src: string | Blob | File | ArrayBuffer): Promise&lt;IGeoTIFFMetadata> {
+        let source: GeoTIFF;
+
+        if (typeof src === &quot;string&quot;) {
+            source = await fromUrl(src, {
+                blockSize: BLOCK_SIZE,
+                cacheSize: BLOCK_CACHE_SIZE,
+                ...this.options.requestOptions
+            });
+        } else if (
+            src instanceof ArrayBuffer ||
+            (typeof ArrayBuffer !== &quot;undefined&quot; &amp;&amp; Object.prototype.toString.call(src) === &quot;[object ArrayBuffer]&quot;)
+        ) {
+            source = await fromArrayBuffer(src as ArrayBuffer);
+        } else if (ArrayBuffer.isView(src)) {
+            const view = src as ArrayBufferView;
+            const buf = view.buffer.slice(view.byteOffset, view.byteOffset + view.byteLength);
+            source = await fromArrayBuffer(buf as ArrayBuffer);
+        } else if (
+            (typeof Blob !== &quot;undefined&quot; &amp;&amp; src instanceof Blob) ||
+            (typeof File !== &quot;undefined&quot; &amp;&amp; (src as any) instanceof File) ||
+            (src &amp;&amp; typeof (src as any).slice === &quot;function&quot; &amp;&amp; typeof (src as any).size === &quot;number&quot;)
+        ) {
+            source = await fromBlob(src as any);
+        } else {
+            throw new Error(&quot;Invalid GeoTIFF source provided.&quot;);
+        }
+
+        this.source = source;
+
+        // Initialize Web Worker Pool for decoding if supported
+        if (this.options.geotiffWorkerPool) {
+            this.workerPool = this.options.geotiffWorkerPool;
+            this._ownsWorkerPool = false;
+        } else {
+            const poolSize =
+                this.options.workerPoolSize ??
+                (typeof navigator !== &quot;undefined&quot; ? navigator.hardwareConcurrency || 2 : 2);
+            const isWorkerSupported =
+                typeof Worker !== &quot;undefined&quot; &amp;&amp;
+                typeof Worker.prototype !== &quot;undefined&quot; &amp;&amp;
+                typeof Worker.prototype.addEventListener === &quot;function&quot;;
+
+            if (poolSize > 0 &amp;&amp; isWorkerSupported) {
+                try {
+                    this.workerPool = new Pool(poolSize);
+                    this._ownsWorkerPool = true;
+                } catch {
+                    this.workerPool = null;
+                    this._ownsWorkerPool = false;
+                }
+            } else {
+                this.workerPool = null;
+                this._ownsWorkerPool = false;
+            }
+        }
+
+        const imageCount = await source.getImageCount();
+        this.images = [];
+        for (let i = 0; i &lt; imageCount; i++) {
+            const img = await source.getImage(i);
+
+            // Mask images are skipped, only the full resolution image and its overviews are used
+            const subfileType = Number(img.getFileDirectory().getValue(&quot;NewSubfileType&quot;) ?? 0);
+
+            if (i === 0 || (subfileType &amp; 1) === 1) {
+                this.images.push(img);
+            }
+        }
+
+        const baseImage = this.images[0];
+        this.reverseY = this._checkIfReversed(baseImage);
+
+        // Bounding box in native coordinates [minX, minY, maxX, maxY]
+        this.nativeBBox = baseImage.getBoundingBox() as [number, number, number, number];
+        const [minX, minY, maxX, maxY] = this.nativeBBox;
+
+        // Determine CRS
+        const geoKeys = baseImage.getGeoKeys() || {};
+        let crsCode = +(geoKeys.ProjectedCSTypeGeoKey || geoKeys.GeographicTypeGeoKey || 0);
+
+        if (crsCode === 32767 || crsCode === 65535 || !crsCode) {
+            if (minX >= -180.5 &amp;&amp; maxX &lt;= 180.5 &amp;&amp; minY >= -90.5 &amp;&amp; maxY &lt;= 90.5) {
+                crsCode = 4326;
+            } else {
+                crsCode = 3857;
+            }
+        }
+        this.crsCode = crsCode;
+        this._projHelper = getProjectionHelper(crsCode, this.projFunc);
+
+        // Calculate WGS84 Extent
+        if (crsCode === 4326) {
+            this.extentWgs84 = new Extent(new LonLat(minX, minY), new LonLat(maxX, maxY));
+        } else if (crsCode === 3857 || crsCode === 900913) {
+            const swLon = mercator.inverse_lon(minX);
+            const swLat = mercator.inverse_lat(minY);
+            const neLon = mercator.inverse_lon(maxX);
+            const neLat = mercator.inverse_lat(maxY);
+            this.extentWgs84 = new Extent(new LonLat(swLon, swLat), new LonLat(neLon, neLat));
+        } else if (this._projHelper) {
+            const sw = this._projHelper.unproject([minX, minY]);
+            const se = this._projHelper.unproject([maxX, minY]);
+            const nw = this._projHelper.unproject([minX, maxY]);
+            const ne = this._projHelper.unproject([maxX, maxY]);
+            const lons = [sw[0], se[0], nw[0], ne[0]];
+            const lats = [sw[1], se[1], nw[1], ne[1]];
+            this.extentWgs84 = new Extent(
+                new LonLat(Math.min(...lons), Math.min(...lats)),
+                new LonLat(Math.max(...lons), Math.max(...lats))
+            );
+        } else {
+            console.warn(`[GeoTIFFReader] Unrecognized CRS: EPSG:${crsCode}. Assuming bounds are lon/lat.`);
+            this.extentWgs84 = new Extent(new LonLat(minX, minY), new LonLat(maxX, maxY));
+        }
+
+        const samplesPerPixel = baseImage.getSamplesPerPixel();
+        const gdalNoData = parseNoDataValue(baseImage.getGDALNoData());
+        let userNoData: number | null | undefined = undefined;
+        if (this.options.renderOptions?.nodata !== undefined) {
+            userNoData = parseNoDataValue(this.options.renderOptions.nodata);
+        } else if (this.options.renderOptions?.noData !== undefined) {
+            userNoData = parseNoDataValue(this.options.renderOptions.noData);
+        } else if (this.options.nodata !== undefined) {
+            userNoData = parseNoDataValue(this.options.nodata);
+        } else if (this.options.noData !== undefined) {
+            userNoData = parseNoDataValue(this.options.noData);
+        }
+        const noData = userNoData !== undefined ? userNoData : (gdalNoData ?? null);
+
+        // Sample band min/max statistics from metadata or thumbnail overview
+        const bands: Record&lt;number, { min: number; max: number }> = {};
+        const previewImage = this.images[this.images.length - 1];
+
+        if (samplesPerPixel >= 3) {
+            for (let i = 0; i &lt; samplesPerPixel; i++) {
+                const bandNum = i + 1;
+                const meta = await baseImage.getGDALMetadata(i);
+                if (meta?.STATISTICS_MINIMUM &amp;&amp; meta?.STATISTICS_MAXIMUM) {
+                    bands[bandNum] = {
+                        min: parseFloat(String(meta.STATISTICS_MINIMUM)),
+                        max: parseFloat(String(meta.STATISTICS_MAXIMUM))
+                    };
+                } else {
+                    bands[bandNum] = { min: 0, max: 255 };
+                }
+            }
+        } else {
+            let needsSampling = false;
+            for (let i = 0; i &lt; samplesPerPixel; i++) {
+                const bandNum = i + 1;
+                const meta = await baseImage.getGDALMetadata(i);
+                if (meta?.STATISTICS_MINIMUM &amp;&amp; meta?.STATISTICS_MAXIMUM) {
+                    bands[bandNum] = {
+                        min: parseFloat(String(meta.STATISTICS_MINIMUM)),
+                        max: parseFloat(String(meta.STATISTICS_MAXIMUM))
+                    };
+                } else {
+                    needsSampling = true;
+                }
+            }
+
+            if (needsSampling &amp;&amp; previewImage) {
+                try {
+                    const sampleRasters = await previewImage.readRasters({
+                        interleave: false,
+                        pool: this.workerPool || undefined
+                    });
+                    for (let i = 0; i &lt; samplesPerPixel; i++) {
+                        const bandNum = i + 1;
+                        if (!bands[bandNum]) {
+                            bands[bandNum] = getRasterMinMax(sampleRasters[i], noData);
+                        }
+                    }
+                } catch {
+                    for (let i = 0; i &lt; samplesPerPixel; i++) {
+                        const bandNum = i + 1;
+                        if (!bands[bandNum]) {
+                            bands[bandNum] = { min: 0, max: 255 };
+                        }
+                    }
+                }
+            }
+        }
+
+        this.metadata = {
+            bbox: this.nativeBBox,
+            crsCode: this.crsCode,
+            width: baseImage.getWidth(),
+            height: baseImage.getHeight(),
+            samplesPerPixel,
+            noData,
+            isTiled: baseImage.isTiled,
+            overviewCount: this.images.length,
+            bands
+        };
+
+        this.isReady = true;
+        return this.metadata;
+    }
+
+    /**
+     * Reads raster data for a tile and warps it into the tile grid.
+     *
+     * Source pixel coordinates are calculated in the nodes of a coarse grid and interpolated in between,
+     * so rotated grids (UTM and other projected systems) land on the tile without seams.
+     *
+     * @param tileExtentLonLat - Tile extent in degrees.
+     * @param _zoomLevel - Tile zoom level, kept for API compatibility.
+     * @param tileSize - Output tile size in pixels.
+     * @param readSamples - Band indexes to read.
+     * @param segmentProj - Projection of the segment the tile belongs to, EPSG:3857 by default.
+     */
+    public async readTileRasters(
+        tileExtentLonLat: Extent,
+        _zoomLevel: number,
+        tileSize: number = 256,
+        readSamples?: number[],
+        segmentProj: Proj = EPSG3857
+    ): Promise&lt;DecodedTileData | null> {
+        if (!this.isReady || !this.source || this.images.length === 0) {
+            return null;
+        }
+
+        // 1. Check spatial intersection with WGS84 extent
+        if (!this.extentWgs84.overlaps(tileExtentLonLat)) {
+            return null;
+        }
+
+        const [nativeWest, nativeSouth, nativeEast, nativeNorth] = this.nativeBBox;
+        const nativeWidth = nativeEast - nativeWest;
+        const nativeHeight = nativeNorth - nativeSouth;
+        if (nativeWidth &lt;= 0 || nativeHeight &lt;= 0) return null;
+
+        // 2. Sample the tile with a coarse grid: every node gets its position inside the raster,
+        // normalized to 0..1, where u grows to the east and v grows down the raster rows.
+        const grid = this._createTileGrid(tileExtentLonLat, tileSize, segmentProj);
+        if (!grid) return null;
+
+        const { uMin, uMax, vMin, vMax } = grid;
+
+        if (uMax &lt; 0 || uMin > 1 || vMax &lt; 0 || vMin > 1) {
+            return null;
+        }
+
+        // 3. Select the overview whose resolution matches the tile resolution
+        const image = this.images[this._selectOverviewIndex(grid, tileSize)];
+
+        if (!image) return null;
+
+        const imgWidth = image.getWidth();
+        const imgHeight = image.getHeight();
+
+        // 4. Source window covers the whole projected tile boundary, with a one pixel margin.
+        // A tile may be larger than the raster itself, so the window is clamped to the image.
+        const winX0 = Math.max(0, Math.floor(Math.max(0, uMin) * imgWidth) - 1);
+        const winY0 = Math.max(0, Math.floor(Math.max(0, vMin) * imgHeight) - 1);
+        const winX1 = Math.min(imgWidth, Math.ceil(Math.min(1, uMax) * imgWidth) + 1);
+        const winY1 = Math.min(imgHeight, Math.ceil(Math.min(1, vMax) * imgHeight) + 1);
+
+        if (winX1 &lt;= winX0 || winY1 &lt;= winY0) {
+            return null;
+        }
+
+        const options: ReadRastersOptions &amp; { interleave: false } = {
+            window: [winX0, winY0, winX1, winY1],
+            pool: this.workerPool || undefined,
+            fillValue: this._getFillValue(),
+            interleave: false
+        };
+
+        if (readSamples &amp;&amp; readSamples.length > 0) {
+            options.samples = readSamples;
+        }
+
+        try {
+            const rasters = await image.readRasters(options);
+
+            return {
+                rasters: this._warpRasters(rasters, grid, imgWidth, imgHeight, [winX0, winY0, winX1, winY1], tileSize),
+                width: tileSize,
+                height: tileSize,
+                dstX: 0,
+                dstY: 0,
+                tileSize,
+                window: [winX0, winY0, winX1, winY1],
+                isRGB: false
+            };
+        } catch (err) {
+            console.error(&quot;[GeoTIFFReader] Error reading rasters:&quot;, err);
+            return null;
+        }
+    }
+
+    /**
+     * Projects a lon/lat point into the raster coordinates, normalized to 0..1.
+     */
+    protected _projectToRaster(lon: number, lat: number): [number, number] {
+        const [nativeWest, nativeSouth, nativeEast, nativeNorth] = this.nativeBBox;
+
+        let x: number, y: number;
+
+        if (this.crsCode === 4326) {
+            x = lon;
+            y = lat;
+        } else if (this.crsCode === 3857 || this.crsCode === 900913) {
+            x = mercator.forward_lon(lon);
+            y = mercator.forward_lat(lat);
+        } else if (this._projHelper) {
+            const p = this._projHelper.project([lon, lat]);
+            x = p[0];
+            y = p[1];
+        } else {
+            x = lon;
+            y = lat;
+        }
+
+        const u = (x - nativeWest) / (nativeEast - nativeWest);
+        const v = this.reverseY
+            ? (y - nativeSouth) / (nativeNorth - nativeSouth)
+            : (nativeNorth - y) / (nativeNorth - nativeSouth);
+
+        return [u, v];
+    }
+
+    protected _mercatorLatFunc(north: number, south: number): (t: number) => number {
+        const top = mercator.forward_lat(north);
+        const bottom = mercator.forward_lat(south);
+        return (t: number) => mercator.inverse_lat(top + (bottom - top) * t);
+    }
+
+    protected _lonLatLatFunc(north: number, south: number): (t: number) => number {
+        return (t: number) => north + (south - north) * t;
+    }
+
+    protected _createLatFunc(segmentProj: Proj, north: number, south: number): (t: number) => number {
+        return segmentProj.equal(EPSG4326) ? this._lonLatLatFunc(north, south) : this._mercatorLatFunc(north, south);
+    }
+
+    private _buildGrid(west: number, east: number, latFunc: (t: number) => number, gridSize: number): TileGrid {
+        const side = gridSize + 1;
+        const gridU = new Float64Array(side * side);
+        const gridV = new Float64Array(side * side);
+
+        let uMin = Infinity,
+            uMax = -Infinity,
+            vMin = Infinity,
+            vMax = -Infinity;
+
+        for (let j = 0; j &lt; side; j++) {
+            const lat = latFunc(j / gridSize);
+
+            for (let i = 0; i &lt; side; i++) {
+                const lon = west + (east - west) * (i / gridSize);
+                const [u, v] = this._projectToRaster(lon, lat);
+                const n = j * side + i;
+
+                gridU[n] = u;
+                gridV[n] = v;
+
+                if (u &lt; uMin) uMin = u;
+                if (u > uMax) uMax = u;
+                if (v &lt; vMin) vMin = v;
+                if (v > vMax) vMax = v;
+            }
+        }
+
+        return { gridU, gridV, gridSize, uMin, uMax, vMin, vMax };
+    }
+
+    /**
+     * Interpolation error of the grid, measured in tile pixels.
+     * In every cell the interpolated center is compared with the exact projection of that center.
+     */
+    private _gridError(
+        grid: TileGrid,
+        west: number,
+        east: number,
+        latFunc: (t: number) => number,
+        tileSize: number
+    ): number {
+        const baseWidth = this.images[0].getWidth();
+        const baseHeight = this.images[0].getHeight();
+        const { gridU, gridV, gridSize } = grid;
+        const side = gridSize + 1;
+        const cellSize = tileSize / gridSize;
+
+        let maxError = 0;
+
+        for (let j = 0; j &lt; gridSize; j++) {
+            const lat = latFunc((j + 0.5) / gridSize);
+
+            for (let i = 0; i &lt; gridSize; i++) {
+                const lon = west + (east - west) * ((i + 0.5) / gridSize);
+                const [u, v] = this._projectToRaster(lon, lat);
+
+                const n00 = j * side + i;
+                const n10 = n00 + 1;
+                const n01 = n00 + side;
+                const n11 = n01 + 1;
+
+                const du = ((gridU[n00] + gridU[n10] + gridU[n01] + gridU[n11]) / 4 - u) * baseWidth;
+                const dv = ((gridV[n00] + gridV[n10] + gridV[n01] + gridV[n11]) / 4 - v) * baseHeight;
+
+                const dx = Math.hypot((gridU[n10] - gridU[n00]) * baseWidth, (gridV[n10] - gridV[n00]) * baseHeight);
+                const dy = Math.hypot((gridU[n01] - gridU[n00]) * baseWidth, (gridV[n01] - gridV[n00]) * baseHeight);
+
+                const density = Math.min(dx, dy) / cellSize;
+
+                if (density > 0) {
+                    maxError = Math.max(maxError, Math.hypot(du, dv) / density);
+                }
+            }
+        }
+
+        return maxError;
+    }
+
+    /**
+     * Builds the sampling grid, refining it until the interpolation error becomes small enough.
+     * Almost affine cases, such as a UTM raster on a zoomed in tile, stay on the coarsest grid.
+     */
+    private _createTileGrid(tileExtentLonLat: Extent, tileSize: number, segmentProj: Proj): TileGrid | null {
+        const west = tileExtentLonLat.southWest.lon;
+        const east = tileExtentLonLat.northEast.lon;
+        const south = tileExtentLonLat.southWest.lat;
+        const north = tileExtentLonLat.northEast.lat;
+
+        if (east &lt;= west || north &lt;= south) return null;
+
+        const latFunc = this._createLatFunc(segmentProj, north, south);
+
+        let grid = this._buildGrid(west, east, latFunc, GRID_MIN_SIZE);
+
+        while (grid.gridSize &lt; GRID_MAX_SIZE &amp;&amp; this._gridError(grid, west, east, latFunc, tileSize) > GRID_MAX_ERROR) {
+            grid = this._buildGrid(west, east, latFunc, grid.gridSize * 2);
+        }
+
+        if (!Number.isFinite(grid.uMin) || !Number.isFinite(grid.vMin)) {
+            return null;
+        }
+
+        return grid;
+    }
+
+    private _selectOverviewIndex(grid: TileGrid, tileSize: number): number {
+        if (this.images.length &lt;= 1) {
+            return 0;
+        }
+
+        const { gridU, gridV, gridSize } = grid;
+        const baseWidth = this.images[0].getWidth();
+        const baseHeight = this.images[0].getHeight();
+        const side = gridSize + 1;
+        const cellSize = tileSize / gridSize;
+
+        // How many full resolution source pixels fall into one tile pixel
+        let density = 0;
+        for (let j = 0; j &lt; side; j++) {
+            for (let i = 0; i &lt; gridSize; i++) {
+                const n = j * side + i;
+                const du = Math.abs(gridU[n + 1] - gridU[n]) * baseWidth;
+                const dv = Math.abs(gridV[n + 1] - gridV[n]) * baseHeight;
+                density = Math.max(density, Math.hypot(du, dv) / cellSize);
+            }
+        }
+        for (let j = 0; j &lt; gridSize; j++) {
+            for (let i = 0; i &lt; side; i++) {
+                const n = j * side + i;
+                const du = Math.abs(gridU[n + side] - gridU[n]) * baseWidth;
+                const dv = Math.abs(gridV[n + side] - gridV[n]) * baseHeight;
+                density = Math.max(density, Math.hypot(du, dv) / cellSize);
+            }
+        }
+
+        if (!(density > 1)) {
+            return 0;
+        }
+
+        const maxFactor = density * OVERVIEW_RESOLUTION_TOLERANCE;
+
+        for (let i = this.images.length - 1; i > 0; i--) {
+            if (baseWidth / this.images[i].getWidth() &lt;= maxFactor) {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    private _warpRasters(
+        rasters: TypedArray[],
+        grid: TileGrid,
+        imgWidth: number,
+        imgHeight: number,
+        window: [number, number, number, number],
+        tileSize: number
+    ): Float32Array[] {
+        const [winX0, winY0, winX1, winY1] = window;
+        const winWidth = winX1 - winX0;
+        const winHeight = winY1 - winY0;
+
+        const { gridU, gridV, gridSize } = grid;
+        const side = gridSize + 1;
+        const cellSize = tileSize / gridSize;
+        const bilinear = this.options.renderOptions?.resampleMethod === &quot;bilinear&quot;;
+
+        const nodata = this._getEffectiveNoData();
+        const checkNoData = nodata !== null ? getFastNoDataChecker(nodata) : null;
+
+        const out: Float32Array[] = [];
+        for (let b = 0; b &lt; rasters.length; b++) {
+            out.push(new Float32Array(tileSize * tileSize).fill(NaN));
+        }
+
+        for (let y = 0; y &lt; tileSize; y++) {
+            // Grid nodes sit on tile pixel borders, so pixel centers are used here
+            const gy = (y + 0.5) / cellSize;
+            const j0 = Math.min(gridSize - 1, gy | 0);
+            const fy = gy - j0;
+
+            for (let x = 0; x &lt; tileSize; x++) {
+                const gx = (x + 0.5) / cellSize;
+                const i0 = Math.min(gridSize - 1, gx | 0);
+                const fx = gx - i0;
+
+                // Bilinear interpolation of the source position between the grid nodes
+                const n00 = j0 * side + i0;
+                const n10 = n00 + 1;
+                const n01 = n00 + side;
+                const n11 = n01 + 1;
+
+                const w00 = (1 - fx) * (1 - fy);
+                const w10 = fx * (1 - fy);
+                const w01 = (1 - fx) * fy;
+                const w11 = fx * fy;
+
+                const u = gridU[n00] * w00 + gridU[n10] * w10 + gridU[n01] * w01 + gridU[n11] * w11;
+                const v = gridV[n00] * w00 + gridV[n10] * w10 + gridV[n01] * w01 + gridV[n11] * w11;
+
+                if (u &lt; 0 || u >= 1 || v &lt; 0 || v >= 1) continue;
+
+                // Source position inside the window, in pixel centers
+                const sx = u * imgWidth - winX0 - 0.5;
+                const sy = v * imgHeight - winY0 - 0.5;
+
+                const outIdx = y * tileSize + x;
+
+                if (bilinear) {
+                    const x0 = Math.floor(sx);
+                    const y0 = Math.floor(sy);
+                    const tx = sx - x0;
+                    const ty = sy - y0;
+                    const x1 = Math.min(winWidth - 1, x0 + 1);
+                    const y1 = Math.min(winHeight - 1, y0 + 1);
+                    const cx0 = Math.max(0, Math.min(winWidth - 1, x0));
+                    const cy0 = Math.max(0, Math.min(winHeight - 1, y0));
+
+                    const i00 = cy0 * winWidth + cx0;
+                    const i10 = cy0 * winWidth + x1;
+                    const i01 = y1 * winWidth + cx0;
+                    const i11 = y1 * winWidth + x1;
+
+                    for (let b = 0; b &lt; rasters.length; b++) {
+                        const src = rasters[b];
+                        const v00 = src[i00],
+                            v10 = src[i10],
+                            v01 = src[i01],
+                            v11 = src[i11];
+
+                        if (
+                            checkNoData
+                                ? checkNoData(v00) || checkNoData(v10) || checkNoData(v01) || checkNoData(v11)
+                                : Number.isNaN(v00) || Number.isNaN(v10) || Number.isNaN(v01) || Number.isNaN(v11)
+                        ) {
+                            continue;
+                        }
+
+                        out[b][outIdx] = (v00 * (1 - tx) + v10 * tx) * (1 - ty) + (v01 * (1 - tx) + v11 * tx) * ty;
+                    }
+                } else {
+                    const px = Math.max(0, Math.min(winWidth - 1, Math.round(sx)));
+                    const py = Math.max(0, Math.min(winHeight - 1, Math.round(sy)));
+                    const srcIdx = py * winWidth + px;
+
+                    for (let b = 0; b &lt; rasters.length; b++) {
+                        const val = rasters[b][srcIdx];
+                        if (checkNoData ? checkNoData(val) : Number.isNaN(val)) continue;
+                        out[b][outIdx] = val;
+                    }
+                }
+            }
+        }
+
+        return out;
+    }
+
+    /**
+     * NoData value that masks pixels, or null when masking is turned off.
+     * Layer options take precedence over the file metadata.
+     */
+    private _getEffectiveNoData(): number | null {
+        let userNoData: number | null | undefined = undefined;
+
+        if (this.options.renderOptions?.nodata !== undefined) {
+            userNoData = parseNoDataValue(this.options.renderOptions.nodata);
+        } else if (this.options.renderOptions?.noData !== undefined) {
+            userNoData = parseNoDataValue(this.options.renderOptions.noData);
+        } else if (this.options.nodata !== undefined) {
+            userNoData = parseNoDataValue(this.options.nodata);
+        } else if (this.options.noData !== undefined) {
+            userNoData = parseNoDataValue(this.options.noData);
+        }
+
+        if (userNoData !== undefined) {
+            return userNoData !== null &amp;&amp; !Number.isNaN(userNoData) ? userNoData : null;
+        }
+
+        const metaNoData = this.metadata?.noData;
+        return metaNoData !== null &amp;&amp; metaNoData !== undefined &amp;&amp; !Number.isNaN(metaNoData) ? metaNoData : null;
+    }
+
+    private _getFillValue(): number | undefined {
+        return this._getEffectiveNoData() ?? undefined;
+    }
+
+    private _checkIfReversed(image: GeoTIFFImage): boolean {
+        const fileDirectory = image.getFileDirectory();
+
+        const pixelScale = fileDirectory.getValue(&quot;ModelPixelScale&quot;);
+
+        if (pixelScale &amp;&amp; pixelScale[1] &lt; 0) {
+            return true;
+        }
+
+        const transform = fileDirectory.getValue(&quot;ModelTransformation&quot;);
+
+        if (transform &amp;&amp; transform[7] > transform[3]) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * Cleans up worker pool and cached images.
+     */
+    public destroy(): void {
+        if (this._ownsWorkerPool &amp;&amp; this.workerPool) {
+            this.workerPool.destroy();
+            this.workerPool = null;
+        }
+        this.images = [];
+        this.source = null;
+        this.isReady = false;
+    }
+}
+</code></pre></div></div></div></main></div><footer class="border-t border-(--clean-border) bg-background py-6 text-sm text-muted-foreground"><div class="mx-auto flex w-full max-w-screen-2xl flex-col items-start justify-between gap-2 px-4 md:flex-row md:items-center"><div class="flex items-center gap-1.5"><span>OpenGlobus v1.0.0-rc27</span><span>© 2026</span></div></div></footer></div><script type="application/json" data-island-props>{"i0":{"language":"typescript","filename":"layer/geotiff/GeoTIFFReader.ts"},"i1":{"basePath":"/docs","searchIndexUrl":"/docs/_assets/search-index.mu8bmj8g-a33ee902.json"},"i2":{},"i3":{},"i4":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CameraFootprint","slug":"camerafootprint","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"CascadeShadowMap","slug":"cascadeshadowmap","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"Dialog","slug":"dialog","group":"Classes","order":0},{"label":"DockManager","slug":"dockmanager","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"FreeNavigation","slug":"freenavigation","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoTIFFLayer","slug":"geotifflayer","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorManager","slug":"projectormanager","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShadowCameraFit","slug":"shadowcamerafit","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"TimelineModel","slug":"timelinemodel","group":"Classes","order":0},{"label":"TimeZoneProvider","slug":"timezoneprovider","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/layer/geotiff/geotiffreader-ts","siteName":"OpenGlobus v1.0.0-rc27","basePath":"/docs","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]},"i5":{"nav":[{"label":"Home","slug":"","order":-1},{"label":"AtmosphereConfig","slug":"atmosphereconfig","group":"Classes","order":0},{"label":"BaseBillboard","slug":"basebillboard","group":"Classes","order":0},{"label":"BaseBillboardHandler","slug":"basebillboardhandler","group":"Classes","order":0},{"label":"BaseGeoImage","slug":"basegeoimage","group":"Classes","order":0},{"label":"BaseTileMaterialLayer","slug":"basetilemateriallayer","group":"Classes","order":0},{"label":"Billboard","slug":"billboard","group":"Classes","order":0},{"label":"BillboardHandler","slug":"billboardhandler","group":"Classes","order":0},{"label":"Box","slug":"box","group":"Classes","order":0},{"label":"Camera","slug":"camera","group":"Classes","order":0},{"label":"CameraFootprint","slug":"camerafootprint","group":"Classes","order":0},{"label":"CanvasTiles","slug":"canvastiles","group":"Classes","order":0},{"label":"CascadeShadowMap","slug":"cascadeshadowmap","group":"Classes","order":0},{"label":"Clock","slug":"clock","group":"Classes","order":0},{"label":"CompassButton","slug":"compassbutton","group":"Classes","order":0},{"label":"Cons","slug":"cons","group":"Classes","order":0},{"label":"Control","slug":"control","group":"Classes","order":0},{"label":"Dialog","slug":"dialog","group":"Classes","order":0},{"label":"DockManager","slug":"dockmanager","group":"Classes","order":0},{"label":"DrawingSwitcher","slug":"drawingswitcher","group":"Classes","order":0},{"label":"EarthCoordinates","slug":"earthcoordinates","group":"Classes","order":0},{"label":"ElevationProfile","slug":"elevationprofile","group":"Classes","order":0},{"label":"Ellipsoid","slug":"ellipsoid","group":"Classes","order":0},{"label":"EmptyTerrain","slug":"emptyterrain","group":"Classes","order":0},{"label":"Entity","slug":"entity","group":"Classes","order":0},{"label":"EntityCollection","slug":"entitycollection","group":"Classes","order":0},{"label":"EntityCollectionNode","slug":"entitycollectionnode","group":"Classes","order":0},{"label":"Events","slug":"events","group":"Classes","order":0},{"label":"Extent","slug":"extent","group":"Classes","order":0},{"label":"Framebuffer","slug":"framebuffer","group":"Classes","order":0},{"label":"FreeNavigation","slug":"freenavigation","group":"Classes","order":0},{"label":"Frustum","slug":"frustum","group":"Classes","order":0},{"label":"GeoImage","slug":"geoimage","group":"Classes","order":0},{"label":"GeoObject","slug":"geoobject","group":"Classes","order":0},{"label":"GeoObjectHandler","slug":"geoobjecthandler","group":"Classes","order":0},{"label":"GeoTIFFLayer","slug":"geotifflayer","group":"Classes","order":0},{"label":"GeoVideo","slug":"geovideo","group":"Classes","order":0},{"label":"Globe","slug":"globe","group":"Classes","order":0},{"label":"GlobusTerrain","slug":"globusterrain","group":"Classes","order":0},{"label":"Handler","slug":"handler","group":"Classes","order":0},{"label":"ImageCanvas","slug":"imagecanvas","group":"Classes","order":0},{"label":"KeyboardNavigation","slug":"keyboardnavigation","group":"Classes","order":0},{"label":"KML","slug":"kml","group":"Classes","order":0},{"label":"Label","slug":"label","group":"Classes","order":0},{"label":"Layer","slug":"layer","group":"Classes","order":0},{"label":"LayerSwitcher","slug":"layerswitcher","group":"Classes","order":0},{"label":"Lighting","slug":"lighting","group":"Classes","order":0},{"label":"Line3","slug":"line3","group":"Classes","order":0},{"label":"LonLat","slug":"lonlat","group":"Classes","order":0},{"label":"MapterhornTerrain","slug":"mapterhornterrain","group":"Classes","order":0},{"label":"Mat3","slug":"mat3","group":"Classes","order":0},{"label":"Mat4","slug":"mat4","group":"Classes","order":0},{"label":"Material","slug":"material","group":"Classes","order":0},{"label":"Multisample","slug":"multisample","group":"Classes","order":0},{"label":"Navigation","slug":"navigation","group":"Classes","order":0},{"label":"Node","slug":"node","group":"Classes","order":0},{"label":"OrthoSwitcher","slug":"orthoswitcher","group":"Classes","order":0},{"label":"Plane","slug":"plane","group":"Classes","order":0},{"label":"Planet","slug":"planet","group":"Classes","order":0},{"label":"PlanetCamera","slug":"planetcamera","group":"Classes","order":0},{"label":"PointCloud","slug":"pointcloud","group":"Classes","order":0},{"label":"Polyline","slug":"polyline","group":"Classes","order":0},{"label":"ProjectorManager","slug":"projectormanager","group":"Classes","order":0},{"label":"ProjectorsPass","slug":"projectorspass","group":"Classes","order":0},{"label":"Quat","slug":"quat","group":"Classes","order":0},{"label":"Ray","slug":"ray","group":"Classes","order":0},{"label":"Rectangle","slug":"rectangle","group":"Classes","order":0},{"label":"Renderer","slug":"renderer","group":"Classes","order":0},{"label":"RendererEvents","slug":"rendererevents","group":"Classes","order":0},{"label":"RgbTerrain","slug":"rgbterrain","group":"Classes","order":0},{"label":"RulerSwitcher","slug":"rulerswitcher","group":"Classes","order":0},{"label":"ScaleControl","slug":"scalecontrol","group":"Classes","order":0},{"label":"Scene","slug":"scene","group":"Classes","order":0},{"label":"Segment","slug":"segment","group":"Classes","order":0},{"label":"SegmentBoundVisualization","slug":"segmentboundvisualization","group":"Classes","order":0},{"label":"SegmentLonLat","slug":"segmentlonlat","group":"Classes","order":0},{"label":"Selection","slug":"selection","group":"Classes","order":0},{"label":"ShaderProgram","slug":"shaderprogram","group":"Classes","order":0},{"label":"ShadowCameraFit","slug":"shadowcamerafit","group":"Classes","order":0},{"label":"ShowFps","slug":"showfps","group":"Classes","order":0},{"label":"SimpleNavigation","slug":"simplenavigation","group":"Classes","order":0},{"label":"Sphere","slug":"sphere","group":"Classes","order":0},{"label":"Stack<T>","slug":"stack-t","group":"Classes","order":0},{"label":"Strip","slug":"strip","group":"Classes","order":0},{"label":"Sun","slug":"sun","group":"Classes","order":0},{"label":"TextureAtlas","slug":"textureatlas","group":"Classes","order":0},{"label":"TextureResourceManager","slug":"textureresourcemanager","group":"Classes","order":0},{"label":"TimelineModel","slug":"timelinemodel","group":"Classes","order":0},{"label":"TimeZoneProvider","slug":"timezoneprovider","group":"Classes","order":0},{"label":"ToggleWireframe","slug":"togglewireframe","group":"Classes","order":0},{"label":"TouchNavigation","slug":"touchnavigation","group":"Classes","order":0},{"label":"Vec2","slug":"vec2","group":"Classes","order":0},{"label":"Vec3","slug":"vec3","group":"Classes","order":0},{"label":"Vec4","slug":"vec4","group":"Classes","order":0},{"label":"Vector","slug":"vector","group":"Classes","order":0},{"label":"WMS","slug":"wms","group":"Classes","order":0},{"label":"XYZ","slug":"xyz","group":"Classes","order":0},{"label":"og/math/coder","slug":"module/og-math-coder","group":"Modules","order":1},{"label":"og/proj/EPSG3857","slug":"module/og-proj-epsg3857","group":"Modules","order":1},{"label":"og/proj/EPSG4326","slug":"module/og-proj-epsg4326","group":"Modules","order":1},{"label":"og/proj/equi","slug":"module/og-proj-equi","group":"Modules","order":1},{"label":"og/segment/SegmentHelper","slug":"module/og-segment-segmenthelper","group":"Modules","order":1},{"label":"og/utils/shared","slug":"module/og-utils-shared","group":"Modules","order":1},{"label":"og/webgl/types","slug":"module/og-webgl-types","group":"Modules","order":1},{"label":"og/webgl/variableHandlers","slug":"module/og-webgl-variablehandlers","group":"Modules","order":1},{"label":"IGeoObjectParams","slug":"igeoobjectparams","group":"Interfaces","order":6},{"label":"ExtentBoundingBox","slug":"extentboundingbox","group":"Typedefs","order":7},{"label":"HandlerEventType","slug":"handlereventtype","group":"Typedefs","order":7},{"label":"QuatAxisAngle","slug":"quataxisangle","group":"Typedefs","order":7},{"label":"Globals","slug":"global","group":"Globals","order":8},{"label":"Source Files","slug":"source","order":11}],"currentSlug":"source/layer/geotiff/geotiffreader-ts","basePath":"/docs","collapsibleGroups":["Classes","Modules","Interfaces","Typedefs","Globals"]}}</script><script type="module">(function(){var map={"theme-toggle":"/docs/_islands/theme-toggle-MFKEIGBZ.js","settings":"/docs/_islands/settings-TVWSQT6I.js","code-viewer":"/docs/_islands/code-viewer-S3DIZRC3.js","embed":"/docs/_islands/embed-24QZS4CF.js","playground":"/docs/_islands/playground-N5NFYMP6.js","tabs":"/docs/_islands/tabs-NRSQKCSU.js","sidebar":"/docs/_islands/sidebar-AKX3KCQS.js","mobile-nav":"/docs/_islands/mobile-nav-ZFIZP3CE.js","toc":"/docs/_islands/toc-W36SMPYU.js","toc-mobile":"/docs/_islands/toc-mobile-X6HBYLUF.js","cmdk":"/docs/_islands/cmdk-SWB64M4V.js","code-tabs":"/docs/_islands/code-tabs-WLBAIWNH.js","copy-btn":"/docs/_islands/copy-btn-5O25GXTU.js","copy-page":"/docs/_islands/copy-page-OPKTMKVF.js"};var seen=new Set();document.querySelectorAll('[data-island]').forEach(function(el){seen.add(el.getAttribute('data-island'));});seen.forEach(function(name){var src=map[name];if(src){import(src);}});})();</script><script>(function(){function flash(h){var b=h.querySelector('[data-heading-anchor]');if(!b)return;b.setAttribute('data-copied','');window.setTimeout(function(){b.removeAttribute('data-copied');},3000);}function onClick(e){var t=e.target;if(!t||!t.closest)return;if(t.closest('a'))return;var h=t.closest('h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]');if(!h)return;var id=h.id;if(!id)return;var iconOnly=!!t.closest('[data-heading-anchor]');if(!iconOnly){if(location.hash.slice(1)===id){h.scrollIntoView();}else{location.hash=id;}}try{var url=location.origin+location.pathname+location.search+'#'+id;if(navigator.clipboard){navigator.clipboard.writeText(url).then(function(){flash(h);}).catch(function(){});}}catch(_){}}document.addEventListener('click',onClick);}());</script><script>(function(){var IDLE=700;var timers=new WeakMap();function onScroll(e){var el=e.target;if(el===document||el===window)el=document.documentElement;if(!el||!el.classList)return;el.classList.add('clean-scrolling');var prev=timers.get(el);if(prev)window.clearTimeout(prev);timers.set(el,window.setTimeout(function(){el.classList.remove('clean-scrolling');},IDLE));}document.addEventListener('scroll',onScroll,true);}());</script></body></html>
