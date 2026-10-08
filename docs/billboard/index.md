@@ -50,7 +50,7 @@ Sets billboard image url source.
 
 <MemberHeading id="setimage" depth="3" name="setImage" sig="setImage(image: Object)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L141" sourceLabel="Billboard.ts:141" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L145" sourceLabel="Billboard.ts:145" />
 
 Sets image object.
 
@@ -60,7 +60,7 @@ Sets image object.
 
 <MemberHeading id="setsize" depth="3" name="setSize" sig="setSize(width: number, height: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L155" sourceLabel="Billboard.ts:155" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L159" sourceLabel="Billboard.ts:159" />
 
 Sets billboard screen size in pixels.
 
@@ -71,7 +71,7 @@ Sets billboard screen size in pixels.
 
 <MemberHeading id="getsize" depth="3" name="getSize" sig="getSize(): Object" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L181" sourceLabel="Billboard.ts:181" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L185" sourceLabel="Billboard.ts:185" />
 
 Returns billboard screen size.
 
@@ -81,7 +81,7 @@ Returns billboard screen size.
 
 <MemberHeading id="setwidth" depth="3" name="setWidth" sig="setWidth(width: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L193" sourceLabel="Billboard.ts:193" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L197" sourceLabel="Billboard.ts:197" />
 
 Sets billboard screen width.
 
@@ -91,7 +91,7 @@ Sets billboard screen width.
 
 <MemberHeading id="getwidth" depth="3" name="getWidth" sig="getWidth(): number" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L202" sourceLabel="Billboard.ts:202" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L206" sourceLabel="Billboard.ts:206" />
 
 Gets billboard screen width.
 
@@ -101,7 +101,7 @@ Gets billboard screen width.
 
 <MemberHeading id="setheight" depth="3" name="setHeight" sig="setHeight(height: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L211" sourceLabel="Billboard.ts:211" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L215" sourceLabel="Billboard.ts:215" />
 
 Sets billboard screen heigh.
 
@@ -111,7 +111,7 @@ Sets billboard screen heigh.
 
 <MemberHeading id="getheight" depth="3" name="getHeight" sig="getHeight(): number" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L220" sourceLabel="Billboard.ts:220" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L224" sourceLabel="Billboard.ts:224" />
 
 Gets billboard screen height.
 

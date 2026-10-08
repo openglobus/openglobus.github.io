@@ -98,9 +98,23 @@ Creates clone instance of the current extent.
 
 - [`Extent`](/extent) — Extent clone.
 
+<MemberHeading id="createunion" depth="3" name="createUnion" sig="createUnion(extent: Extent): Extent" />
+
+<MemberMeta sourceHref="/source/extent-ts/#L190" sourceLabel="Extent.ts:190" />
+
+Creates union of this extent and another extent.
+
+**Parameters**
+
+- `extent` ([Extent](/extent)) — Other extent.
+
+**Returns**
+
+- [`Extent`](/extent) — Union extent.
+
 <MemberHeading id="getcenter" depth="3" name="getCenter" sig="getCenter(): number" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L189" sourceLabel="Extent.ts:189" />
+<MemberMeta sourceHref="/source/extent-ts/#L208" sourceLabel="Extent.ts:208" />
 
 Gets the center coordinate of the extent.
 
@@ -110,35 +124,35 @@ Gets the center coordinate of the extent.
 
 <MemberHeading id="getnorthwest" depth="3" name="getNorthWest" sig="getNorthWest()" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L244" sourceLabel="Extent.ts:244" />
+<MemberMeta sourceHref="/source/extent-ts/#L263" sourceLabel="Extent.ts:263" />
 
 <MemberHeading id="getnortheast" depth="3" name="getNorthEast" sig="getNorthEast()" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L244" sourceLabel="Extent.ts:244" />
+<MemberMeta sourceHref="/source/extent-ts/#L263" sourceLabel="Extent.ts:263" />
 
 <MemberHeading id="getsouthwest" depth="3" name="getSouthWest" sig="getSouthWest()" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L244" sourceLabel="Extent.ts:244" />
+<MemberMeta sourceHref="/source/extent-ts/#L263" sourceLabel="Extent.ts:263" />
 
 <MemberHeading id="getsoutheast" depth="3" name="getSouthEast" sig="getSouthEast()" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L244" sourceLabel="Extent.ts:244" />
+<MemberMeta sourceHref="/source/extent-ts/#L263" sourceLabel="Extent.ts:263" />
 
 <MemberHeading id="getnorth" depth="3" name="getNorth" sig="getNorth()" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L244" sourceLabel="Extent.ts:244" />
+<MemberMeta sourceHref="/source/extent-ts/#L263" sourceLabel="Extent.ts:263" />
 
 <MemberHeading id="getwest" depth="3" name="getWest" sig="getWest()" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L244" sourceLabel="Extent.ts:244" />
+<MemberMeta sourceHref="/source/extent-ts/#L263" sourceLabel="Extent.ts:263" />
 
 <MemberHeading id="getsouth" depth="3" name="getSouth" sig="getSouth()" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L244" sourceLabel="Extent.ts:244" />
+<MemberMeta sourceHref="/source/extent-ts/#L263" sourceLabel="Extent.ts:263" />
 
 <MemberHeading id="equals" depth="3" name="equals" sig="equals(extent: Extent): boolean" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L253" sourceLabel="Extent.ts:253" />
+<MemberMeta sourceHref="/source/extent-ts/#L272" sourceLabel="Extent.ts:272" />
 
 Returns extents are equals.
 
@@ -152,7 +166,7 @@ Returns extents are equals.
 
 <MemberHeading id="forwardmercator" depth="3" name="forwardMercator" sig="forwardMercator(): Extent" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L267" sourceLabel="Extent.ts:267" />
+<MemberMeta sourceHref="/source/extent-ts/#L286" sourceLabel="Extent.ts:286" />
 
 Converts extent coordinates to mercator projection coordinates.
 
@@ -162,7 +176,7 @@ Converts extent coordinates to mercator projection coordinates.
 
 <MemberHeading id="inversemercator" depth="3" name="inverseMercator" sig="inverseMercator(): Extent" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L276" sourceLabel="Extent.ts:276" />
+<MemberMeta sourceHref="/source/extent-ts/#L295" sourceLabel="Extent.ts:295" />
 
 Converts extent coordinates from mercator projection to degrees.
 
@@ -172,7 +186,7 @@ Converts extent coordinates from mercator projection to degrees.
 
 <MemberHeading id="getcartesianbounds" depth="3" name="getCartesianBounds" sig="getCartesianBounds(ellipsoid: Ellipsoid): Array.<number>" />
 
-<MemberMeta sourceHref="/source/extent-ts/#L286" sourceLabel="Extent.ts:286" />
+<MemberMeta sourceHref="/source/extent-ts/#L305" sourceLabel="Extent.ts:305" />
 
 Gets cartesian bounding bounds of the current ellipsoid.
 

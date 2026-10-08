@@ -325,7 +325,7 @@ Function starts renderer
 
 <MemberHeading id="addprogram" depth="3" name="addProgram" sig="addProgram(program: ShaderProgram)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2099" sourceLabel="Renderer.ts:2099" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2100" sourceLabel="Renderer.ts:2100" />
 
 Adds a shader program to the renderer if it has not been added yet.
 
@@ -335,7 +335,7 @@ Adds a shader program to the renderer if it has not been added yet.
 
 <MemberHeading id="addprograms" depth="3" name="addPrograms" sig="addPrograms(...programs: ShaderProgram | Array.<ShaderProgram>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2110" sourceLabel="Renderer.ts:2110" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2111" sourceLabel="Renderer.ts:2111" />
 
 Adds one or more programs to the renderer. Supports both individual programs and nested program arrays.
 
@@ -345,7 +345,7 @@ Adds one or more programs to the renderer. Supports both individual programs and
 
 <MemberHeading id="addshaders" depth="3" name="addShaders" sig="addShaders(...programs: ShaderProgram | Array.<ShaderProgram>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2125" sourceLabel="Renderer.ts:2125" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2126" sourceLabel="Renderer.ts:2126" />
 
 Alias for `Renderer.addPrograms`.
 

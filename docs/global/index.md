@@ -339,6 +339,12 @@ Returns seconds in days.
 
 Formats a date by a template, e.g. "MM/dd/yyyy", "hh:mm:ss.ms". Tokens: yyyy/yy year, MMM month name, MM/M month, dd/d day, hh/h hours, mm/m minutes, ss/s seconds, ms milliseconds, a/A am/pm. Case matters for M/m only. On a 12-hour clock am/pm is appended after the time unless the template places it with "a".
 
+<MemberHeading id="stretchchannel" depth="3" name="stretchChannel" sig="stretchChannel()" />
+
+<MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L55" sourceLabel="GeoTIFFLayer.ts:55" />
+
+Fills the contrast stretch of a channel from the band statistics, keeping an explicit stretch untouched.
+
 <MemberHeading
   id="entitiesconstructor"
   depth="3"
@@ -437,6 +443,16 @@ Unprojects UTM coordinates \[easting, northing] in meters to WGS84 \[lon, lat] i
 <MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L119" sourceLabel="utm.ts:119" />
 
 Returns a projection helper { project, unproject } if the given code is a supported UTM EPSG code (EPSG:32601-32660 or EPSG:32701-32760), or if proj4 is globally registered.
+
+<MemberHeading id="acquireworkerpool" depth="3" name="acquireWorkerPool" sig="acquireWorkerPool()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/workerpool-ts/#L104" sourceLabel="workerPool.ts:104" />
+
+Gets a worker pool for a GeoTIFF reader.
+
+Uses the provided geotiffWorkerPool without destroying it. Creates a dedicated pool if workerPoolSize is set. Otherwise, shares a pool between readers.
+
+Returns null if workers are unavailable (decoding runs on the main thread).
 
 <MemberHeading id="quat" depth="3" name="Quat" sig="Quat(x?: Number, y?: Number, z?: Number, w?: Number): Quat" />
 
@@ -1764,31 +1780,31 @@ WGS84 ellipsoid object.
 
 <MemberHeading id="gridminsize" depth="3" name="GRID_MIN_SIZE" sig="GRID_MIN_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L16" sourceLabel="GeoTIFFReader.ts:16" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L26" sourceLabel="GeoTIFFReader.ts:26" />
 
 Sampling grid of a tile, source pixel positions are interpolated between its nodes.
 
 <MemberHeading id="gridmaxsize" depth="3" name="GRID_MAX_SIZE" sig="GRID_MAX_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L31" sourceLabel="GeoTIFFReader.ts:31" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L41" sourceLabel="GeoTIFFReader.ts:41" />
 
 Finest grid, reached only by tiles that span a large part of the globe.
 
 <MemberHeading id="gridmaxerror" depth="3" name="GRID_MAX_ERROR" sig="GRID_MAX_ERROR" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L36" sourceLabel="GeoTIFFReader.ts:36" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L46" sourceLabel="GeoTIFFReader.ts:46" />
 
 Allowed interpolation error between the grid nodes, in tile pixels.
 
 <MemberHeading id="blocksize" depth="3" name="BLOCK_SIZE" sig="BLOCK_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L41" sourceLabel="GeoTIFFReader.ts:41" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L51" sourceLabel="GeoTIFFReader.ts:51" />
 
 Size of a cached byte range of a remote file.
 
 <MemberHeading id="blockcachesize" depth="3" name="BLOCK_CACHE_SIZE" sig="BLOCK_CACHE_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L46" sourceLabel="GeoTIFFReader.ts:46" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L56" sourceLabel="GeoTIFFReader.ts:56" />
 
 Number of cached byte ranges, 512 blocks of 64 KB take about 32 MB.
 
@@ -1797,6 +1813,12 @@ Number of cached byte ranges, 512 blocks of 64 KB take about 32 MB.
 <MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L7" sourceLabel="utm.ts:7" />
 
 High precision Transverse Mercator (UTM) forward & inverse projection for WGS84 ellipsoid. Supports EPSG:32601 - EPSG:32660 (UTM North zones 1N-60N) and EPSG:32701 - EPSG:32760 (UTM South zones 1S-60S).
+
+<MemberHeading id="noworkerpool" depth="3" name="NO_WORKER_POOL" sig="NO_WORKER_POOL" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/workerpool-ts/#L11" sourceLabel="workerPool.ts:11" />
+
+A shared worker pool. Call release() when done. The pool is destroyed when no one uses it anymore.
 
 <MemberHeading id="eulerpolesin" depth="3" name="EULER_POLE_SIN" sig="EULER_POLE_SIN" />
 

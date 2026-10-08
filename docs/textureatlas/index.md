@@ -35,7 +35,7 @@ Texture atlas stores images in one texture. Each image has its own atlas texture
 
 <MemberHeading id="getimage" depth="3" name="getImage" sig="getImage(): HTMLImageElement" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L88" sourceLabel="TextureAtlas.ts:88" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L91" sourceLabel="TextureAtlas.ts:91" />
 
 Returns atlas javascript image object.
 
@@ -45,7 +45,7 @@ Returns atlas javascript image object.
 
 <MemberHeading id="getcanvas" depth="3" name="getCanvas" sig="getCanvas(): HTMLCanvasElement" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L97" sourceLabel="TextureAtlas.ts:97" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L100" sourceLabel="TextureAtlas.ts:100" />
 
 Returns canvas object.
 
@@ -55,13 +55,13 @@ Returns canvas object.
 
 <MemberHeading id="clearcanvas" depth="3" name="clearCanvas" sig="clearCanvas()" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L105" sourceLabel="TextureAtlas.ts:105" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L108" sourceLabel="TextureAtlas.ts:108" />
 
 Clear atlas with black.
 
 <MemberHeading id="assignhandler" depth="3" name="assignHandler" sig="assignHandler(handler: Handler)" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L114" sourceLabel="TextureAtlas.ts:114" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L117" sourceLabel="TextureAtlas.ts:117" />
 
 Sets openglobus gl handler that creates gl texture.
 
@@ -71,7 +71,7 @@ Sets openglobus gl handler that creates gl texture.
 
 <MemberHeading id="getdiagonal" depth="3" name="getDiagonal" sig="getDiagonal(image: HTMLImageElementExt): number" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L125" sourceLabel="TextureAtlas.ts:125" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L128" sourceLabel="TextureAtlas.ts:128" />
 
 Returns image diagonal size.
 
@@ -93,7 +93,7 @@ Returns image diagonal size.
 ): TextureAtlasNode | undefined"
 />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L139" sourceLabel="TextureAtlas.ts:139" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L142" sourceLabel="TextureAtlas.ts:142" />
 
 Adds image to the atlas and returns created node with texture coordinates of the stored image.
 
@@ -108,7 +108,7 @@ Adds image to the atlas and returns created node with texture coordinates of the
 
 <MemberHeading id="makeatlas" depth="3" name="_makeAtlas" sig="_makeAtlas(fastInsert?: boolean)" />
 
-<MemberMeta badges="protected" sourceHref="/source/utils/textureatlas-ts/#L208" sourceLabel="TextureAtlas.ts:208" />
+<MemberMeta badges="protected" sourceHref="/source/utils/textureatlas-ts/#L211" sourceLabel="TextureAtlas.ts:211" />
 
 Main atlas making function.
 
@@ -118,13 +118,13 @@ Main atlas making function.
 
 <MemberHeading id="createtexture" depth="3" name="createTexture" sig="createTexture()" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L249" sourceLabel="TextureAtlas.ts:249" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L252" sourceLabel="TextureAtlas.ts:252" />
 
 Creates atlas gl texture.
 
 <MemberHeading id="loadimage" depth="3" name="loadImage" sig="loadImage(src: string, success: ImagesCacheManagerCallback)" />
 
-<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L267" sourceLabel="TextureAtlas.ts:267" />
+<MemberMeta sourceHref="/source/utils/textureatlas-ts/#L272" sourceLabel="TextureAtlas.ts:272" />
 
 Asynchronous function that loads and creates image to the image cache, and call success callback when it's done.
 
