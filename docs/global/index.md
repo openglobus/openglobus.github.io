@@ -1752,6 +1752,12 @@ Point types
 
 drawData index names
 
+<MemberHeading id="handlekinds" depth="3" name="HANDLE_KINDS" sig="HANDLE_KINDS" />
+
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L57" sourceLabel="EntityGizmoScene.ts:57" />
+
+Payload of `transformstart`, `transformchange`, `transformend` and `transformcancel`.
+
 <MemberHeading id="visibleextent" depth="3" name="visibleExtent" sig="visibleExtent" />
 
 <MemberMeta badges="deprecated" sourceHref="/source/control/visibleextent/visibleextent-js/#L72" sourceLabel="VisibleExtent.js:72" />
