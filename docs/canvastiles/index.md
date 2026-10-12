@@ -9,7 +9,7 @@ description: Layer that renders each tile as a separate canvas object.
 
 **Extends:&#x20;**[`Layer`](/layer)
 
-<SourceLink href="/source/layer/canvastiles-ts/#L56" label="CanvasTiles.ts:56" />
+<SourceLink href="/source/layer/canvastiles-ts/#L35" label="CanvasTiles.ts:35" />
 
 Layer that renders each tile as a separate canvas object.
 
@@ -50,13 +50,13 @@ Layer that renders each tile as a separate canvas object.
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
-<MemberMeta sourceHref="/source/layer/canvastiles-ts/#L137" sourceLabel="CanvasTiles.ts:137" />
+<MemberMeta sourceHref="/source/layer/canvastiles-ts/#L89" sourceLabel="CanvasTiles.ts:89" />
 
 Abort loading tiles.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/layer/canvastiles-ts/#L149" sourceLabel="CanvasTiles.ts:149" />
+<MemberMeta sourceHref="/source/layer/canvastiles-ts/#L101" sourceLabel="CanvasTiles.ts:101" />
 
 **Overrides:&#x20;**`Layer#setVisibility`
 
@@ -68,7 +68,7 @@ Sets layer visibility.
 
 <MemberHeading id="loadmaterial" depth="3" name="loadMaterial" sig="loadMaterial(material: Material)" />
 
-<MemberMeta badges="abstract" sourceHref="/source/layer/canvastiles-ts/#L165" sourceLabel="CanvasTiles.ts:165" />
+<MemberMeta badges="abstract" sourceHref="/source/layer/canvastiles-ts/#L117" sourceLabel="CanvasTiles.ts:117" />
 
 Start to load tile material.
 
@@ -78,7 +78,7 @@ Start to load tile material.
 
 <MemberHeading id="exec" depth="3" name="_exec" sig="_exec(material: Material)" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/canvastiles-ts/#L190" sourceLabel="CanvasTiles.ts:190" />
+<MemberMeta badges="protected" sourceHref="/source/layer/canvastiles-ts/#L142" sourceLabel="CanvasTiles.ts:142" />
 
 Loads material image and apply it to the planet segment.
 
@@ -88,7 +88,7 @@ Loads material image and apply it to the planet segment.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/canvastiles-ts/#L220" sourceLabel="CanvasTiles.ts:220" />
+<MemberMeta sourceHref="/source/layer/canvastiles-ts/#L172" sourceLabel="CanvasTiles.ts:172" />
 
 Abort exact material loading.
 

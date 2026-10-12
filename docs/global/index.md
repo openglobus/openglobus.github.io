@@ -341,7 +341,7 @@ Formats a date by a template, e.g. "MM/dd/yyyy", "hh:mm:ss.ms". Tokens: yyyy/yy 
 
 <MemberHeading id="stretchchannel" depth="3" name="stretchChannel" sig="stretchChannel()" />
 
-<MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L55" sourceLabel="GeoTIFFLayer.ts:55" />
+<MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L52" sourceLabel="GeoTIFFLayer.ts:52" />
 
 Fills the contrast stretch of a channel from the band statistics, keeping an explicit stretch untouched.
 
@@ -354,7 +354,7 @@ Fills the contrast stretch of a channel from the band statistics, keeping an exp
 ): Array.<Entity>"
 />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L52" sourceLabel="Vector.ts:52" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L51" sourceLabel="Vector.ts:51" />
 
 Creates entity instance array.
 
@@ -1250,25 +1250,13 @@ Projection units: 'degrees', 'ft', 'm' or 'km'.
 
 <MemberHeading id="load" depth="3" name="load" sig="load" />
 
-<MemberMeta badges="event" sourceHref="/source/layer/canvastiles-ts/#L28" sourceLabel="CanvasTiles.ts:28" />
+<MemberMeta badges="event" sourceHref="/source/layer/basetilemateriallayer-ts/#L22" sourceLabel="BaseTileMaterialLayer.ts:22" />
 
-Triggered when the current tile image has loaded before rendering.
+Triggered when a tile material is loaded.
 
 <MemberHeading id="loadend" depth="3" name="loadend" sig="loadend" />
 
-<MemberMeta badges="event" sourceHref="/source/layer/canvastiles-ts/#L34" sourceLabel="CanvasTiles.ts:34" />
-
-Triggered when all tiles have loaded or loading has stopped.
-
-<MemberHeading id="load" depth="3" name="#load" sig="#load" />
-
-<MemberMeta badges="event" sourceHref="/source/layer/xyz-ts/#L457" sourceLabel="XYZ.ts:457" />
-
-Triggered when current tile image has loaded before rendering.
-
-<MemberHeading id="loadend" depth="3" name="#loadend" sig="#loadend" />
-
-<MemberMeta badges="event" sourceHref="/source/layer/xyz-ts/#L463" sourceLabel="XYZ.ts:463" />
+<MemberMeta badges="event" sourceHref="/source/layer/basetilemateriallayer-ts/#L28" sourceLabel="BaseTileMaterialLayer.ts:28" />
 
 Triggered when all tiles have loaded or loading has stopped.
 
@@ -1813,6 +1801,12 @@ Size of a cached byte range of a remote file.
 <MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L56" sourceLabel="GeoTIFFReader.ts:56" />
 
 Number of cached byte ranges, 512 blocks of 64 KB take about 32 MB.
+
+<MemberHeading id="convertedphotometrics" depth="3" name="CONVERTED_PHOTOMETRICS" sig="CONVERTED_PHOTOMETRICS" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L64" sourceLabel="GeoTIFFReader.ts:64" />
+
+Photometric interpretations that do not store RGB in the samples: CMYK, YCbCr and CIELab. JPEG compressed imagery is usually YCbCr.
 
 <MemberHeading id="wgs84a" depth="3" name="WGS84_A" sig="WGS84_A" />
 

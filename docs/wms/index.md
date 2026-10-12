@@ -42,7 +42,7 @@ Used to display WMS services as tile layers on the globe.
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
-<MemberMeta sourceHref="/source/layer/xyz-ts/#L129" sourceLabel="XYZ.ts:129" />
+<MemberMeta sourceHref="/source/layer/xyz-ts/#L118" sourceLabel="XYZ.ts:118" />
 
 _Inherited from `XYZ#abortLoading`_
 
@@ -52,7 +52,7 @@ Abort loading tiles.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/layer/xyz-ts/#L140" sourceLabel="XYZ.ts:140" />
+<MemberMeta sourceHref="/source/layer/xyz-ts/#L129" sourceLabel="XYZ.ts:129" />
 
 _Inherited from `XYZ#setVisibility`_
 
@@ -66,7 +66,7 @@ Sets layer visibility.
 
 <MemberHeading id="seturl" depth="3" name="setUrl" sig="setUrl(url: string)" />
 
-<MemberMeta sourceHref="/source/layer/xyz-ts/#L163" sourceLabel="XYZ.ts:163" />
+<MemberMeta sourceHref="/source/layer/xyz-ts/#L152" sourceLabel="XYZ.ts:152" />
 
 _Inherited from `XYZ#setUrl`_
 
@@ -87,7 +87,7 @@ where {z}, {x} and {y} - replaces by current tile values, {s} - random domain.
 
 <MemberHeading id="loadmaterial" depth="3" name="loadMaterial" sig="loadMaterial(material: Material, forceLoading?: boolean)" />
 
-<MemberMeta badges="abstract" sourceHref="/source/layer/xyz-ts/#L178" sourceLabel="XYZ.ts:178" />
+<MemberMeta badges="abstract" sourceHref="/source/layer/xyz-ts/#L167" sourceLabel="XYZ.ts:167" />
 
 _Inherited from `XYZ#loadMaterial`_
 
@@ -102,7 +102,7 @@ Start to load tile material.
 
 <MemberHeading id="createurl" depth="3" name="_createUrl" sig="_createUrl(segment: Segment): string" />
 
-<MemberMeta badges="abstract,protected" sourceHref="/source/layer/xyz-ts/#L237" sourceLabel="XYZ.ts:237" />
+<MemberMeta badges="abstract,protected" sourceHref="/source/layer/xyz-ts/#L226" sourceLabel="XYZ.ts:226" />
 
 _Inherited from `XYZ#_createUrl`_
 
@@ -120,7 +120,7 @@ Creates query url.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L261" sourceLabel="XYZ.ts:261" />
+<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L250" sourceLabel="XYZ.ts:250" />
 
 _Inherited from `XYZ#_getHTTPRequestString`_
 
@@ -138,7 +138,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: function)" />
 
-<MemberMeta sourceHref="/source/layer/xyz-ts/#L270" sourceLabel="XYZ.ts:270" />
+<MemberMeta sourceHref="/source/layer/xyz-ts/#L259" sourceLabel="XYZ.ts:259" />
 
 _Inherited from `XYZ#setUrlRewriteCallback`_
 
@@ -152,7 +152,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="correctfullextent" depth="3" name="_correctFullExtent" sig="_correctFullExtent()" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L423" sourceLabel="XYZ.ts:423" />
+<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L412" sourceLabel="XYZ.ts:412" />
 
 _Inherited from `XYZ#_correctFullExtent`_
 
@@ -480,7 +480,7 @@ WMS tile height.
 
 <MemberHeading id="isidle" depth="3" name="isIdle" sig="isIdle" />
 
-<MemberMeta sourceHref="/source/layer/xyz-ts/#L117" sourceLabel="XYZ.ts:117" />
+<MemberMeta sourceHref="/source/layer/xyz-ts/#L106" sourceLabel="XYZ.ts:106" />
 
 _Inherited from `XYZ#isIdle`_
 
