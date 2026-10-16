@@ -28,6 +28,7 @@ kind: guide
 - [control/depthCamera/depth\_camera.ts](/source/control/depthcamera/depth-camera-ts/)
 - [control/depthCamera/DepthCamera.ts](/source/control/depthcamera/depthcamera-ts/)
 - [control/depthCamera/DepthCameraHandler.ts](/source/control/depthcamera/depthcamerahandler-ts/)
+- [control/DragAndDrop.ts](/source/control/draganddrop-ts/)
 - [control/drawing/DrawingControl.ts](/source/control/drawing/drawingcontrol-ts/)
 - [control/drawing/LineStringDrawingScene.ts](/source/control/drawing/linestringdrawingscene-ts/)
 - [control/drawing/PolygonDrawingScene.ts](/source/control/drawing/polygondrawingscene-ts/)

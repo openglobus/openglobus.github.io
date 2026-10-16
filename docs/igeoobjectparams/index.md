@@ -7,7 +7,7 @@ description: Interface for GeoObject parameters.
 
 # IGeoObjectParams
 
-<SourceLink href="/source/entity/geoobject/geoobject-ts/#L24" label="GeoObject.ts:24" />
+<SourceLink href="/source/entity/geoobject/geoobject-ts/#L25" label="GeoObject.ts:25" />
 
 Interface for GeoObject parameters.
 

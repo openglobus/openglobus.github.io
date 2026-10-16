@@ -7,7 +7,7 @@ description: Represents 3D object on the the globe or 3d space
 
 # GeoObject
 
-<SourceLink href="/source/entity/geoobject/geoobject-ts/#L51" label="GeoObject.ts:51" />
+<SourceLink href="/source/entity/geoobject/geoobject-ts/#L52" label="GeoObject.ts:52" />
 
 Represents 3D object on the the globe or 3d space
 
@@ -35,7 +35,7 @@ Represents 3D object on the the globe or 3d space
 
 <MemberHeading id="getposition" depth="3" name="getPosition" sig="getPosition(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L164" sourceLabel="GeoObject.ts:164" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L169" sourceLabel="GeoObject.ts:169" />
 
 Gets the position of the geo object.
 
@@ -45,7 +45,7 @@ Gets the position of the geo object.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(a: number)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L217" sourceLabel="GeoObject.ts:217" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L222" sourceLabel="GeoObject.ts:222" />
 
 Sets the opacity of the geo object.
 
@@ -55,7 +55,7 @@ Sets the opacity of the geo object.
 
 <MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L226" sourceLabel="GeoObject.ts:226" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L231" sourceLabel="GeoObject.ts:231" />
 
 Gets the opacity of the geo object.
 
@@ -65,7 +65,7 @@ Gets the opacity of the geo object.
 
 <MemberHeading id="setcolor" depth="3" name="setColor" sig="setColor(r: number, g: number, b: number, a?: number)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L237" sourceLabel="GeoObject.ts:237" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L242" sourceLabel="GeoObject.ts:242" />
 
 Sets the color of the geo object.
 
@@ -78,7 +78,7 @@ Sets the color of the geo object.
 
 <MemberHeading id="setcolor4v" depth="3" name="setColor4v" sig="setColor4v(color: Vec3 | Vec4)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L250" sourceLabel="GeoObject.ts:250" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L255" sourceLabel="GeoObject.ts:255" />
 
 Sets color.
 
@@ -88,7 +88,7 @@ Sets color.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L263" sourceLabel="GeoObject.ts:263" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L268" sourceLabel="GeoObject.ts:268" />
 
 Sets geo object visibility.
 
@@ -98,7 +98,7 @@ Sets geo object visibility.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L277" sourceLabel="GeoObject.ts:277" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L282" sourceLabel="GeoObject.ts:282" />
 
 Returns geo object visibility.
 
@@ -108,7 +108,7 @@ Returns geo object visibility.
 
 <MemberHeading id="setposition" depth="3" name="setPosition" sig="setPosition(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L288" sourceLabel="GeoObject.ts:288" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L293" sourceLabel="GeoObject.ts:293" />
 
 Sets geo object position.
 
@@ -120,7 +120,7 @@ Sets geo object position.
 
 <MemberHeading id="setposition3v" depth="3" name="setPosition3v" sig="setPosition3v(position: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L314" sourceLabel="GeoObject.ts:314" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L319" sourceLabel="GeoObject.ts:319" />
 
 Sets geo object position.
 
@@ -130,7 +130,7 @@ Sets geo object position.
 
 <MemberHeading id="setobject" depth="3" name="setObject" sig="setObject(object: Object3d)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L322" sourceLabel="GeoObject.ts:322" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L327" sourceLabel="GeoObject.ts:327" />
 
 Sets Object3d for the object
 
@@ -140,7 +140,7 @@ Sets Object3d for the object
 
 <MemberHeading id="setobjectsrc" depth="3" name="setObjectSrc" sig="setObjectSrc(src: string)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L330" sourceLabel="GeoObject.ts:330" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L335" sourceLabel="GeoObject.ts:335" />
 
 Sets the object url source.
 
@@ -150,7 +150,7 @@ Sets the object url source.
 
 <MemberHeading id="setcolorhtml" depth="3" name="setColorHTML" sig="setColorHTML(color: string)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L339" sourceLabel="GeoObject.ts:339" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L344" sourceLabel="GeoObject.ts:344" />
 
 Sets object HTML color.
 
@@ -160,7 +160,7 @@ Sets object HTML color.
 
 <MemberHeading id="setscale" depth="3" name="setScale" sig="setScale(scale: number)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L348" sourceLabel="GeoObject.ts:348" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L353" sourceLabel="GeoObject.ts:353" />
 
 Sets scales.
 
@@ -170,7 +170,7 @@ Sets scales.
 
 <MemberHeading id="setscale3v" depth="3" name="setScale3v" sig="setScale3v(scale: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L358" sourceLabel="GeoObject.ts:358" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L363" sourceLabel="GeoObject.ts:363" />
 
 Sets X, Y, Z axis scales
 
@@ -180,7 +180,7 @@ Sets X, Y, Z axis scales
 
 <MemberHeading id="getscale" depth="3" name="getScale" sig="getScale(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L368" sourceLabel="GeoObject.ts:368" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L373" sourceLabel="GeoObject.ts:373" />
 
 Gets scale.
 
@@ -190,7 +190,7 @@ Gets scale.
 
 <MemberHeading id="setlocalposition3v" depth="3" name="setLocalPosition3v" sig="setLocalPosition3v(localPosition: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L385" sourceLabel="GeoObject.ts:385" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L390" sourceLabel="GeoObject.ts:390" />
 
 Sets local offset position.
 
@@ -200,7 +200,7 @@ Sets local offset position.
 
 <MemberHeading id="getlocalposition" depth="3" name="getLocalPosition" sig="getLocalPosition(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L395" sourceLabel="GeoObject.ts:395" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L400" sourceLabel="GeoObject.ts:400" />
 
 Gets local offset position.
 
@@ -210,13 +210,13 @@ Gets local offset position.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L403" sourceLabel="GeoObject.ts:403" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L408" sourceLabel="GeoObject.ts:408" />
 
 Removes the geo object from the handler.
 
 <MemberHeading id="setpickingcolor3v" depth="3" name="setPickingColor3v" sig="setPickingColor3v(color: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L413" sourceLabel="GeoObject.ts:413" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L418" sourceLabel="GeoObject.ts:418" />
 
 Sets billboard picking color.
 
@@ -226,7 +226,7 @@ Sets billboard picking color.
 
 <MemberHeading id="setrotation" depth="3" name="setRotation" sig="setRotation(qRot: Quat)" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L422" sourceLabel="GeoObject.ts:422" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L427" sourceLabel="GeoObject.ts:427" />
 
 Sets the rotation quaternion.
 
@@ -236,7 +236,7 @@ Sets the rotation quaternion.
 
 <MemberHeading id="getrotation" depth="3" name="getRotation" sig="getRotation(): Quat" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L433" sourceLabel="GeoObject.ts:433" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L438" sourceLabel="GeoObject.ts:438" />
 
 Returns orientation quaternion.
 
@@ -246,13 +246,13 @@ Returns orientation quaternion.
 
 <MemberHeading id="updaterotation" depth="3" name="updateRotation" sig="updateRotation()" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L440" sourceLabel="GeoObject.ts:440" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L445" sourceLabel="GeoObject.ts:445" />
 
 Update object rotation
 
 <MemberHeading id="getdirection" depth="3" name="getDirection" sig="getDirection(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L449" sourceLabel="GeoObject.ts:449" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L454" sourceLabel="GeoObject.ts:454" />
 
 Returns object direction
 
@@ -264,7 +264,7 @@ Returns object direction
 
 <MemberHeading id="tag" depth="3" name="tag" sig="tag" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L155" sourceLabel="GeoObject.ts:155" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L160" sourceLabel="GeoObject.ts:160" />
 
 Gets the unique tag of the geo object.
 
@@ -274,7 +274,7 @@ Gets the unique tag of the geo object.
 
 <MemberHeading id="object3d" depth="3" name="object3d" sig="object3d" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L173" sourceLabel="GeoObject.ts:173" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L178" sourceLabel="GeoObject.ts:178" />
 
 Gets the 3D object associated with this geo object.
 
@@ -284,7 +284,7 @@ Gets the 3D object associated with this geo object.
 
 <MemberHeading id="vertices" depth="3" name="vertices" sig="vertices" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L182" sourceLabel="GeoObject.ts:182" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L187" sourceLabel="GeoObject.ts:187" />
 
 Gets geometry mesh vertices.
 
@@ -294,7 +294,7 @@ Gets geometry mesh vertices.
 
 <MemberHeading id="normals" depth="3" name="normals" sig="normals" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L191" sourceLabel="GeoObject.ts:191" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L196" sourceLabel="GeoObject.ts:196" />
 
 Gets geometry mesh normals.
 
@@ -304,7 +304,7 @@ Gets geometry mesh normals.
 
 <MemberHeading id="texcoords" depth="3" name="texCoords" sig="texCoords" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L200" sourceLabel="GeoObject.ts:200" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L205" sourceLabel="GeoObject.ts:205" />
 
 Gets geometry mesh texture coordinates.
 
@@ -314,7 +314,7 @@ Gets geometry mesh texture coordinates.
 
 <MemberHeading id="indices" depth="3" name="indices" sig="indices" />
 
-<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L209" sourceLabel="GeoObject.ts:209" />
+<MemberMeta sourceHref="/source/entity/geoobject/geoobject-ts/#L214" sourceLabel="GeoObject.ts:214" />
 
 Gets geometry mesh indices.
 

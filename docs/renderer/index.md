@@ -222,7 +222,7 @@ Renderer initialization.
 
 <MemberHeading id="addscene" depth="3" name="addScene" sig="addScene(scene: Scene)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1108" sourceLabel="Renderer.ts:1108" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1112" sourceLabel="Renderer.ts:1112" />
 
 Adds a scene to the renderer.
 
@@ -232,7 +232,7 @@ Adds a scene to the renderer.
 
 <MemberHeading id="addscenebefore" depth="3" name="addSceneBefore" sig="addSceneBefore(scene: Scene, sceneBefore: Scene)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1131" sourceLabel="Renderer.ts:1131" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1135" sourceLabel="Renderer.ts:1135" />
 
 Adds a scene to the renderer before a specific node.
 
@@ -243,7 +243,7 @@ Adds a scene to the renderer before a specific node.
 
 <MemberHeading id="addscenes" depth="3" name="addScenes" sig="addScenes(nodesArr: Array.<Scene>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1153" sourceLabel="Renderer.ts:1153" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1157" sourceLabel="Renderer.ts:1157" />
 
 Adds scenes to the renderer.
 
@@ -253,25 +253,25 @@ Adds scenes to the renderer.
 
 <MemberHeading id="enqueueentitycollectionstodraw" depth="3" name="enqueueEntityCollectionsToDraw" sig="enqueueEntityCollectionsToDraw()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1197" sourceLabel="Renderer.ts:1197" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1201" sourceLabel="Renderer.ts:1201" />
 
 TODO: replace with cache-friendly linked list by BillboardHandler, LabelHandler etc.
 
 <MemberHeading id="markfordepthrefresh" depth="3" name="markForDepthRefresh" sig="markForDepthRefresh()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1208" sourceLabel="Renderer.ts:1208" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1212" sourceLabel="Renderer.ts:1212" />
 
 Forces the depth buffer to be refreshed in the next frame. Has an effect for terrain altitude estimate precision.
 
 <MemberHeading id="requestredraw" depth="3" name="requestRedraw" sig="requestRedraw()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1547" sourceLabel="Renderer.ts:1547" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1551" sourceLabel="Renderer.ts:1551" />
 
 Requests the next frame to be rendered.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1563" sourceLabel="Renderer.ts:1563" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1574" sourceLabel="Renderer.ts:1574" />
 
 Draw nodes.
 
@@ -284,7 +284,7 @@ Draw nodes.
 ): number | undefined"
 />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1905" sourceLabel="Renderer.ts:1905" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1910" sourceLabel="Renderer.ts:1910" />
 
 Returns the distance from the active (screen) camera to the 3d-surface using the defined screen coordinates
 
@@ -305,7 +305,7 @@ Returns the distance from the active (screen) camera to the 3d-surface using the
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1944" sourceLabel="Renderer.ts:1944" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1949" sourceLabel="Renderer.ts:1949" />
 
 Returns 3d coordinates from screen coordinates
 
@@ -319,13 +319,13 @@ Returns 3d coordinates from screen coordinates
 
 <MemberHeading id="start" depth="3" name="start" sig="start()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2008" sourceLabel="Renderer.ts:2008" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2013" sourceLabel="Renderer.ts:2013" />
 
 Function starts renderer
 
 <MemberHeading id="addprogram" depth="3" name="addProgram" sig="addProgram(program: ShaderProgram)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2100" sourceLabel="Renderer.ts:2100" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2106" sourceLabel="Renderer.ts:2106" />
 
 Adds a shader program to the renderer if it has not been added yet.
 
@@ -335,7 +335,7 @@ Adds a shader program to the renderer if it has not been added yet.
 
 <MemberHeading id="addprograms" depth="3" name="addPrograms" sig="addPrograms(...programs: ShaderProgram | Array.<ShaderProgram>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2111" sourceLabel="Renderer.ts:2111" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2117" sourceLabel="Renderer.ts:2117" />
 
 Adds one or more programs to the renderer. Supports both individual programs and nested program arrays.
 
@@ -345,7 +345,7 @@ Adds one or more programs to the renderer. Supports both individual programs and
 
 <MemberHeading id="addshaders" depth="3" name="addShaders" sig="addShaders(...programs: ShaderProgram | Array.<ShaderProgram>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2126" sourceLabel="Renderer.ts:2126" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2132" sourceLabel="Renderer.ts:2132" />
 
 Alias for `Renderer.addPrograms`.
 
@@ -405,6 +405,6 @@ Bloom bright pass threshold.
 
 <MemberHeading id="isidle" depth="3" name="isIdle" sig="isIdle" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1555" sourceLabel="Renderer.ts:1555" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1559" sourceLabel="Renderer.ts:1559" />
 
 Returns true when the renderer skips frames because nothing has been changed.

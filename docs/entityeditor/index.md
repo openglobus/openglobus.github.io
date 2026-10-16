@@ -9,7 +9,7 @@ description: Entity properties editor. Combines the {@link EntityGizmo} on-map t
 
 **Extends:&#x20;**[`EntityGizmo`](/entitygizmo)
 
-<SourceLink href="/source/control/entityeditor/entityeditor-ts/#L14" label="EntityEditor.ts:14" />
+<SourceLink href="/source/control/entityeditor/entityeditor-ts/#L16" label="EntityEditor.ts:16" />
 
 Entity properties editor. Combines the [EntityGizmo](/entitygizmo) on-map transform mechanism with the "Entity Properties" dialog.
 
