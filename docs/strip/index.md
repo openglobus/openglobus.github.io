@@ -7,7 +7,7 @@ description: Strip object.
 
 # Strip
 
-<SourceLink href="/source/entity/strip/strip-ts/#L47" label="Strip.ts:47" />
+<SourceLink href="/source/entity/strip/strip-ts/#L52" label="Strip.ts:52" />
 
 Strip object.
 
@@ -37,6 +37,7 @@ new og.Entity({
 
 - `options` (\*, optional) — Strip options:
   - `options.visibility` (boolean, optional) — Strip visibility.
+  - `options.pathTimes` (Array.\<number>, optional) — Time of every path edge. Makes the strip follow the entity collection time, see [EntityCollection#setTime](/entitycollection#settime) and [EntityCollection#setTimeOpacity](/entitycollection#settimeopacity).
 
 ---
 
@@ -44,7 +45,7 @@ new og.Entity({
 
 <MemberHeading id="setpickingcolor3v" depth="3" name="setPickingColor3v" sig="setPickingColor3v(color: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L158" sourceLabel="Strip.ts:158" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L175" sourceLabel="Strip.ts:175" />
 
 Assign picking color.
 
@@ -54,13 +55,13 @@ Assign picking color.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L169" sourceLabel="Strip.ts:169" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L186" sourceLabel="Strip.ts:186" />
 
 Clears object
 
 <MemberHeading id="setcolor4v" depth="3" name="setColor4v" sig="setColor4v(color: Vec4)" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L190" sourceLabel="Strip.ts:190" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L210" sourceLabel="Strip.ts:210" />
 
 Sets RGBA color. Each channel from 0.0 to 1.0.
 
@@ -70,7 +71,7 @@ Sets RGBA color. Each channel from 0.0 to 1.0.
 
 <MemberHeading id="setcolorhtml" depth="3" name="setColorHTML" sig="setColorHTML(color: string)" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L199" sourceLabel="Strip.ts:199" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L219" sourceLabel="Strip.ts:219" />
 
 Sets strip color.
 
@@ -80,7 +81,7 @@ Sets strip color.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L218" sourceLabel="Strip.ts:218" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L238" sourceLabel="Strip.ts:238" />
 
 Sets strip opacity.
 
@@ -88,9 +89,29 @@ Sets strip opacity.
 
 - `opacity` (number) — Opacity.
 
+<MemberHeading id="istimed" depth="3" name="isTimed" sig="isTimed(): boolean" />
+
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L252" sourceLabel="Strip.ts:252" />
+
+Returns true when the strip has edge times and follows the entity collection time.
+
+**Returns**
+
+- `boolean`
+
+<MemberHeading id="setpathtimes" depth="3" name="setPathTimes" sig="setPathTimes(times: Array.<number> | null)" />
+
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L265" sourceLabel="Strip.ts:265" />
+
+Sets edge times. Null removes them and the strip stops following the entity collection time.
+
+**Parameters**
+
+- `times` (Array.\<number> | null) — Time of every path edge, missing values repeat the previous one.
+
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L232" sourceLabel="Strip.ts:232" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L320" sourceLabel="Strip.ts:320" />
 
 Sets strip visibility.
 
@@ -100,7 +121,7 @@ Sets strip visibility.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L239" sourceLabel="Strip.ts:239" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L327" sourceLabel="Strip.ts:327" />
 
 **Returns**
 
@@ -108,7 +129,7 @@ Sets strip visibility.
 
 <MemberHeading id="bindscene" depth="3" name="bindScene" sig="bindScene(scene: Scene)" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L248" sourceLabel="Strip.ts:248" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L336" sourceLabel="Strip.ts:336" />
 
 Assign rendering scene node.
 
@@ -116,15 +137,25 @@ Assign rendering scene node.
 
 - `scene` ([Scene](/scene)) — Assigned render node.
 
+<MemberHeading id="updatertcposition" depth="3" name="updateRTCPosition" sig="updateRTCPosition(): boolean" />
+
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L354" sourceLabel="Strip.ts:354" />
+
+Rebuilds vertices relative to the handler relative center when it has moved.
+
+**Returns**
+
+- `boolean` — True when the strip was rebuilt.
+
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L257" sourceLabel="Strip.ts:257" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L371" sourceLabel="Strip.ts:371" />
 
 Removes from entity.
 
 <MemberHeading id="deletebuffers" depth="3" name="_deleteBuffers" sig="_deleteBuffers()" />
 
-<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L355" sourceLabel="Strip.ts:355" />
+<MemberMeta sourceHref="/source/entity/strip/strip-ts/#L480" sourceLabel="Strip.ts:480" />
 
 Delete buffers
 
@@ -132,18 +163,18 @@ Delete buffers
 
 <MemberHeading id="scene" depth="3" name="_scene" sig="_scene: Scene" />
 
-<MemberMeta badges="protected" sourceHref="/source/entity/strip/strip-ts/#L115" sourceLabel="Strip.ts:115" />
+<MemberMeta badges="protected" sourceHref="/source/entity/strip/strip-ts/#L126" sourceLabel="Strip.ts:126" />
 
 Parent collection render node.
 
 <MemberHeading id="entity" depth="3" name="_entity" sig="_entity: Entity" />
 
-<MemberMeta badges="protected" sourceHref="/source/entity/strip/strip-ts/#L122" sourceLabel="Strip.ts:122" />
+<MemberMeta badges="protected" sourceHref="/source/entity/strip/strip-ts/#L133" sourceLabel="Strip.ts:133" />
 
 Entity instance that holds this strip.
 
 <MemberHeading id="handler" depth="3" name="_handler" sig="_handler: StripHandler" />
 
-<MemberMeta badges="protected" sourceHref="/source/entity/strip/strip-ts/#L145" sourceLabel="Strip.ts:145" />
+<MemberMeta badges="protected" sourceHref="/source/entity/strip/strip-ts/#L162" sourceLabel="Strip.ts:162" />
 
 Handler that stores and renders this object.

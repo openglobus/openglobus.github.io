@@ -7,7 +7,7 @@ description: Polyline object.
 
 # Polyline
 
-<SourceLink href="/source/entity/polyline/polyline-ts/#L62" label="Polyline.ts:62" />
+<SourceLink href="/source/entity/polyline/polyline-ts/#L65" label="Polyline.ts:65" />
 
 Polyline object.
 
@@ -29,6 +29,7 @@ Polyline object.
   - `options.pathLonLat` (Array.\<SegmentPathLonLatExt>, optional) — Polyline geodetic coordinates array. \[\[\[0,0,0], \[1,1,1],...]]
   - `options.path3v` (Array.\<SegmentPath3vExt>, optional) — LinesString cartesian coordinates array. \[\[\[0,0,0], \[1,1,1],...]]
   - `options.pathColors` (Array.\<SegmentPathColor>, optional) — Coordinates color. \[\[\[1,0,0,1], \[0,1,0,1],...]] for right and green colors.
+  - `options.pathTimes` (Array.\<Array.\<number>>, optional) — Time of every point, per segment. Makes the line follow the entity collection time, see [EntityCollection#setTime](/entitycollection#settime) and [EntityCollection#setTimeOpacity](/entitycollection#settimeopacity).
   - `options.texParams` (TexParam, optional) — Texture params for all segments: texOffset, strokeSize and texOffsetSpeed.
 
 ---
@@ -37,7 +38,7 @@ Polyline object.
 
 <MemberHeading id="setsrc" depth="3" name="setSrc" sig="setSrc()" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L381" sourceLabel="Polyline.ts:381" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L425" sourceLabel="Polyline.ts:425" />
 
 Sets stroke source per segment (null = color-only).
 
@@ -53,7 +54,7 @@ Sets stroke source per segment (null = color-only).
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L459" sourceLabel="Polyline.ts:459" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L502" sourceLabel="Polyline.ts:502" />
 
 Changes cartesian point coordinates of the path
 
@@ -66,7 +67,7 @@ Changes cartesian point coordinates of the path
 
 <MemberHeading id="removepoint" depth="3" name="removePoint" sig="removePoint(index: number, segmentIndex?: number)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L477" sourceLabel="Polyline.ts:477" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L521" sourceLabel="Polyline.ts:521" />
 
 Remove point from the path
 
@@ -84,10 +85,11 @@ Remove point from the path
 	index?: number,
 	color?: NumberArray4,
 	segmentIndex?: number,
+	time?: number,
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L510" sourceLabel="Polyline.ts:510" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L567" sourceLabel="Polyline.ts:567" />
 
 Insert point coordinates in a path segment
 
@@ -97,6 +99,7 @@ Insert point coordinates in a path segment
 - `index` (number, optional, default: 0) — Index in the path
 - `color` (NumberArray4, optional) — Point color
 - `segmentIndex` (number, optional, default: 0) — Path segment index
+- `time` (number, optional) — Point time
 
 <MemberHeading
   id="addpoint3v"
@@ -106,10 +109,11 @@ Insert point coordinates in a path segment
 	point3v: Vec3,
 	segmentIndex?: number,
 	color?: NumberArray4,
+	time?: number,
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L537" sourceLabel="Polyline.ts:537" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L617" sourceLabel="Polyline.ts:617" />
 
 Append new point in the end of the path.
 
@@ -118,6 +122,7 @@ Append new point in the end of the path.
 - `point3v` ([Vec3](/vec3)) — New point coordinates.
 - `segmentIndex` (number, optional, default: 0) — Path segment index, first by default.
 - `color` (NumberArray4, optional) — Point color
+- `time` (number, optional) — Point time
 
 <MemberHeading
   id="addpointlonlat"
@@ -127,10 +132,11 @@ Append new point in the end of the path.
 	lonLat: LonLat,
 	segmentIndex?: number,
 	color?: NumberArray4,
+	time?: number,
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L564" sourceLabel="Polyline.ts:564" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L649" sourceLabel="Polyline.ts:649" />
 
 Append new geodetic point in the end of the path.
 
@@ -139,6 +145,7 @@ Append new geodetic point in the end of the path.
 - `lonLat` ([LonLat](/lonlat)) — New coordinate.
 - `segmentIndex` (number, optional, default: 0) — Path segment index, first by default.
 - `color` (NumberArray4, optional) — Point color.
+- `time` (number, optional) — Point time.
 
 <MemberHeading
   id="setpointcolor"
@@ -151,7 +158,7 @@ Append new geodetic point in the end of the path.
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L595" sourceLabel="Polyline.ts:595" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L678" sourceLabel="Polyline.ts:678" />
 
 Change path point color
 
@@ -163,7 +170,7 @@ Change path point color
 
 <MemberHeading id="removepath" depth="3" name="removePath" sig="removePath(index: number)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L608" sourceLabel="Polyline.ts:608" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L692" sourceLabel="Polyline.ts:692" />
 
 Remove multiline path segment
 
@@ -182,7 +189,7 @@ Remove multiline path segment
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L695" sourceLabel="Polyline.ts:695" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L789" sourceLabel="Polyline.ts:789" />
 
 Sets Polyline cartesian coordinates.
 
@@ -203,7 +210,7 @@ Sets Polyline cartesian coordinates.
 )"
 />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L762" sourceLabel="Polyline.ts:762" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L862" sourceLabel="Polyline.ts:862" />
 
 Sets polyline geodetic coordinates.
 
@@ -213,9 +220,38 @@ Sets polyline geodetic coordinates.
 - `pathColors` (Array.\<SegmentPathColor>) — Polyline path points colors.
 - `forceEqual` (Boolean, optional, default: false) — OPTIMIZATION FLAG: Makes assigning faster for size equal coordinates array.
 
+<MemberHeading id="istimed" depth="3" name="isTimed" sig="isTimed(): boolean" />
+
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L943" sourceLabel="Polyline.ts:943" />
+
+Returns true when the polyline has point times and follows the entity collection time.
+
+**Returns**
+
+- `boolean`
+
+<MemberHeading
+  id="setpathtimes"
+  depth="3"
+  name="setPathTimes"
+  sig="setPathTimes(
+	times: Array.<Array.<number>> | Array.<number> | null,
+	segmentIndex?: number,
+)"
+/>
+
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L957" sourceLabel="Polyline.ts:957" />
+
+Sets point times. Null removes them and the line stops following the entity collection time.
+
+**Parameters**
+
+- `times` (Array.\<Array.\<number>> | Array.\<number> | null) — Times per segment, or times of one segment.
+- `segmentIndex` (number, optional) — Segment index when times of one segment are given.
+
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L829" sourceLabel="Polyline.ts:829" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L999" sourceLabel="Polyline.ts:999" />
 
 Sets polyline opacity.
 
@@ -225,13 +261,13 @@ Sets polyline opacity.
 
 <MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity()" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L860" sourceLabel="Polyline.ts:860" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1030" sourceLabel="Polyline.ts:1030" />
 
 Gets polyline opacity.
 
 <MemberHeading id="setaltitude" depth="3" name="setAltitude" sig="setAltitude(altitude: number)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L869" sourceLabel="Polyline.ts:869" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1039" sourceLabel="Polyline.ts:1039" />
 
 Sets Polyline thickness in screen pixels.
 
@@ -241,7 +277,7 @@ Sets Polyline thickness in screen pixels.
 
 <MemberHeading id="setthickness" depth="3" name="setThickness" sig="setThickness(thickness: number)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L882" sourceLabel="Polyline.ts:882" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1052" sourceLabel="Polyline.ts:1052" />
 
 Sets Polyline thickness in screen pixels.
 
@@ -251,7 +287,7 @@ Sets Polyline thickness in screen pixels.
 
 <MemberHeading id="setcolor" depth="3" name="setColor" sig="setColor(htmlColor: string)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L896" sourceLabel="Polyline.ts:896" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1064" sourceLabel="Polyline.ts:1064" />
 
 Sets polyline segment color.
 
@@ -261,7 +297,7 @@ Sets polyline segment color.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L934" sourceLabel="Polyline.ts:934" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1103" sourceLabel="Polyline.ts:1103" />
 
 Sets visibility.
 
@@ -271,7 +307,7 @@ Sets visibility.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L958" sourceLabel="Polyline.ts:958" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1127" sourceLabel="Polyline.ts:1127" />
 
 Gets Polyline visibility.
 
@@ -281,7 +317,7 @@ Gets Polyline visibility.
 
 <MemberHeading id="setcolorhtml" depth="3" name="setColorHTML" sig="setColorHTML(htmlColor: string)" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1001" sourceLabel="Polyline.ts:1001" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1163" sourceLabel="Polyline.ts:1163" />
 
 Sets polyline color
 
@@ -291,7 +327,7 @@ Sets polyline color
 
 <MemberHeading id="getcolorhtml" depth="3" name="getColorHTML" sig="getColorHTML(index?: number): string | undefined" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1016" sourceLabel="Polyline.ts:1016" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1176" sourceLabel="Polyline.ts:1176" />
 
 Gets polyline HTML color.
 
@@ -305,7 +341,7 @@ Gets polyline HTML color.
 
 <MemberHeading id="getcolor4v" depth="3" name="getColor4v" sig="getColor4v(index?: number): Vec4 | undefined" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1026" sourceLabel="Polyline.ts:1026" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1186" sourceLabel="Polyline.ts:1186" />
 
 Gets polyline color as a normalized RGBA vector.
 
@@ -319,13 +355,13 @@ Gets polyline color as a normalized RGBA vector.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1038" sourceLabel="Polyline.ts:1038" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1198" sourceLabel="Polyline.ts:1198" />
 
 Clear polyline data.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1050" sourceLabel="Polyline.ts:1050" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L1211" sourceLabel="Polyline.ts:1211" />
 
 Removes from an entity.
 
@@ -333,6 +369,6 @@ Removes from an entity.
 
 <MemberHeading id="isclosed" depth="3" name="isClosed" sig="isClosed" />
 
-<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L417" sourceLabel="Polyline.ts:417" />
+<MemberMeta sourceHref="/source/entity/polyline/polyline-ts/#L461" sourceLabel="Polyline.ts:461" />
 
 Sets closed/open state for one path segment.

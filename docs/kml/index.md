@@ -313,9 +313,38 @@ _Inherited from `Vector#_bindEventsDefault`_
 * **TODO:**
   - (refactoring) could be used in something like bindEntityCollectionQuad(...)
 
+<MemberHeading id="settime" depth="3" name="setTime" sig="setTime(time: number)" />
+
+<MemberMeta sourceHref="/source/layer/vector-ts/#L838" sourceLabel="Vector.ts:838" />
+
+_Inherited from `Vector#setTime`_
+
+**Overrides:&#x20;**`Vector#setTime`
+
+Sets the current time of polylines and strips with path times.
+
+**Parameters**
+
+- `time` (number) — Time in the same units as the path times.
+
+<MemberHeading id="settimeopacity" depth="3" name="setTimeOpacity" sig="setTimeOpacity(past: number, future: number)" />
+
+<MemberMeta sourceHref="/source/layer/vector-ts/#L849" sourceLabel="Vector.ts:849" />
+
+_Inherited from `Vector#setTimeOpacity`_
+
+**Overrides:&#x20;**`Vector#setTimeOpacity`
+
+Sets opacity multipliers of the path parts passed and ahead of the current time.
+
+**Parameters**
+
+- `past` (number) — Multiplier up to the current time.
+- `future` (number) — Multiplier after the current time.
+
 <MemberHeading id="loadmaterial" depth="3" name="loadMaterial" sig="loadMaterial(material: Material)" />
 
-<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L938" sourceLabel="Vector.ts:938" />
+<MemberMeta badges="abstract" sourceHref="/source/layer/vector-ts/#L959" sourceLabel="Vector.ts:959" />
 
 _Inherited from `Vector#loadMaterial`_
 
@@ -329,7 +358,7 @@ Start to load tile material.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L960" sourceLabel="Vector.ts:960" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L981" sourceLabel="Vector.ts:981" />
 
 _Inherited from `Vector#abortMaterialLoading`_
 
@@ -647,7 +676,7 @@ Special correction of the whole globe extent.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L960" sourceLabel="Vector.ts:960" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L981" sourceLabel="Vector.ts:981" />
 
 _Inherited from `Vector#abortMaterialLoading`_
 

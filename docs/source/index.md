@@ -117,6 +117,7 @@ kind: guide
 - [entity/label/LabelHandler.ts](/source/entity/label/labelhandler-ts/)
 - [entity/label/LabelWorker.ts](/source/entity/label/labelworker-ts/)
 - [entity/label/LabelWorker.worker.js](/source/entity/label/labelworker-worker-js/)
+- [entity/pathTime.ts](/source/entity/pathtime-ts/)
 - [entity/pointCloud/PointCloud.ts](/source/entity/pointcloud/pointcloud-ts/)
 - [entity/pointCloud/PointCloudHandler.ts](/source/entity/pointcloud/pointcloudhandler-ts/)
 - [entity/polyline/Polyline.ts](/source/entity/polyline/polyline-ts/)

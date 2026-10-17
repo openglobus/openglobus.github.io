@@ -7,7 +7,7 @@ description: Ray class.
 
 # Ray
 
-<SourceLink href="/source/entity/ray/ray-ts/#L36" label="Ray.ts:36" />
+<SourceLink href="/source/entity/ray/ray-ts/#L38" label="Ray.ts:38" />
 
 Ray class.
 
@@ -33,7 +33,7 @@ Ray class.
 
 <MemberHeading id="setstartposition" depth="3" name="setStartPosition" sig="setStartPosition(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L166" sourceLabel="Ray.ts:166" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L168" sourceLabel="Ray.ts:168" />
 
 Sets ray start position.
 
@@ -43,9 +43,15 @@ Sets ray start position.
 - `y` (number) — Y coordinate.
 - `z` (number) — Z coordinate.
 
+<MemberHeading id="updatertcposition" depth="3" name="updateRTCPosition" sig="updateRTCPosition()" />
+
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L196" sourceLabel="Ray.ts:196" />
+
+Recomputes the start and end positions relative to the handler relative center.
+
 <MemberHeading id="setsrc" depth="3" name="setSrc" sig="setSrc(src: string)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L184" sourceLabel="Ray.ts:184" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L213" sourceLabel="Ray.ts:213" />
 
 Sets image template url source.
 
@@ -55,7 +61,7 @@ Sets image template url source.
 
 <MemberHeading id="setimage" depth="3" name="setImage" sig="setImage(image: Object)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L199" sourceLabel="Ray.ts:199" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L228" sourceLabel="Ray.ts:228" />
 
 Sets image template object.
 
@@ -65,7 +71,7 @@ Sets image template object.
 
 <MemberHeading id="setstartposition3v" depth="3" name="setStartPosition3v" sig="setStartPosition3v(position: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L270" sourceLabel="Ray.ts:270" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L299" sourceLabel="Ray.ts:299" />
 
 Sets ray start position.
 
@@ -75,7 +81,7 @@ Sets ray start position.
 
 <MemberHeading id="setendposition" depth="3" name="setEndPosition" sig="setEndPosition(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L286" sourceLabel="Ray.ts:286" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L315" sourceLabel="Ray.ts:315" />
 
 Sets ray end position.
 
@@ -87,7 +93,7 @@ Sets ray end position.
 
 <MemberHeading id="setendposition3v" depth="3" name="setEndPosition3v" sig="setEndPosition3v(position: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L300" sourceLabel="Ray.ts:300" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L329" sourceLabel="Ray.ts:329" />
 
 Sets ray end position.
 
@@ -97,7 +103,7 @@ Sets ray end position.
 
 <MemberHeading id="getstartposition" depth="3" name="getStartPosition" sig="getStartPosition(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L371" sourceLabel="Ray.ts:371" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L400" sourceLabel="Ray.ts:400" />
 
 Returns ray start position.
 
@@ -107,7 +113,7 @@ Returns ray start position.
 
 <MemberHeading id="getendposition" depth="3" name="getEndPosition" sig="getEndPosition(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L380" sourceLabel="Ray.ts:380" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L409" sourceLabel="Ray.ts:409" />
 
 Returns ray end position.
 
@@ -117,7 +123,7 @@ Returns ray end position.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L389" sourceLabel="Ray.ts:389" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L418" sourceLabel="Ray.ts:418" />
 
 Sets visibility.
 
@@ -127,7 +133,7 @@ Sets visibility.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L399" sourceLabel="Ray.ts:399" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L428" sourceLabel="Ray.ts:428" />
 
 Sets ray opacity.
 
@@ -137,7 +143,7 @@ Sets ray opacity.
 
 <MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L411" sourceLabel="Ray.ts:411" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L440" sourceLabel="Ray.ts:440" />
 
 Returns ray opacity multiplier.
 
@@ -147,7 +153,7 @@ Returns ray opacity multiplier.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L420" sourceLabel="Ray.ts:420" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L449" sourceLabel="Ray.ts:449" />
 
 Returns visibility.
 
@@ -157,13 +163,13 @@ Returns visibility.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L428" sourceLabel="Ray.ts:428" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L457" sourceLabel="Ray.ts:457" />
 
 Remove from handler.
 
 <MemberHeading id="setpickingcolor3v" depth="3" name="setPickingColor3v" sig="setPickingColor3v(color: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L438" sourceLabel="Ray.ts:438" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L467" sourceLabel="Ray.ts:467" />
 
 Sets picking color.
 
