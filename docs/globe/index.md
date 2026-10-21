@@ -7,7 +7,7 @@ description: Creates a WebGL context with globe.
 
 # Globe
 
-<SourceLink href="/source/globe-ts/#L176" label="Globe.ts:176" />
+<SourceLink href="/source/globe-ts/#L180" label="Globe.ts:180" />
 
 Creates a WebGL context with globe.
 
@@ -47,6 +47,9 @@ globus = new Globe({
   - `options.name` (string, optional) — Planet name. Default is uniq identifier.
   - `options.terrain` ([EmptyTerrain](/emptyterrain) | Array.\<[EmptyTerrain](/emptyterrain)>, optional) — Terrain provider or providers array, where the first one becomes active. Default no terrain - og.terrain.EmptyTerrain.
   - `options.controls` (Array.\<[Control](/control)>, optional) — Controls.
+  - `options.sun` (Object, optional) — Sun control options.
+    - `options.sun.dateTime` (Date | null, optional) — Fixed UTC time.
+    - `options.sun.localDateTime` (Date | null, optional) — Local time. Overrides dateTime if provided; null resets fixed lighting.
   - `options.layers` (Array.\<[Layer](/layer)>, optional) — Planet layers.
   - `options.viewExtent` ([Extent](/extent) | [ExtentBoundingBox](/extentboundingbox), optional) — \[options.viewExtent] - Viewable starting extent.
   - `options.autoActivate` (boolean, optional, default: true) — Globe rendering auto activation flag. True is default.
@@ -83,13 +86,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L466" sourceLabel="Globe.ts:466" />
+<MemberMeta sourceHref="/source/globe-ts/#L473" sourceLabel="Globe.ts:473" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L474" sourceLabel="Globe.ts:474" />
+<MemberMeta sourceHref="/source/globe-ts/#L481" sourceLabel="Globe.ts:481" />
 
 Starts screen brightness fading out effect by the duration time.
 
@@ -97,6 +100,6 @@ Starts screen brightness fading out effect by the duration time.
 
 <MemberHeading id="inner" depth="3" name="$inner" sig="$inner: Element" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L229" sourceLabel="Globe.ts:229" />
+<MemberMeta sourceHref="/source/globe-ts/#L233" sourceLabel="Globe.ts:233" />
 
 Dom element where WebGL canvas creates

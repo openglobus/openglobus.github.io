@@ -341,7 +341,7 @@ Formats a date by a template, e.g. "MM/dd/yyyy", "hh:mm:ss.ms". Tokens: yyyy/yy 
 
 <MemberHeading id="stretchchannel" depth="3" name="stretchChannel" sig="stretchChannel()" />
 
-<MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L52" sourceLabel="GeoTIFFLayer.ts:52" />
+<MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L53" sourceLabel="GeoTIFFLayer.ts:53" />
 
 Fills the contrast stretch of a channel from the band statistics, keeping an explicit stretch untouched.
 
@@ -428,21 +428,21 @@ Converts raw RGB/RGBA raster array(s) directly to an ImageData.
 
 <MemberHeading id="forwardutm" depth="3" name="forwardUTM" sig="forwardUTM()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L16" sourceLabel="utm.ts:16" />
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L18" sourceLabel="utm.ts:18" />
 
 Projects WGS84 LonLat degrees \[lon, lat] to UTM coordinates \[easting, northing] in meters.
 
 <MemberHeading id="inverseutm" depth="3" name="inverseUTM" sig="inverseUTM()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L66" sourceLabel="utm.ts:66" />
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L68" sourceLabel="utm.ts:68" />
 
 Unprojects UTM coordinates \[easting, northing] in meters to WGS84 \[lon, lat] in degrees.
 
 <MemberHeading id="getprojectionhelper" depth="3" name="getProjectionHelper" sig="getProjectionHelper()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L119" sourceLabel="utm.ts:119" />
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L121" sourceLabel="utm.ts:121" />
 
-Returns a projection helper { project, unproject } if the given code is a supported UTM EPSG code (EPSG:32601-32660 or EPSG:32701-32760), or if proj4 is globally registered.
+Returns a projection helper { project, unproject } if the given code is a supported UTM EPSG code (EPSG:32601-32660 or EPSG:32701-32760), or if its definition is registered in proj4.
 
 <MemberHeading id="acquireworkerpool" depth="3" name="acquireWorkerPool" sig="acquireWorkerPool()" />
 
@@ -1066,6 +1066,161 @@ Converts geodetic coordinate array to mercator coordinate array.
 **Returns**
 
 - `Array.<`[`LonLat`](/lonlat)`>` — Converted mercator coordinates.
+
+<MemberHeading id="defineprojection" depth="3" name="defineProjection" sig="defineProjection()" />
+
+<MemberMeta badges="async" sourceHref="/source/proj/epsgio-ts/#L35" sourceLabel="epsgIo.ts:35" />
+
+Registers the CRS in `proj4`, taking its definition from epsg.io. Returns whether the projection became available, i.e. whether the data in that CRS is worth reading again.
+
+<MemberHeading
+  id="packrgbheightsparams"
+  depth="3"
+  name="packRgbHeightsParams"
+  sig="packRgbHeightsParams(
+	id: number,
+	p: IRgbHeightsParams,
+): Float64Array"
+/>
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L52" sourceLabel="rgbTerrainGrid.ts:52" />
+
+Packs heights parameters to the buffer for the worker message.
+
+**Parameters**
+
+- `id` (number) — Worker task id.
+- `p` (IRgbHeightsParams) — Heights parameters, parent data is sent separately.
+
+**Returns**
+
+- `Float64Array`
+
+<MemberHeading
+  id="unpackrgbheightsparams"
+  depth="3"
+  name="unpackRgbHeightsParams"
+  sig="unpackRgbHeightsParams(
+	params: Float64Array,
+	parentData: Float32Array | null,
+): Array"
+/>
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L83" sourceLabel="rgbTerrainGrid.ts:83" />
+
+Unpacks heights parameters from the worker message buffer.
+
+**Parameters**
+
+- `params` (Float64Array) — Packed parameters.
+- `parentData` (Float32Array | null) — Parent segment elevations.
+
+**Returns**
+
+- `Array`
+
+<MemberHeading id="getgridcells" depth="3" name="getGridCells" sig="getGridCells(size: number): number" />
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L115" sourceLabel="rgbTerrainGrid.ts:115" />
+
+Returns vertex grid cells for the image size, 2^n and (2^n + 1) sizes only.
+
+**Parameters**
+
+- `size` (number) — Image size.
+
+**Returns**
+
+- `number`
+
+<MemberHeading
+  id="decodergbheightsrow"
+  depth="3"
+  name="decodeRgbHeightsRow"
+  sig="decodeRgbHeightsRow(
+	rgbaData: Array.<number> | TypedArray,
+	row: number,
+	size: number,
+	parentScale: number,
+	p: IRgbDecodeParams,
+	outHeights: Float32Array,
+	noDataHeight: number,
+)"
+/>
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L167" sourceLabel="rgbTerrainGrid.ts:167" />
+
+Decodes "rgb" or "terrarium" encoded pixel row heights.
+
+**Parameters**
+
+- `rgbaData` (Array.\<number> | TypedArray) — Image RGBA data.
+- `row` (number) — Pixel row.
+- `size` (number) — Image size.
+- `parentScale` (number) — Parent grid cells by image grid cells.
+- `p` (IRgbDecodeParams) — Decode parameters.
+- `outHeights` (Float32Array) — Row heights.
+- `noDataHeight` (number) — Height for no data pixels.
+
+<MemberHeading
+  id="createvertexgrid"
+  depth="3"
+  name="createVertexGrid"
+  sig="createVertexGrid(
+	size: number,
+	decodeRow: DecodeHeightsRowFunc,
+	noDataHeight: number,
+): Float32Array"
+/>
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L227" sourceLabel="rgbTerrainGrid.ts:227" />
+
+Converts size x size pixel heights to (size + 1) x (size + 1) vertex grid in pixel corners.
+
+**Parameters**
+
+- `size` (number) — Image size.
+- `decodeRow` (DecodeHeightsRowFunc) — Decodes pixel row heights, NaN for no data.
+- `noDataHeight` (number) — Height for vertices without data around.
+
+**Returns**
+
+- `Float32Array`
+
+<MemberHeading id="samplesubgrid" depth="3" name="sampleSubGrid" sig="sampleSubGrid()" />
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L328" sourceLabel="rgbTerrainGrid.ts:328" />
+
+Takes (gridSize + 1) x (gridSize + 1) vertices of the cells x cells square starting at the row0, col0 vertex of the (size + 1) x (size + 1) grid. Cells must be gridSize multiplied by a power of two.
+
+<MemberHeading
+  id="createheightslevels"
+  depth="3"
+  name="createHeightsLevels"
+  sig="createHeightsLevels(
+	size: number,
+	gridSize: number,
+	levels: number,
+	decodeRow: DecodeHeightsRowFunc,
+	noDataHeight: number,
+): Float32Array"
+/>
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L363" sourceLabel="rgbTerrainGrid.ts:363" />
+
+Creates the tile heights grid and its subdivision levels, each tile is (gridSize + 1) x (gridSize + 1). Output order is the tile itself, then 2x2 tiles of the first level, 4x4 of the second and so on, row by row.
+
+**Parameters**
+
+- `size` (number) — Image size, 2^n or (2^n + 1).
+- `gridSize` (number) — Tile grid size.
+- `levels` (number) — Subdivision levels.
+- `decodeRow` (DecodeHeightsRowFunc) — Decodes pixel row heights, NaN for no data.
+- `noDataHeight` (number) — Height for vertices without data.
+
+**Returns**
+
+- `Float32Array`
 
 <MemberHeading id="isvertical" depth="3" name="isVertical" sig="isVertical()" />
 
@@ -1796,11 +1951,11 @@ Allowed interpolation error between the grid nodes, in tile pixels.
 
 Size of a cached byte range of a remote file.
 
-<MemberHeading id="blockcachesize" depth="3" name="BLOCK_CACHE_SIZE" sig="BLOCK_CACHE_SIZE" />
+<MemberHeading id="blockcachebytes" depth="3" name="BLOCK_CACHE_BYTES" sig="BLOCK_CACHE_BYTES" />
 
 <MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L56" sourceLabel="GeoTIFFReader.ts:56" />
 
-Number of cached byte ranges, 512 blocks of 64 KB take about 32 MB.
+Memory taken by cached byte ranges, the default cacheSize is derived from it.
 
 <MemberHeading id="convertedphotometrics" depth="3" name="CONVERTED_PHOTOMETRICS" sig="CONVERTED_PHOTOMETRICS" />
 
@@ -1981,6 +2136,12 @@ Maximum number of projectors processed in a single shader invocation. Used by fo
 Maximum created nodes count. The more nodes count the more memory usage. When the maximum node count is exceeded, memClear() will be called.
 
 **Default:** `400`
+
+<MemberHeading id="paramsid" depth="3" name="PARAMS_ID" sig="PARAMS_ID" />
+
+<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L21" sourceLabel="rgbTerrainGrid.ts:21" />
+
+Writes a row of pixel heights, NaN for no data pixels.
 
 <MemberHeading id="defaultwidth" depth="3" name="DEFAULT_WIDTH" sig="DEFAULT_WIDTH" />
 

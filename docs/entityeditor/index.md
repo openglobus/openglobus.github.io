@@ -25,7 +25,7 @@ Entity properties editor. Combines the [EntityGizmo](/entitygizmo) on-map transf
 
 <MemberHeading id="selectentity" depth="3" name="selectEntity" sig="selectEntity(entity: Entity)" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L151" sourceLabel="EntityGizmo.ts:151" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L152" sourceLabel="EntityGizmo.ts:152" />
 
 _Inherited from `EntityGizmo#selectEntity`_
 
@@ -39,7 +39,7 @@ Shows the gizmo on the given entity. Activates the control when it is inactive. 
 
 <MemberHeading id="unselectentity" depth="3" name="unselectEntity" sig="unselectEntity()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L162" sourceLabel="EntityGizmo.ts:162" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L163" sourceLabel="EntityGizmo.ts:163" />
 
 _Inherited from `EntityGizmo#unselectEntity`_
 
@@ -49,7 +49,7 @@ Hides the gizmo and drops the selection. Cancels a running gesture.
 
 <MemberHeading id="getselectedentity" depth="3" name="getSelectedEntity" sig="getSelectedEntity(): Entity | null" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L171" sourceLabel="EntityGizmo.ts:171" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L172" sourceLabel="EntityGizmo.ts:172" />
 
 _Inherited from `EntityGizmo#getSelectedEntity`_
 
@@ -63,7 +63,7 @@ Returns the selected entity or `null`.
 
 <MemberHeading id="istransforming" depth="3" name="isTransforming" sig="isTransforming(): boolean" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L180" sourceLabel="EntityGizmo.ts:180" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L181" sourceLabel="EntityGizmo.ts:181" />
 
 _Inherited from `EntityGizmo#isTransforming`_
 
@@ -77,7 +77,7 @@ Returns `true` while a drag gesture is running.
 
 <MemberHeading id="getactivetransform" depth="3" name="getActiveTransform" sig="getActiveTransform(): IGizmoTransformEvent | null" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L189" sourceLabel="EntityGizmo.ts:189" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L190" sourceLabel="EntityGizmo.ts:190" />
 
 _Inherited from `EntityGizmo#getActiveTransform`_
 
@@ -91,7 +91,7 @@ Returns the running gesture description or `null`.
 
 <MemberHeading id="canceltransform" depth="3" name="cancelTransform" sig="cancelTransform(): boolean" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L198" sourceLabel="EntityGizmo.ts:198" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L199" sourceLabel="EntityGizmo.ts:199" />
 
 _Inherited from `EntityGizmo#cancelTransform`_
 
@@ -207,7 +207,7 @@ Is control active.
 
 <MemberHeading id="tools" depth="3" name="tools" sig="tools" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L113" sourceLabel="EntityGizmo.ts:113" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L114" sourceLabel="EntityGizmo.ts:114" />
 
 _Inherited from `EntityGizmo#tools`_
 
@@ -217,7 +217,7 @@ Gizmo tool set: which handles are shown.
 
 <MemberHeading id="editmode" depth="3" name="editMode" sig="editMode" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L125" sourceLabel="EntityGizmo.ts:125" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L126" sourceLabel="EntityGizmo.ts:126" />
 
 _Inherited from `EntityGizmo#editMode`_
 
@@ -227,13 +227,13 @@ Rotation mode of the rotation rings. Does nothing with `tools: "translate"`.
 
 <MemberHeading id="autoselect" depth="3" name="autoSelect" sig="autoSelect" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L137" sourceLabel="EntityGizmo.ts:137" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L138" sourceLabel="EntityGizmo.ts:138" />
 
 _Inherited from `EntityGizmo#autoSelect`_
 
 **Overrides:&#x20;**`EntityGizmo#autoSelect`
 
-When `false`, a left click on a map entity does not change the gizmo selection.
+When `false`, a left click neither selects a map entity nor drops the current selection.
 
 <MemberHeading id="name" depth="3" name="name" sig="name" />
 

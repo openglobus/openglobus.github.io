@@ -23,6 +23,6 @@ Shared tile material application for imagery/canvas tile layers. It can be appli
 
 <MemberHeading id="fastwhenwalkeratmaxnativezoom" depth="3" name="_fastWhenWalkerAtMaxNativeZoom" sig="_fastWhenWalkerAtMaxNativeZoom()" />
 
-<MemberMeta sourceHref="/source/layer/basetilemateriallayer-ts/#L197" sourceLabel="BaseTileMaterialLayer.ts:197" />
+<MemberMeta sourceHref="/source/layer/basetilemateriallayer-ts/#L206" sourceLabel="BaseTileMaterialLayer.ts:206" />
 
 pn from parent walk is at maxNativeZoom.

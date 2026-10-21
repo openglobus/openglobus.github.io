@@ -8,7 +8,7 @@ longname: RgbTerrain
 
 **Extends:&#x20;**[`GlobusTerrain`](/globusterrain)
 
-<SourceLink href="/source/terrain/rgbterrain-ts/#L71" label="RgbTerrain.ts:71" />
+<SourceLink href="/source/terrain/rgbterrain-ts/#L91" label="RgbTerrain.ts:91" />
 
 ---
 
@@ -36,6 +36,40 @@ longname: RgbTerrain
 ---
 
 ## Instance Methods
+
+<MemberHeading id="isbuiltindecoding" depth="3" name="_isBuiltInDecoding" sig="_isBuiltInDecoding(): boolean" />
+
+<MemberMeta badges="protected" sourceHref="/source/terrain/rgbterrain-ts/#L171" sourceLabel="RgbTerrain.ts:171" />
+
+Returns true when "rgb" or "terrarium" heights are decoded without rgb2Height calls.
+
+**Returns**
+
+- `boolean`
+
+<MemberHeading id="isworkerdecoding" depth="3" name="_isWorkerDecoding" sig="_isWorkerDecoding(data: HTMLImageElement | ImageBitmap): boolean" />
+
+<MemberMeta badges="protected" sourceHref="/source/terrain/rgbterrain-ts/#L181" sourceLabel="RgbTerrain.ts:181" />
+
+Returns true when the loaded image heights are created in the worker.
+
+**Parameters**
+
+- `data` (HTMLImageElement | ImageBitmap) — Loaded image.
+
+**Returns**
+
+- `boolean`
+
+<MemberHeading id="cacheheightslevels" depth="3" name="_cacheHeightsLevels" sig="_cacheHeightsLevels(): Float32Array" />
+
+<MemberMeta badges="protected" sourceHref="/source/terrain/rgbterrain-ts/#L285" sourceLabel="RgbTerrain.ts:285" />
+
+Saves the tile and its subdivision levels heights to cache.
+
+**Returns**
+
+- `Float32Array`
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
@@ -99,9 +133,24 @@ Starts to load segment elevation data.
 - `segment` ([Segment](/segment)) — Segment that requests terrain data.
 - `forceLoading` (boolean, optional, default: false) — Forces loading even if default filter would skip it.
 
+<MemberHeading id="onterrainloaded" depth="3" name="_onTerrainLoaded" sig="_onTerrainLoaded(segment: Segment, data: any)" />
+
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L410" sourceLabel="GlobusTerrain.ts:410" />
+
+_Inherited from `GlobusTerrain#_onTerrainLoaded`_
+
+**Overrides:&#x20;**`GlobusTerrain#_onTerrainLoaded`
+
+Converts loaded segment data to elevations and applies them.
+
+**Parameters**
+
+- `segment` ([Segment](/segment)) — Segment that requested terrain data.
+- `data` (any) — Loaded data.
+
 <MemberHeading id="createurl" depth="3" name="_createUrl" sig="_createUrl(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L444" sourceLabel="GlobusTerrain.ts:444" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L454" sourceLabel="GlobusTerrain.ts:454" />
 
 _Inherited from `GlobusTerrain#_createUrl`_
 
@@ -119,7 +168,7 @@ Creates default query url string.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L454" sourceLabel="GlobusTerrain.ts:454" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L464" sourceLabel="GlobusTerrain.ts:464" />
 
 _Inherited from `GlobusTerrain#_getHTTPRequestString`_
 
@@ -137,7 +186,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L470" sourceLabel="GlobusTerrain.ts:470" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L480" sourceLabel="GlobusTerrain.ts:480" />
 
 _Inherited from `GlobusTerrain#setUrlRewriteCallback`_
 
@@ -151,7 +200,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="createheights" depth="3" name="_createHeights" sig="_createHeights(): Array.<number> | TypedArray" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L479" sourceLabel="GlobusTerrain.ts:479" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L489" sourceLabel="GlobusTerrain.ts:489" />
 
 _Inherited from `GlobusTerrain#_createHeights`_
 
@@ -165,7 +214,7 @@ Converts loaded data to segment elevation data type(column major elevation data 
 
 <MemberHeading id="applyelevationsdata" depth="3" name="_applyElevationsData" sig="_applyElevationsData()" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L502" sourceLabel="GlobusTerrain.ts:502" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L512" sourceLabel="GlobusTerrain.ts:512" />
 
 _Inherited from `GlobusTerrain#_applyElevationsData`_
 

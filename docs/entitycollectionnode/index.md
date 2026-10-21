@@ -6,7 +6,7 @@ longname: EntityCollectionNode
 
 # EntityCollectionNode
 
-<SourceLink href="/source/quadtree/entitycollectionnode-ts/#L20" label="EntityCollectionNode.ts:20" />
+<SourceLink href="/source/quadtree/entitycollectionnode-ts/#L22" label="EntityCollectionNode.ts:22" />
 
 ---
 

@@ -92,9 +92,20 @@ Starts to load segment elevation data.
 - `segment` ([Segment](/segment)) — Segment that requests terrain data.
 - `forceLoading` (boolean, optional, default: false) — Forces loading even if default filter would skip it.
 
+<MemberHeading id="onterrainloaded" depth="3" name="_onTerrainLoaded" sig="_onTerrainLoaded(segment: Segment, data: any)" />
+
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L410" sourceLabel="GlobusTerrain.ts:410" />
+
+Converts loaded segment data to elevations and applies them.
+
+**Parameters**
+
+- `segment` ([Segment](/segment)) — Segment that requested terrain data.
+- `data` (any) — Loaded data.
+
 <MemberHeading id="createurl" depth="3" name="_createUrl" sig="_createUrl(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L444" sourceLabel="GlobusTerrain.ts:444" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L454" sourceLabel="GlobusTerrain.ts:454" />
 
 Creates default query url string.
 
@@ -108,7 +119,7 @@ Creates default query url string.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L454" sourceLabel="GlobusTerrain.ts:454" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L464" sourceLabel="GlobusTerrain.ts:464" />
 
 Returns actual url query string.
 
@@ -122,7 +133,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L470" sourceLabel="GlobusTerrain.ts:470" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L480" sourceLabel="GlobusTerrain.ts:480" />
 
 **Overrides:&#x20;**`EmptyTerrain#setUrlRewriteCallback`
 
@@ -134,7 +145,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="createheights" depth="3" name="_createHeights" sig="_createHeights(): Array.<number> | TypedArray" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L479" sourceLabel="GlobusTerrain.ts:479" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L489" sourceLabel="GlobusTerrain.ts:489" />
 
 Converts loaded data to segment elevation data type(column major elevation data array in meters)
 
@@ -144,7 +155,7 @@ Converts loaded data to segment elevation data type(column major elevation data 
 
 <MemberHeading id="applyelevationsdata" depth="3" name="_applyElevationsData" sig="_applyElevationsData()" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L502" sourceLabel="GlobusTerrain.ts:502" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L512" sourceLabel="GlobusTerrain.ts:512" />
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 

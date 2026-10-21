@@ -23,30 +23,30 @@ MultiGeoTIFFReader manages multiple Cloud-Optimized GeoTIFF (COG) sources, enabl
 
 <MemberHeading id="init" depth="3" name="init" sig="init()" />
 
-<MemberMeta badges="async" sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L54" sourceLabel="MultiGeoTIFFReader.ts:54" />
+<MemberMeta badges="async" sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L56" sourceLabel="MultiGeoTIFFReader.ts:56" />
 
 Initializes all GeoTIFF sources and builds unified extent and band mappings.
 
 <MemberHeading id="unionnativebbox" depth="3" name="_unionNativeBBox" sig="_unionNativeBBox()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L213" sourceLabel="MultiGeoTIFFReader.ts:213" />
+<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L218" sourceLabel="MultiGeoTIFFReader.ts:218" />
 
 Union of the native bounding boxes of all sources, valid only when they share a CRS.
 
 <MemberHeading id="setrenderoptions" depth="3" name="setRenderOptions" sig="setRenderOptions()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L237" sourceLabel="MultiGeoTIFFReader.ts:237" />
+<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L242" sourceLabel="MultiGeoTIFFReader.ts:242" />
 
 Applies rendering options to this reader and to every child reader.
 
 <MemberHeading id="readtilerasters" depth="3" name="readTileRasters" sig="readTileRasters()" />
 
-<MemberMeta badges="async" sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L253" sourceLabel="MultiGeoTIFFReader.ts:253" />
+<MemberMeta badges="async" sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L258" sourceLabel="MultiGeoTIFFReader.ts:258" />
 
 Reads rasters for a tile from the underlying GeoTIFF sources.
 
 <MemberHeading id="destroy" depth="3" name="destroy" sig="destroy()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L470" sourceLabel="MultiGeoTIFFReader.ts:470" />
+<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L475" sourceLabel="MultiGeoTIFFReader.ts:475" />
 
 Cleans up child readers and shared worker pool.
