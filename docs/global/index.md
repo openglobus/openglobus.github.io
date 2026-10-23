@@ -1073,61 +1073,58 @@ Converts geodetic coordinate array to mercator coordinate array.
 
 Registers the CRS in `proj4`, taking its definition from epsg.io. Returns whether the projection became available, i.e. whether the data in that CRS is worth reading again.
 
-<MemberHeading
-  id="packrgbheightsparams"
-  depth="3"
-  name="packRgbHeightsParams"
-  sig="packRgbHeightsParams(
-	id: number,
-	p: IRgbHeightsParams,
-): Float64Array"
-/>
-
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L52" sourceLabel="rgbTerrainGrid.ts:52" />
-
-Packs heights parameters to the buffer for the worker message.
-
-**Parameters**
-
-- `id` (number) — Worker task id.
-- `p` (IRgbHeightsParams) — Heights parameters, parent data is sent separately.
-
-**Returns**
-
-- `Float64Array`
-
-<MemberHeading
-  id="unpackrgbheightsparams"
-  depth="3"
-  name="unpackRgbHeightsParams"
-  sig="unpackRgbHeightsParams(
-	params: Float64Array,
-	parentData: Float32Array | null,
-): Array"
-/>
-
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L83" sourceLabel="rgbTerrainGrid.ts:83" />
-
-Unpacks heights parameters from the worker message buffer.
-
-**Parameters**
-
-- `params` (Float64Array) — Packed parameters.
-- `parentData` (Float32Array | null) — Parent segment elevations.
-
-**Returns**
-
-- `Array`
-
 <MemberHeading id="getgridcells" depth="3" name="getGridCells" sig="getGridCells(size: number): number" />
 
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L115" sourceLabel="rgbTerrainGrid.ts:115" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L42" sourceLabel="terrainUtils.ts:42" />
 
-Returns vertex grid cells for the image size, 2^n and (2^n + 1) sizes only.
+Returns pixel grid cells for the image size, 2^n and (2^n + 1) sizes only.
 
 **Parameters**
 
 - `size` (number) — Image size.
+
+**Returns**
+
+- `number`
+
+<MemberHeading id="getvertexgridcells" depth="3" name="getVertexGridCells" sig="getVertexGridCells(size: number): number" />
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L52" sourceLabel="terrainUtils.ts:52" />
+
+Returns vertex grid cells for the image size. 2^n images have vertices at the pixel centers and corners, (2^n + 1) images are the grid itself.
+
+**Parameters**
+
+- `size` (number) — Image size.
+
+**Returns**
+
+- `number`
+
+<MemberHeading
+  id="getsubdivisionlevels"
+  depth="3"
+  name="getSubdivisionLevels"
+  sig="getSubdivisionLevels(
+	size: number,
+	gridSize: number,
+	tileZoom: number,
+	maxZoom: number,
+	maxNativeZoom: number,
+): number"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L67" sourceLabel="terrainUtils.ts:67" />
+
+Returns subdivision levels of the image tile. Native zoom levels are not finer than the image pixels, finer data comes with their own tiles. Levels above the native zooms go down to the vertex grid.
+
+**Parameters**
+
+- `size` (number) — Image size.
+- `gridSize` (number) — Tile grid size.
+- `tileZoom` (number) — Image tile zoom.
+- `maxZoom` (number) — Maximal terrain zoom.
+- `maxNativeZoom` (number) — Maximal zoom of the terrain tiles.
 
 **Returns**
 
@@ -1148,7 +1145,7 @@ Returns vertex grid cells for the image size, 2^n and (2^n + 1) sizes only.
 )"
 />
 
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L167" sourceLabel="rgbTerrainGrid.ts:167" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L136" sourceLabel="terrainUtils.ts:136" />
 
 Decodes "rgb" or "terrarium" encoded pixel row heights.
 
@@ -1162,36 +1159,151 @@ Decodes "rgb" or "terrarium" encoded pixel row heights.
 - `outHeights` (Float32Array) — Row heights.
 - `noDataHeight` (number) — Height for no data pixels.
 
+<MemberHeading id="getedgeheight" depth="3" name="getEdgeHeight" sig="getEdgeHeight(p0: number, p1: number, p2: number): number" />
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L197" sourceLabel="terrainUtils.ts:197" />
+
+Returns the height at the tile edge, extrapolated from the edge pixel p0 inwards through p1 and p2. The slope is limited (minmod), so peaks, pits and slope breaks at the edge are not overshot.
+
+**Parameters**
+
+- `p0` (number) — Edge pixel height.
+- `p1` (number) — Next pixel height.
+- `p2` (number) — Pixel height after the next.
+
+**Returns**
+
+- `number`
+
+<MemberHeading
+  id="getgroundheight"
+  depth="3"
+  name="getGroundHeight"
+  sig="getGroundHeight(
+	x: number,
+	y: number,
+	extent: Extent,
+	heights: Array.<number> | TypedArray,
+): number"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L211" sourceLabel="terrainUtils.ts:211" />
+
+Returns the ground height at the point of the tile heights grid, on the grid triangles as they are rendered.
+
+**Parameters**
+
+- `x` (number) — Point x in the tile extent projection.
+- `y` (number) — Point y in the tile extent projection.
+- `extent` ([Extent](/extent)) — Tile extent.
+- `heights` (Array.\<number> | TypedArray) — Tile heights grid, rows from north to south.
+
+**Returns**
+
+- `number`
+
+<MemberHeading id="interpolaterow" depth="3" name="interpolateRow" sig="interpolateRow()" />
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L241" sourceLabel="terrainUtils.ts:241" />
+
+Writes the pixel row heights at the vertex columns: the edges, the pixel corners and, with half pixel steps, the pixel centers.
+
 <MemberHeading
   id="createvertexgrid"
   depth="3"
   name="createVertexGrid"
   sig="createVertexGrid(
+	pixels: Float32Array,
 	size: number,
-	decodeRow: DecodeHeightsRowFunc,
 	noDataHeight: number,
+	pixelCenters?: boolean,
 ): Float32Array"
 />
 
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L227" sourceLabel="rgbTerrainGrid.ts:227" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L277" sourceLabel="terrainUtils.ts:277" />
 
-Converts size x size pixel heights to (size + 1) x (size + 1) vertex grid in pixel corners.
+Converts size x size pixel heights to the vertex grid in the pixel corners, (size + 1) x (size + 1), or in the pixel centers and corners, (2 \* size + 1) x (2 \* size + 1). Pixel center vertices keep the pixel heights.
 
 **Parameters**
 
+- `pixels` (Float32Array) — Pixel heights, NaN for no data.
 - `size` (number) — Image size.
-- `decodeRow` (DecodeHeightsRowFunc) — Decodes pixel row heights, NaN for no data.
 - `noDataHeight` (number) — Height for vertices without data around.
+- `pixelCenters` (boolean, optional, default: true) — Vertices at the pixel centers too.
 
 **Returns**
 
 - `Float32Array`
 
+<MemberHeading id="compareneighbours" depth="3" name="compareNeighbours" sig="compareNeighbours()" />
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L282" sourceLabel="terrainUtils.ts:282" />
+
+Marks pixels a and b with the neighbour higher or lower flags, NaN pixels are not compared.
+
+<MemberHeading
+  id="findpeaks"
+  depth="3"
+  name="findPeaks"
+  sig="findPeaks(
+	pixels: Float32Array,
+	size: number,
+	offset: number,
+	scale: number,
+): IGridPeaks"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L397" sourceLabel="terrainUtils.ts:397" />
+
+Finds the pixels that are not lower (peaks) or not higher (pits) than the pixels around, and differ from at least one of them.
+
+**Parameters**
+
+- `pixels` (Float32Array) — Pixel heights, NaN for no data.
+- `size` (number) — Image size.
+- `offset` (number) — Pixel p is at (p + offset) \* scale vertex of the grid.
+- `scale` (number) — Grid vertices by pixel.
+
+**Returns**
+
+- `IGridPeaks`
+
 <MemberHeading id="samplesubgrid" depth="3" name="sampleSubGrid" sig="sampleSubGrid()" />
 
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L328" sourceLabel="rgbTerrainGrid.ts:328" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L463" sourceLabel="terrainUtils.ts:463" />
 
 Takes (gridSize + 1) x (gridSize + 1) vertices of the cells x cells square starting at the row0, col0 vertex of the (size + 1) x (size + 1) grid. Cells must be gridSize multiplied by a power of two.
+
+With peaks, peaks and pits are moved to the nearest inner vertices, slopes and edge vertices stay sampled.
+
+<MemberHeading
+  id="getmeshheights"
+  depth="3"
+  name="getMeshHeights"
+  sig="getMeshHeights(
+	elevations: Float32Array,
+	fileGridSize: number,
+	gridSize: number,
+	noDataHeight: number,
+	out?: Float32Array,
+): Float32Array"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L593" sourceLabel="terrainUtils.ts:593" />
+
+Returns (gridSize + 1) x (gridSize + 1) mesh heights of (fileGridSize + 1) x (fileGridSize + 1) elevations, their peaks and pits are moved to the nearest mesh vertices.
+
+**Parameters**
+
+- `elevations` (Float32Array) — Elevations grid, rows from north to south.
+- `fileGridSize` (number) — Elevations grid size.
+- `gridSize` (number) — Mesh grid size, fileGridSize divided by a power of two.
+- `noDataHeight` (number) — Height of no data elevations.
+- `out` (Float32Array, optional) — Mesh heights.
+
+**Returns**
+
+- `Float32Array`
 
 <MemberHeading
   id="createheightslevels"
@@ -1206,9 +1318,9 @@ Takes (gridSize + 1) x (gridSize + 1) vertices of the cells x cells square start
 ): Float32Array"
 />
 
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L363" sourceLabel="rgbTerrainGrid.ts:363" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L625" sourceLabel="terrainUtils.ts:625" />
 
-Creates the tile heights grid and its subdivision levels, each tile is (gridSize + 1) x (gridSize + 1). Output order is the tile itself, then 2x2 tiles of the first level, 4x4 of the second and so on, row by row.
+Creates the tile heights grid and its subdivision levels, each tile is (gridSize + 1) x (gridSize + 1). Output order is the tile itself, then 2x2 tiles of the first level, 4x4 of the second and so on, row by row. Peaks and pits of the pixels stay in all the levels.
 
 **Parameters**
 
@@ -1239,6 +1351,52 @@ Stacking that runs the length of a side.
 <MemberMeta sourceHref="/source/ui/dock-ts/#L59" sourceLabel="Dock.ts:59" />
 
 Stacking that cuts a side across, so its dialogs divide its thickness.
+
+<MemberHeading
+  id="packrgbheightsparams"
+  depth="3"
+  name="packRgbHeightsParams"
+  sig="packRgbHeightsParams(
+	id: number,
+	p: IRgbHeightsParams,
+): Float64Array"
+/>
+
+<MemberMeta sourceHref="/source/utils/rgbterrainworkerparams-ts/#L24" sourceLabel="RgbTerrainWorkerParams.ts:24" />
+
+Packs height parameters to the buffer for the worker message.
+
+**Parameters**
+
+- `id` (number) — Worker task id.
+- `p` (IRgbHeightsParams) — Heights parameters, parent data is sent separately.
+
+**Returns**
+
+- `Float64Array`
+
+<MemberHeading
+  id="unpackrgbheightsparams"
+  depth="3"
+  name="unpackRgbHeightsParams"
+  sig="unpackRgbHeightsParams(
+	params: Float64Array,
+	parentData: Float32Array | null,
+): Array"
+/>
+
+<MemberMeta sourceHref="/source/utils/rgbterrainworkerparams-ts/#L55" sourceLabel="RgbTerrainWorkerParams.ts:55" />
+
+Unpacks height parameters from the worker message buffer.
+
+**Parameters**
+
+- `params` (Float64Array) — Packed parameters.
+- `parentData` (Float32Array | null) — Parent segment elevations.
+
+**Returns**
+
+- `Array`
 
 <MemberHeading id="tokeyfield" depth="3" name="toKeyField" sig="toKeyField()" />
 
@@ -2137,11 +2295,17 @@ Maximum created nodes count. The more nodes count the more memory usage. When th
 
 **Default:** `400`
 
-<MemberHeading id="paramsid" depth="3" name="PARAMS_ID" sig="PARAMS_ID" />
+<MemberHeading id="terraingridsizebyzoom" depth="3" name="TERRAIN_GRID_SIZE_BY_ZOOM" sig="TERRAIN_GRID_SIZE_BY_ZOOM" />
 
-<MemberMeta sourceHref="/source/terrain/rgbterraingrid-ts/#L21" sourceLabel="rgbTerrainGrid.ts:21" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L24" sourceLabel="terrainUtils.ts:24" />
 
-Writes a row of pixel heights, NaN for no data pixels.
+Segment grid sizes by zoom of the elevation terrains.
+
+<MemberHeading id="higheraround" depth="3" name="HIGHER_AROUND" sig="HIGHER_AROUND" />
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L277" sourceLabel="terrainUtils.ts:277" />
+
+Peak and pit pixels, and their place in the vertex grid.
 
 <MemberHeading id="defaultwidth" depth="3" name="DEFAULT_WIDTH" sig="DEFAULT_WIDTH" />
 

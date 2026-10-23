@@ -9,7 +9,7 @@ description: Class that loads segment elevation data, converts it to the array a
 
 **Extends:&#x20;**[`EmptyTerrain`](/emptyterrain)
 
-<SourceLink href="/source/terrain/globusterrain-ts/#L58" label="GlobusTerrain.ts:58" />
+<SourceLink href="/source/terrain/globusterrain-ts/#L57" label="GlobusTerrain.ts:57" />
 
 Class that loads segment elevation data, converts it to the array and passes it to the planet segment.
 
@@ -48,13 +48,13 @@ Class that loads segment elevation data, converts it to the array and passes it 
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L326" sourceLabel="GlobusTerrain.ts:326" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L273" sourceLabel="GlobusTerrain.ts:273" />
 
 Stop loading.
 
 <MemberHeading id="seturl" depth="3" name="setUrl" sig="setUrl(url: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L337" sourceLabel="GlobusTerrain.ts:337" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L284" sourceLabel="GlobusTerrain.ts:284" />
 
 Sets terrain data url template.
 
@@ -73,7 +73,7 @@ Default openglobus url template:
 
 <MemberHeading id="setname" depth="3" name="setName" sig="setName(name: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L346" sourceLabel="GlobusTerrain.ts:346" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L293" sourceLabel="GlobusTerrain.ts:293" />
 
 Sets provider name.
 
@@ -83,7 +83,7 @@ Sets provider name.
 
 <MemberHeading id="loadterrain" depth="3" name="loadTerrain" sig="loadTerrain(segment: Segment, forceLoading?: boolean)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L360" sourceLabel="GlobusTerrain.ts:360" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L307" sourceLabel="GlobusTerrain.ts:307" />
 
 Starts to load segment elevation data.
 
@@ -94,7 +94,7 @@ Starts to load segment elevation data.
 
 <MemberHeading id="onterrainloaded" depth="3" name="_onTerrainLoaded" sig="_onTerrainLoaded(segment: Segment, data: any)" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L410" sourceLabel="GlobusTerrain.ts:410" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L357" sourceLabel="GlobusTerrain.ts:357" />
 
 Converts loaded segment data to elevations and applies them.
 
@@ -105,7 +105,7 @@ Converts loaded segment data to elevations and applies them.
 
 <MemberHeading id="createurl" depth="3" name="_createUrl" sig="_createUrl(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L454" sourceLabel="GlobusTerrain.ts:454" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L401" sourceLabel="GlobusTerrain.ts:401" />
 
 Creates default query url string.
 
@@ -119,7 +119,7 @@ Creates default query url string.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L464" sourceLabel="GlobusTerrain.ts:464" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L411" sourceLabel="GlobusTerrain.ts:411" />
 
 Returns actual url query string.
 
@@ -133,7 +133,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L480" sourceLabel="GlobusTerrain.ts:480" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L427" sourceLabel="GlobusTerrain.ts:427" />
 
 **Overrides:&#x20;**`EmptyTerrain#setUrlRewriteCallback`
 
@@ -141,13 +141,13 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 **Parameters**
 
-- `ur` (UrlRewriteFunc) — The callback that returns tile custom created url.
+- `ur` (UrlRewriteFunc) — The callback that returns tile custom-created url.
 
 <MemberHeading id="createheights" depth="3" name="_createHeights" sig="_createHeights(): Array.<number> | TypedArray" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L489" sourceLabel="GlobusTerrain.ts:489" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L436" sourceLabel="GlobusTerrain.ts:436" />
 
-Converts loaded data to segment elevation data type(column major elevation data array in meters)
+Converts loaded data to segment elevation data type (column major elevation data array in meters)
 
 **Returns**
 
@@ -155,7 +155,7 @@ Converts loaded data to segment elevation data type(column major elevation data 
 
 <MemberHeading id="applyelevationsdata" depth="3" name="_applyElevationsData" sig="_applyElevationsData()" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L512" sourceLabel="GlobusTerrain.ts:512" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L459" sourceLabel="GlobusTerrain.ts:459" />
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
