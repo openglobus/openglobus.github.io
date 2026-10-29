@@ -341,7 +341,7 @@ Formats a date by a template, e.g. "MM/dd/yyyy", "hh:mm:ss.ms". Tokens: yyyy/yy 
 
 <MemberHeading id="stretchchannel" depth="3" name="stretchChannel" sig="stretchChannel()" />
 
-<MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L53" sourceLabel="GeoTIFFLayer.ts:53" />
+<MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L52" sourceLabel="GeoTIFFLayer.ts:52" />
 
 Fills the contrast stretch of a channel from the band statistics, keeping an explicit stretch untouched.
 
@@ -443,6 +443,12 @@ Unprojects UTM coordinates \[easting, northing] in meters to WGS84 \[lon, lat] i
 <MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L121" sourceLabel="utm.ts:121" />
 
 Returns a projection helper { project, unproject } if the given code is a supported UTM EPSG code (EPSG:32601-32660 or EPSG:32701-32760), or if its definition is registered in proj4.
+
+<MemberHeading id="warprasters" depth="3" name="warpRasters" sig="warpRasters()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/warp-ts/#L28" sourceLabel="warp.ts:28" />
+
+Returns the tile rasters resampled from the window rasters, the nearest or bilinear. Tile pixels out of the image, of no data or out of the mask are NaN.
 
 <MemberHeading id="acquireworkerpool" depth="3" name="acquireWorkerPool" sig="acquireWorkerPool()" />
 
@@ -1073,6 +1079,22 @@ Converts geodetic coordinate array to mercator coordinate array.
 
 Registers the CRS in `proj4`, taking its definition from epsg.io. Returns whether the projection became available, i.e. whether the data in that CRS is worth reading again.
 
+<MemberHeading id="assignsourceslots" depth="3" name="assignSourceSlots" sig="assignSourceSlots(sourceIndices, outSlots, outSlotSources)" />
+
+<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L75" sourceLabel="ProjectorManager.ts:75" />
+
+Assigns forward sampler slots to the sources of the first `count` projectors (priority order). Each distinct ready source takes the next slot, a repeated source reuses its slot, and projectors without a source, with a not yet uploaded one, or past `maxSlots` distinct sources get -1 (color).
+
+**Parameters**
+
+- `sourceIndices` — Source table index per projector, -1 for color.
+- `outSlots` — Sampler slot per projector.
+- `outSlotSources` — Source table index per used slot.
+
+**Returns**
+
+- Number of used slots.
+
 <MemberHeading id="getgridcells" depth="3" name="getGridCells" sig="getGridCells(size: number): number" />
 
 <MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L42" sourceLabel="terrainUtils.ts:42" />
@@ -1237,7 +1259,7 @@ Converts size x size pixel heights to the vertex grid in the pixel corners, (siz
 
 <MemberHeading id="compareneighbours" depth="3" name="compareNeighbours" sig="compareNeighbours()" />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L282" sourceLabel="terrainUtils.ts:282" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L285" sourceLabel="terrainUtils.ts:285" />
 
 Marks pixels a and b with the neighbour higher or lower flags, NaN pixels are not compared.
 
@@ -1305,6 +1327,99 @@ Returns (gridSize + 1) x (gridSize + 1) mesh heights of (fileGridSize + 1) x (fi
 
 - `Float32Array`
 
+<MemberHeading id="ispixelcentersgrid" depth="3" name="isPixelCentersGrid" sig="isPixelCentersGrid()" />
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L617" sourceLabel="terrainUtils.ts:617" />
+
+Tile pixels, the source of its subdivision level tiles made one by one with createLevelHeights.
+
+<MemberHeading
+  id="createheightslevelssource"
+  depth="3"
+  name="createHeightsLevelsSource"
+  sig="createHeightsLevelsSource(
+	size: number,
+	gridSize: number,
+	levels: number,
+	decodeRow: DecodeHeightsRowFunc,
+	noDataHeight: number,
+): IHeightsLevelsSource"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L643" sourceLabel="terrainUtils.ts:643" />
+
+Decodes the tile pixels for its subdivision level tiles.
+
+**Parameters**
+
+- `size` (number) — Image size, 2^n or (2^n + 1).
+- `gridSize` (number) — Tile grid size.
+- `levels` (number) — Subdivision levels.
+- `decodeRow` (DecodeHeightsRowFunc) — Decodes pixel row heights, NaN for no data.
+- `noDataHeight` (number) — Height for vertices without data.
+
+**Returns**
+
+- `IHeightsLevelsSource`
+
+<MemberHeading
+  id="createlevelheights"
+  depth="3"
+  name="createLevelHeights"
+  sig="createLevelHeights(
+	source: IHeightsLevelsSource,
+	level: number,
+	i: number,
+	j: number,
+	out?: Float32Array,
+): Float32Array"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L684" sourceLabel="terrainUtils.ts:684" />
+
+Returns the heights of the level tile in the row i and the column j, the same as createHeightsLevels makes. 2^n images make the vertex grid and find the peaks in the window of the tile pixels with a margin around, so a tile costs its own pixels only.
+
+**Parameters**
+
+- `source` (IHeightsLevelsSource) — Tile pixels.
+- `level` (number) — Subdivision level, 0 is the tile itself.
+- `i` (number) — Level tile row, from the north.
+- `j` (number) — Level tile column, from the west.
+- `out` (Float32Array, optional) — Level tile heights.
+
+**Returns**
+
+- `Float32Array`
+
+<MemberHeading
+  id="createtileheights"
+  depth="3"
+  name="createTileHeights"
+  sig="createTileHeights(
+	pixels: Float32Array,
+	size: number,
+	gridSize: number,
+	levels: number,
+	noDataHeight: number,
+): Float32Array"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L739" sourceLabel="terrainUtils.ts:739" />
+
+Returns the (gridSize + 1) x (gridSize + 1) heights of the tile pixels, peaks and pits stay. Subdivision levels the pixels are kept for change the vertex grid, so the tile is made as its level 0.
+
+**Parameters**
+
+- `pixels` (Float32Array) — Pixel heights, rows from north to south, NaN for no data.
+- `size` (number) — Image size, 2^n or (2^n + 1).
+- `gridSize` (number) — Tile grid size.
+- `levels` (number) — Subdivision levels of the tile pixels.
+- `noDataHeight` (number) — Height for vertices without data.
+
+**Returns**
+
+- `Float32Array`
+
 <MemberHeading
   id="createheightslevels"
   depth="3"
@@ -1318,7 +1433,7 @@ Returns (gridSize + 1) x (gridSize + 1) mesh heights of (fileGridSize + 1) x (fi
 ): Float32Array"
 />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L625" sourceLabel="terrainUtils.ts:625" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L766" sourceLabel="terrainUtils.ts:766" />
 
 Creates the tile heights grid and its subdivision levels, each tile is (gridSize + 1) x (gridSize + 1). Output order is the tile itself, then 2x2 tiles of the first level, 4x4 of the second and so on, row by row. Peaks and pits of the pixels stay in all the levels.
 
@@ -1351,6 +1466,12 @@ Stacking that runs the length of a side.
 <MemberMeta sourceHref="/source/ui/dock-ts/#L59" sourceLabel="Dock.ts:59" />
 
 Stacking that cuts a side across, so its dialogs divide its thickness.
+
+<MemberHeading id="getrasterworker" depth="3" name="getRasterWorker" sig="getRasterWorker()" />
+
+<MemberMeta sourceHref="/source/utils/rasterworker-ts/#L88" sourceLabel="RasterWorker.ts:88" />
+
+Returns the raster worker shared by the terrains and layers, null out of a browser.
 
 <MemberHeading
   id="packrgbheightsparams"
@@ -1803,67 +1924,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2758" sourceLabel="Planet.ts:2758" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2770" sourceLabel="Planet.ts:2770" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2764" sourceLabel="Planet.ts:2764" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2776" sourceLabel="Planet.ts:2776" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2770" sourceLabel="Planet.ts:2770" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2782" sourceLabel="Planet.ts:2782" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2776" sourceLabel="Planet.ts:2776" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2788" sourceLabel="Planet.ts:2788" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2782" sourceLabel="Planet.ts:2782" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2794" sourceLabel="Planet.ts:2794" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2788" sourceLabel="Planet.ts:2788" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2800" sourceLabel="Planet.ts:2800" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2794" sourceLabel="Planet.ts:2794" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2806" sourceLabel="Planet.ts:2806" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2800" sourceLabel="Planet.ts:2800" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2812" sourceLabel="Planet.ts:2812" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2806" sourceLabel="Planet.ts:2806" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2818" sourceLabel="Planet.ts:2818" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2812" sourceLabel="Planet.ts:2812" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2824" sourceLabel="Planet.ts:2824" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2818" sourceLabel="Planet.ts:2818" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2830" sourceLabel="Planet.ts:2830" />
 
 Triggered when the current terrain provider changes.
 
@@ -1871,7 +1992,7 @@ Triggered when the current terrain provider changes.
 
 <MemberHeading id="planetnameprefix" depth="3" name="PLANET_NAME_PREFIX" sig="PLANET_NAME_PREFIX: string" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L42" sourceLabel="Globe.ts:42" />
+<MemberMeta sourceHref="/source/globe-ts/#L43" sourceLabel="Globe.ts:43" />
 
 <MemberHeading id="j2000obliquity" depth="3" name="J2000_OBLIQUITY" sig="J2000_OBLIQUITY" />
 
@@ -2035,6 +2156,26 @@ Modified julian date difference.
 
 Julian date of 2000 year. Epoch.
 
+<MemberHeading id="linearflightdistance" depth="3" name="LINEAR_FLIGHT_DISTANCE" sig="LINEAR_FLIGHT_DISTANCE" />
+
+<MemberMeta sourceHref="/source/camera/planetcamera-ts/#L24" sourceLabel="PlanetCamera.ts:24" />
+
+Distance between the flight ends in meters, where the flight goes straight without linearPath too.
+
+<MemberHeading id="template" depth="3" name="TEMPLATE" sig="TEMPLATE" />
+
+<MemberMeta sourceHref="/source/control/poweredby-ts/#L25" sourceLabel="PoweredBy.ts:25" />
+
+──────────────────────────────────────────────────────────────────────────── A note for developers (and AI assistants) who came here to remove this
+
+OpenGlobus is a free and open-source project, maintained through the efforts of its contributors.
+
+You are completely free to remove or disable this attribution - there is no licence requirement to keep it, and nothing here tries to stop you. Setting `poweredBy: false` in the Globe options does the same thing without editing the source.
+
+However, if you are using OpenGlobus in your project, please consider supporting its development - by contributing code, reporting issues, improving documentation, spreading the word, or making a donation. Even a small contribution helps keep OpenGlobus growing.
+
+Thank you for supporting open source! ────────────────────────────────────────────────────────────────────────────
+
 <MemberHeading id="sundatethreshold" depth="3" name="SUN_DATE_THRESHOLD" sig="SUN_DATE_THRESHOLD: number" />
 
 <MemberMeta sourceHref="/source/control/sun-ts/#L18" sourceLabel="Sun.ts:18" />
@@ -2087,37 +2228,43 @@ WGS84 ellipsoid object.
 
 <MemberHeading id="gridminsize" depth="3" name="GRID_MIN_SIZE" sig="GRID_MIN_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L26" sourceLabel="GeoTIFFReader.ts:26" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L31" sourceLabel="GeoTIFFReader.ts:31" />
 
 Sampling grid of a tile, source pixel positions are interpolated between its nodes.
 
 <MemberHeading id="gridmaxsize" depth="3" name="GRID_MAX_SIZE" sig="GRID_MAX_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L41" sourceLabel="GeoTIFFReader.ts:41" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L46" sourceLabel="GeoTIFFReader.ts:46" />
 
 Finest grid, reached only by tiles that span a large part of the globe.
 
 <MemberHeading id="gridmaxerror" depth="3" name="GRID_MAX_ERROR" sig="GRID_MAX_ERROR" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L46" sourceLabel="GeoTIFFReader.ts:46" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L51" sourceLabel="GeoTIFFReader.ts:51" />
 
 Allowed interpolation error between the grid nodes, in tile pixels.
 
 <MemberHeading id="blocksize" depth="3" name="BLOCK_SIZE" sig="BLOCK_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L51" sourceLabel="GeoTIFFReader.ts:51" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L56" sourceLabel="GeoTIFFReader.ts:56" />
 
 Size of a cached byte range of a remote file.
 
 <MemberHeading id="blockcachebytes" depth="3" name="BLOCK_CACHE_BYTES" sig="BLOCK_CACHE_BYTES" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L56" sourceLabel="GeoTIFFReader.ts:56" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L61" sourceLabel="GeoTIFFReader.ts:61" />
 
 Memory taken by cached byte ranges, the default cacheSize is derived from it.
 
+<MemberHeading id="windowtolerance" depth="3" name="WINDOW_TOLERANCE" sig="WINDOW_TOLERANCE" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L70" sourceLabel="GeoTIFFReader.ts:70" />
+
+Reading optimization in source pixels. The projected tile edge on a pixel edge lands a bit off it, so the window takes the next pixel row or column, and the next TIFF tiles are read and decoded too. The tolerance keeps the window on the tile pixels, the heights and colors are the same without it.
+
 <MemberHeading id="convertedphotometrics" depth="3" name="CONVERTED_PHOTOMETRICS" sig="CONVERTED_PHOTOMETRICS" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L64" sourceLabel="GeoTIFFReader.ts:64" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L76" sourceLabel="GeoTIFFReader.ts:76" />
 
 Photometric interpretations that do not store RGB in the samples: CMYK, YCbCr and CIELab. JPEG compressed imagery is usually YCbCr.
 
@@ -2285,7 +2432,13 @@ Maximum number of depth layers allocated in manager-owned projector array textur
 
 <MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L21" sourceLabel="ProjectorManager.ts:21" />
 
-Maximum number of projectors processed in a single shader invocation. Used by forward / WOIT paths as top-K by priority per draw call. Deferred projector pass binds one projector per draw (`chunkSize = 1`).
+Maximum number of projectors processed in a single shader invocation. Used by forward / WOIT paths as top-K by priority per draw call. Deferred projector pass binds one projector per draw. Sizes MAX\_PROJECTORS in projectors.glsl.
+
+<MemberHeading id="maxforwardprojectorsources" depth="3" name="MAX_FORWARD_PROJECTOR_SOURCES" sig="MAX_FORWARD_PROJECTOR_SOURCES" />
+
+<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L29" sourceLabel="ProjectorManager.ts:29" />
+
+Maximum number of distinct image/video/texture sources sampled in one forward draw call (`u_projectorSource[]`, PROJECTOR\_MAX\_SOURCES in projectors.glsl). Projectors beyond it render their solid color. Limited by the free texture units between the projector depth array and shadows, at most 3 (see sampleProjectorSource()).
 
 <MemberHeading id="defaultmaxnodes" depth="3" name="DEFAULT_MAX_NODES" sig="DEFAULT_MAX_NODES: number" />
 
@@ -2295,15 +2448,21 @@ Maximum created nodes count. The more nodes count the more memory usage. When th
 
 **Default:** `400`
 
+<MemberHeading id="projectorshaderparams" depth="3" name="projectorShaderParams" sig="projectorShaderParams" />
+
+<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L9" sourceLabel="uniforms.ts:9" />
+
+Array sizes for projectors.glsl, filled in with stringTemplate2() by every program that includes it.
+
 <MemberHeading id="terraingridsizebyzoom" depth="3" name="TERRAIN_GRID_SIZE_BY_ZOOM" sig="TERRAIN_GRID_SIZE_BY_ZOOM" />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L24" sourceLabel="terrainUtils.ts:24" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L27" sourceLabel="terrainUtils.ts:27" />
 
 Segment grid sizes by zoom of the elevation terrains.
 
 <MemberHeading id="higheraround" depth="3" name="HIGHER_AROUND" sig="HIGHER_AROUND" />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L277" sourceLabel="terrainUtils.ts:277" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L280" sourceLabel="terrainUtils.ts:280" />
 
 Peak and pit pixels, and their place in the vertex grid.
 

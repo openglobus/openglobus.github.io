@@ -269,11 +269,11 @@ Keep plain elevation segment for rendering
 
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1391" sourceLabel="Segment.ts:1391" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1422" sourceLabel="Segment.ts:1422" />
 
 <MemberHeading id="getmaterialbylayer" depth="3" name="getMaterialByLayer" sig="getMaterialByLayer(layer: Layer): Material | undefined" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1815" sourceLabel="Segment.ts:1815" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1846" sourceLabel="Segment.ts:1846" />
 
 Gets specific layer material.
 
@@ -296,7 +296,7 @@ Gets specific layer material.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1828" sourceLabel="Segment.ts:1828" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1859" sourceLabel="Segment.ts:1859" />
 
 Computes cyclic longitude shift for `sourceExtent` to align it with `targetExtent` in wrapped horizontal coordinate space (for example, Web Mercator world copies).
 

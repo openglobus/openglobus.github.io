@@ -48,13 +48,13 @@ Class that loads segment elevation data, converts it to the array and passes it 
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L273" sourceLabel="GlobusTerrain.ts:273" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L279" sourceLabel="GlobusTerrain.ts:279" />
 
 Stop loading.
 
 <MemberHeading id="seturl" depth="3" name="setUrl" sig="setUrl(url: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L284" sourceLabel="GlobusTerrain.ts:284" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L290" sourceLabel="GlobusTerrain.ts:290" />
 
 Sets terrain data url template.
 
@@ -73,7 +73,7 @@ Default openglobus url template:
 
 <MemberHeading id="setname" depth="3" name="setName" sig="setName(name: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L293" sourceLabel="GlobusTerrain.ts:293" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L299" sourceLabel="GlobusTerrain.ts:299" />
 
 Sets provider name.
 
@@ -83,7 +83,7 @@ Sets provider name.
 
 <MemberHeading id="loadterrain" depth="3" name="loadTerrain" sig="loadTerrain(segment: Segment, forceLoading?: boolean)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L307" sourceLabel="GlobusTerrain.ts:307" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L313" sourceLabel="GlobusTerrain.ts:313" />
 
 Starts to load segment elevation data.
 
@@ -94,7 +94,7 @@ Starts to load segment elevation data.
 
 <MemberHeading id="onterrainloaded" depth="3" name="_onTerrainLoaded" sig="_onTerrainLoaded(segment: Segment, data: any)" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L357" sourceLabel="GlobusTerrain.ts:357" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L363" sourceLabel="GlobusTerrain.ts:363" />
 
 Converts loaded segment data to elevations and applies them.
 
@@ -105,7 +105,7 @@ Converts loaded segment data to elevations and applies them.
 
 <MemberHeading id="createurl" depth="3" name="_createUrl" sig="_createUrl(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L401" sourceLabel="GlobusTerrain.ts:401" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L407" sourceLabel="GlobusTerrain.ts:407" />
 
 Creates default query url string.
 
@@ -119,7 +119,7 @@ Creates default query url string.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L411" sourceLabel="GlobusTerrain.ts:411" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L417" sourceLabel="GlobusTerrain.ts:417" />
 
 Returns actual url query string.
 
@@ -133,7 +133,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L427" sourceLabel="GlobusTerrain.ts:427" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L433" sourceLabel="GlobusTerrain.ts:433" />
 
 **Overrides:&#x20;**`EmptyTerrain#setUrlRewriteCallback`
 
@@ -145,7 +145,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="createheights" depth="3" name="_createHeights" sig="_createHeights(): Array.<number> | TypedArray" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L436" sourceLabel="GlobusTerrain.ts:436" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L442" sourceLabel="GlobusTerrain.ts:442" />
 
 Converts loaded data to segment elevation data type (column major elevation data array in meters)
 
@@ -155,11 +155,11 @@ Converts loaded data to segment elevation data type (column major elevation data
 
 <MemberHeading id="applyelevationsdata" depth="3" name="_applyElevationsData" sig="_applyElevationsData()" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L459" sourceLabel="GlobusTerrain.ts:459" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L465" sourceLabel="GlobusTerrain.ts:465" />
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L217" sourceLabel="EmptyTerrain.ts:217" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L227" sourceLabel="EmptyTerrain.ts:227" />
 
 _Inherited from `EmptyTerrain#setAttribution`_
 
@@ -173,7 +173,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L229" sourceLabel="EmptyTerrain.ts:229" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
 
 _Inherited from `EmptyTerrain#getAttribution`_
 
@@ -187,7 +187,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L287" sourceLabel="EmptyTerrain.ts:287" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L297" sourceLabel="EmptyTerrain.ts:297" />
 
 _Inherited from `EmptyTerrain#handleSegmentTerrain`_
 
@@ -199,11 +199,25 @@ Loads or creates segment elevation data.
 
 - `segment` ([Segment](/segment)) — Segment to create elevation data.
 
+<MemberHeading id="getcacheinfo" depth="3" name="getCacheInfo" sig="getCacheInfo(): ITerrainCacheInfo | null" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L316" sourceLabel="EmptyTerrain.ts:316" />
+
+_Inherited from `EmptyTerrain#getCacheInfo`_
+
+**Overrides:&#x20;**`EmptyTerrain#getCacheInfo`
+
+Returns the cache state, null when the terrain has no cache.
+
+**Returns**
+
+- `ITerrainCacheInfo | null`
+
 ## Instance Fields
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L238" sourceLabel="EmptyTerrain.ts:238" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L248" sourceLabel="EmptyTerrain.ts:248" />
 
 _Inherited from `EmptyTerrain#iconSrc`_
 

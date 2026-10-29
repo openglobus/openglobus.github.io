@@ -45,19 +45,19 @@ Returns `true` when the entity is one of the gizmo handles.
 
 <MemberHeading id="istransforming" depth="3" name="isTransforming" sig="isTransforming()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L666" sourceLabel="EntityGizmoScene.ts:666" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L663" sourceLabel="EntityGizmoScene.ts:663" />
 
 Returns `true` when a drag gesture is running right now.
 
 <MemberHeading id="getactivetransform" depth="3" name="getActiveTransform" sig="getActiveTransform()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L674" sourceLabel="EntityGizmoScene.ts:674" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L671" sourceLabel="EntityGizmoScene.ts:671" />
 
 Returns the running gesture description or `null`.
 
 <MemberHeading id="canceltransform" depth="3" name="cancelTransform" sig="cancelTransform(): boolean" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L683" sourceLabel="EntityGizmoScene.ts:683" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L680" sourceLabel="EntityGizmoScene.ts:680" />
 
 Cancels the current gesture and restores the entity transform when possible.
 
@@ -67,13 +67,13 @@ Cancels the current gesture and restores the entity transform when possible.
 
 <MemberHeading id="beginchange" depth="3" name="_beginChange" sig="_beginChange()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L743" sourceLabel="EntityGizmoScene.ts:743" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L740" sourceLabel="EntityGizmoScene.ts:740" />
 
 Dispatches `transformstart` right before the very first entity change of the gesture.
 
 <MemberHeading id="applyposition" depth="3" name="_applyPosition" sig="_applyPosition(pos: Vec3)" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L974" sourceLabel="EntityGizmoScene.ts:974" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L971" sourceLabel="EntityGizmoScene.ts:971" />
 
 Applies a new absolute position to the selected entity and emits the gesture events around the change. The `position` event receives the applied `pos` and the entity.
 

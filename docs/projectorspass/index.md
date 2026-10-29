@@ -7,7 +7,7 @@ description: Deferred projector lighting pass. For every active projector draws 
 
 # ProjectorsPass
 
-<SourceLink href="/source/renderer/projectors/projectorspass-ts/#L17" label="ProjectorsPass.ts:17" />
+<SourceLink href="/source/renderer/projectors/projectorspass-ts/#L18" label="ProjectorsPass.ts:18" />
 
 Deferred projector lighting pass. For every active projector draws a fullscreen quad clipped by a per-projector screen-space. Skipped entirely when no projectors are active. Scissor gives only \~5% optimization.
 
@@ -23,7 +23,7 @@ Deferred projector lighting pass. For every active projector draws a fullscreen 
 
 <MemberHeading id="computescissor" depth="3" name="_computeScissor" sig="_computeScissor()" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectorspass-ts/#L67" sourceLabel="ProjectorsPass.ts:67" />
+<MemberMeta sourceHref="/source/renderer/projectors/projectorspass-ts/#L68" sourceLabel="ProjectorsPass.ts:68" />
 
 Compute the projector frustum screen-space AABB in pixels (origin = bottom-left). Returns:
 
@@ -34,6 +34,6 @@ If any frustum corner is behind the main camera (w\<=0), falls back to the full 
 
 <MemberHeading id="apply" depth="3" name="apply" sig="apply()" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectorspass-ts/#L156" sourceLabel="ProjectorsPass.ts:156" />
+<MemberMeta sourceHref="/source/renderer/projectors/projectorspass-ts/#L157" sourceLabel="ProjectorsPass.ts:157" />
 
 Apply per-projector additive projector color(lighting) into the currently bound framebuffer.

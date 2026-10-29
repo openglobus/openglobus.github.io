@@ -7,7 +7,7 @@ description: High-level WebGL interface that runs the WebGL handler in real time
 
 # Renderer
 
-<SourceLink href="/source/renderer/renderer-ts/#L123" label="Renderer.ts:123" />
+<SourceLink href="/source/renderer/renderer-ts/#L125" label="Renderer.ts:125" />
 
 High-level WebGL interface that runs the WebGL handler in real time.
 
@@ -63,7 +63,7 @@ High-level WebGL interface that runs the WebGL handler in real time.
 
 <MemberHeading id="settonemapping" depth="3" name="setToneMapping" sig="setToneMapping(operator: string)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L577" sourceLabel="Renderer.ts:577" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L588" sourceLabel="Renderer.ts:588" />
 
 Sets HDR tone mapping operator and recompiles tone mapping shader.
 
@@ -73,7 +73,7 @@ Sets HDR tone mapping operator and recompiles tone mapping shader.
 
 <MemberHeading id="gettonemapping" depth="3" name="getToneMapping" sig="getToneMapping(): string" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L599" sourceLabel="Renderer.ts:599" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L610" sourceLabel="Renderer.ts:610" />
 
 Returns HDR tone mapping operator.
 
@@ -83,13 +83,13 @@ Returns HDR tone mapping operator.
 
 <MemberHeading id="applydepthforcamera" depth="3" name="applyDepthForCamera" sig="applyDepthForCamera()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L622" sourceLabel="Renderer.ts:622" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L633" sourceLabel="Renderer.ts:633" />
 
 Sets depth compare and clear value for the camera (reverse-Z vs classic). Pass null to restore the classic depth state: depthFunc(LESS), clearDepth(1), and clip-control NEGATIVE\_ONE\_TO\_ONE.
 
 <MemberHeading id="seteventsactivity" depth="3" name="setEventsActivity" sig="setEventsActivity(activity: boolean)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L648" sourceLabel="Renderer.ts:648" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L659" sourceLabel="Renderer.ts:659" />
 
 Enables or disables renderer events.
 
@@ -99,7 +99,7 @@ Enables or disables renderer events.
 
 <MemberHeading id="addpickingcallback" depth="3" name="addPickingCallback" sig="addPickingCallback(sender: any, callback: function): number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L678" sourceLabel="Renderer.ts:678" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L689" sourceLabel="Renderer.ts:689" />
 
 Adds a picking render callback.
 
@@ -114,7 +114,7 @@ Adds a picking render callback.
 
 <MemberHeading id="removepickingcallback" depth="3" name="removePickingCallback" sig="removePickingCallback(id: number)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L693" sourceLabel="Renderer.ts:693" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L704" sourceLabel="Renderer.ts:704" />
 
 Removes a picking render callback.
 
@@ -124,7 +124,7 @@ Removes a picking render callback.
 
 <MemberHeading id="assignpickingcolor" depth="3" name="assignPickingColor" sig="assignPickingColor(obj: Object)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L719" sourceLabel="Renderer.ts:719" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L730" sourceLabel="Renderer.ts:730" />
 
 Assigns a picking color to an object.
 
@@ -134,7 +134,7 @@ Assigns a picking color to an object.
 
 <MemberHeading id="clearpickingcolor" depth="3" name="clearPickingColor" sig="clearPickingColor(obj: Object)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L749" sourceLabel="Renderer.ts:749" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L760" sourceLabel="Renderer.ts:760" />
 
 Removes the picking color from an object.
 
@@ -144,7 +144,7 @@ Removes the picking color from an object.
 
 <MemberHeading id="getwidth" depth="3" name="getWidth" sig="getWidth(): number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L780" sourceLabel="Renderer.ts:780" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L791" sourceLabel="Renderer.ts:791" />
 
 Returns the canvas client width.
 
@@ -154,7 +154,7 @@ Returns the canvas client width.
 
 <MemberHeading id="getheight" depth="3" name="getHeight" sig="getHeight(): number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L789" sourceLabel="Renderer.ts:789" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L800" sourceLabel="Renderer.ts:800" />
 
 Returns the canvas client height.
 
@@ -164,7 +164,7 @@ Returns the canvas client height.
 
 <MemberHeading id="getviewportcenter" depth="3" name="getViewportCenter" sig="getViewportCenter(): Vec2" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L798" sourceLabel="Renderer.ts:798" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L809" sourceLabel="Renderer.ts:809" />
 
 Returns the canvas viewport center.
 
@@ -174,7 +174,7 @@ Returns the canvas viewport center.
 
 <MemberHeading id="addcontrol" depth="3" name="addControl" sig="addControl(control: Control)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L808" sourceLabel="Renderer.ts:808" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L819" sourceLabel="Renderer.ts:819" />
 
 Adds a control to the renderer.
 
@@ -184,7 +184,7 @@ Adds a control to the renderer.
 
 <MemberHeading id="addcontrols" depth="3" name="addControls" sig="addControls(cArr: Array.<Control>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L818" sourceLabel="Renderer.ts:818" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L829" sourceLabel="Renderer.ts:829" />
 
 Adds an array of controls to the renderer.
 
@@ -194,7 +194,7 @@ Adds an array of controls to the renderer.
 
 <MemberHeading id="removecontrol" depth="3" name="removeControl" sig="removeControl(control: Control)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L829" sourceLabel="Renderer.ts:829" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L840" sourceLabel="Renderer.ts:840" />
 
 Removes a control from the renderer.
 
@@ -204,25 +204,25 @@ Removes a control from the renderer.
 
 <MemberHeading id="getinnercontainer" depth="3" name="getInnerContainer" sig="getInnerContainer()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L710" sourceLabel="Renderer.ts:710" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L716" sourceLabel="Renderer.ts:716" />
 
 The element the canvas is drawn in.
 
 <MemberHeading id="getuicontainer" depth="3" name="getUIContainer" sig="getUIContainer()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L718" sourceLabel="Renderer.ts:718" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L724" sourceLabel="Renderer.ts:724" />
 
 Where the interface goes: the container given for it, or the inner one.
 
 <MemberHeading id="initialize" depth="3" name="initialize" sig="initialize()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L891" sourceLabel="Renderer.ts:891" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L902" sourceLabel="Renderer.ts:902" />
 
 Renderer initialization.
 
 <MemberHeading id="addscene" depth="3" name="addScene" sig="addScene(scene: Scene)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1112" sourceLabel="Renderer.ts:1112" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1128" sourceLabel="Renderer.ts:1128" />
 
 Adds a scene to the renderer.
 
@@ -232,7 +232,7 @@ Adds a scene to the renderer.
 
 <MemberHeading id="addscenebefore" depth="3" name="addSceneBefore" sig="addSceneBefore(scene: Scene, sceneBefore: Scene)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1135" sourceLabel="Renderer.ts:1135" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1151" sourceLabel="Renderer.ts:1151" />
 
 Adds a scene to the renderer before a specific node.
 
@@ -243,7 +243,7 @@ Adds a scene to the renderer before a specific node.
 
 <MemberHeading id="addscenes" depth="3" name="addScenes" sig="addScenes(nodesArr: Array.<Scene>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1157" sourceLabel="Renderer.ts:1157" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1173" sourceLabel="Renderer.ts:1173" />
 
 Adds scenes to the renderer.
 
@@ -253,25 +253,25 @@ Adds scenes to the renderer.
 
 <MemberHeading id="enqueueentitycollectionstodraw" depth="3" name="enqueueEntityCollectionsToDraw" sig="enqueueEntityCollectionsToDraw()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1201" sourceLabel="Renderer.ts:1201" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1217" sourceLabel="Renderer.ts:1217" />
 
 TODO: replace with cache-friendly linked list by BillboardHandler, LabelHandler etc.
 
 <MemberHeading id="markfordepthrefresh" depth="3" name="markForDepthRefresh" sig="markForDepthRefresh()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1212" sourceLabel="Renderer.ts:1212" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1228" sourceLabel="Renderer.ts:1228" />
 
 Forces the depth buffer to be refreshed in the next frame. Has an effect for terrain altitude estimate precision.
 
 <MemberHeading id="requestredraw" depth="3" name="requestRedraw" sig="requestRedraw()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1551" sourceLabel="Renderer.ts:1551" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1567" sourceLabel="Renderer.ts:1567" />
 
 Requests the next frame to be rendered.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1574" sourceLabel="Renderer.ts:1574" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1590" sourceLabel="Renderer.ts:1590" />
 
 Draw nodes.
 
@@ -284,7 +284,7 @@ Draw nodes.
 ): number | undefined"
 />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1910" sourceLabel="Renderer.ts:1910" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1945" sourceLabel="Renderer.ts:1945" />
 
 Returns the distance from the active (screen) camera to the 3d-surface using the defined screen coordinates
 
@@ -305,7 +305,7 @@ Returns the distance from the active (screen) camera to the 3d-surface using the
 ): Vec3 | undefined"
 />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1949" sourceLabel="Renderer.ts:1949" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1984" sourceLabel="Renderer.ts:1984" />
 
 Returns 3d coordinates from screen coordinates
 
@@ -319,13 +319,13 @@ Returns 3d coordinates from screen coordinates
 
 <MemberHeading id="start" depth="3" name="start" sig="start()" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2013" sourceLabel="Renderer.ts:2013" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2048" sourceLabel="Renderer.ts:2048" />
 
 Function starts renderer
 
 <MemberHeading id="addprogram" depth="3" name="addProgram" sig="addProgram(program: ShaderProgram)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2106" sourceLabel="Renderer.ts:2106" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2141" sourceLabel="Renderer.ts:2141" />
 
 Adds a shader program to the renderer if it has not been added yet.
 
@@ -335,7 +335,7 @@ Adds a shader program to the renderer if it has not been added yet.
 
 <MemberHeading id="addprograms" depth="3" name="addPrograms" sig="addPrograms(...programs: ShaderProgram | Array.<ShaderProgram>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2117" sourceLabel="Renderer.ts:2117" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2152" sourceLabel="Renderer.ts:2152" />
 
 Adds one or more programs to the renderer. Supports both individual programs and nested program arrays.
 
@@ -345,7 +345,7 @@ Adds one or more programs to the renderer. Supports both individual programs and
 
 <MemberHeading id="addshaders" depth="3" name="addShaders" sig="addShaders(...programs: ShaderProgram | Array.<ShaderProgram>)" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2132" sourceLabel="Renderer.ts:2132" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L2167" sourceLabel="Renderer.ts:2167" />
 
 Alias for `Renderer.addPrograms`.
 
@@ -357,54 +357,54 @@ Alias for `Renderer.addPrograms`.
 
 <MemberHeading id="billboardstextureatlas" depth="3" name="billboardsTextureAtlas" sig="billboardsTextureAtlas: TextureAtlas" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L410" sourceLabel="Renderer.ts:410" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L421" sourceLabel="Renderer.ts:421" />
 
 Texture atlas for the billboard images.
 
 <MemberHeading id="fontatlas" depth="3" name="fontAtlas" sig="fontAtlas: FontAtlas" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L417" sourceLabel="Renderer.ts:417" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L428" sourceLabel="Renderer.ts:428" />
 
 Texture font atlas for the font families and styles.
 
 <MemberHeading id="stroketextureatlas" depth="3" name="strokeTextureAtlas" sig="strokeTextureAtlas: TextureAtlas" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L424" sourceLabel="Renderer.ts:424" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L435" sourceLabel="Renderer.ts:435" />
 
 Texture atlas for the rays, polylines, and strips.
 
 <MemberHeading id="exposure" depth="3" name="exposure" sig="exposure: number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L497" sourceLabel="Renderer.ts:497" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L508" sourceLabel="Renderer.ts:508" />
 
 HDR exposure.
 
 <MemberHeading id="gamma" depth="3" name="gamma" sig="gamma: number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L513" sourceLabel="Renderer.ts:513" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L524" sourceLabel="Renderer.ts:524" />
 
 Gamma correction value.
 
 <MemberHeading id="whitepoint" depth="3" name="whitepoint" sig="whitepoint: number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L529" sourceLabel="Renderer.ts:529" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L540" sourceLabel="Renderer.ts:540" />
 
 Tone mapping white point.
 
 <MemberHeading id="frameopacity" depth="3" name="frameOpacity" sig="frameOpacity: number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L545" sourceLabel="Renderer.ts:545" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L556" sourceLabel="Renderer.ts:556" />
 
 Scene objects opacity used with transparentBackground to achieve an AR effect.
 
 <MemberHeading id="brightthreshold" depth="3" name="brightThreshold" sig="brightThreshold: number" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L561" sourceLabel="Renderer.ts:561" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L572" sourceLabel="Renderer.ts:572" />
 
 Bloom bright pass threshold.
 
 <MemberHeading id="isidle" depth="3" name="isIdle" sig="isIdle" />
 
-<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1559" sourceLabel="Renderer.ts:1559" />
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L1575" sourceLabel="Renderer.ts:1575" />
 
 Returns true when the renderer skips frames because nothing has been changed.
