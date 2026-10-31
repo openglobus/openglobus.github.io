@@ -253,6 +253,17 @@ Concatenates two the same type arrays
 - `a` (TypedArray)
 - `b` (TypedArray | Array.\<number>)
 
+<MemberHeading id="appendfloat32array" depth="3" name="appendFloat32Array" sig="appendFloat32Array(a: Float32Array, b: ArrayLike.<number>)" />
+
+<MemberMeta sourceHref="/source/utils/shared-ts/#L930" sourceLabel="shared.ts:930" />
+
+Appends `b` to `a` and returns an exact-length view. Grows the backing buffer by doubling, so repeated appends are amortized O(1). The caller must own `a.buffer` exclusively, including the unused space after `a`, which is overwritten. The result may share `a`'s buffer.
+
+**Parameters**
+
+- `a` (Float32Array)
+- `b` (ArrayLike.\<number>)
+
 <MemberHeading
   id="concatarrays"
   depth="3"
@@ -263,7 +274,7 @@ Concatenates two the same type arrays
 ): TypedArray | Array.<number>"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L940" sourceLabel="shared.ts:940" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L961" sourceLabel="shared.ts:961" />
 
 Concatenates two the same arrays
 
@@ -286,7 +297,7 @@ Concatenates two the same arrays
 ): TypedArray"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L957" sourceLabel="shared.ts:957" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L978" sourceLabel="shared.ts:978" />
 
 Convert simple array to typed
 
@@ -301,7 +312,7 @@ Convert simple array to typed
 
 <MemberHeading id="makearray" depth="3" name="makeArray" sig="makeArray(arr: TypedArray | Array.<number>): Array.<number>" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L972" sourceLabel="shared.ts:972" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L993" sourceLabel="shared.ts:993" />
 
 Convert typed array to array
 
@@ -325,7 +336,7 @@ Convert typed array to array
 )"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L988" sourceLabel="shared.ts:988" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1009" sourceLabel="shared.ts:1009" />
 
 **Parameters**
 
@@ -346,7 +357,7 @@ Convert typed array to array
 )"
 />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1025" sourceLabel="shared.ts:1025" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1046" sourceLabel="shared.ts:1046" />
 
 **Parameters**
 
@@ -357,13 +368,13 @@ Convert typed array to array
 
 <MemberHeading id="getmatrixsubarrayboundsext" depth="3" name="getMatrixSubArrayBoundsExt" sig="getMatrixSubArrayBoundsExt()" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1125" sourceLabel="shared.ts:1125" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1146" sourceLabel="shared.ts:1146" />
 
 Returns two float32 triangle coordinate arrays from inside of the source triangle array.
 
 <MemberHeading id="loadimage" depth="3" name="loadImage" sig="loadImage(url: string): Promise.<Image>" />
 
-<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1207" sourceLabel="shared.ts:1207" />
+<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1228" sourceLabel="shared.ts:1228" />
 
 Promise for load images
 
@@ -377,7 +388,7 @@ Promise for load images
 
 <MemberHeading id="isimageloaded" depth="3" name="isImageLoaded" sig="isImageLoaded(image: HTMLImageElement): boolean" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1290" sourceLabel="shared.ts:1290" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1311" sourceLabel="shared.ts:1311" />
 
 Gets image is loaded
 
@@ -391,7 +402,7 @@ Gets image is loaded
 
 <MemberHeading id="gettileimageresolution" depth="3" name="getTileImageResolution" sig="getTileImageResolution(x, y, z, imageSize, ellipsoid)" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1348" sourceLabel="shared.ts:1348" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1369" sourceLabel="shared.ts:1369" />
 
 **Parameters**
 
@@ -488,7 +499,7 @@ Converts XML to JSON
 ): Float64Array"
 />
 
-<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1057" sourceLabel="shared.ts:1057" />
+<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1078" sourceLabel="shared.ts:1078" />
 
 Returns 64-bit triangle coordinate array from inside of the source triangle array.
 
@@ -517,7 +528,7 @@ Returns 64-bit triangle coordinate array from inside of the source triangle arra
 ): Float32Array"
 />
 
-<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1094" sourceLabel="shared.ts:1094" />
+<MemberMeta badges="static" sourceHref="/source/utils/shared-ts/#L1115" sourceLabel="shared.ts:1115" />
 
 Returns 32-bit triangle coordinate array from inside of the source triangle array.
 
