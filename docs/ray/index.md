@@ -101,9 +101,39 @@ Sets ray end position.
 
 - `position` ([Vec3](/vec3)) — Cartesian coordinates.
 
+<MemberHeading id="getthickness" depth="3" name="getThickness" sig="getThickness(): number" />
+
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L348" sourceLabel="Ray.ts:348" />
+
+Returns ray thickness.
+
+**Returns**
+
+- `number`
+
+<MemberHeading id="getstartcolor" depth="3" name="getStartColor" sig="getStartColor(): Vec4" />
+
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L357" sourceLabel="Ray.ts:357" />
+
+Returns a copy of the start point color, without the opacity multiplier.
+
+**Returns**
+
+- [`Vec4`](/vec4)
+
+<MemberHeading id="getendcolor" depth="3" name="getEndColor" sig="getEndColor(): Vec4" />
+
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L366" sourceLabel="Ray.ts:366" />
+
+Returns a copy of the end point color, without the opacity multiplier.
+
+**Returns**
+
+- [`Vec4`](/vec4)
+
 <MemberHeading id="getstartposition" depth="3" name="getStartPosition" sig="getStartPosition(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L400" sourceLabel="Ray.ts:400" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L427" sourceLabel="Ray.ts:427" />
 
 Returns ray start position.
 
@@ -113,7 +143,7 @@ Returns ray start position.
 
 <MemberHeading id="getendposition" depth="3" name="getEndPosition" sig="getEndPosition(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L409" sourceLabel="Ray.ts:409" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L436" sourceLabel="Ray.ts:436" />
 
 Returns ray end position.
 
@@ -123,7 +153,7 @@ Returns ray end position.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L418" sourceLabel="Ray.ts:418" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L445" sourceLabel="Ray.ts:445" />
 
 Sets visibility.
 
@@ -133,7 +163,7 @@ Sets visibility.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L428" sourceLabel="Ray.ts:428" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L455" sourceLabel="Ray.ts:455" />
 
 Sets ray opacity.
 
@@ -143,7 +173,7 @@ Sets ray opacity.
 
 <MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L440" sourceLabel="Ray.ts:440" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L467" sourceLabel="Ray.ts:467" />
 
 Returns ray opacity multiplier.
 
@@ -153,7 +183,7 @@ Returns ray opacity multiplier.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L449" sourceLabel="Ray.ts:449" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L476" sourceLabel="Ray.ts:476" />
 
 Returns visibility.
 
@@ -163,13 +193,13 @@ Returns visibility.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L457" sourceLabel="Ray.ts:457" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L484" sourceLabel="Ray.ts:484" />
 
 Remove from handler.
 
 <MemberHeading id="setpickingcolor3v" depth="3" name="setPickingColor3v" sig="setPickingColor3v(color: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L467" sourceLabel="Ray.ts:467" />
+<MemberMeta sourceHref="/source/entity/ray/ray-ts/#L494" sourceLabel="Ray.ts:494" />
 
 Sets picking color.
 

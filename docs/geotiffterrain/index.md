@@ -96,7 +96,7 @@ Returns the grid heights of the segment, or the promise of them the worker makes
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L212" sourceLabel="EmptyTerrain.ts:212" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L224" sourceLabel="EmptyTerrain.ts:224" />
 
 _Inherited from `EmptyTerrain#setUrlRewriteCallback`_
 
@@ -110,7 +110,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L227" sourceLabel="EmptyTerrain.ts:227" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
 
 _Inherited from `EmptyTerrain#setAttribution`_
 
@@ -124,7 +124,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L251" sourceLabel="EmptyTerrain.ts:251" />
 
 _Inherited from `EmptyTerrain#getAttribution`_
 
@@ -138,7 +138,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L297" sourceLabel="EmptyTerrain.ts:297" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L309" sourceLabel="EmptyTerrain.ts:309" />
 
 _Inherited from `EmptyTerrain#handleSegmentTerrain`_
 
@@ -150,9 +150,23 @@ Loads or creates segment elevation data.
 
 - `segment` ([Segment](/segment)) — Segment to create elevation data.
 
+<MemberHeading id="getmaxheight" depth="3" name="getMaxHeight" sig="getMaxHeight(): number" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L324" sourceLabel="EmptyTerrain.ts:324" />
+
+_Inherited from `EmptyTerrain#getMaxHeight`_
+
+**Overrides:&#x20;**`ProceduralTerrain#getMaxHeight`
+
+Returns the highest terrain point over the ellipsoid with the terrain height factor, in meters.
+
+**Returns**
+
+- `number`
+
 <MemberHeading id="getcacheinfo" depth="3" name="getCacheInfo" sig="getCacheInfo(): ITerrainCacheInfo | null" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L316" sourceLabel="EmptyTerrain.ts:316" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L337" sourceLabel="EmptyTerrain.ts:337" />
 
 _Inherited from `EmptyTerrain#getCacheInfo`_
 
@@ -168,7 +182,7 @@ Returns the cache state, null when the terrain has no cache.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L248" sourceLabel="EmptyTerrain.ts:248" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L260" sourceLabel="EmptyTerrain.ts:260" />
 
 _Inherited from `EmptyTerrain#iconSrc`_
 

@@ -7,7 +7,7 @@ description: Creates a WebGL context with globe.
 
 # Globe
 
-<SourceLink href="/source/globe-ts/#L182" label="Globe.ts:182" />
+<SourceLink href="/source/globe-ts/#L186" label="Globe.ts:186" />
 
 Creates a WebGL context with globe.
 
@@ -61,6 +61,8 @@ globus = new Globe({
   - `options.resourcesSrc` (string, optional) — Resources root src.
   - `options.nightTextureSrc` (string, optional) — Night-glowing image sources
   - `options.specularTextureSrc` (string, optional) — Specular water mask image sourcr
+  - `options.specularMinCameraHeight` (number, optional, default: 160000) — Minimal camera height for the specular mask; it fades in up to three times this height. Use 0 for planets without a coarse sea mask.
+  - `options.nightMinCameraHeight` (number, optional, default: 3000000) — Minimal camera height for night lights; they fade in up to three times this height.
   - `options.maxAltitude` (number, optional) — Maximal camera altitude above terrain
   - `options.minAltitude` (number, optional, default: "1.0") — Minimal camera altitude above terrain
   - `options.maxEqualZoomAltitude` (number, optional) — Maximal altitude since segments on the screen became the same zoom level
@@ -86,13 +88,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L485" sourceLabel="Globe.ts:485" />
+<MemberMeta sourceHref="/source/globe-ts/#L491" sourceLabel="Globe.ts:491" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L493" sourceLabel="Globe.ts:493" />
+<MemberMeta sourceHref="/source/globe-ts/#L499" sourceLabel="Globe.ts:499" />
 
 Starts screen brightness fading out effect by the duration time.
 
@@ -100,6 +102,6 @@ Starts screen brightness fading out effect by the duration time.
 
 <MemberHeading id="inner" depth="3" name="$inner" sig="$inner: Element" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L235" sourceLabel="Globe.ts:235" />
+<MemberMeta sourceHref="/source/globe-ts/#L239" sourceLabel="Globe.ts:239" />
 
 Dom element where WebGL canvas creates

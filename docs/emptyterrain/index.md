@@ -7,7 +7,7 @@ description: Class represents a terrain provider without elevation data.
 
 # EmptyTerrain
 
-<SourceLink href="/source/terrain/emptyterrain-ts/#L55" label="EmptyTerrain.ts:55" />
+<SourceLink href="/source/terrain/emptyterrain-ts/#L57" label="EmptyTerrain.ts:57" />
 
 Class represents a terrain provider without elevation data.
 
@@ -30,6 +30,7 @@ Class represents a terrain provider without elevation data.
   - `options.gridSizeByZoom` (Array.\<number>, optional) — Segment triangulation grid sizes by zoom index.
   - `options.geoid` (Geoid, optional) — Geoid model instance.
   - `options.geoidSrc` (string, optional) — URL to geoid model source.
+  - `options.maxHeight` (number, optional, default: 8848) — The highest terrain point over the ellipsoid, in meters. Segments behind the horizon of a point this high are not rendered.
 
 ---
 
@@ -37,7 +38,7 @@ Class represents a terrain provider without elevation data.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L212" sourceLabel="EmptyTerrain.ts:212" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L224" sourceLabel="EmptyTerrain.ts:224" />
 
 Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
@@ -47,7 +48,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L227" sourceLabel="EmptyTerrain.ts:227" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
 
 Sets terrain provider attribution text.
 
@@ -57,7 +58,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L251" sourceLabel="EmptyTerrain.ts:251" />
 
 Gets terrain provider attribution.
 
@@ -67,7 +68,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L297" sourceLabel="EmptyTerrain.ts:297" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L309" sourceLabel="EmptyTerrain.ts:309" />
 
 Loads or creates segment elevation data.
 
@@ -75,9 +76,19 @@ Loads or creates segment elevation data.
 
 - `segment` ([Segment](/segment)) — Segment to create elevation data.
 
+<MemberHeading id="getmaxheight" depth="3" name="getMaxHeight" sig="getMaxHeight(): number" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L324" sourceLabel="EmptyTerrain.ts:324" />
+
+Returns the highest terrain point over the ellipsoid with the terrain height factor, in meters.
+
+**Returns**
+
+- `number`
+
 <MemberHeading id="getcacheinfo" depth="3" name="getCacheInfo" sig="getCacheInfo(): ITerrainCacheInfo | null" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L316" sourceLabel="EmptyTerrain.ts:316" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L337" sourceLabel="EmptyTerrain.ts:337" />
 
 Returns the cache state, null when the terrain has no cache.
 
@@ -89,7 +100,7 @@ Returns the cache state, null when the terrain has no cache.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L248" sourceLabel="EmptyTerrain.ts:248" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L260" sourceLabel="EmptyTerrain.ts:260" />
 
 Gets terrain provider icon.
 
@@ -99,7 +110,7 @@ Gets terrain provider icon.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L257" sourceLabel="EmptyTerrain.ts:257" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L269" sourceLabel="EmptyTerrain.ts:269" />
 
 Sets terrain provider icon.
 

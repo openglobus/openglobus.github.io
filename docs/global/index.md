@@ -354,7 +354,7 @@ Fills the contrast stretch of a channel from the band statistics, keeping an exp
 ): Array.<Entity>"
 />
 
-<MemberMeta sourceHref="/source/layer/vector-ts/#L51" sourceLabel="Vector.ts:51" />
+<MemberMeta sourceHref="/source/layer/vector-ts/#L52" sourceLabel="Vector.ts:52" />
 
 Creates entity instance array.
 
@@ -494,7 +494,7 @@ Vector 2d object creator.
 
 <MemberHeading id="vec3" depth="3" name="Vec3" sig="Vec3(x?: number, y?: number, z?: number): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L966" sourceLabel="Vec3.ts:966" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L902" sourceLabel="Vec3.ts:902" />
 
 Vector 3d object creator.
 
@@ -1259,7 +1259,7 @@ Converts size x size pixel heights to the vertex grid in the pixel corners, (siz
 
 <MemberHeading id="compareneighbours" depth="3" name="compareNeighbours" sig="compareNeighbours()" />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L285" sourceLabel="terrainUtils.ts:285" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L286" sourceLabel="terrainUtils.ts:286" />
 
 Marks pixels a and b with the neighbour higher or lower flags, NaN pixels are not compared.
 
@@ -1448,6 +1448,29 @@ Creates the tile heights grid and its subdivision levels, each tile is (gridSize
 **Returns**
 
 - `Float32Array`
+
+<MemberHeading
+  id="getmedian"
+  depth="3"
+  name="getMedian"
+  sig="getMedian(
+	values: Float64Array | Float32Array | Array.<number>,
+	n?: number,
+): number"
+/>
+
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L817" sourceLabel="terrainUtils.ts:817" />
+
+Returns the lower median of the first n values, partially reorders them.
+
+**Parameters**
+
+- `values` (Float64Array | Float32Array | Array.\<number>) — Values, reordered in place.
+- `n` (number, optional) — Number of the values.
+
+**Returns**
+
+- `number`
 
 <MemberHeading id="isvertical" depth="3" name="isVertical" sig="isVertical()" />
 
@@ -1924,67 +1947,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2770" sourceLabel="Planet.ts:2770" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2805" sourceLabel="Planet.ts:2805" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2776" sourceLabel="Planet.ts:2776" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2811" sourceLabel="Planet.ts:2811" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2782" sourceLabel="Planet.ts:2782" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2817" sourceLabel="Planet.ts:2817" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2788" sourceLabel="Planet.ts:2788" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2823" sourceLabel="Planet.ts:2823" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2794" sourceLabel="Planet.ts:2794" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2829" sourceLabel="Planet.ts:2829" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2800" sourceLabel="Planet.ts:2800" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2835" sourceLabel="Planet.ts:2835" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2806" sourceLabel="Planet.ts:2806" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2841" sourceLabel="Planet.ts:2841" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2812" sourceLabel="Planet.ts:2812" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2847" sourceLabel="Planet.ts:2847" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2818" sourceLabel="Planet.ts:2818" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2853" sourceLabel="Planet.ts:2853" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2824" sourceLabel="Planet.ts:2824" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2859" sourceLabel="Planet.ts:2859" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2830" sourceLabel="Planet.ts:2830" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2865" sourceLabel="Planet.ts:2865" />
 
 Triggered when the current terrain provider changes.
 
@@ -2194,9 +2217,15 @@ Point types
 
 drawData index names
 
+<MemberHeading id="nativemode" depth="3" name="NATIVE_MODE" sig="NATIVE_MODE" />
+
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L42" sourceLabel="EntityGizmoScene.ts:42" />
+
+Maps a clicked entity to the one the gizmo selects, `null` keeps it unselectable.
+
 <MemberHeading id="handlekinds" depth="3" name="HANDLE_KINDS" sig="HANDLE_KINDS" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L57" sourceLabel="EntityGizmoScene.ts:57" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L59" sourceLabel="EntityGizmoScene.ts:59" />
 
 Payload of `transformstart`, `transformchange`, `transformend` and `transformcancel`.
 
@@ -2442,7 +2471,7 @@ Maximum number of distinct image/video/texture sources sampled in one forward dr
 
 <MemberHeading id="defaultmaxnodes" depth="3" name="DEFAULT_MAX_NODES" sig="DEFAULT_MAX_NODES: number" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L116" sourceLabel="Planet.ts:116" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L118" sourceLabel="Planet.ts:118" />
 
 Maximum created nodes count. The more nodes count the more memory usage. When the maximum node count is exceeded, memClear() will be called.
 
@@ -2456,13 +2485,13 @@ Array sizes for projectors.glsl, filled in with stringTemplate2() by every progr
 
 <MemberHeading id="terraingridsizebyzoom" depth="3" name="TERRAIN_GRID_SIZE_BY_ZOOM" sig="TERRAIN_GRID_SIZE_BY_ZOOM" />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L27" sourceLabel="terrainUtils.ts:27" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L28" sourceLabel="terrainUtils.ts:28" />
 
 Segment grid sizes by zoom of the elevation terrains.
 
 <MemberHeading id="higheraround" depth="3" name="HIGHER_AROUND" sig="HIGHER_AROUND" />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L280" sourceLabel="terrainUtils.ts:280" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L281" sourceLabel="terrainUtils.ts:281" />
 
 Peak and pit pixels, and their place in the vertex grid.
 

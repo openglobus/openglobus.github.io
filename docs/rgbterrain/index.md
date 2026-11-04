@@ -74,7 +74,7 @@ Saves the tile and its subdivision levels heights to cache.
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L279" sourceLabel="GlobusTerrain.ts:279" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L283" sourceLabel="GlobusTerrain.ts:283" />
 
 _Inherited from `GlobusTerrain#abortLoading`_
 
@@ -84,7 +84,7 @@ Stop loading.
 
 <MemberHeading id="seturl" depth="3" name="setUrl" sig="setUrl(url: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L290" sourceLabel="GlobusTerrain.ts:290" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L294" sourceLabel="GlobusTerrain.ts:294" />
 
 _Inherited from `GlobusTerrain#setUrl`_
 
@@ -107,7 +107,7 @@ Default openglobus url template:
 
 <MemberHeading id="setname" depth="3" name="setName" sig="setName(name: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L299" sourceLabel="GlobusTerrain.ts:299" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L303" sourceLabel="GlobusTerrain.ts:303" />
 
 _Inherited from `GlobusTerrain#setName`_
 
@@ -121,7 +121,7 @@ Sets provider name.
 
 <MemberHeading id="loadterrain" depth="3" name="loadTerrain" sig="loadTerrain(segment: Segment, forceLoading?: boolean)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L313" sourceLabel="GlobusTerrain.ts:313" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L317" sourceLabel="GlobusTerrain.ts:317" />
 
 _Inherited from `GlobusTerrain#loadTerrain`_
 
@@ -136,7 +136,7 @@ Starts to load segment elevation data.
 
 <MemberHeading id="onterrainloaded" depth="3" name="_onTerrainLoaded" sig="_onTerrainLoaded(segment: Segment, data: any)" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L363" sourceLabel="GlobusTerrain.ts:363" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L367" sourceLabel="GlobusTerrain.ts:367" />
 
 _Inherited from `GlobusTerrain#_onTerrainLoaded`_
 
@@ -151,7 +151,7 @@ Converts loaded segment data to elevations and applies them.
 
 <MemberHeading id="createurl" depth="3" name="_createUrl" sig="_createUrl(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L407" sourceLabel="GlobusTerrain.ts:407" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L411" sourceLabel="GlobusTerrain.ts:411" />
 
 _Inherited from `GlobusTerrain#_createUrl`_
 
@@ -169,7 +169,7 @@ Creates default query url string.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L417" sourceLabel="GlobusTerrain.ts:417" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L421" sourceLabel="GlobusTerrain.ts:421" />
 
 _Inherited from `GlobusTerrain#_getHTTPRequestString`_
 
@@ -187,7 +187,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L433" sourceLabel="GlobusTerrain.ts:433" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L437" sourceLabel="GlobusTerrain.ts:437" />
 
 _Inherited from `GlobusTerrain#setUrlRewriteCallback`_
 
@@ -201,7 +201,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="createheights" depth="3" name="_createHeights" sig="_createHeights(): Array.<number> | TypedArray" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L442" sourceLabel="GlobusTerrain.ts:442" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L446" sourceLabel="GlobusTerrain.ts:446" />
 
 _Inherited from `GlobusTerrain#_createHeights`_
 
@@ -215,7 +215,7 @@ Converts loaded data to segment elevation data type (column major elevation data
 
 <MemberHeading id="applyelevationsdata" depth="3" name="_applyElevationsData" sig="_applyElevationsData()" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L465" sourceLabel="GlobusTerrain.ts:465" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L469" sourceLabel="GlobusTerrain.ts:469" />
 
 _Inherited from `GlobusTerrain#_applyElevationsData`_
 
@@ -223,7 +223,7 @@ _Inherited from `GlobusTerrain#_applyElevationsData`_
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L227" sourceLabel="EmptyTerrain.ts:227" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
 
 _Inherited from `EmptyTerrain#setAttribution`_
 
@@ -237,7 +237,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L251" sourceLabel="EmptyTerrain.ts:251" />
 
 _Inherited from `EmptyTerrain#getAttribution`_
 
@@ -251,7 +251,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L297" sourceLabel="EmptyTerrain.ts:297" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L309" sourceLabel="EmptyTerrain.ts:309" />
 
 _Inherited from `EmptyTerrain#handleSegmentTerrain`_
 
@@ -263,9 +263,23 @@ Loads or creates segment elevation data.
 
 - `segment` ([Segment](/segment)) — Segment to create elevation data.
 
+<MemberHeading id="getmaxheight" depth="3" name="getMaxHeight" sig="getMaxHeight(): number" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L324" sourceLabel="EmptyTerrain.ts:324" />
+
+_Inherited from `EmptyTerrain#getMaxHeight`_
+
+**Overrides:&#x20;**`GlobusTerrain#getMaxHeight`
+
+Returns the highest terrain point over the ellipsoid with the terrain height factor, in meters.
+
+**Returns**
+
+- `number`
+
 <MemberHeading id="getcacheinfo" depth="3" name="getCacheInfo" sig="getCacheInfo(): ITerrainCacheInfo | null" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L316" sourceLabel="EmptyTerrain.ts:316" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L337" sourceLabel="EmptyTerrain.ts:337" />
 
 _Inherited from `EmptyTerrain#getCacheInfo`_
 
@@ -281,7 +295,7 @@ Returns the cache state, null when the terrain has no cache.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L248" sourceLabel="EmptyTerrain.ts:248" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L260" sourceLabel="EmptyTerrain.ts:260" />
 
 _Inherited from `EmptyTerrain#iconSrc`_
 

@@ -117,7 +117,7 @@ Method depends on GeoImage instance
 
 <MemberHeading id="hasimagerytiles" depth="3" name="hasImageryTiles" sig="hasImageryTiles(): boolean" />
 
-<MemberMeta badges="abstract" sourceHref="/source/layer/layer-ts/#L471" sourceLabel="Layer.ts:471" />
+<MemberMeta badges="abstract" sourceHref="/source/layer/layer-ts/#L484" sourceLabel="Layer.ts:484" />
 
 _Inherited from `Layer#hasImageryTiles`_
 
@@ -131,7 +131,7 @@ Returns true if a layer has imagery tiles.
 
 <MemberHeading id="getid" depth="3" name="getID" sig="getID(): number" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L480" sourceLabel="Layer.ts:480" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L493" sourceLabel="Layer.ts:493" />
 
 _Inherited from `Layer#getID`_
 
@@ -145,7 +145,7 @@ Gets layer identifier.
 
 <MemberHeading id="isequal" depth="3" name="isEqual" sig="isEqual(layer: Layer): boolean" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L501" sourceLabel="Layer.ts:501" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L514" sourceLabel="Layer.ts:514" />
 
 _Inherited from `Layer#isEqual`_
 
@@ -163,7 +163,7 @@ Compares layers instances.
 
 <MemberHeading id="assignplanet" depth="3" name="_assignPlanet" sig="_assignPlanet(planet: Planet)" />
 
-<MemberMeta badges="abstract,protected" sourceHref="/source/layer/layer-ts/#L511" sourceLabel="Layer.ts:511" />
+<MemberMeta badges="abstract,protected" sourceHref="/source/layer/layer-ts/#L524" sourceLabel="Layer.ts:524" />
 
 _Inherited from `Layer#_assignPlanet`_
 
@@ -177,7 +177,7 @@ Assign the planet.
 
 <MemberHeading id="bindpicking" depth="3" name="_bindPicking" sig="_bindPicking()" />
 
-<MemberMeta badges="abstract,protected" sourceHref="/source/layer/layer-ts/#L551" sourceLabel="Layer.ts:551" />
+<MemberMeta badges="abstract,protected" sourceHref="/source/layer/layer-ts/#L564" sourceLabel="Layer.ts:564" />
 
 _Inherited from `Layer#_bindPicking`_
 
@@ -187,7 +187,7 @@ Assign picking color to the layer.
 
 <MemberHeading id="addto" depth="3" name="addTo" sig="addTo(planet: Planet)" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L560" sourceLabel="Layer.ts:560" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L573" sourceLabel="Layer.ts:573" />
 
 _Inherited from `Layer#addTo`_
 
@@ -201,7 +201,7 @@ Adds layer to the planet.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove(): Layer" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L571" sourceLabel="Layer.ts:571" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L584" sourceLabel="Layer.ts:584" />
 
 _Inherited from `Layer#remove`_
 
@@ -225,7 +225,7 @@ Clear layer material.
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L616" sourceLabel="Layer.ts:616" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L629" sourceLabel="Layer.ts:629" />
 
 _Inherited from `Layer#setAttribution`_
 
@@ -239,7 +239,7 @@ Sets layer attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L628" sourceLabel="Layer.ts:628" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L641" sourceLabel="Layer.ts:641" />
 
 _Inherited from `Layer#getAttribution`_
 
@@ -253,7 +253,7 @@ Gets layer attribution.
 
 <MemberHeading id="setheight" depth="3" name="setHeight" sig="setHeight(height: number)" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L637" sourceLabel="Layer.ts:637" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L650" sourceLabel="Layer.ts:650" />
 
 _Inherited from `Layer#setHeight`_
 
@@ -267,7 +267,7 @@ Sets height over the ground.
 
 <MemberHeading id="getheight" depth="3" name="getHeight" sig="getHeight(): number" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L647" sourceLabel="Layer.ts:647" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L660" sourceLabel="Layer.ts:660" />
 
 _Inherited from `Layer#getHeight`_
 
@@ -281,7 +281,7 @@ Gets layer height.
 
 <MemberHeading id="setzindex" depth="3" name="setZIndex" sig="setZIndex(zIndex: number)" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L656" sourceLabel="Layer.ts:656" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L669" sourceLabel="Layer.ts:669" />
 
 _Inherited from `Layer#setZIndex`_
 
@@ -295,7 +295,7 @@ Sets z-index.
 
 <MemberHeading id="getzindex" depth="3" name="getZIndex" sig="getZIndex(): number" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L666" sourceLabel="Layer.ts:666" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L679" sourceLabel="Layer.ts:679" />
 
 _Inherited from `Layer#getZIndex`_
 
@@ -309,7 +309,7 @@ Gets z-index.
 
 <MemberHeading id="bringtofront" depth="3" name="bringToFront" sig="bringToFront()" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L674" sourceLabel="Layer.ts:674" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L687" sourceLabel="Layer.ts:687" />
 
 _Inherited from `Layer#bringToFront`_
 
@@ -319,7 +319,7 @@ Sets z-index to the maximum value relative to other layers on the planet.
 
 <MemberHeading id="isbaselayer" depth="3" name="isBaseLayer" sig="isBaseLayer(): boolean" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L689" sourceLabel="Layer.ts:689" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L702" sourceLabel="Layer.ts:702" />
 
 _Inherited from `Layer#isBaseLayer`_
 
@@ -333,7 +333,7 @@ Returns true if the layer is a base.
 
 <MemberHeading id="setbaselayer" depth="3" name="setBaseLayer" sig="setBaseLayer(isBaseLayer: boolean)" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L698" sourceLabel="Layer.ts:698" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L711" sourceLabel="Layer.ts:711" />
 
 _Inherited from `Layer#setBaseLayer`_
 
@@ -361,7 +361,7 @@ Sets layer visibility.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L794" sourceLabel="Layer.ts:794" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L807" sourceLabel="Layer.ts:807" />
 
 _Inherited from `Layer#getVisibility`_
 
@@ -375,7 +375,7 @@ Gets layer visibility.
 
 <MemberHeading id="setextent" depth="3" name="setExtent" sig="setExtent(extent: Extent)" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L803" sourceLabel="Layer.ts:803" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L816" sourceLabel="Layer.ts:816" />
 
 _Inherited from `Layer#setExtent`_
 
@@ -389,7 +389,7 @@ Sets visible geographical extent.
 
 <MemberHeading id="getextent" depth="3" name="getExtent" sig="getExtent(): Extent" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L828" sourceLabel="Layer.ts:828" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L841" sourceLabel="Layer.ts:841" />
 
 _Inherited from `Layer#getExtent`_
 
@@ -403,7 +403,7 @@ Gets layer extent.
 
 <MemberHeading id="getextentmerc" depth="3" name="getExtentMerc" sig="getExtentMerc(): Extent" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L837" sourceLabel="Layer.ts:837" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L850" sourceLabel="Layer.ts:850" />
 
 _Inherited from `Layer#getExtentMerc`_
 
@@ -417,7 +417,7 @@ Gets layer web-mercator extent.
 
 <MemberHeading id="flyextent" depth="3" name="flyExtent" sig="flyExtent()" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L845" sourceLabel="Layer.ts:845" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L858" sourceLabel="Layer.ts:858" />
 
 _Inherited from `Layer#flyExtent`_
 
@@ -427,7 +427,7 @@ Fly extent.
 
 <MemberHeading id="viewextent" depth="3" name="viewExtent" sig="viewExtent()" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L853" sourceLabel="Layer.ts:853" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L866" sourceLabel="Layer.ts:866" />
 
 _Inherited from `Layer#viewExtent`_
 
@@ -437,7 +437,7 @@ View extent.
 
 <MemberHeading id="correctfullextent" depth="3" name="_correctFullExtent" sig="_correctFullExtent()" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/layer-ts/#L861" sourceLabel="Layer.ts:861" />
+<MemberMeta badges="protected" sourceHref="/source/layer/layer-ts/#L874" sourceLabel="Layer.ts:874" />
 
 _Inherited from `Layer#_correctFullExtent`_
 
@@ -509,7 +509,7 @@ Layer picking color. Assign when added to the planet.
 
 <MemberHeading id="nighttexturecoefficient" depth="3" name="nightTextureCoefficient" sig="nightTextureCoefficient: number" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L446" sourceLabel="Layer.ts:446" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L458" sourceLabel="Layer.ts:458" />
 
 _Inherited from `Layer#nightTextureCoefficient`_
 
@@ -519,7 +519,7 @@ Night texture blending coefficient.
 
 <MemberHeading id="id" depth="3" name="_id" sig="_id" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L491" sourceLabel="Layer.ts:491" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L504" sourceLabel="Layer.ts:504" />
 
 _Inherited from `Layer#_id`_
 
@@ -527,7 +527,7 @@ _Inherited from `Layer#_id`_
 
 <MemberHeading id="planet" depth="3" name="planet" sig="planet" />
 
-<MemberMeta sourceHref="/source/layer/layer-ts/#L607" sourceLabel="Layer.ts:607" />
+<MemberMeta sourceHref="/source/layer/layer-ts/#L620" sourceLabel="Layer.ts:620" />
 
 _Inherited from `Layer#planet`_
 

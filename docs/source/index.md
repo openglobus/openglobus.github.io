@@ -164,7 +164,7 @@ kind: guide
 - [Lock.ts](/source/lock-ts/)
 - [LonLat.ts](/source/lonlat-ts/)
 - [math.ts](/source/math-ts/)
-- [math/coder.ts](/source/math/coder-ts/)
+- [math/doubleToTwoFloats.ts](/source/math/doubletotwofloats-ts/)
 - [math/index.ts](/source/math/index-ts/)
 - [math/Line2.ts](/source/math/line2-ts/)
 - [math/Line3.ts](/source/math/line3-ts/)

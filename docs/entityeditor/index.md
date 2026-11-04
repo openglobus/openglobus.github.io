@@ -25,7 +25,7 @@ Entity properties editor. Combines the [EntityGizmo](/entitygizmo) on-map transf
 
 <MemberHeading id="selectentity" depth="3" name="selectEntity" sig="selectEntity(entity: Entity)" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L152" sourceLabel="EntityGizmo.ts:152" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L157" sourceLabel="EntityGizmo.ts:157" />
 
 _Inherited from `EntityGizmo#selectEntity`_
 
@@ -39,7 +39,7 @@ Shows the gizmo on the given entity. Activates the control when it is inactive. 
 
 <MemberHeading id="unselectentity" depth="3" name="unselectEntity" sig="unselectEntity()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L163" sourceLabel="EntityGizmo.ts:163" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L168" sourceLabel="EntityGizmo.ts:168" />
 
 _Inherited from `EntityGizmo#unselectEntity`_
 
@@ -49,7 +49,7 @@ Hides the gizmo and drops the selection. Cancels a running gesture.
 
 <MemberHeading id="getselectedentity" depth="3" name="getSelectedEntity" sig="getSelectedEntity(): Entity | null" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L172" sourceLabel="EntityGizmo.ts:172" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L177" sourceLabel="EntityGizmo.ts:177" />
 
 _Inherited from `EntityGizmo#getSelectedEntity`_
 
@@ -63,7 +63,7 @@ Returns the selected entity or `null`.
 
 <MemberHeading id="istransforming" depth="3" name="isTransforming" sig="isTransforming(): boolean" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L181" sourceLabel="EntityGizmo.ts:181" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L186" sourceLabel="EntityGizmo.ts:186" />
 
 _Inherited from `EntityGizmo#isTransforming`_
 
@@ -77,7 +77,7 @@ Returns `true` while a drag gesture is running.
 
 <MemberHeading id="getactivetransform" depth="3" name="getActiveTransform" sig="getActiveTransform(): IGizmoTransformEvent | null" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L190" sourceLabel="EntityGizmo.ts:190" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L195" sourceLabel="EntityGizmo.ts:195" />
 
 _Inherited from `EntityGizmo#getActiveTransform`_
 
@@ -91,7 +91,7 @@ Returns the running gesture description or `null`.
 
 <MemberHeading id="canceltransform" depth="3" name="cancelTransform" sig="cancelTransform(): boolean" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L199" sourceLabel="EntityGizmo.ts:199" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L204" sourceLabel="EntityGizmo.ts:204" />
 
 _Inherited from `EntityGizmo#cancelTransform`_
 
@@ -207,7 +207,7 @@ Is control active.
 
 <MemberHeading id="tools" depth="3" name="tools" sig="tools" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L114" sourceLabel="EntityGizmo.ts:114" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L119" sourceLabel="EntityGizmo.ts:119" />
 
 _Inherited from `EntityGizmo#tools`_
 
@@ -217,7 +217,7 @@ Gizmo tool set: which handles are shown.
 
 <MemberHeading id="editmode" depth="3" name="editMode" sig="editMode" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L126" sourceLabel="EntityGizmo.ts:126" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L131" sourceLabel="EntityGizmo.ts:131" />
 
 _Inherited from `EntityGizmo#editMode`_
 
@@ -227,7 +227,7 @@ Rotation mode of the rotation rings. Does nothing with `tools: "translate"`.
 
 <MemberHeading id="autoselect" depth="3" name="autoSelect" sig="autoSelect" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L138" sourceLabel="EntityGizmo.ts:138" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmo-ts/#L143" sourceLabel="EntityGizmo.ts:143" />
 
 _Inherited from `EntityGizmo#autoSelect`_
 

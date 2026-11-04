@@ -197,7 +197,7 @@ Gets specific layer material.
 
 <MemberHeading id="getentityterrainpoint" depth="3" name="getEntityTerrainPoint" sig="getEntityTerrainPoint(entity: Entity, res: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L527" sourceLabel="Segment.ts:527" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L540" sourceLabel="Segment.ts:540" />
 
 Returns entity terrain point.
 
@@ -221,7 +221,7 @@ Returns entity terrain point.
 ): number"
 />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L547" sourceLabel="Segment.ts:547" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L560" sourceLabel="Segment.ts:560" />
 
 Returns distance from object to terrain coordinates and terrain point that calculates out in the res parameter.
 
@@ -237,7 +237,7 @@ Returns distance from object to terrain coordinates and terrain point that calcu
 
 <MemberHeading id="projectnative" depth="3" name="projectNative" sig="projectNative(lonlat: LonLat): LonLat" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L653" sourceLabel="Segment.ts:653" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L666" sourceLabel="Segment.ts:666" />
 
 Project wgs86 to segment native projection.
 
@@ -251,7 +251,7 @@ Project wgs86 to segment native projection.
 
 <MemberHeading id="elevationsexists" depth="3" name="elevationsExists" sig="elevationsExists(elevations: Float32Array)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L682" sourceLabel="Segment.ts:682" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L695" sourceLabel="Segment.ts:695" />
 
 Terrain obtained from server.
 
@@ -261,7 +261,7 @@ Terrain obtained from server.
 
 <MemberHeading id="elevationsnotexists" depth="3" name="elevationsNotExists" sig="elevationsNotExists()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L708" sourceLabel="Segment.ts:708" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L721" sourceLabel="Segment.ts:721" />
 
 Keep plain elevation segment for rendering
 
@@ -269,11 +269,37 @@ Keep plain elevation segment for rendering
 
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1422" sourceLabel="Segment.ts:1422" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1431" sourceLabel="Segment.ts:1431" />
+
+<MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1621" sourceLabel="Segment.ts:1621" />
+
+Sets the bounding volume of the terrain vertices, the plain segment volume when there are no finite vertices.
+
+**Parameters**
+
+- `bounds` (NumberArray6) — \[xmin, ymin, zmin, xmax, ymax, zmax].
+
+<MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1632" sourceLabel="Segment.ts:1632" />
+
+Creates the plain segment box center and half diagonal, the LOD volume without terrain.
+
+<MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1663" sourceLabel="Segment.ts:1663" />
+
+Raises the LOD center over the plain segment center by the height of the median vertex radius over the surface.
+
+**Parameters**
+
+- `radius` (number) — Median geocentric radius of the segment vertices.
 
 <MemberHeading id="getmaterialbylayer" depth="3" name="getMaterialByLayer" sig="getMaterialByLayer(layer: Layer): Material | undefined" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1846" sourceLabel="Segment.ts:1846" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1907" sourceLabel="Segment.ts:1907" />
 
 Gets specific layer material.
 
@@ -296,7 +322,7 @@ Gets specific layer material.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1859" sourceLabel="Segment.ts:1859" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1920" sourceLabel="Segment.ts:1920" />
 
 Computes cyclic longitude shift for `sourceExtent` to align it with `targetExtent` in wrapped horizontal coordinate space (for example, Web Mercator world copies).
 
@@ -422,4 +448,4 @@ Terrain existing flag.
 
 <MemberHeading id="materials" depth="3" name="materials" sig="materials" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L381" sourceLabel="Segment.ts:381" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L395" sourceLabel="Segment.ts:395" />

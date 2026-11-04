@@ -67,19 +67,9 @@ Sets text letter spacing.
 
 Returns label text letter spacing.
 
-<MemberHeading id="setrtl" depth="3" name="setRtl" sig="setRtl(isRTL: boolean)" />
-
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L212" sourceLabel="Label.ts:212" />
-
-Change text direction.
-
-**Parameters**
-
-- `isRTL` (boolean) — Text string.
-
 <MemberHeading id="gettext" depth="3" name="getText" sig="getText(): string" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L231" sourceLabel="Label.ts:231" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L235" sourceLabel="Label.ts:235" />
 
 Gets current text string.
 
@@ -89,7 +79,7 @@ Gets current text string.
 
 <MemberHeading id="setalign" depth="3" name="setAlign" sig="setAlign(align: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L240" sourceLabel="Label.ts:240" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L244" sourceLabel="Label.ts:244" />
 
 Sets label text align. Could be center, left or right. Left is default.
 
@@ -99,7 +89,7 @@ Sets label text align. Could be center, left or right. Left is default.
 
 <MemberHeading id="getalign" depth="3" name="getAlign" sig="getAlign(): string" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L262" sourceLabel="Label.ts:262" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L266" sourceLabel="Label.ts:266" />
 
 Gets label text current alignment.
 
@@ -109,7 +99,7 @@ Gets label text current alignment.
 
 <MemberHeading id="setface" depth="3" name="setFace" sig="setFace(face: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L271" sourceLabel="Label.ts:271" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L275" sourceLabel="Label.ts:275" />
 
 Sets font face family.
 
@@ -119,7 +109,7 @@ Sets font face family.
 
 <MemberHeading id="getface" depth="3" name="getFace" sig="getFace(): string" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L281" sourceLabel="Label.ts:281" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L285" sourceLabel="Label.ts:285" />
 
 Gets current font face.
 
@@ -129,7 +119,7 @@ Gets current font face.
 
 <MemberHeading id="setsize" depth="3" name="setSize" sig="setSize(size: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L290" sourceLabel="Label.ts:290" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L294" sourceLabel="Label.ts:294" />
 
 Sets label font size in pixels.
 
@@ -139,7 +129,7 @@ Sets label font size in pixels.
 
 <MemberHeading id="getsize" depth="3" name="getSize" sig="getSize(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L306" sourceLabel="Label.ts:306" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L310" sourceLabel="Label.ts:310" />
 
 Gets label size in pixels.
 
@@ -149,7 +139,7 @@ Gets label size in pixels.
 
 <MemberHeading id="setoutline" depth="3" name="setOutline" sig="setOutline(outline: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L317" sourceLabel="Label.ts:317" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L321" sourceLabel="Label.ts:321" />
 
 Sets text outline border width in pixels. Where 0 - is no outline. The visible width is capped by the font atlas distance field range, which grows with the label font size.
 
@@ -159,7 +149,7 @@ Sets text outline border width in pixels. Where 0 - is no outline. The visible w
 
 <MemberHeading id="getoutline" depth="3" name="getOutline" sig="getOutline(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L331" sourceLabel="Label.ts:331" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L335" sourceLabel="Label.ts:335" />
 
 Gets text current outline width in pixels.
 
@@ -169,7 +159,7 @@ Gets text current outline width in pixels.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(a: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L340" sourceLabel="Label.ts:340" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L344" sourceLabel="Label.ts:344" />
 
 **Overrides:&#x20;**`BaseBillboard#setOpacity`
 
@@ -181,7 +171,7 @@ Sets label opacity.
 
 <MemberHeading id="setoutlinecolor" depth="3" name="setOutlineColor" sig="setOutlineColor(r: number, g: number, b: number, a: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L353" sourceLabel="Label.ts:353" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L357" sourceLabel="Label.ts:357" />
 
 Sets text outline color.
 
@@ -194,7 +184,7 @@ Sets text outline color.
 
 <MemberHeading id="setoutlinecolor4v" depth="3" name="setOutlineColor4v" sig="setOutlineColor4v(rgba: Vec4)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L377" sourceLabel="Label.ts:377" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L381" sourceLabel="Label.ts:381" />
 
 Sets text outline color.
 
@@ -204,7 +194,7 @@ Sets text outline color.
 
 <MemberHeading id="setoutlinecolorhtml" depth="3" name="setOutlineColorHTML" sig="setOutlineColorHTML(color: string)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L386" sourceLabel="Label.ts:386" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L390" sourceLabel="Label.ts:390" />
 
 Sets text outline color HTML string.
 
@@ -214,7 +204,7 @@ Sets text outline color HTML string.
 
 <MemberHeading id="getoutlinecolor" depth="3" name="getOutlineColor" sig="getOutlineColor(): Vec4" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L395" sourceLabel="Label.ts:395" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L399" sourceLabel="Label.ts:399" />
 
 Gets outline color vector.
 
@@ -224,7 +214,7 @@ Gets outline color vector.
 
 <MemberHeading id="setoutlineopacity" depth="3" name="setOutlineOpacity" sig="setOutlineOpacity(opacity: number)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L404" sourceLabel="Label.ts:404" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L408" sourceLabel="Label.ts:408" />
 
 Sets outline opacity. Actually outline color alpha value.
 
@@ -234,7 +224,7 @@ Sets outline opacity. Actually outline color alpha value.
 
 <MemberHeading id="getoutlineopacity" depth="3" name="getOutlineOpacity" sig="getOutlineOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L420" sourceLabel="Label.ts:420" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L424" sourceLabel="Label.ts:424" />
 
 Gets outline opacity value.
 
@@ -244,13 +234,13 @@ Gets outline opacity value.
 
 <MemberHeading id="update" depth="3" name="update" sig="update()" />
 
-<MemberMeta badges="async" sourceHref="/source/entity/label/label-ts/#L428" sourceLabel="Label.ts:428" />
+<MemberMeta badges="async" sourceHref="/source/entity/label/label-ts/#L432" sourceLabel="Label.ts:432" />
 
 Updates label parameters.
 
 <MemberHeading id="assignfontatlas" depth="3" name="assignFontAtlas" sig="assignFontAtlas(fontAtlas: FontAtlas)" />
 
-<MemberMeta sourceHref="/source/entity/label/label-ts/#L457" sourceLabel="Label.ts:457" />
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L461" sourceLabel="Label.ts:461" />
 
 Assigns font atlas and update.
 
@@ -373,9 +363,23 @@ Gets screen space rotation.
 
 - `number`
 
+<MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity(): number" />
+
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L275" sourceLabel="BaseBillboard.ts:275" />
+
+_Inherited from `BaseBillboard#getOpacity`_
+
+**Overrides:&#x20;**`BaseBillboard#getOpacity`
+
+Returns billboard opacity, the color alpha value.
+
+**Returns**
+
+- `number`
+
 <MemberHeading id="setcolor" depth="3" name="setColor" sig="setColor(r: number, g: number, b: number, a: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L278" sourceLabel="BaseBillboard.ts:278" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L287" sourceLabel="BaseBillboard.ts:287" />
 
 _Inherited from `BaseBillboard#setColor`_
 
@@ -392,7 +396,7 @@ Sets RGBA color. Each channel from 0.0 to 1.0.
 
 <MemberHeading id="setcolor4v" depth="3" name="setColor4v" sig="setColor4v(color: Vec4)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L297" sourceLabel="BaseBillboard.ts:297" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L306" sourceLabel="BaseBillboard.ts:306" />
 
 _Inherited from `BaseBillboard#setColor4v`_
 
@@ -406,7 +410,7 @@ Sets RGBA color. Each channel from 0.0 to 1.0.
 
 <MemberHeading id="setcolorhtml" depth="3" name="setColorHTML" sig="setColorHTML(color: string)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L306" sourceLabel="BaseBillboard.ts:306" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L315" sourceLabel="BaseBillboard.ts:315" />
 
 _Inherited from `BaseBillboard#setColorHTML`_
 
@@ -420,7 +424,7 @@ Sets billboard color.
 
 <MemberHeading id="getcolor" depth="3" name="getColor" sig="getColor(): Vec4" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L315" sourceLabel="BaseBillboard.ts:315" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L324" sourceLabel="BaseBillboard.ts:324" />
 
 _Inherited from `BaseBillboard#getColor`_
 
@@ -434,7 +438,7 @@ Returns RGBA color.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L324" sourceLabel="BaseBillboard.ts:324" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L333" sourceLabel="BaseBillboard.ts:333" />
 
 _Inherited from `BaseBillboard#setVisibility`_
 
@@ -448,7 +452,7 @@ Sets billboard visibility.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L340" sourceLabel="BaseBillboard.ts:340" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L349" sourceLabel="BaseBillboard.ts:349" />
 
 _Inherited from `BaseBillboard#getVisibility`_
 
@@ -462,7 +466,7 @@ Returns billboard visibility.
 
 <MemberHeading id="setalignedaxis" depth="3" name="setAlignedAxis" sig="setAlignedAxis(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L351" sourceLabel="BaseBillboard.ts:351" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L360" sourceLabel="BaseBillboard.ts:360" />
 
 _Inherited from `BaseBillboard#setAlignedAxis`_
 
@@ -478,7 +482,7 @@ Sets billboard cartesian aligned vector.
 
 <MemberHeading id="setalignedaxis3v" depth="3" name="setAlignedAxis3v" sig="setAlignedAxis3v(alignedAxis: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L367" sourceLabel="BaseBillboard.ts:367" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L376" sourceLabel="BaseBillboard.ts:376" />
 
 _Inherited from `BaseBillboard#setAlignedAxis3v`_
 
@@ -492,7 +496,7 @@ Sets billboard aligned vector.
 
 <MemberHeading id="getalignedaxis" depth="3" name="getAlignedAxis" sig="getAlignedAxis(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L376" sourceLabel="BaseBillboard.ts:376" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L385" sourceLabel="BaseBillboard.ts:385" />
 
 _Inherited from `BaseBillboard#getAlignedAxis`_
 
@@ -506,7 +510,7 @@ Returns aligned vector.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L384" sourceLabel="BaseBillboard.ts:384" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L393" sourceLabel="BaseBillboard.ts:393" />
 
 _Inherited from `BaseBillboard#remove`_
 
@@ -516,7 +520,7 @@ Removes billboard from handler.
 
 <MemberHeading id="setpickingcolor3v" depth="3" name="setPickingColor3v" sig="setPickingColor3v(color: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L394" sourceLabel="BaseBillboard.ts:394" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L403" sourceLabel="BaseBillboard.ts:403" />
 
 _Inherited from `BaseBillboard#setPickingColor3v`_
 
@@ -527,3 +531,11 @@ Sets billboard picking color.
 **Parameters**
 
 - `color` ([Vec3](/vec3)) — Picking color.
+
+## Instance Fields
+
+<MemberHeading id="isrtl" depth="3" name="isRtl" sig="isRtl: boolean" />
+
+<MemberMeta sourceHref="/source/entity/label/label-ts/#L212" sourceLabel="Label.ts:212" />
+
+Right-to-left text direction.

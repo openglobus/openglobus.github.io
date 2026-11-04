@@ -9,7 +9,7 @@ description: Scene for translating and rotating entities with a gizmo.
 
 **Extends:&#x20;**[`Scene`](/scene)
 
-<SourceLink href="/source/control/entitygizmo/entitygizmoscene-ts/#L162" label="EntityGizmoScene.ts:162" />
+<SourceLink href="/source/control/entitygizmo/entitygizmoscene-ts/#L166" label="EntityGizmoScene.ts:166" />
 
 Scene for translating and rotating entities with a gizmo.
 
@@ -33,31 +33,31 @@ Scene for translating and rotating entities with a gizmo.
 
 <MemberHeading id="navsuspend" depth="3" name="_navSuspend" sig="_navSuspend()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L395" sourceLabel="EntityGizmoScene.ts:395" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L401" sourceLabel="EntityGizmoScene.ts:401" />
 
 Suspends the navigation controls that are active right now, so that a drag gesture does not fight with the camera. The suspended set is remembered and restored by `EntityGizmoScene._navRestore`, which keeps controls that were already deactivated beforehand deactivated.
 
 <MemberHeading id="isgizmoentity" depth="3" name="_isGizmoEntity" sig="_isGizmoEntity()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L607" sourceLabel="EntityGizmoScene.ts:607" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L613" sourceLabel="EntityGizmoScene.ts:613" />
 
 Returns `true` when the entity is one of the gizmo handles.
 
 <MemberHeading id="istransforming" depth="3" name="isTransforming" sig="isTransforming()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L663" sourceLabel="EntityGizmoScene.ts:663" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L670" sourceLabel="EntityGizmoScene.ts:670" />
 
 Returns `true` when a drag gesture is running right now.
 
 <MemberHeading id="getactivetransform" depth="3" name="getActiveTransform" sig="getActiveTransform()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L671" sourceLabel="EntityGizmoScene.ts:671" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L678" sourceLabel="EntityGizmoScene.ts:678" />
 
 Returns the running gesture description or `null`.
 
 <MemberHeading id="canceltransform" depth="3" name="cancelTransform" sig="cancelTransform(): boolean" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L680" sourceLabel="EntityGizmoScene.ts:680" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L687" sourceLabel="EntityGizmoScene.ts:687" />
 
 Cancels the current gesture and restores the entity transform when possible.
 
@@ -67,13 +67,13 @@ Cancels the current gesture and restores the entity transform when possible.
 
 <MemberHeading id="beginchange" depth="3" name="_beginChange" sig="_beginChange()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L740" sourceLabel="EntityGizmoScene.ts:740" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L747" sourceLabel="EntityGizmoScene.ts:747" />
 
 Dispatches `transformstart` right before the very first entity change of the gesture.
 
 <MemberHeading id="applyposition" depth="3" name="_applyPosition" sig="_applyPosition(pos: Vec3)" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L971" sourceLabel="EntityGizmoScene.ts:971" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L978" sourceLabel="EntityGizmoScene.ts:978" />
 
 Applies a new absolute position to the selected entity and emits the gesture events around the change. The `position` event receives the applied `pos` and the entity.
 
@@ -226,12 +226,12 @@ Draw entity collections picking frame.
 
 <MemberHeading id="tools" depth="3" name="tools" sig="tools" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L513" sourceLabel="EntityGizmoScene.ts:513" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L518" sourceLabel="EntityGizmoScene.ts:518" />
 
 Gizmo tool set: which handles are shown.
 
 <MemberHeading id="autoselect" depth="3" name="autoSelect" sig="autoSelect" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L321" sourceLabel="EntityGizmoScene.ts:321" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L327" sourceLabel="EntityGizmoScene.ts:327" />
 
 When `false`, a left click neither selects a map entity nor drops the current selection.

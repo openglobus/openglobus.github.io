@@ -263,11 +263,49 @@ Gets specific layer material.
 
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1422" sourceLabel="Segment.ts:1422" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1431" sourceLabel="Segment.ts:1431" />
 
 _Inherited from `Segment#_setExtentLonLat`_
 
 **Overrides:&#x20;**`Segment#_setExtentLonLat`
+
+<MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1621" sourceLabel="Segment.ts:1621" />
+
+_Inherited from `Segment#setTerrainBoundingVolume`_
+
+**Overrides:&#x20;**`Segment#setTerrainBoundingVolume`
+
+Sets the bounding volume of the terrain vertices, the plain segment volume when there are no finite vertices.
+
+**Parameters**
+
+- `bounds` (NumberArray6) — \[xmin, ymin, zmin, xmax, ymax, zmax].
+
+<MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1632" sourceLabel="Segment.ts:1632" />
+
+_Inherited from `Segment#_createPlainBounds`_
+
+**Overrides:&#x20;**`Segment#_createPlainBounds`
+
+Creates the plain segment box center and half diagonal, the LOD volume without terrain.
+
+<MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1663" sourceLabel="Segment.ts:1663" />
+
+_Inherited from `Segment#setLodRadius`_
+
+**Overrides:&#x20;**`Segment#setLodRadius`
+
+Raises the LOD center over the plain segment center by the height of the median vertex radius over the surface.
+
+**Parameters**
+
+- `radius` (number) — Median geocentric radius of the segment vertices.
 
 <MemberHeading
   id="getcycliclonshift"
@@ -280,7 +318,7 @@ _Inherited from `Segment#_setExtentLonLat`_
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1859" sourceLabel="Segment.ts:1859" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1920" sourceLabel="Segment.ts:1920" />
 
 _Inherited from `Segment#_getCyclicLonShift`_
 

@@ -368,13 +368,13 @@ Convert typed array to array
 
 <MemberHeading id="getmatrixsubarrayboundsext" depth="3" name="getMatrixSubArrayBoundsExt" sig="getMatrixSubArrayBoundsExt()" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1146" sourceLabel="shared.ts:1146" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1147" sourceLabel="shared.ts:1147" />
 
-Returns two float32 triangle coordinate arrays from inside of the source triangle array.
+Returns two float32 triangle coordinate arrays from inside of the source triangle array, with their bounds and squared geocentric radii.
 
 <MemberHeading id="loadimage" depth="3" name="loadImage" sig="loadImage(url: string): Promise.<Image>" />
 
-<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1228" sourceLabel="shared.ts:1228" />
+<MemberMeta badges="async" sourceHref="/source/utils/shared-ts/#L1221" sourceLabel="shared.ts:1221" />
 
 Promise for load images
 
@@ -388,7 +388,7 @@ Promise for load images
 
 <MemberHeading id="isimageloaded" depth="3" name="isImageLoaded" sig="isImageLoaded(image: HTMLImageElement): boolean" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1311" sourceLabel="shared.ts:1311" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1304" sourceLabel="shared.ts:1304" />
 
 Gets image is loaded
 
@@ -402,7 +402,7 @@ Gets image is loaded
 
 <MemberHeading id="gettileimageresolution" depth="3" name="getTileImageResolution" sig="getTileImageResolution(x, y, z, imageSize, ellipsoid)" />
 
-<MemberMeta sourceHref="/source/utils/shared-ts/#L1369" sourceLabel="shared.ts:1369" />
+<MemberMeta sourceHref="/source/utils/shared-ts/#L1362" sourceLabel="shared.ts:1362" />
 
 **Parameters**
 

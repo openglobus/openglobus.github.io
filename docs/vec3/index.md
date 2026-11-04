@@ -7,7 +7,7 @@ description: Class represents a 3d vector.
 
 # Vec3
 
-<SourceLink href="/source/math/vec3-ts/#L15" label="Vec3.ts:15" />
+<SourceLink href="/source/math/vec3-ts/#L16" label="Vec3.ts:16" />
 
 Class represents a 3d vector.
 
@@ -29,7 +29,7 @@ Class represents a 3d vector.
 
 <MemberHeading id="tovec4" depth="3" name="toVec4" sig="toVec4(): Vec4" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L362" sourceLabel="Vec3.ts:362" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L298" sourceLabel="Vec3.ts:298" />
 
 Converts to 4d vector, Fourth value is 1.0.
 
@@ -39,7 +39,7 @@ Converts to 4d vector, Fourth value is 1.0.
 
 <MemberHeading id="clone" depth="3" name="clone" sig="clone(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L371" sourceLabel="Vec3.ts:371" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L307" sourceLabel="Vec3.ts:307" />
 
 Returns clone vector.
 
@@ -49,7 +49,7 @@ Returns clone vector.
 
 <MemberHeading id="tostring" depth="3" name="toString" sig="toString(): string" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L380" sourceLabel="Vec3.ts:380" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L316" sourceLabel="Vec3.ts:316" />
 
 Converts vector to text string.
 
@@ -59,7 +59,7 @@ Converts vector to text string.
 
 <MemberHeading id="iszero" depth="3" name="isZero" sig="isZero(): boolean" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L389" sourceLabel="Vec3.ts:389" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L325" sourceLabel="Vec3.ts:325" />
 
 Returns true if vector's values are zero.
 
@@ -69,7 +69,7 @@ Returns true if vector's values are zero.
 
 <MemberHeading id="projtovec" depth="3" name="projToVec" sig="projToVec(a: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L399" sourceLabel="Vec3.ts:399" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L335" sourceLabel="Vec3.ts:335" />
 
 Get projection of the first vector to the second.
 
@@ -83,7 +83,7 @@ Get projection of the first vector to the second.
 
 <MemberHeading id="equal" depth="3" name="equal" sig="equal(p: Vec3): boolean" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L409" sourceLabel="Vec3.ts:409" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L345" sourceLabel="Vec3.ts:345" />
 
 Compares with vector. Returns true if it equals another.
 
@@ -97,7 +97,7 @@ Compares with vector. Returns true if it equals another.
 
 <MemberHeading id="copy" depth="3" name="copy" sig="copy(p: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L418" sourceLabel="Vec3.ts:418" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L354" sourceLabel="Vec3.ts:354" />
 
 Copy input vector's values.
 
@@ -111,7 +111,7 @@ Copy input vector's values.
 
 <MemberHeading id="length" depth="3" name="length" sig="length(): number" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L430" sourceLabel="Vec3.ts:430" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L366" sourceLabel="Vec3.ts:366" />
 
 Gets vector's length.
 
@@ -121,7 +121,7 @@ Gets vector's length.
 
 <MemberHeading id="length2" depth="3" name="length2" sig="length2(): number" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L439" sourceLabel="Vec3.ts:439" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L375" sourceLabel="Vec3.ts:375" />
 
 Returns squared vector's length.
 
@@ -131,7 +131,7 @@ Returns squared vector's length.
 
 <MemberHeading id="getquat" depth="3" name="getQuat" sig="getQuat(): Quat" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L448" sourceLabel="Vec3.ts:448" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L384" sourceLabel="Vec3.ts:384" />
 
 Converts vector's values to a quaternion object.
 
@@ -141,7 +141,7 @@ Converts vector's values to a quaternion object.
 
 <MemberHeading id="adda" depth="3" name="addA" sig="addA(p: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L458" sourceLabel="Vec3.ts:458" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L394" sourceLabel="Vec3.ts:394" />
 
 Adds vector to the current.
 
@@ -155,7 +155,7 @@ Adds vector to the current.
 
 <MemberHeading id="add" depth="3" name="add" sig="add(p: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L471" sourceLabel="Vec3.ts:471" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L407" sourceLabel="Vec3.ts:407" />
 
 Gets two vectors summarization.
 
@@ -169,7 +169,7 @@ Gets two vectors summarization.
 
 <MemberHeading id="addres" depth="3" name="addRes" sig="addRes(p: Vec3, res: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L482" sourceLabel="Vec3.ts:482" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L418" sourceLabel="Vec3.ts:418" />
 
 Computes the componentwise sum of two vectors.
 
@@ -184,7 +184,7 @@ Computes the componentwise sum of two vectors.
 
 <MemberHeading id="suba" depth="3" name="subA" sig="subA(p: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L492" sourceLabel="Vec3.ts:492" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L428" sourceLabel="Vec3.ts:428" />
 
 Subtract vector from the current.
 
@@ -198,7 +198,7 @@ Subtract vector from the current.
 
 <MemberHeading id="sub" depth="3" name="sub" sig="sub(p: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L505" sourceLabel="Vec3.ts:505" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L441" sourceLabel="Vec3.ts:441" />
 
 Gets vector subtraction.
 
@@ -212,7 +212,7 @@ Gets vector subtraction.
 
 <MemberHeading id="scale" depth="3" name="scale" sig="scale(scale: number): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L515" sourceLabel="Vec3.ts:515" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L451" sourceLabel="Vec3.ts:451" />
 
 Scale current vector.
 
@@ -226,7 +226,7 @@ Scale current vector.
 
 <MemberHeading id="scaleto" depth="3" name="scaleTo" sig="scaleTo(scale: number): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L528" sourceLabel="Vec3.ts:528" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L464" sourceLabel="Vec3.ts:464" />
 
 Scale current vector to another instance.
 
@@ -240,7 +240,7 @@ Scale current vector to another instance.
 
 <MemberHeading id="mula" depth="3" name="mulA" sig="mulA(vec: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L538" sourceLabel="Vec3.ts:538" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L474" sourceLabel="Vec3.ts:474" />
 
 Multiply current vector object to another and store result in the current instance.
 
@@ -254,7 +254,7 @@ Multiply current vector object to another and store result in the current instan
 
 <MemberHeading id="mul" depth="3" name="mul" sig="mul(vec: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L551" sourceLabel="Vec3.ts:551" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L487" sourceLabel="Vec3.ts:487" />
 
 Multiply current vector object to another and returns new vector instance.
 
@@ -268,7 +268,7 @@ Multiply current vector object to another and returns new vector instance.
 
 <MemberHeading id="mulres" depth="3" name="mulRes" sig="mulRes(vec: Vec3, res: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L562" sourceLabel="Vec3.ts:562" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L498" sourceLabel="Vec3.ts:498" />
 
 Computes the componentwise product of two vectors.
 
@@ -283,7 +283,7 @@ Computes the componentwise product of two vectors.
 
 <MemberHeading id="diva" depth="3" name="divA" sig="divA(vec: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L572" sourceLabel="Vec3.ts:572" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L508" sourceLabel="Vec3.ts:508" />
 
 Divides current vector components by another vector in place.
 
@@ -297,7 +297,7 @@ Divides current vector components by another vector in place.
 
 <MemberHeading id="div" depth="3" name="div" sig="div(vec: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L585" sourceLabel="Vec3.ts:585" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L521" sourceLabel="Vec3.ts:521" />
 
 Divide current vector's components to another and returns new vector instance.
 
@@ -311,7 +311,7 @@ Divide current vector's components to another and returns new vector instance.
 
 <MemberHeading id="dot" depth="3" name="dot" sig="dot(a: Vec3): number" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L595" sourceLabel="Vec3.ts:595" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L531" sourceLabel="Vec3.ts:531" />
 
 Returns the dot product of two vectors.
 
@@ -325,7 +325,7 @@ Returns the dot product of two vectors.
 
 <MemberHeading id="dotarr" depth="3" name="dotArr" sig="dotArr(arr: Array.<number>): number" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L605" sourceLabel="Vec3.ts:605" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L541" sourceLabel="Vec3.ts:541" />
 
 Returns the dot product with an array.
 
@@ -339,7 +339,7 @@ Returns the dot product with an array.
 
 <MemberHeading id="cross" depth="3" name="cross" sig="cross(point3: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L615" sourceLabel="Vec3.ts:615" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L551" sourceLabel="Vec3.ts:551" />
 
 Gets vectors cross production.
 
@@ -353,7 +353,7 @@ Gets vectors cross production.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L628" sourceLabel="Vec3.ts:628" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L564" sourceLabel="Vec3.ts:564" />
 
 Sets vector to zero.
 
@@ -363,7 +363,7 @@ Sets vector to zero.
 
 <MemberHeading id="getnormal" depth="3" name="getNormal" sig="getNormal(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L638" sourceLabel="Vec3.ts:638" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L574" sourceLabel="Vec3.ts:574" />
 
 Returns normalized vector.
 
@@ -373,7 +373,7 @@ Returns normalized vector.
 
 <MemberHeading id="normal" depth="3" name="normal" sig="normal(): Vec3" />
 
-<MemberMeta badges="deprecated" sourceHref="/source/math/vec3-ts/#L657" sourceLabel="Vec3.ts:657" />
+<MemberMeta badges="deprecated" sourceHref="/source/math/vec3-ts/#L593" sourceLabel="Vec3.ts:593" />
 
 Returns normalized vector.
 
@@ -387,7 +387,7 @@ Returns normalized vector.
 
 <MemberHeading id="normalnegate" depth="3" name="normalNegate" sig="normalNegate(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L675" sourceLabel="Vec3.ts:675" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L611" sourceLabel="Vec3.ts:611" />
 
 Returns the normalized negated vector.
 
@@ -397,7 +397,7 @@ Returns the normalized negated vector.
 
 <MemberHeading id="normalnegatescale" depth="3" name="normalNegateScale" sig="normalNegateScale(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L693" sourceLabel="Vec3.ts:693" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L629" sourceLabel="Vec3.ts:629" />
 
 Returns the normalized negated vector multiplied by `scale`.
 
@@ -407,7 +407,7 @@ Returns the normalized negated vector multiplied by `scale`.
 
 <MemberHeading id="normalscale" depth="3" name="normalScale" sig="normalScale(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L711" sourceLabel="Vec3.ts:711" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L647" sourceLabel="Vec3.ts:647" />
 
 Returns normalized scale vector.
 
@@ -417,7 +417,7 @@ Returns normalized scale vector.
 
 <MemberHeading id="normalize" depth="3" name="normalize" sig="normalize(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L729" sourceLabel="Vec3.ts:729" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L665" sourceLabel="Vec3.ts:665" />
 
 Normalize current vector.
 
@@ -427,7 +427,7 @@ Normalize current vector.
 
 <MemberHeading id="tovec" depth="3" name="toVec" sig="toVec(): Array.<number>" />
 
-<MemberMeta badges="deprecated" sourceHref="/source/math/vec3-ts/#L743" sourceLabel="Vec3.ts:743" />
+<MemberMeta badges="deprecated" sourceHref="/source/math/vec3-ts/#L679" sourceLabel="Vec3.ts:679" />
 
 Converts vector to a number array.
 
@@ -441,7 +441,7 @@ Converts vector to a number array.
 
 <MemberHeading id="toarray" depth="3" name="toArray" sig="toArray(): Array.<number>" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L752" sourceLabel="Vec3.ts:752" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L688" sourceLabel="Vec3.ts:688" />
 
 Converts vector to a number array.
 
@@ -451,7 +451,7 @@ Converts vector to a number array.
 
 <MemberHeading id="distance" depth="3" name="distance" sig="distance(p: Vec3): number" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L762" sourceLabel="Vec3.ts:762" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L698" sourceLabel="Vec3.ts:698" />
 
 Gets distance to point.
 
@@ -465,7 +465,7 @@ Gets distance to point.
 
 <MemberHeading id="distance2" depth="3" name="distance2" sig="distance2(p: Vec3): number" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L775" sourceLabel="Vec3.ts:775" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L711" sourceLabel="Vec3.ts:711" />
 
 Gets square distance to point.
 
@@ -479,7 +479,7 @@ Gets square distance to point.
 
 <MemberHeading id="set" depth="3" name="set" sig="set(x: number, y: number, z: number): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L790" sourceLabel="Vec3.ts:790" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L726" sourceLabel="Vec3.ts:726" />
 
 Sets vector's values.
 
@@ -495,7 +495,7 @@ Sets vector's values.
 
 <MemberHeading id="negate" depth="3" name="negate" sig="negate(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L802" sourceLabel="Vec3.ts:802" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L738" sourceLabel="Vec3.ts:738" />
 
 Negate current vector.
 
@@ -505,7 +505,7 @@ Negate current vector.
 
 <MemberHeading id="negateto" depth="3" name="negateTo" sig="negateTo(): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L814" sourceLabel="Vec3.ts:814" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L750" sourceLabel="Vec3.ts:750" />
 
 Negate current vector to another instance.
 
@@ -515,7 +515,7 @@ Negate current vector to another instance.
 
 <MemberHeading id="projtoray" depth="3" name="projToRay" sig="projToRay(pos: Vec3, direction: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L825" sourceLabel="Vec3.ts:825" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L761" sourceLabel="Vec3.ts:761" />
 
 Gets projected point coordinates of the current vector on the ray.
 
@@ -530,7 +530,7 @@ Gets projected point coordinates of the current vector on the ray.
 
 <MemberHeading id="angle" depth="3" name="angle" sig="angle(a: Vec3): number" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L837" sourceLabel="Vec3.ts:837" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L773" sourceLabel="Vec3.ts:773" />
 
 Gets angle between two vectors.
 
@@ -544,7 +544,7 @@ Gets angle between two vectors.
 
 <MemberHeading id="lerp" depth="3" name="lerp" sig="lerp(v2: Vec3, l: number): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L848" sourceLabel="Vec3.ts:848" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L784" sourceLabel="Vec3.ts:784" />
 
 Returns two vectors linear interpolation.
 
@@ -559,7 +559,7 @@ Returns two vectors linear interpolation.
 
 <MemberHeading id="smerp" depth="3" name="smerp" sig="smerp(v2: Vec3, t: number): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L859" sourceLabel="Vec3.ts:859" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L795" sourceLabel="Vec3.ts:795" />
 
 Returns vector interpolation by v(t) = v1 \* t + v2 \* (1 - t)
 
@@ -574,7 +574,7 @@ Returns vector interpolation by v(t) = v1 \* t + v2 \* (1 - t)
 
 <MemberHeading id="slerp" depth="3" name="slerp" sig="slerp(v2: Vec3, t: number): Vec3" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L878" sourceLabel="Vec3.ts:878" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L814" sourceLabel="Vec3.ts:814" />
 
 Spherically interpolates between two vectors. Interpolates between current and v2 vector by amount t. The difference between this and linear interpolation (aka, "lerp") is that the vectors are treated as directions rather than points in space. The direction of the returned vector is interpolated by the angle and its magnitude is interpolated between the magnitudes of from and to.
 
@@ -589,7 +589,7 @@ Spherically interpolates between two vectors. Interpolates between current and v
 
 <MemberHeading id="getrotationto" depth="3" name="getRotationTo" sig="getRotationTo(dest: Vec3, fallbackAxis: Vec3): Quat" />
 
-<MemberMeta sourceHref="/source/math/vec3-ts/#L919" sourceLabel="Vec3.ts:919" />
+<MemberMeta sourceHref="/source/math/vec3-ts/#L855" sourceLabel="Vec3.ts:855" />
 
 Returns the shortest-arc quaternion rotating this vector to `dest`.
 
@@ -606,7 +606,7 @@ Returns the shortest-arc quaternion rotating this vector to `dest`.
 
 <MemberHeading id="doubletotwofloats" depth="3" name="doubleToTwoFloats" sig="doubleToTwoFloats(v: Vec3, high: Vec3, low: Vec3)" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L102" sourceLabel="Vec3.ts:102" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L103" sourceLabel="Vec3.ts:103" />
 
 Splits a 64-bit Vec3 value into two Vec3 values with 32-bit float components.
 
@@ -624,10 +624,10 @@ Splits a 64-bit Vec3 value into two Vec3 values with 32-bit float components.
 	v: Vec3,
 	high: Float32Array,
 	low: Float32Array,
-): Array.<number>"
+)"
 />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L146" sourceLabel="Vec3.ts:146" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L114" sourceLabel="Vec3.ts:114" />
 
 Splits a 64-bit Vec3 value into two float arrays with 32-bit components.
 
@@ -637,13 +637,9 @@ Splits a 64-bit Vec3 value into two float arrays with 32-bit components.
 - `high` (Float32Array) — Out vector high values.
 - `low` (Float32Array) — Out vector low values.
 
-**Returns**
-
-- `Array.<number>` — Encoded array. (exactly 2 entries)
-
 <MemberHeading id="fromvec" depth="3" name="fromVec" sig="fromVec(arr: NumberArray2 | NumberArray3 | NumberArray4): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L188" sourceLabel="Vec3.ts:188" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L124" sourceLabel="Vec3.ts:124" />
 
 Creates 3d vector from array.
 
@@ -657,7 +653,7 @@ Creates 3d vector from array.
 
 <MemberHeading id="angle" depth="3" name="angle" sig="angle(a: Vec3, b: Vec3): number" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L199" sourceLabel="Vec3.ts:199" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L135" sourceLabel="Vec3.ts:135" />
 
 Gets angle between two vectors.
 
@@ -672,7 +668,7 @@ Gets angle between two vectors.
 
 <MemberHeading id="lerp" depth="3" name="lerp" sig="lerp(v1: Vec3, v2: Vec3, l: number): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L216" sourceLabel="Vec3.ts:216" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L152" sourceLabel="Vec3.ts:152" />
 
 Returns two vectors linear interpolation.
 
@@ -688,7 +684,7 @@ Returns two vectors linear interpolation.
 
 <MemberHeading id="add" depth="3" name="add" sig="add(a: Vec3, b: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L227" sourceLabel="Vec3.ts:227" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L163" sourceLabel="Vec3.ts:163" />
 
 Returns the sum of two vectors.
 
@@ -703,7 +699,7 @@ Returns the sum of two vectors.
 
 <MemberHeading id="sub" depth="3" name="sub" sig="sub(a: Vec3, b: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L240" sourceLabel="Vec3.ts:240" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L176" sourceLabel="Vec3.ts:176" />
 
 Returns the difference between two vectors.
 
@@ -718,7 +714,7 @@ Returns the difference between two vectors.
 
 <MemberHeading id="scale" depth="3" name="scale" sig="scale(a: Vec3, scale: number): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L253" sourceLabel="Vec3.ts:253" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L189" sourceLabel="Vec3.ts:189" />
 
 Returns scaled vector.
 
@@ -733,7 +729,7 @@ Returns scaled vector.
 
 <MemberHeading id="mul" depth="3" name="mul" sig="mul(a: Vec3, b: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L264" sourceLabel="Vec3.ts:264" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L200" sourceLabel="Vec3.ts:200" />
 
 Returns two vectors production.
 
@@ -748,7 +744,7 @@ Returns two vectors production.
 
 <MemberHeading id="noncollinear" depth="3" name="noncollinear" sig="noncollinear(a: Vec3, b: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L277" sourceLabel="Vec3.ts:277" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L213" sourceLabel="Vec3.ts:213" />
 
 Returns true if two vectors are non-collinear.
 
@@ -763,7 +759,7 @@ Returns true if two vectors are non-collinear.
 
 <MemberHeading id="projbtoplane" depth="3" name="proj_b_to_plane" sig="proj_b_to_plane(b: Vec3, n: Vec3, def?: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L289" sourceLabel="Vec3.ts:289" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L225" sourceLabel="Vec3.ts:225" />
 
 Projects a vector onto a plane with normal `n`.
 
@@ -779,7 +775,7 @@ Projects a vector onto a plane with normal `n`.
 
 <MemberHeading id="projbtoa" depth="3" name="proj_b_to_a" sig="proj_b_to_a(b: Vec3, a: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L304" sourceLabel="Vec3.ts:304" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L240" sourceLabel="Vec3.ts:240" />
 
 Get projection of the first vector to the second.
 
@@ -794,7 +790,7 @@ Get projection of the first vector to the second.
 
 <MemberHeading id="orthonormalize" depth="3" name="orthoNormalize" sig="orthoNormalize(normal: Vec3, tangent: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L316" sourceLabel="Vec3.ts:316" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L252" sourceLabel="Vec3.ts:252" />
 
 Makes vectors normalized and orthogonal to each other. Normalizes normal. Normalizes tangent and makes sure it is orthogonal to normal (that is, angle between them is 90 degrees).
 
@@ -809,7 +805,7 @@ Makes vectors normalized and orthogonal to each other. Normalizes normal. Normal
 
 <MemberHeading id="div" depth="3" name="div" sig="div(a: Vec3, b: Vec3): Vec3" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L339" sourceLabel="Vec3.ts:339" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L275" sourceLabel="Vec3.ts:275" />
 
 Returns vector components division product one to another.
 
@@ -826,44 +822,44 @@ Returns vector components division product one to another.
 
 <MemberHeading id="up" depth="3" name="UP" sig="UP" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L43" sourceLabel="Vec3.ts:43" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L44" sourceLabel="Vec3.ts:44" />
 
 <MemberHeading id="down" depth="3" name="DOWN" sig="DOWN" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L48" sourceLabel="Vec3.ts:48" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L49" sourceLabel="Vec3.ts:49" />
 
 <MemberHeading id="right" depth="3" name="RIGHT" sig="RIGHT" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L53" sourceLabel="Vec3.ts:53" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L54" sourceLabel="Vec3.ts:54" />
 
 <MemberHeading id="left" depth="3" name="LEFT" sig="LEFT" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L58" sourceLabel="Vec3.ts:58" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L59" sourceLabel="Vec3.ts:59" />
 
 <MemberHeading id="forward" depth="3" name="FORWARD" sig="FORWARD" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L63" sourceLabel="Vec3.ts:63" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L64" sourceLabel="Vec3.ts:64" />
 
 <MemberHeading id="backward" depth="3" name="BACKWARD" sig="BACKWARD" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L68" sourceLabel="Vec3.ts:68" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L69" sourceLabel="Vec3.ts:69" />
 
 <MemberHeading id="zero" depth="3" name="ZERO" sig="ZERO" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L73" sourceLabel="Vec3.ts:73" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L74" sourceLabel="Vec3.ts:74" />
 
 <MemberHeading id="unitx" depth="3" name="UNIT_X" sig="UNIT_X" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L78" sourceLabel="Vec3.ts:78" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L79" sourceLabel="Vec3.ts:79" />
 
 <MemberHeading id="unity" depth="3" name="UNIT_Y" sig="UNIT_Y" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L83" sourceLabel="Vec3.ts:83" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L84" sourceLabel="Vec3.ts:84" />
 
 <MemberHeading id="unitz" depth="3" name="UNIT_Z" sig="UNIT_Z" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L88" sourceLabel="Vec3.ts:88" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L89" sourceLabel="Vec3.ts:89" />
 
 <MemberHeading id="north" depth="3" name="NORTH" sig="NORTH" />
 
-<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L93" sourceLabel="Vec3.ts:93" />
+<MemberMeta badges="static" sourceHref="/source/math/vec3-ts/#L94" sourceLabel="Vec3.ts:94" />
