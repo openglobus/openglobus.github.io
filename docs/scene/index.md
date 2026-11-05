@@ -27,13 +27,13 @@ Render node is a logical part of a render mechanism. Represents scene rendering.
 
 <MemberHeading id="addnode" depth="3" name="addNode" sig="addNode()" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L116" sourceLabel="Scene.ts:116" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L125" sourceLabel="Scene.ts:125" />
 
 Adds node to the current hierarchy.
 
 <MemberHeading id="assign" depth="3" name="assign" sig="assign(renderer: Renderer)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L132" sourceLabel="Scene.ts:132" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L141" sourceLabel="Scene.ts:141" />
 
 Assign render node with renderer.
 
@@ -43,13 +43,13 @@ Assign render node with renderer.
 
 <MemberHeading id="destroy" depth="3" name="destroy" sig="destroy()" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L185" sourceLabel="Scene.ts:185" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L194" sourceLabel="Scene.ts:194" />
 
 Destroy node.
 
 <MemberHeading id="clear" depth="3" name="_clear" sig="_clear()" />
 
-<MemberMeta badges="protected" sourceHref="/source/scene/scene-ts/#L196" sourceLabel="Scene.ts:196" />
+<MemberMeta badges="protected" sourceHref="/source/scene/scene-ts/#L205" sourceLabel="Scene.ts:205" />
 
 Clear current node.
 
@@ -63,7 +63,7 @@ Clear current node.
 ): Scene"
 />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L209" sourceLabel="Scene.ts:209" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L218" sourceLabel="Scene.ts:218" />
 
 Adds an entity collection.
 
@@ -78,7 +78,7 @@ Adds an entity collection.
 
 <MemberHeading id="removeentitycollection" depth="3" name="removeEntityCollection" sig="removeEntityCollection(entityCollection: EntityCollection)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L232" sourceLabel="Scene.ts:232" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L241" sourceLabel="Scene.ts:241" />
 
 Removes entity collection.
 
@@ -88,7 +88,7 @@ Removes entity collection.
 
 <MemberHeading id="isactive" depth="3" name="isActive" sig="isActive(): Boolean" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L265" sourceLabel="Scene.ts:265" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L274" sourceLabel="Scene.ts:274" />
 
 Gets render node activity.
 
@@ -98,7 +98,7 @@ Gets render node activity.
 
 <MemberHeading id="setactive" depth="3" name="setActive" sig="setActive(isActive: boolean)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L274" sourceLabel="Scene.ts:274" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L283" sourceLabel="Scene.ts:283" />
 
 Rendering activation.
 
@@ -108,7 +108,7 @@ Rendering activation.
 
 <MemberHeading id="setdrawmode" depth="3" name="setDrawMode" sig="setDrawMode(mode: Number)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L298" sourceLabel="Scene.ts:298" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L307" sourceLabel="Scene.ts:307" />
 
 Sets draw mode
 
@@ -118,7 +118,7 @@ Sets draw mode
 
 <MemberHeading id="drawpickingentitycollections" depth="3" name="drawPickingEntityCollections" sig="drawPickingEntityCollections(ec: Array.<EntityCollection>)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L334" sourceLabel="Scene.ts:334" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L343" sourceLabel="Scene.ts:343" />
 
 Draw entity collections picking frame.
 

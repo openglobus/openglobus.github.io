@@ -1095,6 +1095,18 @@ Assigns forward sampler slots to the sources of the first `count` projectors (pr
 
 - Number of used slots.
 
+<MemberHeading id="gridmargin" depth="3" name="gridMargin" sig="gridMargin()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L76" sourceLabel="Segment.ts:76" />
+
+How far the grid position (x, y) is inside the triangle of grid vertices a, b and c, in barycentric coordinates: the smallest of the three, negative outside of the triangle.
+
+<MemberHeading id="hasarea" depth="3" name="hasArea" sig="hasArea()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L92" sourceLabel="Segment.ts:92" />
+
+Whether the triangle \_v0, \_v1, \_v2 has an area: twice the area is at least a millionth of the longest edge squared.
+
 <MemberHeading id="getgridcells" depth="3" name="getGridCells" sig="getGridCells(size: number): number" />
 
 <MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L42" sourceLabel="terrainUtils.ts:42" />
@@ -1599,33 +1611,33 @@ Reference surface points under the four screen corners, as \[leftTop, rightTop, 
 
 <MemberHeading id="projperp" depth="3" name="projPerp" sig="projPerp()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L53" sourceLabel="shadowCameraFit.ts:53" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L59" sourceLabel="shadowCameraFit.ts:59" />
 
 Last fit measurements, for readouts and debugging.
 
 <MemberHeading id="getleastalignedaxis" depth="3" name="getLeastAlignedAxis" sig="getLeastAlignedAxis()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L179" sourceLabel="shadowCameraFit.ts:179" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L172" sourceLabel="shadowCameraFit.ts:172" />
 
 Fallback seed for the light space up vector, for when the preferred one turns out to be parallel to the light.
 
 <MemberHeading id="getstablelightup" depth="3" name="getStableLightUp" sig="getStableLightUp()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L195" sourceLabel="shadowCameraFit.ts:195" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L188" sourceLabel="shadowCameraFit.ts:188" />
 
 Up vector of the light space basis, that is, how the shadow rectangle is turned around the sun direction.
 
-<MemberHeading id="getstrategyrelief" depth="3" name="getStrategyRelief" sig="getStrategyRelief()" />
+<MemberHeading id="getrelief" depth="3" name="getRelief" sig="getRelief()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L210" sourceLabel="shadowCameraFit.ts:210" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L203" sourceLabel="shadowCameraFit.ts:203" />
 
-How high the rendered terrain rises above a reference radius, and how deep it drops below it, as two positive heights.
+How high the rendered terrain rises above a reference radius, and how deep it drops below it, as two positive heights. A max radius of 0 means no terrain is known.
 
 <MemberHeading id="getcasterminz" depth="3" name="getCasterMinZ" sig="getCasterMinZ()" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L244" sourceLabel="shadowCameraFit.ts:244" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L238" sourceLabel="shadowCameraFit.ts:238" />
 
-Light space depth of the closest point of the caster volume, which is the footprint raised by the caster height. Only the near plane has to clear it: a caster whose shadow lands on the footprint shares the light space XY of that shadow, so it is already inside the fitted bounds sideways.
+Light space depth of the closest point of the caster volume. A caster whose shadow lands on a footprint point stands on the light ray through that point, height / sin(sun elevation) away from it. Only the near plane has to clear it: it shares the light space XY of its shadow, so it is already inside the fitted bounds sideways.
 
 <MemberHeading id="tzoffsetminutes" depth="3" name="tzOffsetMinutes" sig="tzOffsetMinutes(tzid: string, date: Date): number" />
 
@@ -1947,67 +1959,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2805" sourceLabel="Planet.ts:2805" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2802" sourceLabel="Planet.ts:2802" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2811" sourceLabel="Planet.ts:2811" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2808" sourceLabel="Planet.ts:2808" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2817" sourceLabel="Planet.ts:2817" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2814" sourceLabel="Planet.ts:2814" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2823" sourceLabel="Planet.ts:2823" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2820" sourceLabel="Planet.ts:2820" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2829" sourceLabel="Planet.ts:2829" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2826" sourceLabel="Planet.ts:2826" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2835" sourceLabel="Planet.ts:2835" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2832" sourceLabel="Planet.ts:2832" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2841" sourceLabel="Planet.ts:2841" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2838" sourceLabel="Planet.ts:2838" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2847" sourceLabel="Planet.ts:2847" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2844" sourceLabel="Planet.ts:2844" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2853" sourceLabel="Planet.ts:2853" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2850" sourceLabel="Planet.ts:2850" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2859" sourceLabel="Planet.ts:2859" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2856" sourceLabel="Planet.ts:2856" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2865" sourceLabel="Planet.ts:2865" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2862" sourceLabel="Planet.ts:2862" />
 
 Triggered when the current terrain provider changes.
 
@@ -2563,37 +2575,43 @@ A finger is blunter than a cursor and needs more of an edge to catch.
 
 <MemberHeading id="shadowcasterrelieffactor" depth="3" name="SHADOW_CASTER_RELIEF_FACTOR" sig="SHADOW_CASTER_RELIEF_FACTOR" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L12" sourceLabel="shadowCameraFit.ts:12" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L11" sourceLabel="shadowCameraFit.ts:11" />
 
 How high above the footprint a caster may stand and still reach the shadow map. Raising it is cheap. It only moves the camera sunward.
 
 <MemberHeading id="shadowcasterheightsteps" depth="3" name="SHADOW_CASTER_HEIGHT_STEPS" sig="SHADOW_CASTER_HEIGHT_STEPS" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L21" sourceLabel="shadowCameraFit.ts:21" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L20" sourceLabel="shadowCameraFit.ts:20" />
 
 Controls shadow camera height snapping. A value of 1 uses 128, 256, 512 m, etc., preventing small movements every frame.
 
+<MemberHeading id="minsunelevationsin" depth="3" name="MIN_SUN_ELEVATION_SIN" sig="MIN_SUN_ELEVATION_SIN" />
+
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L26" sourceLabel="shadowCameraFit.ts:26" />
+
+Sun elevation of about 1 degree, the lowest the caster distance toward the Sun is computed for. Under it the distance grows without bound.
+
 <MemberHeading id="shadowreceiverdepthpadding" depth="3" name="SHADOW_RECEIVER_DEPTH_PADDING" sig="SHADOW_RECEIVER_DEPTH_PADDING" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L27" sourceLabel="shadowCameraFit.ts:27" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L32" sourceLabel="shadowCameraFit.ts:32" />
 
 Minimum far-plane margin for terrain below the fitted receivers. fit() adds the measured terrain descent to this value.
 
 <MemberHeading id="shadoworthotexelpadding" depth="3" name="SHADOW_ORTHO_TEXEL_PADDING" sig="SHADOW_ORTHO_TEXEL_PADDING" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L33" sourceLabel="shadowCameraFit.ts:33" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L38" sourceLabel="shadowCameraFit.ts:38" />
 
 Extra border around the fitted bounds, in texels. Keeps soft-shadow samples inside the map and prevents edge artifacts.
 
 <MemberHeading id="orthotexelquantizationsteps" depth="3" name="ORTHO_TEXEL_QUANTIZATION_STEPS" sig="ORTHO_TEXEL_QUANTIZATION_STEPS" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L40" sourceLabel="shadowCameraFit.ts:40" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L45" sourceLabel="shadowCameraFit.ts:45" />
 
 Snaps the fitted extent to four size levels per doubling. Slack delays shrinking, preventing texel-grid movement and shadow shimmer. See \_quantizeOrthoTexelSize().
 
 <MemberHeading id="minshadoworthosize" depth="3" name="MIN_SHADOW_ORTHO_SIZE" sig="MIN_SHADOW_ORTHO_SIZE" />
 
-<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L49" sourceLabel="shadowCameraFit.ts:49" />
+<MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L55" sourceLabel="shadowCameraFit.ts:55" />
 
 Smallest bounds padding and far-near gap, in world units.
 

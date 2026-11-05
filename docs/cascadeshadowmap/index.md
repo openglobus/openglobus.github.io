@@ -7,7 +7,7 @@ description: Cascade shadow map configuration options.
 
 # CascadeShadowMap
 
-<SourceLink href="/source/renderer/cascadeshadows/cascadeshadowmap-ts/#L59" label="CascadeShadowMap.ts:59" />
+<SourceLink href="/source/renderer/cascadeshadows/cascadeshadowmap-ts/#L53" label="CascadeShadowMap.ts:53" />
 
 Cascade shadow map configuration options.
 
@@ -35,6 +35,6 @@ Cascade shadow map configuration options.
 
 <MemberHeading id="computecascadeboundingsphere" depth="3" name="_computeCascadeBoundingSphere" sig="_computeCascadeBoundingSphere()" />
 
-<MemberMeta sourceHref="/source/renderer/cascadeshadows/cascadeshadowmap-ts/#L574" sourceLabel="CascadeShadowMap.ts:574" />
+<MemberMeta sourceHref="/source/renderer/cascadeshadows/cascadeshadowmap-ts/#L430" sourceLabel="CascadeShadowMap.ts:430" />
 
 Computes a minimum bounding sphere for the main camera perspective frustum slice. Cascade split distances are linear distances from the main camera eye.

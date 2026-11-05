@@ -261,9 +261,19 @@ Gets specific layer material.
 
 - `planetSegment.Material`
 
+<MemberHeading id="hitcelltriangle" depth="3" name="_hitCellTriangle" sig="_hitCellTriangle()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L704" sourceLabel="Segment.ts:704" />
+
+_Inherited from `Segment#_hitCellTriangle`_
+
+**Overrides:&#x20;**`Segment#_hitCellTriangle`
+
+Ray test of the cell triangle at tri\[i]: 1 when the point is above it, -1 when below it, 0 when missed.
+
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1431" sourceLabel="Segment.ts:1431" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1510" sourceLabel="Segment.ts:1510" />
 
 _Inherited from `Segment#_setExtentLonLat`_
 
@@ -271,7 +281,7 @@ _Inherited from `Segment#_setExtentLonLat`_
 
 <MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1621" sourceLabel="Segment.ts:1621" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1700" sourceLabel="Segment.ts:1700" />
 
 _Inherited from `Segment#setTerrainBoundingVolume`_
 
@@ -285,7 +295,7 @@ Sets the bounding volume of the terrain vertices, the plain segment volume when 
 
 <MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1632" sourceLabel="Segment.ts:1632" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1711" sourceLabel="Segment.ts:1711" />
 
 _Inherited from `Segment#_createPlainBounds`_
 
@@ -295,7 +305,7 @@ Creates the plain segment box center and half diagonal, the LOD volume without t
 
 <MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1663" sourceLabel="Segment.ts:1663" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1742" sourceLabel="Segment.ts:1742" />
 
 _Inherited from `Segment#setLodRadius`_
 
@@ -318,7 +328,7 @@ Raises the LOD center over the plain segment center by the height of the median 
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1920" sourceLabel="Segment.ts:1920" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1999" sourceLabel="Segment.ts:1999" />
 
 _Inherited from `Segment#_getCyclicLonShift`_
 

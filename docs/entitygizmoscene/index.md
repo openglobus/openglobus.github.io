@@ -33,31 +33,31 @@ Scene for translating and rotating entities with a gizmo.
 
 <MemberHeading id="navsuspend" depth="3" name="_navSuspend" sig="_navSuspend()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L401" sourceLabel="EntityGizmoScene.ts:401" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L403" sourceLabel="EntityGizmoScene.ts:403" />
 
 Suspends the navigation controls that are active right now, so that a drag gesture does not fight with the camera. The suspended set is remembered and restored by `EntityGizmoScene._navRestore`, which keeps controls that were already deactivated beforehand deactivated.
 
 <MemberHeading id="isgizmoentity" depth="3" name="_isGizmoEntity" sig="_isGizmoEntity()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L613" sourceLabel="EntityGizmoScene.ts:613" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L615" sourceLabel="EntityGizmoScene.ts:615" />
 
 Returns `true` when the entity is one of the gizmo handles.
 
 <MemberHeading id="istransforming" depth="3" name="isTransforming" sig="isTransforming()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L670" sourceLabel="EntityGizmoScene.ts:670" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L672" sourceLabel="EntityGizmoScene.ts:672" />
 
 Returns `true` when a drag gesture is running right now.
 
 <MemberHeading id="getactivetransform" depth="3" name="getActiveTransform" sig="getActiveTransform()" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L678" sourceLabel="EntityGizmoScene.ts:678" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L680" sourceLabel="EntityGizmoScene.ts:680" />
 
 Returns the running gesture description or `null`.
 
 <MemberHeading id="canceltransform" depth="3" name="cancelTransform" sig="cancelTransform(): boolean" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L687" sourceLabel="EntityGizmoScene.ts:687" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L689" sourceLabel="EntityGizmoScene.ts:689" />
 
 Cancels the current gesture and restores the entity transform when possible.
 
@@ -67,13 +67,13 @@ Cancels the current gesture and restores the entity transform when possible.
 
 <MemberHeading id="beginchange" depth="3" name="_beginChange" sig="_beginChange()" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L747" sourceLabel="EntityGizmoScene.ts:747" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L749" sourceLabel="EntityGizmoScene.ts:749" />
 
 Dispatches `transformstart` right before the very first entity change of the gesture.
 
 <MemberHeading id="applyposition" depth="3" name="_applyPosition" sig="_applyPosition(pos: Vec3)" />
 
-<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L978" sourceLabel="EntityGizmoScene.ts:978" />
+<MemberMeta badges="protected" sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L980" sourceLabel="EntityGizmoScene.ts:980" />
 
 Applies a new absolute position to the selected entity and emits the gesture events around the change. The `position` event receives the applied `pos` and the entity.
 
@@ -83,7 +83,7 @@ Applies a new absolute position to the selected entity and emits the gesture eve
 
 <MemberHeading id="addnode" depth="3" name="addNode" sig="addNode()" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L116" sourceLabel="Scene.ts:116" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L125" sourceLabel="Scene.ts:125" />
 
 _Inherited from `Scene#addNode`_
 
@@ -93,7 +93,7 @@ Adds node to the current hierarchy.
 
 <MemberHeading id="assign" depth="3" name="assign" sig="assign(renderer: Renderer)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L132" sourceLabel="Scene.ts:132" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L141" sourceLabel="Scene.ts:141" />
 
 _Inherited from `Scene#assign`_
 
@@ -107,7 +107,7 @@ Assign render node with renderer.
 
 <MemberHeading id="destroy" depth="3" name="destroy" sig="destroy()" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L185" sourceLabel="Scene.ts:185" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L194" sourceLabel="Scene.ts:194" />
 
 _Inherited from `Scene#destroy`_
 
@@ -117,7 +117,7 @@ Destroy node.
 
 <MemberHeading id="clear" depth="3" name="_clear" sig="_clear()" />
 
-<MemberMeta badges="protected" sourceHref="/source/scene/scene-ts/#L196" sourceLabel="Scene.ts:196" />
+<MemberMeta badges="protected" sourceHref="/source/scene/scene-ts/#L205" sourceLabel="Scene.ts:205" />
 
 _Inherited from `Scene#_clear`_
 
@@ -135,7 +135,7 @@ Clear current node.
 ): Scene"
 />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L209" sourceLabel="Scene.ts:209" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L218" sourceLabel="Scene.ts:218" />
 
 _Inherited from `Scene#addEntityCollection`_
 
@@ -154,7 +154,7 @@ Adds an entity collection.
 
 <MemberHeading id="removeentitycollection" depth="3" name="removeEntityCollection" sig="removeEntityCollection(entityCollection: EntityCollection)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L232" sourceLabel="Scene.ts:232" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L241" sourceLabel="Scene.ts:241" />
 
 _Inherited from `Scene#removeEntityCollection`_
 
@@ -168,7 +168,7 @@ Removes entity collection.
 
 <MemberHeading id="isactive" depth="3" name="isActive" sig="isActive(): Boolean" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L265" sourceLabel="Scene.ts:265" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L274" sourceLabel="Scene.ts:274" />
 
 _Inherited from `Scene#isActive`_
 
@@ -182,7 +182,7 @@ Gets render node activity.
 
 <MemberHeading id="setactive" depth="3" name="setActive" sig="setActive(isActive: boolean)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L274" sourceLabel="Scene.ts:274" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L283" sourceLabel="Scene.ts:283" />
 
 _Inherited from `Scene#setActive`_
 
@@ -196,7 +196,7 @@ Rendering activation.
 
 <MemberHeading id="setdrawmode" depth="3" name="setDrawMode" sig="setDrawMode(mode: Number)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L298" sourceLabel="Scene.ts:298" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L307" sourceLabel="Scene.ts:307" />
 
 _Inherited from `Scene#setDrawMode`_
 
@@ -210,7 +210,7 @@ Sets draw mode
 
 <MemberHeading id="drawpickingentitycollections" depth="3" name="drawPickingEntityCollections" sig="drawPickingEntityCollections(ec: Array.<EntityCollection>)" />
 
-<MemberMeta sourceHref="/source/scene/scene-ts/#L334" sourceLabel="Scene.ts:334" />
+<MemberMeta sourceHref="/source/scene/scene-ts/#L343" sourceLabel="Scene.ts:343" />
 
 _Inherited from `Scene#drawPickingEntityCollections`_
 
@@ -226,12 +226,12 @@ Draw entity collections picking frame.
 
 <MemberHeading id="tools" depth="3" name="tools" sig="tools" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L518" sourceLabel="EntityGizmoScene.ts:518" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L519" sourceLabel="EntityGizmoScene.ts:519" />
 
 Gizmo tool set: which handles are shown.
 
 <MemberHeading id="autoselect" depth="3" name="autoSelect" sig="autoSelect" />
 
-<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L327" sourceLabel="EntityGizmoScene.ts:327" />
+<MemberMeta sourceHref="/source/control/entitygizmo/entitygizmoscene-ts/#L329" sourceLabel="EntityGizmoScene.ts:329" />
 
 When `false`, a left click neither selects a map entity nor drops the current selection.
