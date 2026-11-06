@@ -9,7 +9,7 @@ description: Represents basic quad billboard image.
 
 **Extends:&#x20;**[`BaseBillboard`](/basebillboard)
 
-<SourceLink href="/source/entity/billboard/billboard-ts/#L34" label="Billboard.ts:34" />
+<SourceLink href="/source/entity/billboard/billboard-ts/#L31" label="Billboard.ts:31" />
 
 Represents basic quad billboard image.
 
@@ -40,7 +40,7 @@ Represents basic quad billboard image.
 
 <MemberHeading id="setsrc" depth="3" name="setSrc" sig="setSrc(src: string)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L107" sourceLabel="Billboard.ts:107" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L104" sourceLabel="Billboard.ts:104" />
 
 Sets billboard image url source.
 
@@ -50,7 +50,7 @@ Sets billboard image url source.
 
 <MemberHeading id="setimage" depth="3" name="setImage" sig="setImage(image: Object)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L145" sourceLabel="Billboard.ts:145" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L142" sourceLabel="Billboard.ts:142" />
 
 Sets image object.
 
@@ -60,7 +60,7 @@ Sets image object.
 
 <MemberHeading id="setsize" depth="3" name="setSize" sig="setSize(width: number, height: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L159" sourceLabel="Billboard.ts:159" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L156" sourceLabel="Billboard.ts:156" />
 
 Sets billboard screen size in pixels.
 
@@ -69,29 +69,9 @@ Sets billboard screen size in pixels.
 - `width` (number) — Billboard width.
 - `height` (number) — Billboard height.
 
-<MemberHeading id="setscale" depth="3" name="setScale" sig="setScale(scale: number)" />
-
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L170" sourceLabel="Billboard.ts:170" />
-
-Sets billboard scale. The rendered size is width \* scale by height \* scale.
-
-**Parameters**
-
-- `scale` (number) — Billboard scale.
-
-<MemberHeading id="getscale" depth="3" name="getScale" sig="getScale(): number" />
-
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L181" sourceLabel="Billboard.ts:181" />
-
-Returns billboard scale.
-
-**Returns**
-
-- `number`
-
 <MemberHeading id="getsize" depth="3" name="getSize" sig="getSize(): Object" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L201" sourceLabel="Billboard.ts:201" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L167" sourceLabel="Billboard.ts:167" />
 
 Returns billboard screen size.
 
@@ -101,7 +81,7 @@ Returns billboard screen size.
 
 <MemberHeading id="setwidth" depth="3" name="setWidth" sig="setWidth(width: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L213" sourceLabel="Billboard.ts:213" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L179" sourceLabel="Billboard.ts:179" />
 
 Sets billboard screen width.
 
@@ -111,7 +91,7 @@ Sets billboard screen width.
 
 <MemberHeading id="getwidth" depth="3" name="getWidth" sig="getWidth(): number" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L222" sourceLabel="Billboard.ts:222" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L188" sourceLabel="Billboard.ts:188" />
 
 Gets billboard screen width.
 
@@ -121,7 +101,7 @@ Gets billboard screen width.
 
 <MemberHeading id="setheight" depth="3" name="setHeight" sig="setHeight(height: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L231" sourceLabel="Billboard.ts:231" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L197" sourceLabel="Billboard.ts:197" />
 
 Sets billboard screen heigh.
 
@@ -131,7 +111,7 @@ Sets billboard screen heigh.
 
 <MemberHeading id="getheight" depth="3" name="getHeight" sig="getHeight(): number" />
 
-<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L240" sourceLabel="Billboard.ts:240" />
+<MemberMeta sourceHref="/source/entity/billboard/billboard-ts/#L206" sourceLabel="Billboard.ts:206" />
 
 Gets billboard screen height.
 
@@ -141,7 +121,7 @@ Gets billboard screen height.
 
 <MemberHeading id="setposition" depth="3" name="setPosition" sig="setPosition(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L151" sourceLabel="BaseBillboard.ts:151" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L162" sourceLabel="BaseBillboard.ts:162" />
 
 _Inherited from `BaseBillboard#setPosition`_
 
@@ -157,7 +137,7 @@ Sets billboard position.
 
 <MemberHeading id="setposition3v" depth="3" name="setPosition3v" sig="setPosition3v(position: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L171" sourceLabel="BaseBillboard.ts:171" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L182" sourceLabel="BaseBillboard.ts:182" />
 
 _Inherited from `BaseBillboard#setPosition3v`_
 
@@ -171,7 +151,7 @@ Sets billboard position.
 
 <MemberHeading id="getposition" depth="3" name="getPosition" sig="getPosition(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L191" sourceLabel="BaseBillboard.ts:191" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L202" sourceLabel="BaseBillboard.ts:202" />
 
 _Inherited from `BaseBillboard#getPosition`_
 
@@ -185,7 +165,7 @@ Returns billboard position.
 
 <MemberHeading id="setoffset" depth="3" name="setOffset" sig="setOffset(x: number, y: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L201" sourceLabel="BaseBillboard.ts:201" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L212" sourceLabel="BaseBillboard.ts:212" />
 
 _Inherited from `BaseBillboard#setOffset`_
 
@@ -200,7 +180,7 @@ Sets screen space offset.
 
 <MemberHeading id="setoffset2v" depth="3" name="setOffset2v" sig="setOffset2v(offset: Vec2)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L216" sourceLabel="BaseBillboard.ts:216" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L227" sourceLabel="BaseBillboard.ts:227" />
 
 _Inherited from `BaseBillboard#setOffset2v`_
 
@@ -214,7 +194,7 @@ Sets screen space offset.
 
 <MemberHeading id="getoffset" depth="3" name="getOffset" sig="getOffset(): Vec2" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L225" sourceLabel="BaseBillboard.ts:225" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L236" sourceLabel="BaseBillboard.ts:236" />
 
 _Inherited from `BaseBillboard#getOffset`_
 
@@ -228,7 +208,7 @@ Returns billboard screen space offset size.
 
 <MemberHeading id="setrotation" depth="3" name="setRotation" sig="setRotation(rotation: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L234" sourceLabel="BaseBillboard.ts:234" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L245" sourceLabel="BaseBillboard.ts:245" />
 
 _Inherited from `BaseBillboard#setRotation`_
 
@@ -242,7 +222,7 @@ Sets billboard screen space rotation in radians.
 
 <MemberHeading id="getrotation" depth="3" name="getRotation" sig="getRotation(): number" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L250" sourceLabel="BaseBillboard.ts:250" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L261" sourceLabel="BaseBillboard.ts:261" />
 
 _Inherited from `BaseBillboard#getRotation`_
 
@@ -256,7 +236,7 @@ Gets screen space rotation.
 
 <MemberHeading id="setopacity" depth="3" name="setOpacity" sig="setOpacity(a: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L259" sourceLabel="BaseBillboard.ts:259" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L270" sourceLabel="BaseBillboard.ts:270" />
 
 _Inherited from `BaseBillboard#setOpacity`_
 
@@ -270,7 +250,7 @@ Sets billboard opacity.
 
 <MemberHeading id="getopacity" depth="3" name="getOpacity" sig="getOpacity(): number" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L275" sourceLabel="BaseBillboard.ts:275" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L286" sourceLabel="BaseBillboard.ts:286" />
 
 _Inherited from `BaseBillboard#getOpacity`_
 
@@ -284,7 +264,7 @@ Returns billboard opacity, the color alpha value.
 
 <MemberHeading id="setcolor" depth="3" name="setColor" sig="setColor(r: number, g: number, b: number, a: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L287" sourceLabel="BaseBillboard.ts:287" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L298" sourceLabel="BaseBillboard.ts:298" />
 
 _Inherited from `BaseBillboard#setColor`_
 
@@ -301,7 +281,7 @@ Sets RGBA color. Each channel from 0.0 to 1.0.
 
 <MemberHeading id="setcolor4v" depth="3" name="setColor4v" sig="setColor4v(color: Vec4)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L306" sourceLabel="BaseBillboard.ts:306" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L317" sourceLabel="BaseBillboard.ts:317" />
 
 _Inherited from `BaseBillboard#setColor4v`_
 
@@ -315,7 +295,7 @@ Sets RGBA color. Each channel from 0.0 to 1.0.
 
 <MemberHeading id="setcolorhtml" depth="3" name="setColorHTML" sig="setColorHTML(color: string)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L315" sourceLabel="BaseBillboard.ts:315" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L326" sourceLabel="BaseBillboard.ts:326" />
 
 _Inherited from `BaseBillboard#setColorHTML`_
 
@@ -329,7 +309,7 @@ Sets billboard color.
 
 <MemberHeading id="getcolor" depth="3" name="getColor" sig="getColor(): Vec4" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L324" sourceLabel="BaseBillboard.ts:324" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L335" sourceLabel="BaseBillboard.ts:335" />
 
 _Inherited from `BaseBillboard#getColor`_
 
@@ -343,7 +323,7 @@ Returns RGBA color.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L333" sourceLabel="BaseBillboard.ts:333" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L344" sourceLabel="BaseBillboard.ts:344" />
 
 _Inherited from `BaseBillboard#setVisibility`_
 
@@ -357,7 +337,7 @@ Sets billboard visibility.
 
 <MemberHeading id="getvisibility" depth="3" name="getVisibility" sig="getVisibility(): boolean" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L349" sourceLabel="BaseBillboard.ts:349" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L360" sourceLabel="BaseBillboard.ts:360" />
 
 _Inherited from `BaseBillboard#getVisibility`_
 
@@ -371,7 +351,7 @@ Returns billboard visibility.
 
 <MemberHeading id="setalignedaxis" depth="3" name="setAlignedAxis" sig="setAlignedAxis(x: number, y: number, z: number)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L360" sourceLabel="BaseBillboard.ts:360" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L371" sourceLabel="BaseBillboard.ts:371" />
 
 _Inherited from `BaseBillboard#setAlignedAxis`_
 
@@ -387,7 +367,7 @@ Sets billboard cartesian aligned vector.
 
 <MemberHeading id="setalignedaxis3v" depth="3" name="setAlignedAxis3v" sig="setAlignedAxis3v(alignedAxis: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L376" sourceLabel="BaseBillboard.ts:376" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L387" sourceLabel="BaseBillboard.ts:387" />
 
 _Inherited from `BaseBillboard#setAlignedAxis3v`_
 
@@ -401,7 +381,7 @@ Sets billboard aligned vector.
 
 <MemberHeading id="getalignedaxis" depth="3" name="getAlignedAxis" sig="getAlignedAxis(): Vec3" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L385" sourceLabel="BaseBillboard.ts:385" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L396" sourceLabel="BaseBillboard.ts:396" />
 
 _Inherited from `BaseBillboard#getAlignedAxis`_
 
@@ -415,7 +395,7 @@ Returns aligned vector.
 
 <MemberHeading id="remove" depth="3" name="remove" sig="remove()" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L393" sourceLabel="BaseBillboard.ts:393" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L404" sourceLabel="BaseBillboard.ts:404" />
 
 _Inherited from `BaseBillboard#remove`_
 
@@ -425,7 +405,7 @@ Removes billboard from handler.
 
 <MemberHeading id="setpickingcolor3v" depth="3" name="setPickingColor3v" sig="setPickingColor3v(color: Vec3)" />
 
-<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L403" sourceLabel="BaseBillboard.ts:403" />
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L414" sourceLabel="BaseBillboard.ts:414" />
 
 _Inherited from `BaseBillboard#setPickingColor3v`_
 
@@ -436,3 +416,31 @@ Sets billboard picking color.
 **Parameters**
 
 - `color` ([Vec3](/vec3)) — Picking color.
+
+<MemberHeading id="setscale" depth="3" name="setScale" sig="setScale(scale: number)" />
+
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L427" sourceLabel="BaseBillboard.ts:427" />
+
+_Inherited from `BaseBillboard#setScale`_
+
+**Overrides:&#x20;**`BaseBillboard#setScale`
+
+Sets screen scale. Size getters and the offset stay the same.
+
+**Parameters**
+
+- `scale` (number) — Scale.
+
+<MemberHeading id="getscale" depth="3" name="getScale" sig="getScale(): number" />
+
+<MemberMeta sourceHref="/source/entity/billboard/basebillboard-ts/#L437" sourceLabel="BaseBillboard.ts:437" />
+
+_Inherited from `BaseBillboard#getScale`_
+
+**Overrides:&#x20;**`BaseBillboard#getScale`
+
+Returns screen scale.
+
+**Returns**
+
+- `number`

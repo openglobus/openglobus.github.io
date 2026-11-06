@@ -9,7 +9,7 @@ description: Terrain with the heights of a GeoTIFF or COG elevation band.
 
 **Extends:&#x20;**[`ProceduralTerrain`](/proceduralterrain)
 
-<SourceLink href="/source/terrain/geotiffterrain-ts/#L35" label="GeoTiffTerrain.ts:35" />
+<SourceLink href="/source/terrain/geotiffterrain-ts/#L36" label="GeoTiffTerrain.ts:36" />
 
 Terrain with the heights of a GeoTIFF or COG elevation band.
 
@@ -43,6 +43,14 @@ Terrain with the heights of a GeoTIFF or COG elevation band.
 ---
 
 ## Instance Methods
+
+<MemberHeading id="flyextent" depth="3" name="flyExtent" sig="flyExtent()" />
+
+<MemberMeta sourceHref="/source/terrain/geotiffterrain-ts/#L87" sourceLabel="GeoTiffTerrain.ts:87" />
+
+**Overrides:&#x20;**`ProceduralTerrain#flyExtent`
+
+Flies over the highest point of the GeoTIFF: the heights of the extent center may be not loaded or no data.
 
 <MemberHeading id="getheightasync" depth="3" name="getHeightAsync" sig="getHeightAsync()" />
 
@@ -96,7 +104,7 @@ Returns the grid heights of the segment, or the promise of them the worker makes
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L224" sourceLabel="EmptyTerrain.ts:224" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L225" sourceLabel="EmptyTerrain.ts:225" />
 
 _Inherited from `EmptyTerrain#setUrlRewriteCallback`_
 
@@ -110,7 +118,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L239" sourceLabel="EmptyTerrain.ts:239" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L240" sourceLabel="EmptyTerrain.ts:240" />
 
 _Inherited from `EmptyTerrain#setAttribution`_
 
@@ -124,7 +132,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L251" sourceLabel="EmptyTerrain.ts:251" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L252" sourceLabel="EmptyTerrain.ts:252" />
 
 _Inherited from `EmptyTerrain#getAttribution`_
 
@@ -138,7 +146,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L309" sourceLabel="EmptyTerrain.ts:309" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L310" sourceLabel="EmptyTerrain.ts:310" />
 
 _Inherited from `EmptyTerrain#handleSegmentTerrain`_
 
@@ -150,9 +158,23 @@ Loads or creates segment elevation data.
 
 - `segment` ([Segment](/segment)) — Segment to create elevation data.
 
+<MemberHeading id="getextent" depth="3" name="getExtent" sig="getExtent(): Extent" />
+
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L325" sourceLabel="EmptyTerrain.ts:325" />
+
+_Inherited from `EmptyTerrain#getExtent`_
+
+**Overrides:&#x20;**`ProceduralTerrain#getExtent`
+
+Returns the terrain extent, the whole globe by default.
+
+**Returns**
+
+- [`Extent`](/extent)
+
 <MemberHeading id="getmaxheight" depth="3" name="getMaxHeight" sig="getMaxHeight(): number" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L324" sourceLabel="EmptyTerrain.ts:324" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L342" sourceLabel="EmptyTerrain.ts:342" />
 
 _Inherited from `EmptyTerrain#getMaxHeight`_
 
@@ -166,7 +188,7 @@ Returns the highest terrain point over the ellipsoid with the terrain height fac
 
 <MemberHeading id="getcacheinfo" depth="3" name="getCacheInfo" sig="getCacheInfo(): ITerrainCacheInfo | null" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L337" sourceLabel="EmptyTerrain.ts:337" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L355" sourceLabel="EmptyTerrain.ts:355" />
 
 _Inherited from `EmptyTerrain#getCacheInfo`_
 
@@ -182,7 +204,7 @@ Returns the cache state, null when the terrain has no cache.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L260" sourceLabel="EmptyTerrain.ts:260" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L261" sourceLabel="EmptyTerrain.ts:261" />
 
 _Inherited from `EmptyTerrain#iconSrc`_
 

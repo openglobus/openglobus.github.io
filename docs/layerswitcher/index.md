@@ -7,7 +7,7 @@ description: Advanced :) layer switcher, includes base layers, overlays, geo ima
 
 # LayerSwitcher
 
-<SourceLink href="/source/control/layerswitcher-ts/#L130" label="LayerSwitcher.ts:130" />
+<SourceLink href="/source/control/layerswitcher-ts/#L135" label="LayerSwitcher.ts:135" />
 
 Advanced :) layer switcher, includes base layers, overlays, geo images etc. groups. Double click for zoom, drag-and-drop to change zIndex
 

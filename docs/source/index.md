@@ -56,6 +56,7 @@ kind: guide
 - [control/FramebufferPreview.ts](/source/control/framebufferpreview-ts/)
 - [control/FreeNavigation.ts](/source/control/freenavigation-ts/)
 - [control/GeoImageDragControl.ts](/source/control/geoimagedragcontrol-ts/)
+- [control/GeoTiffTypeDialog.ts](/source/control/geotifftypedialog-ts/)
 - [control/heightRuler/HeightRuler.ts](/source/control/heightruler/heightruler-ts/)
 - [control/heightRuler/HeightRulerScene.ts](/source/control/heightruler/heightrulerscene-ts/)
 - [control/heightRuler/HeightRulerSwitcher.ts](/source/control/heightruler/heightrulerswitcher-ts/)
