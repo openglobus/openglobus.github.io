@@ -273,13 +273,29 @@ Keep plain elevation segment for rendering
 
 'this.tileZoom \<= this.planet.terrain.maxZoom' it means, that the segment is plain
 
+<MemberHeading id="equalizecorner" depth="3" name="_equalizeCorner" sig="_equalizeCorner(corner: number)" />
+
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L945" sourceLabel="Segment.ts:945" />
+
+Takes the corner vertex from the owner of the point: the segment of the lowest zoom among the ones that have a corner there. The owner keeps its vertex, so the result doesn't depend on the order the segments go, and the comparison makes the vertex follow the owner without any labels.
+
+**Parameters**
+
+- `corner` (number) — Corner index, NW, NE, SW or SE.
+
+<MemberHeading id="equalizecorneronside" depth="3" name="_equalizeCornerOnSide" sig="_equalizeCornerOnSide()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L999" sourceLabel="Segment.ts:999" />
+
+Puts the corner on the side of a neighbor of a lower zoom, when the point lies inside that side.
+
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1510" sourceLabel="Segment.ts:1510" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1635" sourceLabel="Segment.ts:1635" />
 
 <MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1700" sourceLabel="Segment.ts:1700" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1825" sourceLabel="Segment.ts:1825" />
 
 Sets the bounding volume of the terrain vertices, the plain segment volume when there are no finite vertices.
 
@@ -289,13 +305,13 @@ Sets the bounding volume of the terrain vertices, the plain segment volume when 
 
 <MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1711" sourceLabel="Segment.ts:1711" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1836" sourceLabel="Segment.ts:1836" />
 
 Creates the plain segment box center and half diagonal, the LOD volume without terrain.
 
 <MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1742" sourceLabel="Segment.ts:1742" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1867" sourceLabel="Segment.ts:1867" />
 
 Raises the LOD center over the plain segment center by the height of the median vertex radius over the surface.
 
@@ -305,7 +321,7 @@ Raises the LOD center over the plain segment center by the height of the median 
 
 <MemberHeading id="getmaterialbylayer" depth="3" name="getMaterialByLayer" sig="getMaterialByLayer(layer: Layer): Material | undefined" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1986" sourceLabel="Segment.ts:1986" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2111" sourceLabel="Segment.ts:2111" />
 
 Gets specific layer material.
 
@@ -328,7 +344,7 @@ Gets specific layer material.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1999" sourceLabel="Segment.ts:1999" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2124" sourceLabel="Segment.ts:2124" />
 
 Computes cyclic longitude shift for `sourceExtent` to align it with `targetExtent` in wrapped horizontal coordinate space (for example, Web Mercator world copies).
 
