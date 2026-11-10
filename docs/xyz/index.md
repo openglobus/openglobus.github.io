@@ -121,7 +121,7 @@ Creates query url.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L250" sourceLabel="XYZ.ts:250" />
+<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L251" sourceLabel="XYZ.ts:251" />
 
 Returns actual url query string.
 
@@ -135,7 +135,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: function)" />
 
-<MemberMeta sourceHref="/source/layer/xyz-ts/#L259" sourceLabel="XYZ.ts:259" />
+<MemberMeta sourceHref="/source/layer/xyz-ts/#L260" sourceLabel="XYZ.ts:260" />
 
 Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
@@ -145,7 +145,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="correctfullextent" depth="3" name="_correctFullExtent" sig="_correctFullExtent()" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L412" sourceLabel="XYZ.ts:412" />
+<MemberMeta badges="protected" sourceHref="/source/layer/xyz-ts/#L413" sourceLabel="XYZ.ts:413" />
 
 **Overrides:&#x20;**`Layer#_correctFullExtent`
 

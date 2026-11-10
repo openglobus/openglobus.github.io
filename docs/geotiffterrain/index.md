@@ -9,7 +9,7 @@ description: Terrain with the heights of a GeoTIFF or COG elevation band.
 
 **Extends:&#x20;**[`ProceduralTerrain`](/proceduralterrain)
 
-<SourceLink href="/source/terrain/geotiffterrain-ts/#L36" label="GeoTiffTerrain.ts:36" />
+<SourceLink href="/source/terrain/geotiffterrain-ts/#L41" label="GeoTiffTerrain.ts:41" />
 
 Terrain with the heights of a GeoTIFF or COG elevation band.
 
@@ -28,13 +28,14 @@ Terrain with the heights of a GeoTIFF or COG elevation band.
 
 - `name` (string, optional, default: "\\"GeoTiffTerrain\\"") — Terrain provider name.
 - `options` (IGeoTiffTerrainParams) — Provider options:
-  - `options.src` (string | Blob | File | ArrayBuffer) — GeoTIFF url or binary.
+  - `options.src` (string | Blob | File | ArrayBuffer, optional) — GeoTIFF url or binary.
+  - `options.sources` (Array.\<IGeoTIFFSourceItem>, optional) — GeoTIFF sources of one mosaic instead of src. Where they overlap the heights of the first one are taken, so the more detailed ones go first.
   - `options.sampleSize` (number, optional, default: 256) — Pixels by the segment side read from the GeoTIFF, power of two, not less than plainGridSize. The GeoTIFF overview is taken by them.
   - `options.band` (number, optional, default: 1) — Elevation band.
   - `options.attribution` (string, optional, default: "\\"\\"") — Elevation source attribution shown in the attribution area.
   - `options.plainGridSize` (number, optional, default: 128) — Elevation grid size.
   - `options.maxZoom` (number, optional, default: 21) — Last zoom of the segment heights, the last zoom of the default grid sizes.
-  - `options.maxNativeZoom` (number, optional) — Last zoom of the GeoTIFF reads, by default, the first zoom which sampleSize pixels are not larger than the GeoTIFF ones. Deeper segments are its subdivision levels.
+  - `options.maxNativeZoom` (number, optional) — Last zoom of the GeoTIFF reads, by default, the first zoom which sampleSize pixels are not larger than the GeoTIFF ones, of the most detailed source in a mosaic. The tile size is the one of the planet quad tree strategy. Deeper segments are its subdivision levels.
   - `options.geoidSrc` (string, optional, default: "\\"https\://openglobus.org/geoid/egm84-30.pgm\\"") — Geoid of the heights.
   - `options.noDataValues` (Array.\<number>, optional, default: "\[-10000]") — Heights of no data, GeoTIFF nodata pixels become the first one.
   - `options.nodata` (number | null, optional) — GeoTIFF nodata value, from the GeoTIFF by default.
@@ -46,7 +47,7 @@ Terrain with the heights of a GeoTIFF or COG elevation band.
 
 <MemberHeading id="flyextent" depth="3" name="flyExtent" sig="flyExtent()" />
 
-<MemberMeta sourceHref="/source/terrain/geotiffterrain-ts/#L87" sourceLabel="GeoTiffTerrain.ts:87" />
+<MemberMeta sourceHref="/source/terrain/geotiffterrain-ts/#L104" sourceLabel="GeoTiffTerrain.ts:104" />
 
 **Overrides:&#x20;**`ProceduralTerrain#flyExtent`
 

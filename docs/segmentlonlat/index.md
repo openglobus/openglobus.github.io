@@ -261,9 +261,27 @@ Gets specific layer material.
 
 - `planetSegment.Material`
 
+<MemberHeading id="islonlatinside" depth="3" name="isLonLatInside" sig="isLonLatInside(lonLat: LonLat): boolean" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L672" sourceLabel="Segment.ts:672" />
+
+_Inherited from `Segment#isLonLatInside`_
+
+**Overrides:&#x20;**`Segment#isLonLatInside`
+
+Returns true when the segment covers the point.
+
+**Parameters**
+
+- `lonLat` ([LonLat](/lonlat)) — Geodetic coordinates.
+
+**Returns**
+
+- `boolean`
+
 <MemberHeading id="hitcelltriangle" depth="3" name="_hitCellTriangle" sig="_hitCellTriangle()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L704" sourceLabel="Segment.ts:704" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L790" sourceLabel="Segment.ts:790" />
 
 _Inherited from `Segment#_hitCellTriangle`_
 
@@ -273,7 +291,7 @@ Ray test of the cell triangle at tri\[i]: 1 when the point is above it, -1 when 
 
 <MemberHeading id="equalizecorner" depth="3" name="_equalizeCorner" sig="_equalizeCorner(corner: number)" />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L945" sourceLabel="Segment.ts:945" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1053" sourceLabel="Segment.ts:1053" />
 
 _Inherited from `Segment#_equalizeCorner`_
 
@@ -287,7 +305,7 @@ Takes the corner vertex from the owner of the point: the segment of the lowest z
 
 <MemberHeading id="equalizecorneronside" depth="3" name="_equalizeCornerOnSide" sig="_equalizeCornerOnSide()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L999" sourceLabel="Segment.ts:999" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1128" sourceLabel="Segment.ts:1128" />
 
 _Inherited from `Segment#_equalizeCornerOnSide`_
 
@@ -295,17 +313,47 @@ _Inherited from `Segment#_equalizeCornerOnSide`_
 
 Puts the corner on the side of a neighbor of a lower zoom, when the point lies inside that side.
 
+<MemberHeading id="getnormalmapsource" depth="3" name="_getNormalMapSource" sig="_getNormalMapSource()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1439" sourceLabel="Segment.ts:1439" />
+
+_Inherited from `Segment#_getNormalMapSource`_
+
+**Overrides:&#x20;**`Segment#_getNormalMapSource`
+
+The segment the normal map of this one comes from: itself, or the parent whose normal map.
+
+<MemberHeading id="normalmapdrawn" depth="3" name="_normalMapDrawn" sig="_normalMapDrawn()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1581" sourceLabel="Segment.ts:1581" />
+
+_Inherited from `Segment#_normalMapDrawn`_
+
+**Overrides:&#x20;**`Segment#_normalMapDrawn`
+
+Called when the normal map is drawn. New normals change all the sides for the finer normal maps that took them.
+
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1635" sourceLabel="Segment.ts:1635" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1771" sourceLabel="Segment.ts:1771" />
 
 _Inherited from `Segment#_setExtentLonLat`_
 
 **Overrides:&#x20;**`Segment#_setExtentLonLat`
 
+<MemberHeading id="getextentcorners" depth="3" name="_getExtentCorners" sig="_getExtentCorners()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1778" sourceLabel="Segment.ts:1778" />
+
+_Inherited from `Segment#_getExtentCorners`_
+
+**Overrides:&#x20;**`Segment#_getExtentCorners`
+
+Returns the SW, NW, NE and SE corners of the segment on the ellipsoid.
+
 <MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1825" sourceLabel="Segment.ts:1825" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1968" sourceLabel="Segment.ts:1968" />
 
 _Inherited from `Segment#setTerrainBoundingVolume`_
 
@@ -319,7 +367,7 @@ Sets the bounding volume of the terrain vertices, the plain segment volume when 
 
 <MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1836" sourceLabel="Segment.ts:1836" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1979" sourceLabel="Segment.ts:1979" />
 
 _Inherited from `Segment#_createPlainBounds`_
 
@@ -329,7 +377,7 @@ Creates the plain segment box center and half diagonal, the LOD volume without t
 
 <MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1867" sourceLabel="Segment.ts:1867" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2004" sourceLabel="Segment.ts:2004" />
 
 _Inherited from `Segment#setLodRadius`_
 
@@ -340,6 +388,25 @@ Raises the LOD center over the plain segment center by the height of the median 
 **Parameters**
 
 - `radius` (number) — Median geocentric radius of the segment vertices.
+
+<MemberHeading id="getlonlat" depth="3" name="getLonLat" sig="getLonLat(lon: number, lat: number): LonLat" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2151" sourceLabel="Segment.ts:2151" />
+
+_Inherited from `Segment#getLonLat`_
+
+**Overrides:&#x20;**`Segment#getLonLat`
+
+Returns the geodetic coordinates of the native point.
+
+**Parameters**
+
+- `lon` (number) — Native longitude.
+- `lat` (number) — Native latitude.
+
+**Returns**
+
+- [`LonLat`](/lonlat)
 
 <MemberHeading
   id="getcycliclonshift"
@@ -352,7 +419,7 @@ Raises the LOD center over the plain segment center by the height of the median 
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2124" sourceLabel="Segment.ts:2124" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2266" sourceLabel="Segment.ts:2266" />
 
 _Inherited from `Segment#_getCyclicLonShift`_
 

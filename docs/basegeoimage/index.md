@@ -9,7 +9,7 @@ description: BaseGeoImage represents a square imagery layer displayed on the glo
 
 **Extends:&#x20;**[`Layer`](/layer)
 
-<SourceLink href="/source/layer/basegeoimage-ts/#L43" label="BaseGeoImage.ts:43" />
+<SourceLink href="/source/layer/basegeoimage-ts/#L90" label="BaseGeoImage.ts:90" />
 
 BaseGeoImage represents a square imagery layer displayed on the globe. It can use a static image, animated video, or WebGL buffer as a source.
 
@@ -25,7 +25,7 @@ BaseGeoImage represents a square imagery layer displayed on the globe. It can us
 
 <MemberHeading id="getcornerslonlat" depth="3" name="getCornersLonLat" sig="getCornersLonLat(): Array.<LonLat>" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L174" sourceLabel="BaseGeoImage.ts:174" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L249" sourceLabel="BaseGeoImage.ts:249" />
 
 Gets corners coordinates.
 
@@ -35,7 +35,7 @@ Gets corners coordinates.
 
 <MemberHeading id="getcorners" depth="3" name="getCorners" sig="getCorners(): Array.<Array.<number>>" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L189" sourceLabel="BaseGeoImage.ts:189" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L264" sourceLabel="BaseGeoImage.ts:264" />
 
 Gets corners coordinates.
 
@@ -45,7 +45,7 @@ Gets corners coordinates.
 
 <MemberHeading id="setcorners" depth="3" name="setCorners" sig="setCorners(corners: Array.<Array.<number>>)" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L205" sourceLabel="BaseGeoImage.ts:205" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L280" sourceLabel="BaseGeoImage.ts:280" />
 
 Sets geoImage geographical corners coordinates.
 
@@ -55,7 +55,7 @@ Sets geoImage geographical corners coordinates.
 
 <MemberHeading id="setcornerslonlat" depth="3" name="setCornersLonLat" sig="setCornersLonLat(corners: Array.<LonLat>)" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L216" sourceLabel="BaseGeoImage.ts:216" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L291" sourceLabel="BaseGeoImage.ts:291" />
 
 Sets geoImage geographical corners coordinates.
 
@@ -65,13 +65,13 @@ Sets geoImage geographical corners coordinates.
 
 <MemberHeading id="createframe" depth="3" name="_createFrame" sig="_createFrame()" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/basegeoimage-ts/#L311" sourceLabel="BaseGeoImage.ts:311" />
+<MemberMeta badges="protected" sourceHref="/source/layer/basegeoimage-ts/#L391" sourceLabel="BaseGeoImage.ts:391" />
 
 Creates geoImage frame.
 
 <MemberHeading id="abortmaterialloading" depth="3" name="abortMaterialLoading" sig="abortMaterialLoading(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L379" sourceLabel="BaseGeoImage.ts:379" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L499" sourceLabel="BaseGeoImage.ts:499" />
 
 **Parameters**
 
@@ -79,13 +79,13 @@ Creates geoImage frame.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L390" sourceLabel="BaseGeoImage.ts:390" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L510" sourceLabel="BaseGeoImage.ts:510" />
 
 Clear layer material.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L425" sourceLabel="BaseGeoImage.ts:425" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L548" sourceLabel="BaseGeoImage.ts:548" />
 
 Sets layer visibility.
 
@@ -95,7 +95,7 @@ Sets layer visibility.
 
 <MemberHeading id="clearmaterial" depth="3" name="clearMaterial" sig="clearMaterial(material: Material)" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L444" sourceLabel="BaseGeoImage.ts:444" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L567" sourceLabel="BaseGeoImage.ts:567" />
 
 **Parameters**
 
@@ -103,7 +103,7 @@ Sets layer visibility.
 
 <MemberHeading id="applymaterial" depth="3" name="applyMaterial" sig="applyMaterial(): NumberArray4" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L485" sourceLabel="BaseGeoImage.ts:485" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L608" sourceLabel="BaseGeoImage.ts:608" />
 
 **Returns**
 
@@ -111,7 +111,7 @@ Sets layer visibility.
 
 <MemberHeading id="createsourcetexture" depth="3" name="_createSourceTexture" sig="_createSourceTexture()" />
 
-<MemberMeta badges="protected" sourceHref="/source/layer/basegeoimage-ts/#L544" sourceLabel="BaseGeoImage.ts:544" />
+<MemberMeta badges="protected" sourceHref="/source/layer/basegeoimage-ts/#L703" sourceLabel="BaseGeoImage.ts:703" />
 
 Method depends on GeoImage instance
 
@@ -215,7 +215,7 @@ Removes from a planet.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L390" sourceLabel="BaseGeoImage.ts:390" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L510" sourceLabel="BaseGeoImage.ts:510" />
 
 _Inherited from `BaseGeoImage#clear`_
 
@@ -347,7 +347,7 @@ Sets base layer type flag.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L425" sourceLabel="BaseGeoImage.ts:425" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L548" sourceLabel="BaseGeoImage.ts:548" />
 
 _Inherited from `BaseGeoImage#setVisibility`_
 
@@ -447,7 +447,7 @@ Special correction of the whole globe extent.
 
 <MemberHeading id="clear" depth="3" name="clear" sig="clear()" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L390" sourceLabel="BaseGeoImage.ts:390" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L510" sourceLabel="BaseGeoImage.ts:510" />
 
 _Inherited from `BaseGeoImage#clear`_
 
@@ -457,7 +457,7 @@ Clear layer material.
 
 <MemberHeading id="setvisibility" depth="3" name="setVisibility" sig="setVisibility(visibility: boolean)" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L425" sourceLabel="BaseGeoImage.ts:425" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L548" sourceLabel="BaseGeoImage.ts:548" />
 
 _Inherited from `BaseGeoImage#setVisibility`_
 
@@ -473,13 +473,13 @@ Sets layer visibility.
 
 <MemberHeading id="rendering" depth="3" name="rendering" sig="rendering" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L132" sourceLabel="BaseGeoImage.ts:132" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L186" sourceLabel="BaseGeoImage.ts:186" />
 
 rendering function pointer
 
 <MemberHeading id="getframewidth" depth="3" name="getFrameWidth" sig="getFrameWidth" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L527" sourceLabel="BaseGeoImage.ts:527" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L686" sourceLabel="BaseGeoImage.ts:686" />
 
 Gets frame width size in pixels.
 
@@ -489,7 +489,7 @@ Gets frame width size in pixels.
 
 <MemberHeading id="getframeheight" depth="3" name="getFrameHeight" sig="getFrameHeight" />
 
-<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L536" sourceLabel="BaseGeoImage.ts:536" />
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L695" sourceLabel="BaseGeoImage.ts:695" />
 
 Gets frame height size in pixels.
 

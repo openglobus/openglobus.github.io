@@ -197,7 +197,7 @@ Gets specific layer material.
 
 <MemberHeading id="getentityterrainpoint" depth="3" name="getEntityTerrainPoint" sig="getEntityTerrainPoint(entity: Entity, res: Vec3): Vec3" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L577" sourceLabel="Segment.ts:577" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L654" sourceLabel="Segment.ts:654" />
 
 Returns entity terrain point.
 
@@ -210,6 +210,20 @@ Returns entity terrain point.
 
 - [`Vec3`](/vec3)
 
+<MemberHeading id="islonlatinside" depth="3" name="isLonLatInside" sig="isLonLatInside(lonLat: LonLat): boolean" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L672" sourceLabel="Segment.ts:672" />
+
+Returns true when the segment covers the point.
+
+**Parameters**
+
+- `lonLat` ([LonLat](/lonlat)) — Geodetic coordinates.
+
+**Returns**
+
+- `boolean`
+
 <MemberHeading
   id="getterrainpoint"
   depth="3"
@@ -221,7 +235,7 @@ Returns entity terrain point.
 ): number"
 />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L597" sourceLabel="Segment.ts:597" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L685" sourceLabel="Segment.ts:685" />
 
 Returns distance from object to terrain coordinates and terrain point that calculates out in the res parameter.
 
@@ -229,7 +243,7 @@ Returns distance from object to terrain coordinates and terrain point that calcu
 
 - `xyz` ([Vec3](/vec3)) — Cartesian object position.
 - `insideSegmentPosition` ([LonLat](/lonlat)) — Geodetic object position.
-- `res` ([Vec3](/vec3), optional) — Result cartesian coordinates on the terrain.
+- `res` ([Vec3](/vec3), optional) — Result cartesian coordinates on the terrain, on the ellipsoid when the segment has no vertices yet.
 
 **Returns**
 
@@ -237,13 +251,13 @@ Returns distance from object to terrain coordinates and terrain point that calcu
 
 <MemberHeading id="hitcelltriangle" depth="3" name="_hitCellTriangle" sig="_hitCellTriangle()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L704" sourceLabel="Segment.ts:704" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L790" sourceLabel="Segment.ts:790" />
 
 Ray test of the cell triangle at tri\[i]: 1 when the point is above it, -1 when below it, 0 when missed.
 
 <MemberHeading id="projectnative" depth="3" name="projectNative" sig="projectNative(lonlat: LonLat): LonLat" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L745" sourceLabel="Segment.ts:745" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L831" sourceLabel="Segment.ts:831" />
 
 Project wgs86 to segment native projection.
 
@@ -257,7 +271,7 @@ Project wgs86 to segment native projection.
 
 <MemberHeading id="elevationsexists" depth="3" name="elevationsExists" sig="elevationsExists(elevations: Float32Array)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L774" sourceLabel="Segment.ts:774" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L860" sourceLabel="Segment.ts:860" />
 
 Terrain obtained from server.
 
@@ -267,7 +281,7 @@ Terrain obtained from server.
 
 <MemberHeading id="elevationsnotexists" depth="3" name="elevationsNotExists" sig="elevationsNotExists()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L800" sourceLabel="Segment.ts:800" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L886" sourceLabel="Segment.ts:886" />
 
 Keep plain elevation segment for rendering
 
@@ -275,7 +289,7 @@ Keep plain elevation segment for rendering
 
 <MemberHeading id="equalizecorner" depth="3" name="_equalizeCorner" sig="_equalizeCorner(corner: number)" />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L945" sourceLabel="Segment.ts:945" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L1053" sourceLabel="Segment.ts:1053" />
 
 Takes the corner vertex from the owner of the point: the segment of the lowest zoom among the ones that have a corner there. The owner keeps its vertex, so the result doesn't depend on the order the segments go, and the comparison makes the vertex follow the owner without any labels.
 
@@ -285,17 +299,35 @@ Takes the corner vertex from the owner of the point: the segment of the lowest z
 
 <MemberHeading id="equalizecorneronside" depth="3" name="_equalizeCornerOnSide" sig="_equalizeCornerOnSide()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L999" sourceLabel="Segment.ts:999" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1128" sourceLabel="Segment.ts:1128" />
 
 Puts the corner on the side of a neighbor of a lower zoom, when the point lies inside that side.
 
+<MemberHeading id="getnormalmapsource" depth="3" name="_getNormalMapSource" sig="_getNormalMapSource()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1439" sourceLabel="Segment.ts:1439" />
+
+The segment the normal map of this one comes from: itself, or the parent whose normal map.
+
+<MemberHeading id="normalmapdrawn" depth="3" name="_normalMapDrawn" sig="_normalMapDrawn()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1581" sourceLabel="Segment.ts:1581" />
+
+Called when the normal map is drawn. New normals change all the sides for the finer normal maps that took them.
+
 <MemberHeading id="setextentlonlat" depth="3" name="_setExtentLonLat" sig="_setExtentLonLat()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1635" sourceLabel="Segment.ts:1635" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1771" sourceLabel="Segment.ts:1771" />
+
+<MemberHeading id="getextentcorners" depth="3" name="_getExtentCorners" sig="_getExtentCorners()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1778" sourceLabel="Segment.ts:1778" />
+
+Returns the SW, NW, NE and SE corners of the segment on the ellipsoid.
 
 <MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1825" sourceLabel="Segment.ts:1825" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1968" sourceLabel="Segment.ts:1968" />
 
 Sets the bounding volume of the terrain vertices, the plain segment volume when there are no finite vertices.
 
@@ -305,13 +337,13 @@ Sets the bounding volume of the terrain vertices, the plain segment volume when 
 
 <MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1836" sourceLabel="Segment.ts:1836" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L1979" sourceLabel="Segment.ts:1979" />
 
 Creates the plain segment box center and half diagonal, the LOD volume without terrain.
 
 <MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L1867" sourceLabel="Segment.ts:1867" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2004" sourceLabel="Segment.ts:2004" />
 
 Raises the LOD center over the plain segment center by the height of the median vertex radius over the surface.
 
@@ -319,9 +351,24 @@ Raises the LOD center over the plain segment center by the height of the median 
 
 - `radius` (number) — Median geocentric radius of the segment vertices.
 
+<MemberHeading id="getlonlat" depth="3" name="getLonLat" sig="getLonLat(lon: number, lat: number): LonLat" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2151" sourceLabel="Segment.ts:2151" />
+
+Returns the geodetic coordinates of the native point.
+
+**Parameters**
+
+- `lon` (number) — Native longitude.
+- `lat` (number) — Native latitude.
+
+**Returns**
+
+- [`LonLat`](/lonlat)
+
 <MemberHeading id="getmaterialbylayer" depth="3" name="getMaterialByLayer" sig="getMaterialByLayer(layer: Layer): Material | undefined" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2111" sourceLabel="Segment.ts:2111" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2253" sourceLabel="Segment.ts:2253" />
 
 Gets specific layer material.
 
@@ -344,7 +391,7 @@ Gets specific layer material.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2124" sourceLabel="Segment.ts:2124" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2266" sourceLabel="Segment.ts:2266" />
 
 Computes cyclic longitude shift for `sourceExtent` to align it with `targetExtent` in wrapped horizontal coordinate space (for example, Web Mercator world copies).
 
@@ -470,4 +517,4 @@ Terrain existing flag.
 
 <MemberHeading id="materials" depth="3" name="materials" sig="materials" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L432" sourceLabel="Segment.ts:432" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L502" sourceLabel="Segment.ts:502" />

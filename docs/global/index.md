@@ -339,6 +339,130 @@ Returns seconds in days.
 
 Formats a date by a template, e.g. "MM/dd/yyyy", "hh:mm:ss.ms". Tokens: yyyy/yy year, MMM month name, MM/M month, dd/d day, hh/h hours, mm/m minutes, ss/s seconds, ms milliseconds, a/A am/pm. Case matters for M/m only. On a 12-hour clock am/pm is appended after the time unless the template places it with "a".
 
+<MemberHeading
+  id="densifypath"
+  depth="3"
+  name="densifyPath"
+  sig="densifyPath(
+	path: Array.<CoordinatesType>,
+	isClosed: boolean,
+	step?: number,
+): Array.<CoordinatesType>"
+/>
+
+<MemberMeta sourceHref="/source/entity/geometry/geometryhandler-ts/#L131" sourceLabel="GeometryHandler.ts:131" />
+
+Returns the path with points between the ones further apart than the step in longitude or latitude, the closed path gets them on the edge from its last point to the first one too.
+
+**Parameters**
+
+- `path` (Array.\<CoordinatesType>) — Geodetic points.
+- `isClosed` (boolean) — The last point goes back to the first one.
+- `step` (number, optional) — Longest segment in degrees.
+
+**Returns**
+
+- `Array.<CoordinatesType>`
+
+<MemberHeading
+  id="removerepeatedpoints"
+  depth="3"
+  name="removeRepeatedPoints"
+  sig="removeRepeatedPoints(
+	path: Array.<CoordinatesType>,
+	isClosed: boolean,
+): Array.<CoordinatesType>"
+/>
+
+<MemberMeta sourceHref="/source/entity/geometry/geometryhandler-ts/#L168" sourceLabel="GeometryHandler.ts:168" />
+
+Returns the path without the points equal to the point before them, a closed path also without its last points equal to the first one, as a GeoJSON ring has it. A segment of no length has no direction, so a line can't join the segments around it.
+
+**Parameters**
+
+- `path` (Array.\<CoordinatesType>) — Geodetic points.
+- `isClosed` (boolean) — The last point goes back to the first one.
+
+**Returns**
+
+- `Array.<CoordinatesType>`
+
+<MemberHeading id="gridpointsinside" depth="3" name="gridPointsInside" sig="gridPointsInside()" />
+
+<MemberMeta sourceHref="/source/entity/geometry/triangulateongrid-ts/#L38" sourceLabel="triangulateOnGrid.ts:38" />
+
+The nodes of the grid inside the polygon, not too close to its rings: a scan along each grid row with the ring segments that reach it.
+
+<MemberHeading id="splitlongedges" depth="3" name="splitLongEdges" sig="splitLongEdges()" />
+
+<MemberMeta sourceHref="/source/entity/geometry/triangulateongrid-ts/#L89" sourceLabel="triangulateOnGrid.ts:89" />
+
+Splits the triangles with an edge longer than the step, but for the rounding, at the middle of their longest edge until there is none. Every triangle of a long edge splits it at the same point, so the triangles stay joined.
+
+<MemberHeading id="triangulatedelaunay" depth="3" name="triangulateDelaunay" sig="triangulateDelaunay()" />
+
+<MemberMeta sourceHref="/source/entity/geometry/triangulateongrid-ts/#L140" sourceLabel="triangulateOnGrid.ts:140" />
+
+The constrained Delaunay triangulation of the ring points and of the grid points inside, the triangles out of the polygon and in its holes are left out. Throws when the rings are not a valid polygon.
+
+<MemberHeading id="splitconvex" depth="3" name="splitConvex" sig="splitConvex()" />
+
+<MemberMeta sourceHref="/source/entity/geometry/triangulateongrid-ts/#L241" sourceLabel="triangulateOnGrid.ts:241" />
+
+Splits a convex polygon by the line where the coordinate on the axis is the value, into the parts below and above. The point on the line is the same for both parts and for every polygon with that edge, whichever way it goes.
+
+<MemberHeading id="triangulateearcut" depth="3" name="triangulateEarcut" sig="triangulateEarcut()" />
+
+<MemberMeta sourceHref="/source/entity/geometry/triangulateongrid-ts/#L274" sourceLabel="triangulateOnGrid.ts:274" />
+
+Earcut triangles cut by the grid. Earcut takes the rings that are not a valid polygon too.
+
+<MemberHeading
+  id="triangulateongrid"
+  depth="3"
+  name="triangulateOnGrid"
+  sig="triangulateOnGrid(
+	rings: Array.<Array.<CoordinatesType>>,
+	step: number,
+): Object"
+/>
+
+<MemberMeta sourceHref="/source/entity/geometry/triangulateongrid-ts/#L365" sourceLabel="triangulateOnGrid.ts:365" />
+
+Triangulates a polygon with no edge longer than the step, for the cube tiles.
+
+**Parameters**
+
+- `rings` (Array.\<Array.\<CoordinatesType>>) — Geodetic rings, the outer one and the holes.
+- `step` (number) — Longest edge in degrees.
+
+**Returns**
+
+- `Object`
+
+<MemberHeading
+  id="getcubefaceextents"
+  depth="3"
+  name="getCubeFaceExtents"
+  sig="getCubeFaceExtents(
+	points: Array.<LonLat>,
+	proj: CubeProj,
+): Array.<(Extent|null)>"
+/>
+
+<MemberMeta sourceHref="/source/layer/basegeoimage-ts/#L45" sourceLabel="BaseGeoImage.ts:45" />
+
+Returns the rectangles of the image points on the cube faces, in the native coordinates of the faces, null for a face the image does not reach. A rectangle is of the points in front of the face plane, on its extension, cut by the face.
+
+**Parameters**
+
+- `points` (Array.\<[LonLat](/lonlat)>) — Points of the image grid.
+- `proj` ([CubeProj](/module/og-proj-cube#cubeproj)) — Cube projection.
+
+**Returns**
+
+- `Array.<(`[`Extent`](/extent)`|null)>`
+
 <MemberHeading id="stretchchannel" depth="3" name="stretchChannel" sig="stretchChannel()" />
 
 <MemberMeta sourceHref="/source/layer/geotifflayer-ts/#L52" sourceLabel="GeoTIFFLayer.ts:52" />
@@ -1097,15 +1221,21 @@ Assigns forward sampler slots to the sources of the first `count` projectors (pr
 
 <MemberHeading id="gridmargin" depth="3" name="gridMargin" sig="gridMargin()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L76" sourceLabel="Segment.ts:76" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L77" sourceLabel="Segment.ts:77" />
 
 How far the grid position (x, y) is inside the triangle of grid vertices a, b and c, in barycentric coordinates: the smallest of the three, negative outside of the triangle.
 
 <MemberHeading id="hasarea" depth="3" name="hasArea" sig="hasArea()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L92" sourceLabel="Segment.ts:92" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L93" sourceLabel="Segment.ts:93" />
 
 Whether the triangle \_v0, \_v1, \_v2 has an area: twice the area is at least a millionth of the longest edge squared.
+
+<MemberHeading id="samplenormal" depth="3" name="sampleNormal" sig="sampleNormal()" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L149" sourceLabel="Segment.ts:149" />
+
+Bilinear normal at a fractional row and column of a normal grid, normalized.
 
 <MemberHeading id="getgridcells" depth="3" name="getGridCells" sig="getGridCells(size: number): number" />
 
@@ -1688,6 +1818,12 @@ Stores current picking rgb color.
 
 Stores previous picked rgb color.
 
+<MemberHeading id="normalmapedgeversion" depth="3" name="__normalMapEdgeVersion__" sig="__normalMapEdgeVersion__" />
+
+<MemberMeta sourceHref="/source/segment/segment-ts/#L132" sourceLabel="Segment.ts:132" />
+
+Grows when a normal map side changes, the finer normal maps that took the side compare it.
+
 ## Enums
 
 <MemberHeading id="str2align" depth="3" name="STR2ALIGN" sig="STR2ALIGN: number" />
@@ -2267,45 +2403,63 @@ Moon ellipsoid object.
 
 WGS84 ellipsoid object.
 
+<MemberHeading id="densifystep" depth="3" name="DENSIFY_STEP" sig="DENSIFY_STEP" />
+
+<MemberMeta sourceHref="/source/entity/geometry/geometryhandler-ts/#L121" sourceLabel="GeometryHandler.ts:121" />
+
+Longest segment of a line or a polygon edge on the cube, in degrees.
+
+<MemberHeading id="gridpointmargin" depth="3" name="GRID_POINT_MARGIN" sig="GRID_POINT_MARGIN" />
+
+<MemberMeta sourceHref="/source/entity/geometry/triangulateongrid-ts/#L12" sourceLabel="triangulateOnGrid.ts:12" />
+
+Grid points closer to a ring than this part of the step are left out, a point on a ring edge would stop the edge from being constrained.
+
 <MemberHeading id="gridminsize" depth="3" name="GRID_MIN_SIZE" sig="GRID_MIN_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L31" sourceLabel="GeoTIFFReader.ts:31" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L29" sourceLabel="GeoTIFFReader.ts:29" />
 
 Sampling grid of a tile, source pixel positions are interpolated between its nodes.
 
 <MemberHeading id="gridmaxsize" depth="3" name="GRID_MAX_SIZE" sig="GRID_MAX_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L46" sourceLabel="GeoTIFFReader.ts:46" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L44" sourceLabel="GeoTIFFReader.ts:44" />
 
 Finest grid, reached only by tiles that span a large part of the globe.
 
 <MemberHeading id="gridmaxerror" depth="3" name="GRID_MAX_ERROR" sig="GRID_MAX_ERROR" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L51" sourceLabel="GeoTIFFReader.ts:51" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L49" sourceLabel="GeoTIFFReader.ts:49" />
 
 Allowed interpolation error between the grid nodes, in tile pixels.
 
 <MemberHeading id="blocksize" depth="3" name="BLOCK_SIZE" sig="BLOCK_SIZE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L56" sourceLabel="GeoTIFFReader.ts:56" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L54" sourceLabel="GeoTIFFReader.ts:54" />
 
 Size of a cached byte range of a remote file.
 
 <MemberHeading id="blockcachebytes" depth="3" name="BLOCK_CACHE_BYTES" sig="BLOCK_CACHE_BYTES" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L61" sourceLabel="GeoTIFFReader.ts:61" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L59" sourceLabel="GeoTIFFReader.ts:59" />
 
 Memory taken by cached byte ranges, the default cacheSize is derived from it.
 
 <MemberHeading id="windowtolerance" depth="3" name="WINDOW_TOLERANCE" sig="WINDOW_TOLERANCE" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L70" sourceLabel="GeoTIFFReader.ts:70" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L71" sourceLabel="GeoTIFFReader.ts:71" />
 
 Reading optimization in source pixels. The projected tile edge on a pixel edge lands a bit off it, so the window takes the next pixel row or column, and the next TIFF tiles are read and decoded too. The tolerance keeps the window on the tile pixels, the heights and colors are the same without it.
 
+<MemberHeading id="point" depth="3" name="_point" sig="_point" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L80" sourceLabel="GeoTIFFReader.ts:80" />
+
+Writes the lon/lat of the tile point to out: x goes from the west side to the east one, y from the north side to the south one, both from 0 to 1.
+
 <MemberHeading id="convertedphotometrics" depth="3" name="CONVERTED_PHOTOMETRICS" sig="CONVERTED_PHOTOMETRICS" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L76" sourceLabel="GeoTIFFReader.ts:76" />
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L94" sourceLabel="GeoTIFFReader.ts:94" />
 
 Photometric interpretations that do not store RGB in the samples: CMYK, YCbCr and CIELab. JPEG compressed imagery is usually YCbCr.
 
@@ -2445,23 +2599,47 @@ First index is {N,E,S,W} and second is {NW,NE,SW,SE}
 
 Neighbor's oposite part. For example oposite side on the east neighbor side is: \[S]\[SE] = NE
 
-<MemberHeading id="nopsord" depth="3" name="NOPSORD" sig="NOPSORD" />
+<MemberHeading id="sidecorner" depth="3" name="SIDE_CORNER" sig="SIDE_CORNER" />
 
 <MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L48" sourceLabel="quadTree.ts:48" />
 
+Corners of a side, first index is {N,E,S,W}, second one is the position along the side: from west to east or from north to south. Parts have the same indexes as corners.
+
+<MemberHeading id="nopsord" depth="3" name="NOPSORD" sig="NOPSORD" />
+
+<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L59" sourceLabel="quadTree.ts:59" />
+
 Neighbos's opside array order. For example NW node by E side array index is 0, SE node by S side is 1.
+
+<MemberHeading id="cornerside" depth="3" name="CORNERSIDE" sig="CORNERSIDE" />
+
+<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L70" sourceLabel="quadTree.ts:70" />
+
+The second side of a corner. First index is the side {N,E,S,W}, second is the corner {NW,NE,SW,SE}, -1 when the corner doesn't lie on the side.
+
+<MemberHeading id="sideflip" depth="3" name="SIDEFLIP" sig="SIDEFLIP" />
+
+<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L82" sourceLabel="quadTree.ts:82" />
+
+True when the position along the sides of two neighbors runs in opposite directions, both indexes are {N,E,S,W}. Tiles are not mirrored, so they go round their common side in opposite directions, and the positions run along the way on the S and W sides and against it on the N and E ones.
+
+<MemberHeading id="rootpart" depth="3" name="ROOTPART" sig="ROOTPART" />
+
+<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L93" sourceLabel="quadTree.ts:93" />
+
+The part of a root behind the part on its side, and the corner of a neighbor behind the corner on the side, as parts and corners have the same indexes. First index is the side, second is the side of the neighbor, third is the part.
 
 <MemberHeading id="comside" depth="3" name="COMSIDE" sig="COMSIDE" />
 
-<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L58" sourceLabel="quadTree.ts:58" />
+<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L105" sourceLabel="quadTree.ts:105" />
 
 First index is {NW,NE,SW,SE}, another one is {N,E,S,W}
 
 <MemberHeading id="partoffset" depth="3" name="PARTOFFSET" sig="PARTOFFSET" />
 
-<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L69" sourceLabel="quadTree.ts:69" />
+<MemberMeta sourceHref="/source/quadtree/quadtree-ts/#L116" sourceLabel="quadTree.ts:116" />
 
-Gets segment part left to right or up to downo ffset against neighbour side. Where 0 - no offset 1 - half segment size offset.
+Gets segment part left to right or up to down offset against neighbor side. Where 0 - no offset 1 - half segment size offset.
 
 <MemberHeading id="maxprojectorlayers" depth="3" name="MAX_PROJECTOR_LAYERS" sig="MAX_PROJECTOR_LAYERS" />
 
