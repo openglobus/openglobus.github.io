@@ -119,7 +119,7 @@ Climbs to the node that holds both this node and the tile next to it, or to the 
 
 <MemberHeading id="cleartree" depth="3" name="clearTree" sig="clearTree(keepViewCameraBranches?: boolean)" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L1122" sourceLabel="Node.ts:1122" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L1107" sourceLabel="Node.ts:1107" />
 
 Destroys the branches the main camera does not render.
 
@@ -137,7 +137,7 @@ Destroys the branches the main camera does not render.
 ): Node | null | undefined"
 />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L1184" sourceLabel="Node.ts:1184" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L1169" sourceLabel="Node.ts:1169" />
 
 Returns the neighbor behind the side that has a corner in the same point as the corner of this node.
 
@@ -152,7 +152,7 @@ Returns the neighbor behind the side that has a corner in the same point as the 
 
 <MemberHeading id="getneighborcorner" depth="3" name="getNeighborCorner" sig="getNeighborCorner(side: number, corner: number): number" />
 
-<MemberMeta sourceHref="/source/quadtree/node-ts/#L1219" sourceLabel="Node.ts:1219" />
+<MemberMeta sourceHref="/source/quadtree/node-ts/#L1204" sourceLabel="Node.ts:1204" />
 
 Returns the corner of the neighbors behind the side that lies in the same point as the corner of this node.
 

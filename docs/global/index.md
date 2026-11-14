@@ -1221,19 +1221,19 @@ Assigns forward sampler slots to the sources of the first `count` projectors (pr
 
 <MemberHeading id="gridmargin" depth="3" name="gridMargin" sig="gridMargin()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L77" sourceLabel="Segment.ts:77" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L78" sourceLabel="Segment.ts:78" />
 
 How far the grid position (x, y) is inside the triangle of grid vertices a, b and c, in barycentric coordinates: the smallest of the three, negative outside of the triangle.
 
 <MemberHeading id="hasarea" depth="3" name="hasArea" sig="hasArea()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L93" sourceLabel="Segment.ts:93" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L94" sourceLabel="Segment.ts:94" />
 
 Whether the triangle \_v0, \_v1, \_v2 has an area: twice the area is at least a millionth of the longest edge squared.
 
 <MemberHeading id="samplenormal" depth="3" name="sampleNormal" sig="sampleNormal()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L149" sourceLabel="Segment.ts:149" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L151" sourceLabel="Segment.ts:151" />
 
 Bilinear normal at a fractional row and column of a normal grid, normalized.
 
@@ -1632,6 +1632,55 @@ Stacking that runs the length of a side.
 
 Stacking that cuts a side across, so its dialogs divide its thickness.
 
+<MemberHeading
+  id="createplainsegmentparams"
+  depth="3"
+  name="createPlainSegmentParams"
+  sig="createPlainSegmentParams(
+	segment: Segment,
+	id: number,
+): Float64Array"
+/>
+
+<MemberMeta sourceHref="/source/utils/plainsegmentworker-ts/#L33" sourceLabel="PlainSegmentWorker.ts:33" />
+
+Packs the segment parameters the workers make its plain grid with, see utils/plainGrid.
+
+**Parameters**
+
+- `segment` ([Segment](/segment)) — Segment.
+- `id` (number) — Worker task id.
+
+**Returns**
+
+- `Float64Array`
+
+<MemberHeading id="isgeoidof" depth="3" name="isGeoidOf" sig="isGeoidOf(geoidId: number, geoid: Geoid | null): boolean" />
+
+<MemberMeta sourceHref="/source/utils/plainsegmentworker-ts/#L83" sourceLabel="PlainSegmentWorker.ts:83" />
+
+Returns true when the data of a worker are made with the geoid, or no geoid is set.
+
+**Parameters**
+
+- `geoidId` (number) — Geoid identifier the worker has returned.
+- `geoid` (Geoid | null) — Geoid of the terrain.
+
+**Returns**
+
+- `boolean`
+
+<MemberHeading id="postgeoidmodel" depth="3" name="postGeoidModel" sig="postGeoidModel(workers: Array.<Worker>, geoid: Geoid)" />
+
+<MemberMeta sourceHref="/source/utils/plainsegmentworker-ts/#L92" sourceLabel="PlainSegmentWorker.ts:92" />
+
+Sends the geoid model to the workers that make plain grids.
+
+**Parameters**
+
+- `workers` (Array.\<Worker>) — Workers.
+- `geoid` (Geoid) — Geoid.
+
 <MemberHeading id="getrasterworker" depth="3" name="getRasterWorker" sig="getRasterWorker()" />
 
 <MemberMeta sourceHref="/source/utils/rasterworker-ts/#L88" sourceLabel="RasterWorker.ts:88" />
@@ -1739,6 +1788,35 @@ Reference surface points under the four screen corners, as \[leftTop, rightTop, 
 - `screenMargin` (number, optional, default: 100) — Border of the screen, in screen pixels, the corners are sampled inside of.
 - `ellipsoid` ([Ellipsoid](/ellipsoid), optional) — Reference surface, the planet ellipsoid by default. See CameraFootprint for one raised to the terrain under the camera.
 
+<MemberHeading id="setgeoidmodel" depth="3" name="setGeoidModel" sig="setGeoidModel()" />
+
+<MemberMeta sourceHref="/source/utils/plaingrid-js/#L19" sourceLabel="plainGrid.js:19" />
+
+Sets the geoid model of the worker.
+
+<MemberHeading
+  id="createplaingrid"
+  depth="3"
+  name="createPlainGrid"
+  sig="createPlainGrid(
+	params: Float64Array,
+	gridSize: number,
+	outVertices: Float64Array,
+	outNormals: Float32Array,
+)"
+/>
+
+<MemberMeta sourceHref="/source/utils/plaingrid-js/#L108" sourceLabel="plainGrid.js:108" />
+
+Writes the (gridSize + 1) x (gridSize + 1) plain vertices of the segment, relative to its center, and their ellipsoid normals, rows from north to south.
+
+**Parameters**
+
+- `params` (Float64Array) — Segment parameters, see createPlainSegmentParams.
+- `gridSize` (number) — Grid size.
+- `outVertices` (Float64Array) — Vertices.
+- `outNormals` (Float32Array) — Normals.
+
 <MemberHeading id="projperp" depth="3" name="projPerp" sig="projPerp()" />
 
 <MemberMeta sourceHref="/source/utils/shadowcamerafit-ts/#L59" sourceLabel="shadowCameraFit.ts:59" />
@@ -1820,7 +1898,7 @@ Stores previous picked rgb color.
 
 <MemberHeading id="normalmapedgeversion" depth="3" name="__normalMapEdgeVersion__" sig="__normalMapEdgeVersion__" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L132" sourceLabel="Segment.ts:132" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L133" sourceLabel="Segment.ts:133" />
 
 Grows when a normal map side changes, the finer normal maps that took the side compare it.
 
@@ -2095,67 +2173,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2802" sourceLabel="Planet.ts:2802" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2807" sourceLabel="Planet.ts:2807" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2808" sourceLabel="Planet.ts:2808" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2813" sourceLabel="Planet.ts:2813" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2814" sourceLabel="Planet.ts:2814" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2819" sourceLabel="Planet.ts:2819" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2820" sourceLabel="Planet.ts:2820" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2825" sourceLabel="Planet.ts:2825" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2826" sourceLabel="Planet.ts:2826" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2831" sourceLabel="Planet.ts:2831" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2832" sourceLabel="Planet.ts:2832" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2837" sourceLabel="Planet.ts:2837" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2838" sourceLabel="Planet.ts:2838" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2843" sourceLabel="Planet.ts:2843" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2844" sourceLabel="Planet.ts:2844" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2849" sourceLabel="Planet.ts:2849" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2850" sourceLabel="Planet.ts:2850" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2855" sourceLabel="Planet.ts:2855" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2856" sourceLabel="Planet.ts:2856" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2861" sourceLabel="Planet.ts:2861" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2862" sourceLabel="Planet.ts:2862" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2867" sourceLabel="Planet.ts:2867" />
 
 Triggered when the current terrain provider changes.
 
@@ -2750,6 +2828,12 @@ What the pointer gets, centered on the gap between docked dialogs.
 <MemberMeta sourceHref="/source/ui/dock-ts/#L41" sourceLabel="Dock.ts:41" />
 
 A finger is blunter than a cursor and needs more of an edge to catch.
+
+<MemberHeading id="normalsarray" depth="3" name="NormalsArray" sig="NormalsArray" />
+
+<MemberMeta sourceHref="/source/utils/normalsarray-ts/#L6" sourceLabel="normalsArray.ts:6" />
+
+The normals of the normal map: Float16Array where the browser has it, half the memory, Float32Array otherwise.
 
 <MemberHeading id="shadowcasterrelieffactor" depth="3" name="SHADOW_CASTER_RELIEF_FACTOR" sig="SHADOW_CASTER_RELIEF_FACTOR" />
 
