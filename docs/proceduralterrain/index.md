@@ -23,7 +23,7 @@ Terrain with the heights made by a function, without a server.
 ```js
 // Heights made right away are reduced in the main thread
 new ProceduralTerrain("Flat", {
-    getHeights: (segment) => new Float32Array(129 * 129).fill(100)
+    getHeights: (segment) => new Float32Array(128 * 128).fill(100)
 });
 
 // Promised heights are reduced in a worker
@@ -48,7 +48,7 @@ new ProceduralTerrain("Loaded", {
 - `name` (string, optional, default: "\\"ProceduralTerrain\\"") — Terrain provider name.
 - `options` (IProceduralTerrainParams) — Provider options:
   - `options.getHeights` (GetHeightsFunc) — Returns the segment heights, or a promise of them, rows from north to south, vertices evenly spaced in segment.getExtent(), or null when the segment has no terrain. (plainGridSize + 1)² heights are taken as they are. Larger (2^n + 1)² vertices, or 2^n x 2^n pixels, are reduced to them keeping peaks and pits. Segments of the height requests are not in the quad tree, their node is null. The function runs in the main thread. Returned heights are reduced in the main thread too and applied right away, promised heights are reduced in a worker when the promise is resolved.
-  - `options.plainGridSize` (number, optional, default: 32) — Elevation grid size.
+  - `options.plainGridSize` (number, optional, default: 128) — Elevation grid size, the normal maps are of this size too.
   - `options.maxNativeZoom` (number, optional, default: "maxZoom") — Last zoom of the height requests. Deeper segments are the subdivision levels of the maxNativeZoom segment heights, as RgbTerrain ones, its pixels keep their heights there.
   - `options.nativeCacheSize` (number, optional, default: 50) — Number of maxNativeZoom segments which pixels are kept to make their levels when they are needed. The least recently used are dropped and requested again.
   - `options.gridSizeByZoom` (Array.\<number>, optional) — Segment grid sizes by zoom, the same as RgbTerrain ones by default.
