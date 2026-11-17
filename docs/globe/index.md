@@ -7,7 +7,7 @@ description: Creates a WebGL context with globe.
 
 # Globe
 
-<SourceLink href="/source/globe-ts/#L186" label="Globe.ts:186" />
+<SourceLink href="/source/globe-ts/#L190" label="Globe.ts:190" />
 
 Creates a WebGL context with globe.
 
@@ -71,6 +71,7 @@ globus = new Globe({
   - `options.loadingBatchSize` (number, optional, default: 12)
   - `options.quadTreeStrategyPrototype` (number, optional) — Prototype of quadTree. QuadTreeStrategy for Earth is default.
   - `options.msaa` (number, optional, default: 0) — MSAA antialiasing parameter: 2,4,8,16. Default is 0.
+  - `options.hdrFormat` (string, optional, default: "\\"RGBA16F\\"") — Format of the forward and HDR render targets: "RGBA16F", "SRGB8\_ALPHA8" or "RGBA8". The 8-bit ones halve their memory traffic but clip colors above 1.0, so they suit scenes without the atmosphere.
   - `options.deferredDisabled` (boolean, optional, default: false) — Disables deferred and WOIT pipelines and renders objects with forward shaders.
   - `options.pixelRatio` (number, optional) — Device pixel ratio. Default is current screen DPI.
   - `options.atmosphereEnabled` (boolean, optional) — Enables atmosphere effect.
@@ -88,13 +89,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L491" sourceLabel="Globe.ts:491" />
+<MemberMeta sourceHref="/source/globe-ts/#L496" sourceLabel="Globe.ts:496" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L499" sourceLabel="Globe.ts:499" />
+<MemberMeta sourceHref="/source/globe-ts/#L504" sourceLabel="Globe.ts:504" />
 
 Starts screen brightness fading out effect by the duration time.
 
@@ -102,6 +103,6 @@ Starts screen brightness fading out effect by the duration time.
 
 <MemberHeading id="inner" depth="3" name="$inner" sig="$inner: Element" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L239" sourceLabel="Globe.ts:239" />
+<MemberMeta sourceHref="/source/globe-ts/#L243" sourceLabel="Globe.ts:243" />
 
 Dom element where WebGL canvas creates

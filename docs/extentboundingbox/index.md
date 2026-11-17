@@ -6,7 +6,7 @@ longname: ExtentBoundingBox
 
 # ExtentBoundingBox
 
-<SourceLink href="/source/globe-ts/#L123" label="Globe.ts:123" />
+<SourceLink href="/source/globe-ts/#L124" label="Globe.ts:124" />
 
 **Type**
 

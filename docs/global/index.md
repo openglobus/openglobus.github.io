@@ -1203,6 +1203,20 @@ Converts geodetic coordinate array to mercator coordinate array.
 
 Registers the CRS in `proj4`, taking its definition from epsg.io. Returns whether the projection became available, i.e. whether the data in that CRS is worth reading again.
 
+<MemberHeading id="normalizehdrformat" depth="3" name="normalizeHdrFormat" sig="normalizeHdrFormat(format?: string): HdrFormat" />
+
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L53" sourceLabel="Renderer.ts:53" />
+
+The hdrFormat option as a supported format, RGBA16F when it is missing or unknown.
+
+**Parameters**
+
+- `format` (string, optional) — Requested format.
+
+**Returns**
+
+- `HdrFormat`
+
 <MemberHeading id="assignsourceslots" depth="3" name="assignSourceSlots" sig="assignSourceSlots(sourceIndices, outSlots, outSlotSources)" />
 
 <MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L75" sourceLabel="ProjectorManager.ts:75" />
@@ -1862,6 +1876,41 @@ UTC offset of the zone at the given instant, minutes. DST is applied by the tzdb
 
 - `number`
 
+<MemberHeading id="variantbit" depth="3" name="variantBit" sig="variantBit(name: string): number" />
+
+<MemberMeta sourceHref="/source/webgl/shaderprogram-ts/#L39" sourceLabel="ShaderProgram.ts:39" />
+
+Bit of a switch define, the same in every program.
+
+**Parameters**
+
+- `name` (string) — Define name.
+
+**Returns**
+
+- `number`
+
+**Example**
+
+```js
+const USE_FOG = variantBit("USE_FOG");
+program.variant(USE_FOG); // the program with #define USE_FOG
+```
+
+<MemberHeading id="variantmask" depth="3" name="variantMask" sig="variantMask(flags: Record.<string, boolean>): number" />
+
+<MemberMeta sourceHref="/source/webgl/shaderprogram-ts/#L55" sourceLabel="ShaderProgram.ts:55" />
+
+Variant mask of the switches that are true in `flags`.
+
+**Parameters**
+
+- `flags` (Record.\<string, boolean>) — Switch values by define name.
+
+**Returns**
+
+- `number`
+
 ## Instance Fields
 
 <MemberHeading id="mat3" depth="3" name="Mat3" sig="Mat3" />
@@ -2173,67 +2222,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2809" sourceLabel="Planet.ts:2809" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2814" sourceLabel="Planet.ts:2814" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2815" sourceLabel="Planet.ts:2815" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2820" sourceLabel="Planet.ts:2820" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2821" sourceLabel="Planet.ts:2821" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2826" sourceLabel="Planet.ts:2826" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2827" sourceLabel="Planet.ts:2827" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2832" sourceLabel="Planet.ts:2832" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2833" sourceLabel="Planet.ts:2833" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2838" sourceLabel="Planet.ts:2838" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2839" sourceLabel="Planet.ts:2839" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2844" sourceLabel="Planet.ts:2844" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2845" sourceLabel="Planet.ts:2845" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2850" sourceLabel="Planet.ts:2850" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2851" sourceLabel="Planet.ts:2851" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2856" sourceLabel="Planet.ts:2856" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2857" sourceLabel="Planet.ts:2857" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2862" sourceLabel="Planet.ts:2862" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2863" sourceLabel="Planet.ts:2863" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2868" sourceLabel="Planet.ts:2868" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2869" sourceLabel="Planet.ts:2869" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2874" sourceLabel="Planet.ts:2874" />
 
 Triggered when the current terrain provider changes.
 
@@ -2719,6 +2768,12 @@ First index is {NW,NE,SW,SE}, another one is {N,E,S,W}
 
 Gets segment part left to right or up to down offset against neighbor side. Where 0 - no offset 1 - half segment size offset.
 
+<MemberHeading id="hdrformats" depth="3" name="HDR_FORMATS" sig="HDR_FORMATS" />
+
+<MemberMeta sourceHref="/source/renderer/renderer-ts/#L39" sourceLabel="Renderer.ts:39" />
+
+Formats of the forward and HDR render targets, see IRendererParams.hdrFormat.
+
 <MemberHeading id="maxprojectorlayers" depth="3" name="MAX_PROJECTOR_LAYERS" sig="MAX_PROJECTOR_LAYERS" />
 
 <MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L13" sourceLabel="ProjectorManager.ts:13" />
@@ -2747,9 +2802,39 @@ Maximum created nodes count. The more nodes count the more memory usage. When th
 
 <MemberHeading id="projectorshaderparams" depth="3" name="projectorShaderParams" sig="projectorShaderParams" />
 
-<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L9" sourceLabel="uniforms.ts:9" />
+<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L15" sourceLabel="uniforms.ts:15" />
 
 Array sizes for projectors.glsl, filled in with stringTemplate2() by every program that includes it.
+
+<MemberHeading id="lightingfeatureuniforms" depth="3" name="lightingFeatureUniforms" sig="lightingFeatureUniforms" />
+
+<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L52" sourceLabel="uniforms.ts:52" />
+
+Uniforms of lightingFeatures.glsl; the ones of a feature switched off are inactive in that variant.
+
+<MemberHeading id="shadowfeatureuniforms" depth="3" name="shadowFeatureUniforms" sig="shadowFeatureUniforms" />
+
+<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L55" sourceLabel="uniforms.ts:55" />
+
+Uniforms of programs that receive shadows but no projectors.
+
+<MemberHeading id="lightingfeaturedefines" depth="3" name="lightingFeatureDefines" sig="lightingFeatureDefines" />
+
+<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L62" sourceLabel="uniforms.ts:62" />
+
+Switch defines of lightingFeatures.glsl. Compiled-in projector and shadow code slows the fragment stage on some GPUs even with nothing active (Mali-G57: +3.5 ms a frame for the terrain at 1920x1150), so programs that include it draw with program.variant(renderer.activeLightingFeatures).
+
+<MemberHeading id="shadowfeaturedefines" depth="3" name="shadowFeatureDefines" sig="shadowFeatureDefines" />
+
+<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L69" sourceLabel="uniforms.ts:69" />
+
+Switch defines of programs that receive shadows but no projectors.
+
+<MemberHeading id="lightingfeatureprojectors" depth="3" name="LIGHTING_FEATURE_PROJECTORS" sig="LIGHTING_FEATURE_PROJECTORS" />
+
+<MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L75" sourceLabel="uniforms.ts:75" />
+
+Bits of the lighting feature switches in variant masks.
 
 <MemberHeading id="terraingridsizebyzoom" depth="3" name="TERRAIN_GRID_SIZE_BY_ZOOM" sig="TERRAIN_GRID_SIZE_BY_ZOOM" />
 
@@ -2886,3 +2971,15 @@ Zone data — a plain GeoJSON FeatureCollection:
 - properties.tzid: IANA name ("Europe/Paris", "Etc/GMT+3") — what lookup returns; the bundled file also carries zone (standard offset, hours), zone\_dst and utc\_format.
 - geometry: Polygon or MultiPolygon in lon/lat degrees, first ring outer, rest holes.
 - non-overlapping, lon within \[-180, 180] split at the antimeridian, lat within ±89.9 (the mercator rendering limit; ±90 breaks the triangulation). Bundled res/tz/timezones.geojson: timezone-boundary-builder with oceans, dissolved by the (standard, DST) offset pair.
+
+<MemberHeading id="maxvariantbits" depth="3" name="MAX_VARIANT_BITS" sig="MAX_VARIANT_BITS" />
+
+<MemberMeta sourceHref="/source/webgl/shaderprogram-ts/#L17" sourceLabel="ShaderProgram.ts:17" />
+
+Shader defines. A boolean is a switch for ShaderProgram.variant, a number or string is a constant.
+
+**Example**
+
+```js
+defines: { USE_FOG: true, MAX_LIGHTS: 4 } // #define USE_FOG, #define MAX_LIGHTS 4
+```
