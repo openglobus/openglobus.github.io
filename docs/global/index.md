@@ -1235,19 +1235,19 @@ Assigns forward sampler slots to the sources of the first `count` projectors (pr
 
 <MemberHeading id="gridmargin" depth="3" name="gridMargin" sig="gridMargin()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L78" sourceLabel="Segment.ts:78" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L77" sourceLabel="Segment.ts:77" />
 
 How far the grid position (x, y) is inside the triangle of grid vertices a, b and c, in barycentric coordinates: the smallest of the three, negative outside of the triangle.
 
 <MemberHeading id="hasarea" depth="3" name="hasArea" sig="hasArea()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L94" sourceLabel="Segment.ts:94" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L93" sourceLabel="Segment.ts:93" />
 
 Whether the triangle \_v0, \_v1, \_v2 has an area: twice the area is at least a millionth of the longest edge squared.
 
 <MemberHeading id="samplenormal" depth="3" name="sampleNormal" sig="sampleNormal()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L151" sourceLabel="Segment.ts:151" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L150" sourceLabel="Segment.ts:150" />
 
 Bilinear normal at a fractional row and column of a normal grid, normalized.
 
@@ -1947,7 +1947,7 @@ Stores previous picked rgb color.
 
 <MemberHeading id="normalmapedgeversion" depth="3" name="__normalMapEdgeVersion__" sig="__normalMapEdgeVersion__" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L133" sourceLabel="Segment.ts:133" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L132" sourceLabel="Segment.ts:132" />
 
 Grows when a normal map side changes, the finer normal maps that took the side compare it.
 
@@ -2222,67 +2222,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2814" sourceLabel="Planet.ts:2814" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2839" sourceLabel="Planet.ts:2839" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2820" sourceLabel="Planet.ts:2820" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2845" sourceLabel="Planet.ts:2845" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2826" sourceLabel="Planet.ts:2826" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2851" sourceLabel="Planet.ts:2851" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2832" sourceLabel="Planet.ts:2832" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2857" sourceLabel="Planet.ts:2857" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2838" sourceLabel="Planet.ts:2838" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2863" sourceLabel="Planet.ts:2863" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2844" sourceLabel="Planet.ts:2844" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2869" sourceLabel="Planet.ts:2869" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2850" sourceLabel="Planet.ts:2850" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2875" sourceLabel="Planet.ts:2875" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2856" sourceLabel="Planet.ts:2856" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2881" sourceLabel="Planet.ts:2881" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2862" sourceLabel="Planet.ts:2862" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2887" sourceLabel="Planet.ts:2887" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2868" sourceLabel="Planet.ts:2868" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2893" sourceLabel="Planet.ts:2893" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2874" sourceLabel="Planet.ts:2874" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2899" sourceLabel="Planet.ts:2899" />
 
 Triggered when the current terrain provider changes.
 
@@ -2794,7 +2794,7 @@ Maximum number of distinct image/video/texture sources sampled in one forward dr
 
 <MemberHeading id="defaultmaxnodes" depth="3" name="DEFAULT_MAX_NODES" sig="DEFAULT_MAX_NODES: number" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L118" sourceLabel="Planet.ts:118" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L119" sourceLabel="Planet.ts:119" />
 
 Maximum created nodes count. The more nodes count the more memory usage. When the maximum node count is exceeded, memClear() will be called.
 

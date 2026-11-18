@@ -7,7 +7,7 @@ description: Creates a WebGL context with globe.
 
 # Globe
 
-<SourceLink href="/source/globe-ts/#L190" label="Globe.ts:190" />
+<SourceLink href="/source/globe-ts/#L193" label="Globe.ts:193" />
 
 Creates a WebGL context with globe.
 
@@ -75,6 +75,7 @@ globus = new Globe({
   - `options.deferredDisabled` (boolean, optional, default: false) — Disables deferred and WOIT pipelines and renders objects with forward shaders.
   - `options.pixelRatio` (number, optional) — Device pixel ratio. Default is current screen DPI.
   - `options.atmosphereEnabled` (boolean, optional) — Enables atmosphere effect.
+  - `options.aerialPerspectiveEnabled` (boolean, optional, default: true) — Enables the atmosphere aerial perspective on the surface when the camera is low.
   - `options.transtitionOpacityEnabled` (boolean, optional) — Enables terrain smooth opacity transition effect.
   - `options.atmosphereParameters` (IAtmosphereParams, optional) — Atmosphere model parameters.
   - `options.gamma` (number, optional) — Gamma
@@ -89,13 +90,13 @@ globus = new Globe({
 
 <MemberHeading id="fadein" depth="3" name="fadeIn" sig="fadeIn()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L496" sourceLabel="Globe.ts:496" />
+<MemberMeta sourceHref="/source/globe-ts/#L500" sourceLabel="Globe.ts:500" />
 
 Starts screen brightness fading in effect by the duration time.
 
 <MemberHeading id="fadeout" depth="3" name="fadeOut" sig="fadeOut()" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L504" sourceLabel="Globe.ts:504" />
+<MemberMeta sourceHref="/source/globe-ts/#L508" sourceLabel="Globe.ts:508" />
 
 Starts screen brightness fading out effect by the duration time.
 
@@ -103,6 +104,6 @@ Starts screen brightness fading out effect by the duration time.
 
 <MemberHeading id="inner" depth="3" name="$inner" sig="$inner: Element" />
 
-<MemberMeta sourceHref="/source/globe-ts/#L243" sourceLabel="Globe.ts:243" />
+<MemberMeta sourceHref="/source/globe-ts/#L246" sourceLabel="Globe.ts:246" />
 
 Dom element where WebGL canvas creates
