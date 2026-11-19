@@ -916,7 +916,7 @@ Returns two power of integer n.
 
 <MemberHeading id="slice" depth="3" name="slice" sig="slice(t: number, h1: number, h0: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L282" sourceLabel="math.ts:282" />
+<MemberMeta sourceHref="/source/math-ts/#L287" sourceLabel="math.ts:287" />
 
 Returns a slice of linear interpolation t \* (h1 - h0)
 
@@ -932,7 +932,7 @@ Returns a slice of linear interpolation t \* (h1 - h0)
 
 <MemberHeading id="lerp" depth="3" name="lerp" sig="lerp(t: number, h1: number, h0: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L294" sourceLabel="math.ts:294" />
+<MemberMeta sourceHref="/source/math-ts/#L299" sourceLabel="math.ts:299" />
 
 Performs a linear interpolation.
 
@@ -959,7 +959,7 @@ Performs a linear interpolation.
 ): Vec3"
 />
 
-<MemberMeta sourceHref="/source/math-ts/#L320" sourceLabel="math.ts:320" />
+<MemberMeta sourceHref="/source/math-ts/#L325" sourceLabel="math.ts:325" />
 
 Performs a 3D bezier interpolation.
 
@@ -977,7 +977,7 @@ Performs a 3D bezier interpolation.
 
 <MemberHeading id="rev" depth="3" name="rev" sig="rev(x: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L340" sourceLabel="math.ts:340" />
+<MemberMeta sourceHref="/source/math-ts/#L345" sourceLabel="math.ts:345" />
 
 Clamp angle value within 360.
 
@@ -991,7 +991,7 @@ Clamp angle value within 360.
 
 <MemberHeading id="normlon" depth="3" name="norm_lon" sig="norm_lon(lon: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L350" sourceLabel="math.ts:350" />
+<MemberMeta sourceHref="/source/math-ts/#L355" sourceLabel="math.ts:355" />
 
 Clamp longitude within: -180 to +180 degrees.
 
@@ -1005,7 +1005,7 @@ Clamp longitude within: -180 to +180 degrees.
 
 <MemberHeading id="negativepitopi" depth="3" name="negativePItoPI" sig="negativePItoPI(a: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L360" sourceLabel="math.ts:360" />
+<MemberMeta sourceHref="/source/math-ts/#L365" sourceLabel="math.ts:365" />
 
 Returns an angle in the range -Pi \<= angle \<= Pi which is equivalent to the provided angle.
 
@@ -1028,7 +1028,7 @@ Returns an angle in the range -Pi \<= angle \<= Pi which is equivalent to the pr
 ): number"
 />
 
-<MemberMeta sourceHref="/source/math-ts/#L372" sourceLabel="math.ts:372" />
+<MemberMeta sourceHref="/source/math-ts/#L377" sourceLabel="math.ts:377" />
 
 Solve using iteration method and a fixed number of steps.
 
@@ -1054,7 +1054,7 @@ Solve using iteration method and a fixed number of steps.
 ): number"
 />
 
-<MemberMeta sourceHref="/source/math-ts/#L392" sourceLabel="math.ts:392" />
+<MemberMeta sourceHref="/source/math-ts/#L397" sourceLabel="math.ts:397" />
 
 Solve using iteration; terminate when error is below err or the maximum number of iterations is reached. Used in Euler's equation(see og.orbit) solving.
 
@@ -1071,7 +1071,7 @@ Solve using iteration; terminate when error is below err or the maximum number o
 
 <MemberHeading id="getangledirection" depth="3" name="getAngleDirection" sig="getAngleDirection(a, b): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L411" sourceLabel="math.ts:411" />
+<MemberMeta sourceHref="/source/math-ts/#L416" sourceLabel="math.ts:416" />
 
 **Parameters**
 
@@ -1084,7 +1084,7 @@ Solve using iteration; terminate when error is below err or the maximum number o
 
 <MemberHeading id="getanglebetweenazimuths" depth="3" name="getAngleBetweenAzimuths" sig="getAngleBetweenAzimuths(a: number, b: number): number" />
 
-<MemberMeta sourceHref="/source/math-ts/#L430" sourceLabel="math.ts:430" />
+<MemberMeta sourceHref="/source/math-ts/#L435" sourceLabel="math.ts:435" />
 
 Returns angle between two azimuths
 
@@ -1099,7 +1099,7 @@ Returns angle between two azimuths
 
 <MemberHeading id="forwardlon" depth="3" name="forward_lon" sig="forward_lon(lon: number): number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L57" sourceLabel="mercator.ts:57" />
+<MemberMeta sourceHref="/source/mercator-ts/#L58" sourceLabel="mercator.ts:58" />
 
 Converts degrees longitude to mercator coordinate.
 
@@ -1113,7 +1113,7 @@ Converts degrees longitude to mercator coordinate.
 
 <MemberHeading id="forwardlat" depth="3" name="forward_lat" sig="forward_lat(lat: number): number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L67" sourceLabel="mercator.ts:67" />
+<MemberMeta sourceHref="/source/mercator-ts/#L68" sourceLabel="mercator.ts:68" />
 
 Converts degrees latitude to mercator coordinate.
 
@@ -1127,7 +1127,7 @@ Converts degrees latitude to mercator coordinate.
 
 <MemberHeading id="inverselon" depth="3" name="inverse_lon" sig="inverse_lon(lon: number): number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L77" sourceLabel="mercator.ts:77" />
+<MemberMeta sourceHref="/source/mercator-ts/#L78" sourceLabel="mercator.ts:78" />
 
 Converts mercator longitude to degrees coordinate.
 
@@ -1141,7 +1141,7 @@ Converts mercator longitude to degrees coordinate.
 
 <MemberHeading id="inverselat" depth="3" name="inverse_lat" sig="inverse_lat(lat: number): number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L87" sourceLabel="mercator.ts:87" />
+<MemberMeta sourceHref="/source/mercator-ts/#L88" sourceLabel="mercator.ts:88" />
 
 Converts mercator latitude to degrees coordinate.
 
@@ -1155,7 +1155,7 @@ Converts mercator latitude to degrees coordinate.
 
 <MemberHeading id="gettilex" depth="3" name="getTileX" sig="getTileX(lon: number, zoom: number): number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L99" sourceLabel="mercator.ts:99" />
+<MemberMeta sourceHref="/source/mercator-ts/#L100" sourceLabel="mercator.ts:100" />
 
 Returns mercator map tile grid horizontal coordinate index by geodetic longitude and zoom level. Where top left corner of the grid is 0 coordinate index.
 
@@ -1170,7 +1170,7 @@ Returns mercator map tile grid horizontal coordinate index by geodetic longitude
 
 <MemberHeading id="gettiley" depth="3" name="getTileY" sig="getTileY(lat: number, zoom: number): number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L111" sourceLabel="mercator.ts:111" />
+<MemberMeta sourceHref="/source/mercator-ts/#L112" sourceLabel="mercator.ts:112" />
 
 Returns mercator map tile grid vertical coordinate index by geodetic latitude and zoom level. Where top left corner of the grid is 0 coordinate index.
 
@@ -1185,7 +1185,7 @@ Returns mercator map tile grid vertical coordinate index by geodetic latitude an
 
 <MemberHeading id="forwardarray" depth="3" name="forwardArray" sig="forwardArray(lonlatArr: Array.<LonLat>): Array.<LonLat>" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L125" sourceLabel="mercator.ts:125" />
+<MemberMeta sourceHref="/source/mercator-ts/#L126" sourceLabel="mercator.ts:126" />
 
 Converts geodetic coordinate array to mercator coordinate array.
 
@@ -1235,19 +1235,19 @@ Assigns forward sampler slots to the sources of the first `count` projectors (pr
 
 <MemberHeading id="gridmargin" depth="3" name="gridMargin" sig="gridMargin()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L77" sourceLabel="Segment.ts:77" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L78" sourceLabel="Segment.ts:78" />
 
 How far the grid position (x, y) is inside the triangle of grid vertices a, b and c, in barycentric coordinates: the smallest of the three, negative outside of the triangle.
 
 <MemberHeading id="hasarea" depth="3" name="hasArea" sig="hasArea()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L93" sourceLabel="Segment.ts:93" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L94" sourceLabel="Segment.ts:94" />
 
 Whether the triangle \_v0, \_v1, \_v2 has an area: twice the area is at least a millionth of the longest edge squared.
 
 <MemberHeading id="samplenormal" depth="3" name="sampleNormal" sig="sampleNormal()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L150" sourceLabel="Segment.ts:150" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L151" sourceLabel="Segment.ts:151" />
 
 Bilinear normal at a fractional row and column of a normal grid, normalized.
 
@@ -1947,7 +1947,7 @@ Stores previous picked rgb color.
 
 <MemberHeading id="normalmapedgeversion" depth="3" name="__normalMapEdgeVersion__" sig="__normalMapEdgeVersion__" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L132" sourceLabel="Segment.ts:132" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L133" sourceLabel="Segment.ts:133" />
 
 Grows when a normal map side changes, the finer normal maps that took the side compare it.
 
@@ -1982,13 +1982,13 @@ Projection units: 'degrees', 'ft', 'm' or 'km'.
 
 <MemberHeading id="load" depth="3" name="load" sig="load" />
 
-<MemberMeta badges="event" sourceHref="/source/layer/basetilemateriallayer-ts/#L22" sourceLabel="BaseTileMaterialLayer.ts:22" />
+<MemberMeta badges="event" sourceHref="/source/layer/basetilemateriallayer-ts/#L23" sourceLabel="BaseTileMaterialLayer.ts:23" />
 
 Triggered when a tile material is loaded.
 
 <MemberHeading id="loadend" depth="3" name="loadend" sig="loadend" />
 
-<MemberMeta badges="event" sourceHref="/source/layer/basetilemateriallayer-ts/#L28" sourceLabel="BaseTileMaterialLayer.ts:28" />
+<MemberMeta badges="event" sourceHref="/source/layer/basetilemateriallayer-ts/#L29" sourceLabel="BaseTileMaterialLayer.ts:29" />
 
 Triggered when all tiles have loaded or loading has stopped.
 
@@ -2674,31 +2674,31 @@ A shared worker pool. Call release() when done. The pool is destroyed when no on
 
 <MemberHeading id="pole" depth="3" name="POLE" sig="POLE: number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L9" sourceLabel="mercator.ts:9" />
+<MemberMeta sourceHref="/source/mercator-ts/#L10" sourceLabel="mercator.ts:10" />
 
 Mercator size.
 
 <MemberHeading id="poledouble" depth="3" name="POLE_DOUBLE" sig="POLE_DOUBLE: number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L34" sourceLabel="mercator.ts:34" />
+<MemberMeta sourceHref="/source/mercator-ts/#L35" sourceLabel="mercator.ts:35" />
 
 Double mercator size.
 
 <MemberHeading id="onebypoledouble" depth="3" name="ONE_BY_POLE_DOUBLE" sig="ONE_BY_POLE_DOUBLE: number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L41" sourceLabel="mercator.ts:41" />
+<MemberMeta sourceHref="/source/mercator-ts/#L42" sourceLabel="mercator.ts:42" />
 
 One by mercator double size.
 
 <MemberHeading id="maxlat" depth="3" name="MAX_LAT" sig="MAX_LAT: number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L144" sourceLabel="mercator.ts:144" />
+<MemberMeta sourceHref="/source/mercator-ts/#L145" sourceLabel="mercator.ts:145" />
 
 Max mercator latitude.
 
 <MemberHeading id="minlat" depth="3" name="MIN_LAT" sig="MIN_LAT: number" />
 
-<MemberMeta sourceHref="/source/mercator-ts/#L151" sourceLabel="mercator.ts:151" />
+<MemberMeta sourceHref="/source/mercator-ts/#L152" sourceLabel="mercator.ts:152" />
 
 Min mercator latitude.
 

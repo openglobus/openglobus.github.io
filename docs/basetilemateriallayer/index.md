@@ -7,7 +7,7 @@ description: Shared tile material application for imagery/canvas tile layers. It
 
 # BaseTileMaterialLayer
 
-<SourceLink href="/source/layer/basetilemateriallayer-ts/#L38" label="BaseTileMaterialLayer.ts:38" />
+<SourceLink href="/source/layer/basetilemateriallayer-ts/#L39" label="BaseTileMaterialLayer.ts:39" />
 
 Shared tile material application for imagery/canvas tile layers. It can be applied to any type of tiled data that can be displayed on the planet in either of these two ways, such as BUildings, vector tiles etc.
 
@@ -23,6 +23,6 @@ Shared tile material application for imagery/canvas tile layers. It can be appli
 
 <MemberHeading id="fastwhenwalkeratmaxnativezoom" depth="3" name="_fastWhenWalkerAtMaxNativeZoom" sig="_fastWhenWalkerAtMaxNativeZoom()" />
 
-<MemberMeta sourceHref="/source/layer/basetilemateriallayer-ts/#L206" sourceLabel="BaseTileMaterialLayer.ts:206" />
+<MemberMeta sourceHref="/source/layer/basetilemateriallayer-ts/#L207" sourceLabel="BaseTileMaterialLayer.ts:207" />
 
 pn from parent walk is at maxNativeZoom.

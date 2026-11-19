@@ -9,7 +9,7 @@ description: "Quad trees on the six faces of a cube inflated to the ellipsoid: t
 
 **Extends:&#x20;**`QuadTreeStrategy`
 
-<SourceLink href="/source/quadtree/cube/cubequadtreestrategy-ts/#L20" label="CubeQuadTreeStrategy.ts:20" />
+<SourceLink href="/source/quadtree/cube/cubequadtreestrategy-ts/#L21" label="CubeQuadTreeStrategy.ts:21" />
 
 Quad trees on the six faces of a cube inflated to the ellipsoid: the tiles are close to squares all over the planet and there are no poles in the tree.
 
