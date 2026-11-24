@@ -78,7 +78,7 @@ Returns true when the loaded image heights are created in the worker.
 
 <MemberHeading id="cacheheightslevels" depth="3" name="_cacheHeightsLevels" sig="_cacheHeightsLevels(): Float32Array" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/rgbterrain-ts/#L284" sourceLabel="RgbTerrain.ts:284" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/rgbterrain-ts/#L280" sourceLabel="RgbTerrain.ts:280" />
 
 _Inherited from `RgbTerrain#_cacheHeightsLevels`_
 
@@ -92,13 +92,13 @@ Saves the tile and its subdivision levels heights to cache.
 
 <MemberHeading id="gettilelevels" depth="3" name="_getTileLevels" sig="_getTileLevels()" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/rgbterrain-ts/#L447" sourceLabel="RgbTerrain.ts:447" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/rgbterrain-ts/#L450" sourceLabel="RgbTerrain.ts:450" />
 
 _Inherited from `RgbTerrain#_getTileLevels`_
 
 **Overrides:&#x20;**`RgbTerrain#_getTileLevels`
 
-Levels of the tile of the zoom, they go down to the vertex grid, to maxZoom. When not every zoom is loaded the native tiles make one level of their pixels, it stands for the tile under them, every other native zoom is loaded.
+Levels of the tile of the zoom, they go down to the vertex grid, to maxZoom. When not every zoom is loaded the native tiles make one level of their pixels, it stands for the tile under them, every other native zoom is loaded. The tile that stands for the missing ones under it goes down to the vertex grid, nativeZoom is 0 there.
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
