@@ -55,7 +55,7 @@ Flies over the highest point of the GeoTIFF: the heights of the extent center ma
 
 <MemberHeading id="getheightasync" depth="3" name="getHeightAsync" sig="getHeightAsync()" />
 
-<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L184" sourceLabel="ProceduralTerrain.ts:184" />
+<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L178" sourceLabel="ProceduralTerrain.ts:178" />
 
 _Inherited from `ProceduralTerrain#getHeightAsync`_
 
@@ -65,7 +65,7 @@ Returns the height under the point from the zoom tile heights, they are made for
 
 <MemberHeading id="getsegmentheights" depth="3" name="_getSegmentHeights" sig="_getSegmentHeights()" />
 
-<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L265" sourceLabel="ProceduralTerrain.ts:265" />
+<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L259" sourceLabel="ProceduralTerrain.ts:259" />
 
 _Inherited from `ProceduralTerrain#_getSegmentHeights`_
 
@@ -75,7 +75,7 @@ Returns the segment heights, or the promise of them while they are made. Every t
 
 <MemberHeading id="getlevelheights" depth="3" name="_getLevelHeights" sig="_getLevelHeights()" />
 
-<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L307" sourceLabel="ProceduralTerrain.ts:307" />
+<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L301" sourceLabel="ProceduralTerrain.ts:301" />
 
 _Inherited from `ProceduralTerrain#_getLevelHeights`_
 
@@ -85,7 +85,7 @@ Returns the subdivision level heights of the maxNativeZoom segment, made of its 
 
 <MemberHeading id="getnativesegment" depth="3" name="_getNativeSegment" sig="_getNativeSegment()" />
 
-<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L343" sourceLabel="ProceduralTerrain.ts:343" />
+<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L337" sourceLabel="ProceduralTerrain.ts:337" />
 
 _Inherited from `ProceduralTerrain#_getNativeSegment`_
 
@@ -95,7 +95,7 @@ Returns the maxNativeZoom segment of the deeper segment, out of the quad tree fo
 
 <MemberHeading id="togridheights" depth="3" name="_toGridHeights" sig="_toGridHeights()" />
 
-<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L383" sourceLabel="ProceduralTerrain.ts:383" />
+<MemberMeta sourceHref="/source/terrain/proceduralterrain-ts/#L377" sourceLabel="ProceduralTerrain.ts:377" />
 
 _Inherited from `ProceduralTerrain#_toGridHeights`_
 
@@ -105,7 +105,7 @@ Returns the grid heights of the segment, or the promise of them the worker makes
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L225" sourceLabel="EmptyTerrain.ts:225" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L249" sourceLabel="EmptyTerrain.ts:249" />
 
 _Inherited from `EmptyTerrain#setUrlRewriteCallback`_
 
@@ -119,7 +119,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="setattribution" depth="3" name="setAttribution" sig="setAttribution(html: string)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L240" sourceLabel="EmptyTerrain.ts:240" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L264" sourceLabel="EmptyTerrain.ts:264" />
 
 _Inherited from `EmptyTerrain#setAttribution`_
 
@@ -133,7 +133,7 @@ Sets terrain provider attribution text.
 
 <MemberHeading id="getattribution" depth="3" name="getAttribution" sig="getAttribution(): string" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L252" sourceLabel="EmptyTerrain.ts:252" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L276" sourceLabel="EmptyTerrain.ts:276" />
 
 _Inherited from `EmptyTerrain#getAttribution`_
 
@@ -147,7 +147,7 @@ Gets terrain provider attribution.
 
 <MemberHeading id="handlesegmentterrain" depth="3" name="handleSegmentTerrain" sig="handleSegmentTerrain(segment: Segment)" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L310" sourceLabel="EmptyTerrain.ts:310" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L334" sourceLabel="EmptyTerrain.ts:334" />
 
 _Inherited from `EmptyTerrain#handleSegmentTerrain`_
 
@@ -161,7 +161,7 @@ Loads or creates segment elevation data.
 
 <MemberHeading id="getextent" depth="3" name="getExtent" sig="getExtent(): Extent" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L325" sourceLabel="EmptyTerrain.ts:325" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L349" sourceLabel="EmptyTerrain.ts:349" />
 
 _Inherited from `EmptyTerrain#getExtent`_
 
@@ -175,7 +175,7 @@ Returns the terrain extent, the whole globe by default.
 
 <MemberHeading id="getmaxheight" depth="3" name="getMaxHeight" sig="getMaxHeight(): number" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L342" sourceLabel="EmptyTerrain.ts:342" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L366" sourceLabel="EmptyTerrain.ts:366" />
 
 _Inherited from `EmptyTerrain#getMaxHeight`_
 
@@ -189,7 +189,7 @@ Returns the highest terrain point over the ellipsoid with the terrain height fac
 
 <MemberHeading id="getcacheinfo" depth="3" name="getCacheInfo" sig="getCacheInfo(): ITerrainCacheInfo | null" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L355" sourceLabel="EmptyTerrain.ts:355" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L379" sourceLabel="EmptyTerrain.ts:379" />
 
 _Inherited from `EmptyTerrain#getCacheInfo`_
 
@@ -205,7 +205,7 @@ Returns the cache state, null when the terrain has no cache.
 
 <MemberHeading id="iconsrc" depth="3" name="iconSrc" sig="iconSrc" />
 
-<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L261" sourceLabel="EmptyTerrain.ts:261" />
+<MemberMeta sourceHref="/source/terrain/emptyterrain-ts/#L285" sourceLabel="EmptyTerrain.ts:285" />
 
 _Inherited from `EmptyTerrain#iconSrc`_
 

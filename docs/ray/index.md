@@ -282,6 +282,47 @@ Returns a ray hit sphere coordinates. If there isn't hit returns null.
 
 - [`Vec3`](/vec3)
 
+<MemberHeading id="hitspheredistance" depth="3" name="hitSphereDistance" sig="hitSphereDistance(sphere: Sphere): number" />
+
+<MemberMeta sourceHref="/source/math/ray-ts/#L240" sourceLabel="Ray.ts:240" />
+
+Returns the distance along the ray to where it enters the sphere, in lengths of the direction vector: 0 when the origin is inside the sphere, Infinity when the ray misses it or the sphere is behind the origin. Allocates nothing.
+
+**Parameters**
+
+- `sphere` ([Sphere](/sphere)) — Sphere object.
+
+**Returns**
+
+- `number`
+
+<MemberHeading
+  id="hittriangledistance"
+  depth="3"
+  name="hitTriangleDistance"
+  sig="hitTriangleDistance(
+	v0: Vec3,
+	v1: Vec3,
+	v2: Vec3,
+	margin?: number,
+): number"
+/>
+
+<MemberMeta sourceHref="/source/math/ray-ts/#L281" sourceLabel="Ray.ts:281" />
+
+Returns the distance along the ray to the triangle, hit from either side, in lengths of the direction vector. Infinity when the ray misses the triangle, the triangle is behind the origin, the ray is parallel to it, or the triangle has no area. Allocates nothing.
+
+**Parameters**
+
+- `v0` ([Vec3](/vec3)) — First triangle corner coordinate.
+- `v1` ([Vec3](/vec3)) — Second triangle corner coordinate.
+- `v2` ([Vec3](/vec3)) — Third triangle corner coordinate.
+- `margin` (number, optional, default: 0) — How far outside of the triangle, in barycentric coordinates, it is still hit.
+
+**Returns**
+
+- `number`
+
 ## Other
 
 <MemberHeading id="outside" depth="3" name="OUTSIDE" sig="OUTSIDE" />

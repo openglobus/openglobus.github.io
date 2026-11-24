@@ -1219,7 +1219,7 @@ The hdrFormat option as a supported format, RGBA16F when it is missing or unknow
 
 <MemberHeading id="assignsourceslots" depth="3" name="assignSourceSlots" sig="assignSourceSlots(sourceIndices, outSlots, outSlotSources)" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L75" sourceLabel="ProjectorManager.ts:75" />
+<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L66" sourceLabel="ProjectorManager.ts:66" />
 
 Assigns forward sampler slots to the sources of the first `count` projectors (priority order). Each distinct ready source takes the next slot, a repeated source reuses its slot, and projectors without a source, with a not yet uploaded one, or past `maxSlots` distinct sources get -1 (color).
 
@@ -1250,6 +1250,31 @@ Whether the triangle \_v0, \_v1, \_v2 has an area: twice the area is at least a 
 <MemberMeta sourceHref="/source/segment/segment-ts/#L151" sourceLabel="Segment.ts:151" />
 
 Bilinear normal at a fractional row and column of a normal grid, normalized.
+
+<MemberHeading
+  id="getsegmentraydistance"
+  depth="3"
+  name="getSegmentRayDistance"
+  sig="getSegmentRayDistance(
+	seg: Segment,
+	ray: Ray,
+	maxDistance?: number,
+): number"
+/>
+
+<MemberMeta sourceHref="/source/segment/segmentraycast-ts/#L28" sourceLabel="segmentRaycast.ts:28" />
+
+Returns the distance along the ray to the nearest triangle of the segment as it is drawn, hit from either side, in lengths of ray.direction. Infinity when the ray misses the segment, the segment has no vertices yet, or the hit is not closer than maxDistance. Allocates nothing.
+
+**Parameters**
+
+- `seg` ([Segment](/segment)) — Segment.
+- `ray` ([Ray](/ray)) — Ray, cartesian coordinates.
+- `maxDistance` (number, optional, default: "Infinity") — Hits from this distance on are not looked for.
+
+**Returns**
+
+- `number`
 
 <MemberHeading id="getgridcells" depth="3" name="getGridCells" sig="getGridCells(size: number): number" />
 
@@ -1292,9 +1317,9 @@ Returns vertex grid cells for the image size. 2^n images have vertices at the pi
 ): number"
 />
 
-<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L67" sourceLabel="terrainUtils.ts:67" />
+<MemberMeta sourceHref="/source/terrain/terrainutils-ts/#L69" sourceLabel="terrainUtils.ts:69" />
 
-Returns subdivision levels of the image tile. Native zoom levels are not finer than the image pixels, finer data comes with their own tiles. Levels above the native zooms go down to the vertex grid.
+Returns subdivision levels of the image tile. Native zoom levels are not finer than the image pixels, finer data comes with their own tiles. The maxNativeZoom tile of an image finer than the grid is not a level, it comes with its own image, and the levels above the native zooms are made of it. Levels above the native zooms go down to the vertex grid.
 
 **Parameters**
 
@@ -2222,67 +2247,67 @@ Triggered when touch enter picking an object.
 
 <MemberHeading id="draw" depth="3" name="draw" sig="draw" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2839" sourceLabel="Planet.ts:2839" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2942" sourceLabel="Planet.ts:2942" />
 
 Triggered before globe frame begins to render.
 
 <MemberHeading id="layeradd" depth="3" name="layeradd" sig="layeradd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2845" sourceLabel="Planet.ts:2845" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2948" sourceLabel="Planet.ts:2948" />
 
 Triggered when a layer is added to the planet.
 
 <MemberHeading id="baselayerchange" depth="3" name="baselayerchange" sig="baselayerchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2851" sourceLabel="Planet.ts:2851" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2954" sourceLabel="Planet.ts:2954" />
 
 Triggered when the base layer changes.
 
 <MemberHeading id="layerremove" depth="3" name="layerremove" sig="layerremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2857" sourceLabel="Planet.ts:2857" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2960" sourceLabel="Planet.ts:2960" />
 
 Triggered when a layer is removed from the planet.
 
 <MemberHeading id="layervisibilitychange" depth="3" name="layervisibilitychange" sig="layervisibilitychange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2863" sourceLabel="Planet.ts:2863" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2966" sourceLabel="Planet.ts:2966" />
 
 Triggered when layer visibility changes.
 
 <MemberHeading id="rendercompleted" depth="3" name="rendercompleted" sig="rendercompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2869" sourceLabel="Planet.ts:2869" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2972" sourceLabel="Planet.ts:2972" />
 
 Triggered when all data is loaded.
 
 <MemberHeading id="terraincompleted" depth="3" name="terraincompleted" sig="terraincompleted" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2875" sourceLabel="Planet.ts:2875" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2978" sourceLabel="Planet.ts:2978" />
 
 Triggered when all terrain data is loaded.
 
 <MemberHeading id="layerloadend" depth="3" name="layerloadend" sig="layerloadend" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2881" sourceLabel="Planet.ts:2881" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2984" sourceLabel="Planet.ts:2984" />
 
 Triggered when layer data finishes loading.
 
 <MemberHeading id="terrainadd" depth="3" name="terrainadd" sig="terrainadd" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2887" sourceLabel="Planet.ts:2887" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2990" sourceLabel="Planet.ts:2990" />
 
 Triggered when a terrain provider is added to the planet.
 
 <MemberHeading id="terrainremove" depth="3" name="terrainremove" sig="terrainremove" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2893" sourceLabel="Planet.ts:2893" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2996" sourceLabel="Planet.ts:2996" />
 
 Triggered when a terrain provider is removed from the planet.
 
 <MemberHeading id="terrainchange" depth="3" name="terrainchange" sig="terrainchange" />
 
-<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L2899" sourceLabel="Planet.ts:2899" />
+<MemberMeta badges="event" sourceHref="/source/scene/planet-ts/#L3002" sourceLabel="Planet.ts:3002" />
 
 Triggered when the current terrain provider changes.
 
@@ -2476,7 +2501,7 @@ Thank you for supporting open source! ──────────────
 
 <MemberHeading id="sundatethreshold" depth="3" name="SUN_DATE_THRESHOLD" sig="SUN_DATE_THRESHOLD: number" />
 
-<MemberMeta sourceHref="/source/control/sun-ts/#L18" sourceLabel="Sun.ts:18" />
+<MemberMeta sourceHref="/source/control/sun-ts/#L27" sourceLabel="Sun.ts:27" />
 
 Minimal julian date change that moves the sunlight position, about 30 seconds.
 
@@ -2776,29 +2801,41 @@ Formats of the forward and HDR render targets, see IRendererParams.hdrFormat.
 
 <MemberHeading id="maxprojectorlayers" depth="3" name="MAX_PROJECTOR_LAYERS" sig="MAX_PROJECTOR_LAYERS" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L13" sourceLabel="ProjectorManager.ts:13" />
+<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L17" sourceLabel="ProjectorManager.ts:17" />
 
 Maximum number of depth layers allocated in manager-owned projector array texture. Defines how many projectors can be added to the manager at once.
 
 <MemberHeading id="maxforwardprojectors" depth="3" name="MAX_FORWARD_PROJECTORS" sig="MAX_FORWARD_PROJECTORS" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L21" sourceLabel="ProjectorManager.ts:21" />
+<MemberMeta sourceHref="/source/renderer/textureunits-ts/#L8" sourceLabel="textureUnits.ts:8" />
 
-Maximum number of projectors processed in a single shader invocation. Used by forward / WOIT paths as top-K by priority per draw call. Deferred projector pass binds one projector per draw. Sizes MAX\_PROJECTORS in projectors.glsl.
+Max projectors per forward draw call, MAX\_PROJECTORS in projectors.glsl.
 
 <MemberHeading id="maxforwardprojectorsources" depth="3" name="MAX_FORWARD_PROJECTOR_SOURCES" sig="MAX_FORWARD_PROJECTOR_SOURCES" />
 
-<MemberMeta sourceHref="/source/renderer/projectors/projectormanager-ts/#L29" sourceLabel="ProjectorManager.ts:29" />
+<MemberMeta sourceHref="/source/renderer/textureunits-ts/#L11" sourceLabel="textureUnits.ts:11" />
 
-Maximum number of distinct image/video/texture sources sampled in one forward draw call (`u_projectorSource[]`, PROJECTOR\_MAX\_SOURCES in projectors.glsl). Projectors beyond it render their solid color. Limited by the free texture units between the projector depth array and shadows, at most 3 (see sampleProjectorSource()).
+Max image/video sources per forward draw call, PROJECTOR\_MAX\_SOURCES in projectors.glsl.
 
 <MemberHeading id="defaultmaxnodes" depth="3" name="DEFAULT_MAX_NODES" sig="DEFAULT_MAX_NODES: number" />
 
-<MemberMeta sourceHref="/source/scene/planet-ts/#L119" sourceLabel="Planet.ts:119" />
+<MemberMeta sourceHref="/source/scene/planet-ts/#L120" sourceLabel="Planet.ts:120" />
 
 Maximum created nodes count. The more nodes count the more memory usage. When the maximum node count is exceeded, memClear() will be called.
 
 **Default:** `400`
+
+<MemberHeading id="raycandidates" depth="3" name="_rayCandidates" sig="_rayCandidates" />
+
+<MemberMeta sourceHref="/source/scene/planet-ts/#L126" sourceLabel="Planet.ts:126" />
+
+A segment the ray of Planet.getRayDistanceTerrain may hit, with the distance where the ray enters its bounding sphere.
+
+<MemberHeading id="raytrianglemargin" depth="3" name="RAY_TRIANGLE_MARGIN" sig="RAY_TRIANGLE_MARGIN" />
+
+<MemberMeta sourceHref="/source/segment/segmentraycast-ts/#L10" sourceLabel="segmentRaycast.ts:10" />
+
+How far outside of a triangle, in barycentric coordinates, the ray still hits it, so that it does not slip through the edge between two triangles by rounding.
 
 <MemberHeading id="projectorshaderparams" depth="3" name="projectorShaderParams" sig="projectorShaderParams" />
 
@@ -2835,6 +2872,12 @@ Switch defines of programs that receive shadows but no projectors.
 <MemberMeta sourceHref="/source/shaders/common/uniforms-ts/#L75" sourceLabel="uniforms.ts:75" />
 
 Bits of the lighting feature switches in variant masks.
+
+<MemberHeading id="tilestatuscachesize" depth="3" name="TILE_STATUS_CACHE_SIZE" sig="TILE_STATUS_CACHE_SIZE" />
+
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L33" sourceLabel="GlobusTerrain.ts:33" />
+
+Tiles known to be on the server or not.
 
 <MemberHeading id="terraingridsizebyzoom" depth="3" name="TERRAIN_GRID_SIZE_BY_ZOOM" sig="TERRAIN_GRID_SIZE_BY_ZOOM" />
 

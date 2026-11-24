@@ -7,7 +7,7 @@ description: Planet zoom buttons control.
 
 # ScaleControl
 
-<SourceLink href="/source/control/scalecontrol-ts/#L28" label="ScaleControl.ts:28" />
+<SourceLink href="/source/control/scalecontrol-ts/#L26" label="ScaleControl.ts:26" />
 
 Planet zoom buttons control.
 
