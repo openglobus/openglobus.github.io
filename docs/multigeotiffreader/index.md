@@ -29,24 +29,24 @@ Initializes all GeoTIFF sources and builds unified extent and band mappings.
 
 <MemberHeading id="unionnativebbox" depth="3" name="_unionNativeBBox" sig="_unionNativeBBox()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L219" sourceLabel="MultiGeoTIFFReader.ts:219" />
+<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L221" sourceLabel="MultiGeoTIFFReader.ts:221" />
 
 Union of the native bounding boxes of all sources, valid only when they share a CRS.
 
 <MemberHeading id="setrenderoptions" depth="3" name="setRenderOptions" sig="setRenderOptions()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L243" sourceLabel="MultiGeoTIFFReader.ts:243" />
+<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L245" sourceLabel="MultiGeoTIFFReader.ts:245" />
 
 Applies rendering options to this reader and to every child reader.
 
 <MemberHeading id="readtilerasters" depth="3" name="readTileRasters" sig="readTileRasters()" />
 
-<MemberMeta badges="async" sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L269" sourceLabel="MultiGeoTIFFReader.ts:269" />
+<MemberMeta badges="async" sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L271" sourceLabel="MultiGeoTIFFReader.ts:271" />
 
 Reads rasters for a tile from the underlying GeoTIFF sources.
 
 <MemberHeading id="destroy" depth="3" name="destroy" sig="destroy()" />
 
-<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L478" sourceLabel="MultiGeoTIFFReader.ts:478" />
+<MemberMeta sourceHref="/source/layer/geotiff/multigeotiffreader-ts/#L480" sourceLabel="MultiGeoTIFFReader.ts:480" />
 
 Cleans up child readers and shared worker pool.

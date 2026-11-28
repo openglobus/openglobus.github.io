@@ -28,8 +28,8 @@ Class represents a terrain provider without elevation data.
   - `options.maxZoom` (number, optional, default: 19) — Maximal visible zoom index when terrain handler works.
   - `options.maxNativeZoom` (number, optional, default: 19) — Maximal available terrain zoom level.
   - `options.gridSizeByZoom` (Array.\<number>, optional) — Segment triangulation grid sizes by zoom index.
-  - `options.geoid` (Geoid, optional) — Geoid model instance.
-  - `options.geoidSrc` (string, optional) — URL to geoid model source.
+  - `options.geoid` (Geoid, optional) — Geoid model instance, it is taken instead of geoidSrc.
+  - `options.geoidSrc` (string | null, optional) — Geoid model URL, null for no geoid. Undefined is the same as not given.
   - `options.maxHeight` (number, optional, default: 8848) — The highest terrain point over the ellipsoid, in meters. Segments behind the horizon of a point this high are not rendered.
 
 ---

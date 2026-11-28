@@ -342,7 +342,7 @@ Sets the tile bounding volume between the terrain radii.
 
 <MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2001" sourceLabel="Segment.ts:2001" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2014" sourceLabel="Segment.ts:2014" />
 
 Sets the bounding volume of the terrain vertices, the plain segment volume when there are no finite vertices.
 
@@ -352,13 +352,13 @@ Sets the bounding volume of the terrain vertices, the plain segment volume when 
 
 <MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2012" sourceLabel="Segment.ts:2012" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2025" sourceLabel="Segment.ts:2025" />
 
 Creates the plain segment box center and half diagonal, the LOD volume without terrain.
 
 <MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2037" sourceLabel="Segment.ts:2037" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2050" sourceLabel="Segment.ts:2050" />
 
 Raises the LOD center over the plain segment center by the height of the median vertex radius over the surface.
 
@@ -368,13 +368,13 @@ Raises the LOD center over the plain segment center by the height of the median 
 
 <MemberHeading id="createnormalmaptexture" depth="3" name="_createNormalMapTexture" sig="_createNormalMapTexture()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2115" sourceLabel="Segment.ts:2115" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2128" sourceLabel="Segment.ts:2128" />
 
 Makes the normal map texture of the NormalMapCreator size, the previous one is deleted.
 
 <MemberHeading id="getlonlat" depth="3" name="getLonLat" sig="getLonLat(lon: number, lat: number): LonLat" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2193" sourceLabel="Segment.ts:2193" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2206" sourceLabel="Segment.ts:2206" />
 
 Returns the geodetic coordinates of the native point.
 
@@ -389,7 +389,7 @@ Returns the geodetic coordinates of the native point.
 
 <MemberHeading id="getmaterialbylayer" depth="3" name="getMaterialByLayer" sig="getMaterialByLayer(layer: Layer): Material | undefined" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2276" sourceLabel="Segment.ts:2276" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2289" sourceLabel="Segment.ts:2289" />
 
 Gets specific layer material.
 
@@ -412,7 +412,7 @@ Gets specific layer material.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2289" sourceLabel="Segment.ts:2289" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2302" sourceLabel="Segment.ts:2302" />
 
 Computes cyclic longitude shift for `sourceExtent` to align it with `targetExtent` in wrapped horizontal coordinate space (for example, Web Mercator world copies).
 

@@ -550,6 +550,12 @@ Renders 3 separate band arrays into an RGB ImageData.
 
 Converts raw RGB/RGBA raster array(s) directly to an ImageData.
 
+<MemberHeading id="parsecrscode" depth="3" name="parseCrsCode" sig="parseCrsCode()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/geotiffreader-ts/#L104" sourceLabel="GeoTIFFReader.ts:104" />
+
+Returns the EPSG code of the crs option: a number, "2193", "EPSG:2193" or "urn:ogc:def:crs:EPSG::2193". Another string is a proj4 or WKT definition, it has no code.
+
 <MemberHeading id="forwardutm" depth="3" name="forwardUTM" sig="forwardUTM()" />
 
 <MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L18" sourceLabel="utm.ts:18" />
@@ -567,6 +573,12 @@ Unprojects UTM coordinates \[easting, northing] in meters to WGS84 \[lon, lat] i
 <MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L121" sourceLabel="utm.ts:121" />
 
 Returns a projection helper { project, unproject } if the given code is a supported UTM EPSG code (EPSG:32601-32660 or EPSG:32701-32760), or if its definition is registered in proj4.
+
+<MemberHeading id="getdefinitionprojectionhelper" depth="3" name="getDefinitionProjectionHelper" sig="getDefinitionProjectionHelper()" />
+
+<MemberMeta sourceHref="/source/layer/geotiff/utm-ts/#L163" sourceLabel="utm.ts:163" />
+
+Returns the projection helper of a proj4 or WKT definition, null if proj4 can't parse it.
 
 <MemberHeading id="warprasters" depth="3" name="warpRasters" sig="warpRasters()" />
 

@@ -373,7 +373,7 @@ Sets the tile bounding volume between the terrain radii.
 
 <MemberHeading id="setterrainboundingvolume" depth="3" name="setTerrainBoundingVolume" sig="setTerrainBoundingVolume(bounds: NumberArray6)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2001" sourceLabel="Segment.ts:2001" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2014" sourceLabel="Segment.ts:2014" />
 
 _Inherited from `Segment#setTerrainBoundingVolume`_
 
@@ -387,7 +387,7 @@ Sets the bounding volume of the terrain vertices, the plain segment volume when 
 
 <MemberHeading id="createplainbounds" depth="3" name="_createPlainBounds" sig="_createPlainBounds()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2012" sourceLabel="Segment.ts:2012" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2025" sourceLabel="Segment.ts:2025" />
 
 _Inherited from `Segment#_createPlainBounds`_
 
@@ -397,7 +397,7 @@ Creates the plain segment box center and half diagonal, the LOD volume without t
 
 <MemberHeading id="setlodradius" depth="3" name="setLodRadius" sig="setLodRadius(radius: number)" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2037" sourceLabel="Segment.ts:2037" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2050" sourceLabel="Segment.ts:2050" />
 
 _Inherited from `Segment#setLodRadius`_
 
@@ -411,7 +411,7 @@ Raises the LOD center over the plain segment center by the height of the median 
 
 <MemberHeading id="createnormalmaptexture" depth="3" name="_createNormalMapTexture" sig="_createNormalMapTexture()" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2115" sourceLabel="Segment.ts:2115" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2128" sourceLabel="Segment.ts:2128" />
 
 _Inherited from `Segment#_createNormalMapTexture`_
 
@@ -421,7 +421,7 @@ Makes the normal map texture of the NormalMapCreator size, the previous one is d
 
 <MemberHeading id="getlonlat" depth="3" name="getLonLat" sig="getLonLat(lon: number, lat: number): LonLat" />
 
-<MemberMeta sourceHref="/source/segment/segment-ts/#L2193" sourceLabel="Segment.ts:2193" />
+<MemberMeta sourceHref="/source/segment/segment-ts/#L2206" sourceLabel="Segment.ts:2206" />
 
 _Inherited from `Segment#getLonLat`_
 
@@ -449,7 +449,7 @@ Returns the geodetic coordinates of the native point.
 ): number"
 />
 
-<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2289" sourceLabel="Segment.ts:2289" />
+<MemberMeta badges="protected" sourceHref="/source/segment/segment-ts/#L2302" sourceLabel="Segment.ts:2302" />
 
 _Inherited from `Segment#_getCyclicLonShift`_
 

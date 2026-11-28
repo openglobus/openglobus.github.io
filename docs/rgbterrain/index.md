@@ -80,7 +80,7 @@ Levels of the tile of the zoom, they go down to the vertex grid, to maxZoom. Whe
 
 <MemberHeading id="abortloading" depth="3" name="abortLoading" sig="abortLoading()" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L301" sourceLabel="GlobusTerrain.ts:301" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L303" sourceLabel="GlobusTerrain.ts:303" />
 
 _Inherited from `GlobusTerrain#abortLoading`_
 
@@ -90,7 +90,7 @@ Stop loading.
 
 <MemberHeading id="seturl" depth="3" name="setUrl" sig="setUrl(url: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L312" sourceLabel="GlobusTerrain.ts:312" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L314" sourceLabel="GlobusTerrain.ts:314" />
 
 _Inherited from `GlobusTerrain#setUrl`_
 
@@ -113,7 +113,7 @@ Default openglobus url template:
 
 <MemberHeading id="setname" depth="3" name="setName" sig="setName(name: string)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L321" sourceLabel="GlobusTerrain.ts:321" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L323" sourceLabel="GlobusTerrain.ts:323" />
 
 _Inherited from `GlobusTerrain#setName`_
 
@@ -127,7 +127,7 @@ Sets provider name.
 
 <MemberHeading id="loadterrain" depth="3" name="loadTerrain" sig="loadTerrain(segment: Segment, forceLoading?: boolean)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L335" sourceLabel="GlobusTerrain.ts:335" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L337" sourceLabel="GlobusTerrain.ts:337" />
 
 _Inherited from `GlobusTerrain#loadTerrain`_
 
@@ -142,7 +142,7 @@ Starts to load segment elevation data.
 
 <MemberHeading id="onterrainloaded" depth="3" name="_onTerrainLoaded" sig="_onTerrainLoaded(segment: Segment, data: any)" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L410" sourceLabel="GlobusTerrain.ts:410" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L412" sourceLabel="GlobusTerrain.ts:412" />
 
 _Inherited from `GlobusTerrain#_onTerrainLoaded`_
 
@@ -157,7 +157,7 @@ Converts loaded segment data to elevations and applies them.
 
 <MemberHeading id="createurl" depth="3" name="_createUrl" sig="_createUrl(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L459" sourceLabel="GlobusTerrain.ts:459" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L461" sourceLabel="GlobusTerrain.ts:461" />
 
 _Inherited from `GlobusTerrain#_createUrl`_
 
@@ -175,7 +175,7 @@ Creates default query url string.
 
 <MemberHeading id="gethttprequeststring" depth="3" name="_getHTTPRequestString" sig="_getHTTPRequestString(segment: Segment): string" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L469" sourceLabel="GlobusTerrain.ts:469" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L471" sourceLabel="GlobusTerrain.ts:471" />
 
 _Inherited from `GlobusTerrain#_getHTTPRequestString`_
 
@@ -193,7 +193,7 @@ Returns actual url query string.
 
 <MemberHeading id="seturlrewritecallback" depth="3" name="setUrlRewriteCallback" sig="setUrlRewriteCallback(ur: UrlRewriteFunc)" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L485" sourceLabel="GlobusTerrain.ts:485" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L487" sourceLabel="GlobusTerrain.ts:487" />
 
 _Inherited from `GlobusTerrain#setUrlRewriteCallback`_
 
@@ -207,7 +207,7 @@ Sets url rewrite callback, used for custom url rewriting for every tile loading.
 
 <MemberHeading id="createheights" depth="3" name="_createHeights" sig="_createHeights(): Array.<number> | TypedArray" />
 
-<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L494" sourceLabel="GlobusTerrain.ts:494" />
+<MemberMeta sourceHref="/source/terrain/globusterrain-ts/#L496" sourceLabel="GlobusTerrain.ts:496" />
 
 _Inherited from `GlobusTerrain#_createHeights`_
 
@@ -221,7 +221,7 @@ Converts loaded data to segment elevation data type (column major elevation data
 
 <MemberHeading id="applyelevationsdata" depth="3" name="_applyElevationsData" sig="_applyElevationsData()" />
 
-<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L517" sourceLabel="GlobusTerrain.ts:517" />
+<MemberMeta badges="protected" sourceHref="/source/terrain/globusterrain-ts/#L519" sourceLabel="GlobusTerrain.ts:519" />
 
 _Inherited from `GlobusTerrain#_applyElevationsData`_
 

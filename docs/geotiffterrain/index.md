@@ -9,7 +9,7 @@ description: Terrain with the heights of a GeoTIFF or COG elevation band.
 
 **Extends:&#x20;**[`ProceduralTerrain`](/proceduralterrain)
 
-<SourceLink href="/source/terrain/geotiffterrain-ts/#L41" label="GeoTiffTerrain.ts:41" />
+<SourceLink href="/source/terrain/geotiffterrain-ts/#L43" label="GeoTiffTerrain.ts:43" />
 
 Terrain with the heights of a GeoTIFF or COG elevation band.
 
@@ -36,10 +36,10 @@ Terrain with the heights of a GeoTIFF or COG elevation band.
   - `options.plainGridSize` (number, optional, default: 128) — Elevation grid size.
   - `options.maxZoom` (number, optional, default: 21) — Last zoom of the segment heights, the last zoom of the default grid sizes.
   - `options.maxNativeZoom` (number, optional) — Last zoom of the GeoTIFF reads, by default, the first zoom which sampleSize pixels are not larger than the GeoTIFF ones, of the most detailed source in a mosaic. The tile size is the one of the planet quad tree strategy. Deeper segments are its subdivision levels.
-  - `options.geoidSrc` (string, optional, default: "\\"https\://openglobus.org/geoid/egm84-30.pgm\\"") — Geoid of the heights.
+  - `options.geoidSrc` (string | null, optional, default: "\\"https\://openglobus.org/geoid/egm84-30.pgm\\"") — Geoid model URL, null for no geoid. Undefined is the same as not given.
   - `options.noDataValues` (Array.\<number>, optional, default: "\[-10000]") — Heights of no data, GeoTIFF nodata pixels become the first one.
   - `options.nodata` (number | null, optional) — GeoTIFF nodata value, from the GeoTIFF by default.
-  - `options.crs` (number | string, optional) — GeoTIFF CRS code, when the GeoTIFF has another one or none.
+  - `options.crs` (number | string, optional) — GeoTIFF CRS, when the GeoTIFF has another one or none: 2193, "EPSG:2193", "+proj=..." or WKT.
 
 ---
 
@@ -47,7 +47,7 @@ Terrain with the heights of a GeoTIFF or COG elevation band.
 
 <MemberHeading id="flyextent" depth="3" name="flyExtent" sig="flyExtent()" />
 
-<MemberMeta sourceHref="/source/terrain/geotiffterrain-ts/#L104" sourceLabel="GeoTiffTerrain.ts:104" />
+<MemberMeta sourceHref="/source/terrain/geotiffterrain-ts/#L106" sourceLabel="GeoTiffTerrain.ts:106" />
 
 **Overrides:&#x20;**`ProceduralTerrain#flyExtent`
 
